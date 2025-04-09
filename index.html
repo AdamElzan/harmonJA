@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Szkoła Psychoterapii</title>
+    <style>
+        :root {
+            --primary-color: #22c7d6;
+            --secondary-color: #1ab6c5;
+            --highlight-color: #00b4ff; /* Kolor "Ja" z logo */
+            --light-blue: #f2fbfd;
+            --dark-blue: #09395f;
+            --accent-color: #22c7d6;
+            --text-color: #333;
+            --light-gray: #faf8f5;
+            --medium-gray: #eaeaea;
+            --white: #ffffff;
+            --cream-bg: #fef6f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--white);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 180px;
+            height: 60px;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .login-btn {
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-btn:hover {
+            background-color: #0099df;
+        }
+
+        /* Hero section */
+        .hero {
+            background-color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0099df;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container .dots-background {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-image: radial-gradient(var(--light-blue) 2px, transparent 2px);
+            background-size: 20px 20px;
+            top: 10px;
+            right: 20px;
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .image-container .blue-frame {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border: 3px solid var(--accent-color);
+            border-radius: 10px;
+            top: 25px;
+            right: 0;
+            z-index: -1;
+        }
+
+        /* Features section */
+        .features {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 50px;
+            color: var(--dark-blue);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Programs section */
+        .programs {
+            padding: 80px 0;
+        }
+
+        .programs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background-color: var(--light-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-content {
+            padding: 25px;
+        }
+
+        .program-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+        }
+
+        .program-card .details {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .program-card .price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .program-card .program-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .program-card .program-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+
+        .testimonial-role {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Newsletter section */
+        .newsletter {
+            padding: 60px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            background-color: var(--dark-blue);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #004a70;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            .hero {
+                padding: 60px 0;
+            }
+            .image-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .features-grid, .programs-container {
+                grid-template-columns: 1fr;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-input, .newsletter-btn {
+                width: 100%;
+                border-radius: 4px;
+            }
+            .newsletter-btn {
+                margin-top: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet">
+                          <!-- napis górny -->
+                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
+                            Szkoła Psychoterapii CBT
+                          </text>
+                          
+                          <!-- główny napis "Harmon" -->
+                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
+                            Harmon
+                          </text>
+                          <!-- Prostokąt dla "Ja" -->
+                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
+                          
+                          <!-- Tekst "Ja" -->
+                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
+                            Ja
+                          </text>
+                        </svg>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Strona główna</a>
+                    <a href="oferta.html">Oferta</a>
+                    <a href="o-nas.html">O nas</a>
+                    <a href="kadra.html">Kadra</a>
+                    <a href="aktualnosci.html">Aktualności</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <a href="login.html" class="login-btn">Zarezerwuj wizytę</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Rozwijaj się z nami w psychoterapii</h1>
+                    <p class="hero-lead">Nasza szkoła oferuje akredytowane, kompleksowe szkolenie w terapii poznawczo-behawioralnej, gdzie teoria spotyka się z najnowszymi osiągnięciami naukowymi.</p>
+                    <p>Wyobraź sobie miejsce, gdzie uczysz się od ekspertów, którzy nie tylko uczą, ale aktywnie kształtują przyszłość psychoterapii. U nas nie będziesz jedynie słuchaczem – staniesz się częścią społeczności badawczej, mając niepowtarzalną szansę uczestnictwa w innowacyjnych projektach naukowych już od pierwszych dni szkolenia.</p>
+                    <p><strong>Współpracujemy z Instytutem Psychologii PAN</strong>, co gwarantuje dostęp do najnowszych metodologii i odkryć opartych na dowodach naukowych (evidence-based).</p>
+                    <div class="cta-container">
+                        <a href="rekrutacja.html" class="cta-button">Dołącz do nas</a>
+                        <a href="oferta.html" class="secondary-button">Dowiedz się więcej</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="/api/placeholder/500/400" alt="Szkolenie psychoterapeutyczne">
+                        <div class="dots-background"></div>
+                        <div class="blue-frame"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .hero-lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+        
+        .hero-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .cta-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--dark-blue);
+            border: 2px solid var(--highlight-color);
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background-color: rgba(0, 180, 255, 0.1);
+            border-color: #0099df;
+        }
+        
+        @media (max-width: 768px) {
+            .cta-container {
+                flex-direction: column;
+            }
+            
+            .cta-button, .secondary-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Dlaczego my?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Doświadczona kadra</h3>
+                    <p>Nasi wykładowcy to czynni zawodowo psychoterapeuci z wieloletnim doświadczeniem klinicznym i dydaktycznym.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3>Praktyczne podejście</h3>
+                    <p>Stawiamy na praktyczne umiejętności, które od razu możesz wykorzystać w pracy z pacjentami.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <path d="M20 8v6"></path>
+                            <path d="M23 11h-6"></path>
+                        </svg>
+                    </div>
+                    <h3>Indywidualna superwizja</h3>
+                    <p>Zapewniamy wsparcie doświadczonych superwizorów, którzy pomogą Ci rozwijać umiejętności terapeutyczne.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Nowoczesne nauczanie</h3>
+                    <p>Łączymy tradycyjne metody z nowoczesnymi technikami nauczania, w tym formami zdalnymi i hybrydowymi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(230, 230, 230, 0.7);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-icon {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    </style>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Nasza oferta</h2>
+            <div class="programs-container">
+                <div class="program-card">
+                    <div class="program-content">
+                        <h3>Szkolenie całościowe</h3>
+                        <p class="details">4-letni kompleksowy program szkoleniowy z psychoterapii poznawczo-behawioralnej.</p>
+                        <a href="szkolenie-calosciowe.html" class="program-btn">Więcej informacji</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-content">
+                        <h3>Specjalistyczne warsztaty</h3>
+                        <p class="details">Praktyczne warsztaty rozwijające konkretne umiejętności terapeutyczne.</p>
+                        <a href="warsztaty.html" class="program-btn">Więcej informacji</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-content">
+                        <h3>Superwizja kliniczna</h3>
+                        <p class="details">Indywidualna i grupowa superwizja prowadzona przez certyfikowanych superwizorów.</p>
+                        <a href="superwizja.html" class="program-btn">Więcej informacji</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-courses">
+                <a href="wszystkie-kursy.html" class="view-all-btn">Zobacz wszystkie kursy</a>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .programs {
+            padding: 80px 0;
+            background-color: var(--cream-bg);
+            position: relative;
+        }
+        
+        .programs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(34, 199, 214, 0), rgba(34, 199, 214, 0.3) 50%, rgba(34, 199, 214, 0));
+        }
+        
+        .programs::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(34, 199, 214, 0), rgba(34, 199, 214, 0.3) 50%, rgba(34, 199, 214, 0));
+        }
+        
+        .section-title {
+            color: var(--dark-blue);
+            font-weight: 600;
+        }
+        
+        .view-all-courses {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .view-all-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--dark-blue);
+            border: 2px solid var(--highlight-color);
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .view-all-btn:hover {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+        
+        .programs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s;
+            position: relative;
+            border: 1px solid rgba(34, 199, 214, 0.1);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+        
+        .program-content {
+            padding: 30px;
+        }
+        
+        .program-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark-blue);
+            font-weight: 600;
+        }
+        
+        .program-card .details {
+            margin-bottom: 25px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .program-card .program-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--highlight-color);
+            padding: 10px 0;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .program-card .program-btn:hover {
+            border-bottom: 2px solid var(--highlight-color);
+        }
+        
+        /* Animacje do kart kursów */
+        .program-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--highlight-color);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .program-card:hover::before {
+            opacity: 1;
+        }
+        
+        .program-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Co mówią uczestnicy naszych szkoleń</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Szkolenie otworzyło przede mną nowe możliwości zawodowe. Praktyczne podejście i wsparcie wykładowców były nieocenione w budowaniu mojego warsztatu terapeutycznego."</p>
+                        <p class="testimonial-author">Anna Kowalska</p>
+                        <p class="testimonial-role">Psycholog kliniczny</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Prowadzący wykazali się ogromną wiedzą i doświadczeniem. Dzięki warsztatom zdobyłem konkretne narzędzia, które już wykorzystuję w codziennej praktyce."</p>
+                        <p class="testimonial-author">Jan Nowak</p>
+                        <p class="testimonial-role">Terapeuta</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Najlepsze szkolenie, w jakim uczestniczyłam. Połączenie teorii z praktyką, mnóstwo ćwiczeń i materiałów, które wykorzystuję w codziennej pracy z pacjentami."</p>
+                        <p class="testimonial-author">Magdalena Wiśniewska</p>
+                        <p class="testimonial-role">Psychoterapeuta</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+                    <div class="testimonial-dots">
+                        <span class="dot active" onclick="currentSlide(0)"></span>
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
+                    <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-slide {
+            display: none;
+            animation: fadeEffect 1s;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+        }
+        
+        @keyframes fadeEffect {
+            from {opacity: 0.7;}
+            to {opacity: 1;}
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .prev-btn, .next-btn {
+            background-color: var(--highlight-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .prev-btn:hover, .next-btn:hover {
+            background-color: #0099df;
+        }
+        
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin: 0 20px;
+        }
+        
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        
+        .dot.active, .dot:hover {
+            background-color: var(--highlight-color);
+        }
+    </style>
+    
+    <script>
+        let slideIndex = 0;
+        
+        function showSlides(n) {
+            let slides = document.querySelectorAll('.testimonial-slide');
+            let dots = document.querySelectorAll('.dot');
+            
+            if (n >= slides.length) {slideIndex = 0}
+            if (n < 0) {slideIndex = slides.length - 1}
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlides(slideIndex += 1);
+        }
+        
+        function prevSlide() {
+            showSlides(slideIndex -= 1);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        // Auto rotate slides every 6 seconds
+        setInterval(function() {
+            nextSlide();
+        }, 6000);
+    </script>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-container">
+                <h2>Bądź na bieżąco</h2>
+                <p>Zapisz się do naszego newslettera, aby otrzymywać informacje o nowych szkoleniach, wydarzeniach i materiałach edukacyjnych.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Twój adres e-mail" required>
+                    <button type="submit" class="newsletter-btn">Zapisz się</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <h2 class="section-title">Blog i multimedia</h2>
+            <div class="blog-container">
+                <div class="blog-cards">
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="/api/placeholder/400/250" alt="Blog post">
+                            <div class="blog-category">Artykuł</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Nowoczesne podejścia w psychoterapii</h3>
+                            <p class="blog-excerpt">W tym artykule omawiamy najnowsze trendy i metody stosowane w psychoterapii poznawczo-behawioralnej...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">15 marca 2025</span>
+                                <a href="blog-post.html" class="read-more">Czytaj więcej</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="/api/placeholder/400/250" alt="Video post">
+                            <div class="blog-category video">Video</div>
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Wywiad z prof. Nowakowskim o terapii schematów</h3>
+                            <p class="blog-excerpt">Zapraszamy do obejrzenia wywiadu z ekspertem w dziedzinie terapii schematów...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">2 kwietnia 2025</span>
+                                <a href="video-post.html" class="read-more">Obejrzyj</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="/api/placeholder/400/250" alt="Podcast">
+                            <div class="blog-category podcast">Podcast</div>
+                            <div class="podcast-icon">🎧</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Psychoterapia w praktyce - odcinek 5</h3>
+                            <p class="blog-excerpt">W najnowszym odcinku naszego podcastu rozmawiamy o wyzwaniach w pracy z pacjentami...</p>
+                            <div class="blog-meta">
+                                <span class="blog-date">10 kwietnia 2025</span>
+                                <a href="podcast.html" class="read-more">Posłuchaj</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-more">
+                    <a href="blog.html" class="blog-more-btn">Zobacz wszystkie materiały</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .blog {
+            padding: 80px 0;
+            background-color: var(--light-blue);
+        }
+        
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .blog-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .blog-category.video {
+            background-color: #ff4757;
+        }
+        
+        .blog-category.podcast {
+            background-color: #8e44ad;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .play-button:hover {
+            background-color: white;
+        }
+        
+        .podcast-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .podcast-icon:hover {
+            background-color: white;
+        }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: var(--dark-blue);
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        .read-more {
+            color: var(--highlight-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #0099df;
+        }
+        
+        .blog-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .blog-more-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--dark-blue);
+            border: 2px solid var(--highlight-color);
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .blog-more-btn:hover {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Nawigacja</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Strona główna</a></li>
+                        <li><a href="oferta.html">Oferta</a></li>
+                        <li><a href="o-nas.html">O nas</a></li>
+                        <li><a href="kadra.html">Kadra</a></li>
+                        <li><a href="aktualnosci.html">Aktualności</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Oferta</h3>
+                    <ul class="footer-links">
+                        <li><a href="szkolenie-calosciowe.html">Szkolenie całościowe</a></li>
+                        <li><a href="warsztaty.html">Warsztaty</a></li>
+                        <li><a href="superwizja.html">Superwizja</a></li>
+                        <li><a href="konferencje.html">Konferencje</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Przydatne linki</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="regulamin.html">Regulamin</a></li>
+                        <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+                        <li><a href="dostepnosc.html">Dostępność</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <div class="contact-info">
+                        <p>ul. [Ulica] 12/34</p>
+                        <p>00-000 [Miasto]</p>
+                        <p>tel: +48 123 456 789</p>
+                        <p>email: info@szkola-psychoterapii.pl</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Szkoła Psychoterapii. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
