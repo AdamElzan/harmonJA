@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Szkoła Psychoterapii Dorosłych - HarmonJa</title>
+    <title>Szkoła Psychoterapii Dorosłych CBT - HarmonJa</title>
     <style>
         :root {
             --primary-color: #22c7d6;
@@ -226,70 +226,18 @@
         }
 
         .hero .lead {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #555;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: 850px;
             margin-left: auto;
             margin-right: auto;
+            text-align: left;
         }
 
-        /* Stats Section */
-        .stats-section {
-            background-color: var(--white);
-            padding: 60px 0;
-            margin-top: -30px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 180, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--highlight-color);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--highlight-color);
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text-color);
-            font-weight: 500;
+        .hero .lead:last-of-type {
+            margin-bottom: 40px;
         }
 
         /* Content Sections */
@@ -301,35 +249,60 @@
             background-color: var(--cream-bg);
         }
 
+        .content-section.white {
+            background-color: var(--white);
+        }
+
         .section-title {
             font-size: 2.4rem;
             color: var(--dark-blue);
             margin-bottom: 20px;
             font-weight: 600;
+            text-align: center;
         }
 
         .section-subtitle {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 50px;
-            max-width: 800px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
             margin-top: 40px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .skill-item {
             background-color: var(--white);
-            padding: 25px;
+            padding: 20px 25px;
             border-radius: 8px;
             border-left: 4px solid var(--highlight-color);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
             transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
         }
 
         .skill-item:hover {
@@ -337,25 +310,28 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .skill-item h3 {
-            font-size: 1.1rem;
-            color: var(--dark-blue);
-            margin-bottom: 10px;
-            font-weight: 600;
+        .skill-icon {
+            color: var(--highlight-color);
+            font-size: 1.2rem;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
 
-        .skill-item p {
-            font-size: 0.95rem;
-            color: #666;
+        .skill-text {
+            font-size: 1rem;
+            color: #555;
             line-height: 1.6;
         }
 
         /* Info Cards */
         .info-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .info-card {
@@ -364,6 +340,12 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             border-top: 3px solid var(--highlight-color);
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .info-card h3 {
@@ -383,6 +365,7 @@
             color: #555;
             position: relative;
             padding-left: 25px;
+            line-height: 1.6;
         }
 
         .info-card ul li::before {
@@ -391,6 +374,40 @@
             left: 0;
             color: var(--highlight-color);
             font-weight: bold;
+        }
+
+        .info-card p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(0, 180, 255, 0.05) 100%);
+            border-left: 4px solid var(--highlight-color);
+            padding: 30px 40px;
+            border-radius: 8px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .highlight-box p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
         }
 
         /* CTA Section */
@@ -410,6 +427,9 @@
             font-size: 1.2rem;
             margin-bottom: 40px;
             opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
@@ -530,15 +550,20 @@
             .hero .subtitle {
                 font-size: 1.1rem;
             }
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
+            .hero .lead {
+                font-size: 1rem;
             }
             .section-title {
                 font-size: 1.8rem;
             }
-            .skills-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
             .info-cards {
                 grid-template-columns: 1fr;
+            }
+            .highlight-box {
+                padding: 25px 20px;
             }
         }
     </style>
@@ -587,154 +612,169 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="badge">Akredytowany program szkoleniowy</span>
-                <h1>Szkoła Psychoterapii Dorosłych</h1>
-                <p class="subtitle">4-letni program kształcenia w terapii poznawczo-behawioralnej</p>
-                <p class="lead">Kompleksowe szkolenie przygotowujące do prowadzenia psychoterapii dorosłych w nurcie poznawczo-behawioralnym. Program łączy solidne podstawy teoretyczne z intensywną pracą praktyczną, rozwijając kompetencje niezbędne do skutecznej pracy terapeutycznej z dorosłymi pacjentami.</p>
+                <span class="badge">4-letnie szkolenie akredytowane przez PTTPB</span>
+                <h1>Szkoła Psychoterapii Dorosłych CBT</h1>
+                <p class="subtitle">Kompleksowy program przygotowujący do uzyskania certyfikatu psychoterapeuty poznawczo-behawioralnego</p>
+                <p class="lead">Szkoła Psychoterapii Dorosłych to czteroletni, kompleksowy program przygotowujący do uzyskania certyfikatu psychoterapeuty poznawczo-behawioralnego (PTTPB). Szkolenie oparte jest na aktualnych standardach terapii opartej na dowodach naukowych (evidence-based practice) i realizowane przez doświadczonych klinicystów, superwizorów oraz wykładowców akademickich.</p>
+                <p class="lead">Program stanowi solidną podstawę do rozwoju kompetencji niezbędnych do samodzielnego prowadzenia psychoterapii dorosłych w nurcie CBT — w praktyce klinicznej, ośrodkach zdrowia psychicznego, poradniach oraz w prywatnym gabinecie.</p>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Cel szkolenia Section -->
+    <section class="content-section white">
         <div class="container">
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">lata szkolenia</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">700+</div>
-                    <div class="stat-label">godzin zajęć</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">250+</div>
-                    <div class="stat-label">godzin superwizji</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">evidence-based</div>
-                </div>
-            </div>
+            <h2 class="section-title">Cel szkolenia</h2>
+            <p class="section-subtitle">Celem programu jest wszechstronne przygotowanie uczestników do diagnozowania, planowania i prowadzenia psychoterapii poznawczo-behawioralnej osób dorosłych. Szkolenie rozwija wiedzę teoretyczną, umiejętności praktyczne i postawę etyczną, zgodną z zasadami PTTPB i międzynarodowymi standardami pracy terapeutycznej.</p>
         </div>
     </section>
 
-    <!-- Program Overview Section -->
-    <section class="content-section">
+    <!-- Program i umiejętności Section -->
+    <section class="content-section alt">
         <div class="container">
-            <h2 class="section-title">Czego się nauczysz?</h2>
-            <p class="section-subtitle">Program obejmuje kompleksowe przygotowanie do prowadzenia psychoterapii dorosłych</p>
+            <h2 class="section-title">Program i umiejętności</h2>
+            <p class="section-subtitle">Szkolenie łączy wykłady, warsztaty praktyczne i intensywną superwizję kliniczną. W trakcie czterech lat uczestnicy zdobywają umiejętności w zakresie:</p>
 
             <div class="skills-grid">
                 <div class="skill-item">
-                    <h3>Zaburzenia afektywne</h3>
-                    <p>Diagnostyka i terapia depresji, zaburzeń lękowych, zaburzeń dwubiegunowych oraz innych zaburzeń nastroju u dorosłych.</p>
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Diagnozy nozologicznej, konceptualizacji poznawczo-behawioralnej i planowania terapii</p>
                 </div>
                 <div class="skill-item">
-                    <h3>Zaburzenia osobowości</h3>
-                    <p>Praca z osobami z zaburzeniami osobowości, dialektyczna terapia behawioralna (DBT), terapia schematów.</p>
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Stosowania technik poznawczych i behawioralnych w pracy z zaburzeniami lękowymi, nastroju, afektywnymi i obsesyjno-kompulsyjnymi (OCD)</p>
                 </div>
                 <div class="skill-item">
-                    <h3>Trauma i PTSD</h3>
-                    <p>Terapia traumy, PTSD, zaburzeń związanych ze stresem, metody CPT i PE.</p>
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Terapii zaburzeń osobowości, traumy, żałoby i złożonego PTSD</p>
                 </div>
                 <div class="skill-item">
-                    <h3>Zaburzenia obsesyjno-kompulsyjne</h3>
-                    <p>Specjalistyczne protokoły terapii OCD, ekspozycja z zapobieganiem reakcji (ERP).</p>
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Pracy z pacjentami z ryzykiem samobójczym oraz z zaburzeniami psychosomatycznymi i snu</p>
                 </div>
                 <div class="skill-item">
-                    <h3>Terapia par i relacji</h3>
-                    <p>CBT dla par, praca z problemami relacyjnymi, komunikacja w związku.</p>
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Prowadzenia terapii uzależnień (chemicznych, behawioralnych i cyfrowych)</p>
                 </div>
                 <div class="skill-item">
-                    <h3>Zaawansowane techniki CBT</h3>
-                    <p>Terapia trzeciej fali: ACT, mindfulness, compassion focused therapy.</p>
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Pracy z osobami z neuroróżnorodnością (autyzm, ADHD) w kontekście dorosłości</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Stosowania terapii schematów, dialektycznej terapii behawioralnej (DBT) oraz podejść trzeciej fali (ACT, FAP, CFT)</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Prowadzenia terapii par i pracy z relacją</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Integracji wiedzy z zakresu psychopatologii, neurobiologii i farmakoterapii</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">✓</span>
+                    <p class="skill-text">Rozwoju postawy terapeutycznej, pracy z relacją i etyki zawodowej</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Każdy rok obejmuje:</strong> moduły teoretyczne, warsztaty praktyczne, superwizję grupową i indywidualną, konsultacje przypadków oraz egzamin końcowy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizacja szkolenia Section -->
+    <section class="content-section white">
+        <div class="container">
+            <h2 class="section-title">Organizacja szkolenia</h2>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Czas trwania</h3>
+                    <p>4 lata</p>
+                </div>
+                <div class="info-card">
+                    <h3>Forma zajęć</h3>
+                    <p>Zjazdy weekendowe, zajęcia prowadzone na żywo</p>
+                </div>
+                <div class="info-card">
+                    <h3>Struktura programu</h3>
+                    <p>Teoria, warsztaty praktyczne, superwizja, konsultacje przypadków, egzamin końcowy</p>
+                </div>
+                <div class="info-card">
+                    <h3>Akredytacja</h3>
+                    <p>Polskie Towarzystwo Terapii Poznawczej i Behawioralnej (PTTPB)</p>
+                </div>
+                <div class="info-card">
+                    <h3>Rekrutacja</h3>
+                    <p>Rozmowa kwalifikacyjna – zapisy poprzez formularz online</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Program Structure Section -->
+    <!-- Dla kogo Section -->
     <section class="content-section alt">
         <div class="container">
-            <h2 class="section-title">Struktura programu</h2>
-            <p class="section-subtitle">4-letni program podzielony na moduły tematyczne</p>
+            <h2 class="section-title">Dla kogo</h2>
+            <p class="section-subtitle">Program jest przeznaczony dla:</p>
 
             <div class="info-cards">
                 <div class="info-card">
-                    <h3>Rok I - Fundamenty CBT</h3>
+                    <h3>Specjaliści z wykształceniem</h3>
                     <ul>
-                        <li>Podstawy terapii poznawczo-behawioralnej</li>
-                        <li>Relacja terapeutyczna i budowanie sojuszu</li>
-                        <li>Diagnostyka i konceptualizacja przypadku</li>
-                        <li>Podstawowe techniki poznawcze i behawioralne</li>
-                        <li>Etyka i standardy praktyki</li>
+                        <li>Psychologów z doświadczeniem klinicznym</li>
+                        <li>Lekarzy pracujących w obszarze zdrowia psychicznego</li>
+                        <li>Pedagogów i terapeutów z praktyką kliniczną</li>
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>Rok II - Zaburzenia kliniczne</h3>
+                    <h3>Doświadczenie zawodowe</h3>
                     <ul>
-                        <li>Terapia zaburzeń lękowych</li>
-                        <li>Terapia depresji i zaburzeń nastroju</li>
-                        <li>Zaburzenia somatyczne</li>
-                        <li>Zaburzenia snu i odżywiania</li>
-                        <li>Protokoły evidence-based</li>
+                        <li>Specjalistów pracujących z dorosłymi pacjentami</li>
+                        <li>Pracowników placówek zdrowia psychicznego</li>
+                        <li>Praktyków w poradniach i ośrodkach</li>
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>Rok III - Specjalizacja</h3>
+                    <h3>Cele zawodowe</h3>
                     <ul>
-                        <li>Zaburzenia osobowości i DBT</li>
-                        <li>Terapia traumy i PTSD</li>
-                        <li>Uzależnienia i współuzależnienie</li>
-                        <li>Terapia par i rodzin</li>
-                        <li>Terapie trzeciej fali (ACT, mindfulness)</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h3>Rok IV - Mistrzostwo kliniczne</h3>
-                    <ul>
-                        <li>Trudne przypadki terapeutyczne</li>
-                        <li>Praca z oporem i impasem</li>
-                        <li>Superwizja zaawansowana</li>
-                        <li>Projekt badawczy</li>
-                        <li>Egzamin certyfikacyjny</li>
+                        <li>Osób planujących uzyskać certyfikat psychoterapeuty poznawczo-behawioralnego</li>
+                        <li>Profesjonalistów rozwijających kompetencje w CBT</li>
+                        <li>Terapeutów dążących do pracy prywatnej lub w placówkach</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Requirements Section -->
-    <section class="content-section">
+    <!-- Efekty szkolenia Section -->
+    <section class="content-section white">
         <div class="container">
-            <h2 class="section-title">Wymagania rekrutacyjne</h2>
-            <p class="section-subtitle">Kogo szukamy?</p>
+            <h2 class="section-title">Efekty szkolenia</h2>
+            <p class="section-subtitle">Uczestnicy po ukończeniu programu:</p>
 
             <div class="info-cards">
                 <div class="info-card">
-                    <h3>Wykształcenie</h3>
+                    <h3>Certyfikacja</h3>
                     <ul>
-                        <li>Ukończone studia magisterskie z psychologii</li>
-                        <li>Lub studia lekarskie (psychiatria)</li>
-                        <li>Znajomość języka angielskiego (literatura)</li>
+                        <li>Spełniają kryteria wymagane do ubiegania się o certyfikat PTTPB</li>
+                        <li>Posiadają kompetencje do samodzielnego prowadzenia psychoterapii dorosłych w nurcie CBT</li>
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>Doświadczenie</h3>
+                    <h3>Gotowość do pracy</h3>
                     <ul>
-                        <li>Minimum rok pracy z dorosłymi pacjentami</li>
-                        <li>Doświadczenie kliniczne mile widziane</li>
-                        <li>Własna terapia osobista (zalecana)</li>
+                        <li>Są przygotowani do pracy klinicznej w ośrodkach zdrowia psychicznego</li>
+                        <li>Mogą prowadzić terapię w poradniach i prywatnej praktyce</li>
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>Kompetencje osobiste</h3>
+                    <h3>Zaawansowane umiejętności</h3>
                     <ul>
-                        <li>Dojrzałość emocjonalna i refleksyjność</li>
-                        <li>Gotowość do pracy nad sobą</li>
-                        <li>Zaangażowanie w ciągły rozwój</li>
-                        <li>Otwartość na superwizję i feedback</li>
+                        <li>Potrafią integrować różne podejścia poznawczo-behawioralne</li>
+                        <li>Opanowują nowoczesne metody terapeutyczne (ACT, DBT, CFT, terapia schematów)</li>
                     </ul>
                 </div>
             </div>
@@ -744,10 +784,10 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Gotowy rozpocząć profesjonalną karierę psychoterapeuty?</h2>
-            <p>Dołącz do naszej społeczności praktyków CBT i rozwijaj swoje kompetencje terapeutyczne</p>
+            <h2>Zgłoś się na rozmowę kwalifikacyjną</h2>
+            <p>Rozpocznij certyfikowane szkolenie w terapii poznawczo-behawioralnej dorosłych</p>
             <div class="cta-buttons">
-                <a href="rekrutacja.html" class="cta-button">Zapisz się na rekrutację</a>
+                <a href="rekrutacja.html" class="cta-button">Wypełnij formularz rekrutacyjny</a>
                 <a href="kontakt.html" class="cta-button secondary">Zadaj pytanie</a>
             </div>
         </div>
