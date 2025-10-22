@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Szkoła Psychoterapii Dzieci i Młodzieży - HarmonJa</title>
+    <style>
+        :root {
+            --primary-color: #22c7d6;
+            --secondary-color: #1ab6c5;
+            --highlight-color: #00b4ff;
+            --light-blue: #f2fbfd;
+            --dark-blue: #09395f;
+            --accent-color: #22c7d6;
+            --text-color: #333;
+            --light-gray: #faf8f5;
+            --medium-gray: #eaeaea;
+            --white: #ffffff;
+            --cream-bg: #fef6f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--white);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        
+        .logo-container svg {
+            height: 90px;
+            width: auto;
+            max-width: 300px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            list-style: none;
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: block;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links > li > a:hover {
+            color: var(--highlight-color);
+        }
+        
+        .nav-links > li > a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-toggle::before {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .dropdown-toggle::before {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-blue);
+            color: var(--highlight-color);
+            padding-left: 25px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(0, 180, 255, 0.05), transparent);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero .lead {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 180, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--highlight-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section.alt {
+            background-color: var(--cream-bg);
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-item {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-item h3 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-item p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background-color: var(--white);
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--highlight-color);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .info-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--highlight-color);
+            padding: 16px 40px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .logo-container svg {
+                height: 70px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .skills-grid,
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet">
+                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
+                            Szkoła Psychoterapii CBT
+                          </text>
+                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
+                            Harmon
+                          </text>
+                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
+                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
+                            Ja
+                          </text>
+                        </svg>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="o-nas.html">O nas</a></li>
+                    <li class="dropdown">
+                        <span class="dropdown-toggle">Szkoła Psychoterapii</span>
+                        <ul class="dropdown-menu">
+                            <li><a href="szkola-dzieci-mlodziez.html">Dzieci i Młodzieży</a></li>
+                            <li><a href="szkola-dorosli.html">Dorosłych</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="rekrutacja.html">Rekrutacja</a></li>
+                    <li><a href="szkolenia-superwizja.html">Szkolenia/Superwizja</a></li>
+                    <li><a href="kadra.html">Kadra</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">Certyfikowany program PTTPB</div>
+                <h1>Szkoła Psychoterapii Dzieci i Młodzieży CBT</h1>
+                <p class="subtitle">4-letni, certyfikowany program w terapii poznawczo-behawioralnej</p>
+                <p class="lead">
+                    Kompleksowe, czteroletnie szkolenie przygotowujące do uzyskania certyfikatu psychoterapeuty poznawczo-behawioralnego PTTPB. Program został opracowany zgodnie z najwyższymi standardami terapii opartej na dowodach naukowych (evidence-based practice) i stanowi specjalistyczną ścieżkę rozwoju w pracy z dziećmi, młodzieżą i rodzinami.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">820</div>
+                    <div class="stat-label">Godzin programu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">290</div>
+                    <div class="stat-label">Zajęcia teoretyczne</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">290</div>
+                    <div class="stat-label">Zajęcia praktyczne</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">240</div>
+                    <div class="stat-label">Godziny superwizji</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goal Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Cel szkolenia</h2>
+            <p class="section-subtitle">
+                Celem programu jest rozwój pełnych kompetencji terapeuty poznawczo-behawioralnego w obszarze wieku rozwojowego. Uczestnicy uczą się diagnozować, planować i prowadzić terapię dzieci i młodzieży, a także współpracować z rodziną i środowiskiem dziecka. Szkolenie przygotowuje do samodzielnej praktyki terapeutycznej w ośrodkach klinicznych, placówkach edukacyjnych oraz w prywatnym gabinecie.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="content-section alt">
+        <div class="container">
+            <h2 class="section-title">Czego się nauczysz</h2>
+            <p class="section-subtitle">
+                Szkolenie łączy teorię z intensywną praktyką i superwizją. W trakcie czterech lat rozwiniesz kompetencje w kluczowych obszarach terapii poznawczo-behawioralnej dzieci i młodzieży.
+            </p>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Diagnoza i konceptualizacja CBT</h3>
+                    <p>Diagnoza kliniczna i konceptualizacja przypadku w nurcie CBT</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Praca z emocjami i zachowaniem</h3>
+                    <p>Techniki pracy z emocjami, myślami i zachowaniami dostosowane do wieku pacjenta</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Zaburzenia lękowe i afektywne</h3>
+                    <p>Prowadzenie terapii zaburzeń lękowych, afektywnych, OCD, tikowych</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Neuroróżnorodność</h3>
+                    <p>Praca z dziećmi z autyzmem, ADHD – adaptacje i współpraca z rodziną</p>
+                </div>
+                <div class="skill-item">
+                    <h3>DBT dla młodzieży</h3>
+                    <p>Terapia osobowości borderline (DBT) – regulacja emocji i umiejętności interpersonalne</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Trauma i przywiązanie</h3>
+                    <p>Terapia traumy, żałoby, zaburzeń przywiązania z wykorzystaniem technik CBT</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Protokoły evidence-based</h3>
+                    <p>Stosowanie technik poznawczych i behawioralnych opartych na najnowszych protokołach</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Współpraca systemowa</h3>
+                    <p>Współpraca z rodziną, szkołą i systemem opiekuńczym</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Etyka i prawo</h3>
+                    <p>Aspekty etyczne i prawne pracy terapeutycznej z osobami niepełnoletnimi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Szczegóły organizacyjne</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Organizacja</h3>
+                    <ul>
+                        <li>Czas trwania: 4 lata</li>
+                        <li>Forma: zjazdy weekendowe</li>
+                        <li>Zajęcia na żywo</li>
+                        <li>Program akredytowany przez PTTPB</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Program obejmuje</h3>
+                    <ul>
+                        <li>Zajęcia teoretyczne</li>
+                        <li>Warsztaty praktyczne</li>
+                        <li>Superwizję kliniczną</li>
+                        <li>Konsultacje przypadków</li>
+                        <li>Egzamin końcowy</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Dla kogo</h3>
+                    <ul>
+                        <li>Psycholodzy i pedagodzy</li>
+                        <li>Terapeuci z doświadczeniem</li>
+                        <li>Specjaliści pracujący z dziećmi</li>
+                        <li>Osoby szukające certyfikacji PTTPB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Gotowy na rozpoczęcie szkolenia?</h2>
+            <p>Dołącz do grona certyfikowanych psychoterapeutów poznawczo-behawioralnych</p>
+            <div class="cta-buttons">
+                <a href="rekrutacja.html" class="cta-button">Zgłoś się na rozmowę kwalifikacyjną</a>
+                <a href="kontakt.html" class="cta-button secondary">Skontaktuj się z nami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Nawigacja</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Strona główna</a></li>
