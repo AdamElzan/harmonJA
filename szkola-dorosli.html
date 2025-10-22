@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Szkoła Psychoterapii Dorosłych - HarmonJa</title>
+    <style>
+        :root {
+            --primary-color: #22c7d6;
+            --secondary-color: #1ab6c5;
+            --highlight-color: #00b4ff;
+            --light-blue: #f2fbfd;
+            --dark-blue: #09395f;
+            --accent-color: #22c7d6;
+            --text-color: #333;
+            --light-gray: #faf8f5;
+            --medium-gray: #eaeaea;
+            --white: #ffffff;
+            --cream-bg: #fef6f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--white);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .logo-container svg {
+            height: 90px;
+            width: auto;
+            max-width: 300px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            list-style: none;
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: block;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links > li > a:hover {
+            color: var(--highlight-color);
+        }
+
+        .nav-links > li > a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-toggle::before {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .dropdown-toggle::before {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--light-blue);
+            color: var(--highlight-color);
+            padding-left: 25px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(0, 180, 255, 0.05), transparent);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero .lead {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 180, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--highlight-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section.alt {
+            background-color: var(--cream-bg);
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-item {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-item h3 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-item p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background-color: var(--white);
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--highlight-color);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .info-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--highlight-color);
+            padding: 16px 40px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .logo-container svg {
+                height: 70px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .skills-grid,
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet">
+                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
+                            Szkoła Psychoterapii CBT
+                          </text>
+                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
+                            Harmon
+                          </text>
+                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
+                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
+                            Ja
+                          </text>
+                        </svg>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="o-nas.html">O nas</a></li>
+                    <li class="dropdown">
+                        <span class="dropdown-toggle">Szkoła Psychoterapii</span>
+                        <ul class="dropdown-menu">
+                            <li><a href="szkola-dzieci-mlodziez.html">Dzieci i Młodzieży</a></li>
+                            <li><a href="szkola-dorosli.html">Dorosłych</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="rekrutacja.html">Rekrutacja</a></li>
+                    <li><a href="szkolenia-superwizja.html">Szkolenia/Superwizja</a></li>
+                    <li><a href="kadra.html">Kadra</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Akredytowany program szkoleniowy</span>
+                <h1>Szkoła Psychoterapii Dorosłych</h1>
+                <p class="subtitle">4-letni program kształcenia w terapii poznawczo-behawioralnej</p>
+                <p class="lead">Kompleksowe szkolenie przygotowujące do prowadzenia psychoterapii dorosłych w nurcie poznawczo-behawioralnym. Program łączy solidne podstawy teoretyczne z intensywną pracą praktyczną, rozwijając kompetencje niezbędne do skutecznej pracy terapeutycznej z dorosłymi pacjentami.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">lata szkolenia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">700+</div>
+                    <div class="stat-label">godzin zajęć</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">godzin superwizji</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">evidence-based</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Overview Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Czego się nauczysz?</h2>
+            <p class="section-subtitle">Program obejmuje kompleksowe przygotowanie do prowadzenia psychoterapii dorosłych</p>
+
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Zaburzenia afektywne</h3>
+                    <p>Diagnostyka i terapia depresji, zaburzeń lękowych, zaburzeń dwubiegunowych oraz innych zaburzeń nastroju u dorosłych.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Zaburzenia osobowości</h3>
+                    <p>Praca z osobami z zaburzeniami osobowości, dialektyczna terapia behawioralna (DBT), terapia schematów.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Trauma i PTSD</h3>
+                    <p>Terapia traumy, PTSD, zaburzeń związanych ze stresem, metody CPT i PE.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Zaburzenia obsesyjno-kompulsyjne</h3>
+                    <p>Specjalistyczne protokoły terapii OCD, ekspozycja z zapobieganiem reakcji (ERP).</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Terapia par i relacji</h3>
+                    <p>CBT dla par, praca z problemami relacyjnymi, komunikacja w związku.</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Zaawansowane techniki CBT</h3>
+                    <p>Terapia trzeciej fali: ACT, mindfulness, compassion focused therapy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Structure Section -->
+    <section class="content-section alt">
+        <div class="container">
+            <h2 class="section-title">Struktura programu</h2>
+            <p class="section-subtitle">4-letni program podzielony na moduły tematyczne</p>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Rok I - Fundamenty CBT</h3>
+                    <ul>
+                        <li>Podstawy terapii poznawczo-behawioralnej</li>
+                        <li>Relacja terapeutyczna i budowanie sojuszu</li>
+                        <li>Diagnostyka i konceptualizacja przypadku</li>
+                        <li>Podstawowe techniki poznawcze i behawioralne</li>
+                        <li>Etyka i standardy praktyki</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Rok II - Zaburzenia kliniczne</h3>
+                    <ul>
+                        <li>Terapia zaburzeń lękowych</li>
+                        <li>Terapia depresji i zaburzeń nastroju</li>
+                        <li>Zaburzenia somatyczne</li>
+                        <li>Zaburzenia snu i odżywiania</li>
+                        <li>Protokoły evidence-based</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Rok III - Specjalizacja</h3>
+                    <ul>
+                        <li>Zaburzenia osobowości i DBT</li>
+                        <li>Terapia traumy i PTSD</li>
+                        <li>Uzależnienia i współuzależnienie</li>
+                        <li>Terapia par i rodzin</li>
+                        <li>Terapie trzeciej fali (ACT, mindfulness)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Rok IV - Mistrzostwo kliniczne</h3>
+                    <ul>
+                        <li>Trudne przypadki terapeutyczne</li>
+                        <li>Praca z oporem i impasem</li>
+                        <li>Superwizja zaawansowana</li>
+                        <li>Projekt badawczy</li>
+                        <li>Egzamin certyfikacyjny</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Wymagania rekrutacyjne</h2>
+            <p class="section-subtitle">Kogo szukamy?</p>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Wykształcenie</h3>
+                    <ul>
+                        <li>Ukończone studia magisterskie z psychologii</li>
+                        <li>Lub studia lekarskie (psychiatria)</li>
+                        <li>Znajomość języka angielskiego (literatura)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Doświadczenie</h3>
+                    <ul>
+                        <li>Minimum rok pracy z dorosłymi pacjentami</li>
+                        <li>Doświadczenie kliniczne mile widziane</li>
+                        <li>Własna terapia osobista (zalecana)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Kompetencje osobiste</h3>
+                    <ul>
+                        <li>Dojrzałość emocjonalna i refleksyjność</li>
+                        <li>Gotowość do pracy nad sobą</li>
+                        <li>Zaangażowanie w ciągły rozwój</li>
+                        <li>Otwartość na superwizję i feedback</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Gotowy rozpocząć profesjonalną karierę psychoterapeuty?</h2>
+            <p>Dołącz do naszej społeczności praktyków CBT i rozwijaj swoje kompetencje terapeutyczne</p>
+            <div class="cta-buttons">
+                <a href="rekrutacja.html" class="cta-button">Zapisz się na rekrutację</a>
+                <a href="kontakt.html" class="cta-button secondary">Zadaj pytanie</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Nawigacja</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Strona główna</a></li>
+                        <li><a href="o-nas.html">O nas</a></li>
+                        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+                        <li><a href="kadra.html">Kadra</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Oferta</h3>
+                    <ul class="footer-links">
+                        <li><a href="szkola-dzieci-mlodziez.html">Szkoła Dzieci i Młodzieży</a></li>
+                        <li><a href="szkola-dorosli.html">Szkoła Dorosłych</a></li>
+                        <li><a href="szkolenia-superwizja.html">Szkolenia i Superwizja</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Przydatne linki</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="regulamin.html">Regulamin</a></li>
+                        <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+                        <li><a href="dostepnosc.html">Dostępność</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <div class="contact-info">
+                        <p>ul. [Ulica] 12/34</p>
+                        <p>00-000 [Miasto]</p>
+                        <p>tel: +48 123 456 789</p>
+                        <p>email: info@harmonja.pl</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
