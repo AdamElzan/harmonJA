@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="description" content="Rekrutacja do Szkoły Psychoterapii HarmonJa – 4-letnie, certyfikowane szkolenie CBT akredytowane przez PTTPB. Dowiedz się, jak dołączyć do programu i rozpocząć profesjonalną ścieżkę terapeutyczną.">
+    <meta name="keywords" content="rekrutacja CBT, szkoła psychoterapii poznawczo-behawioralnej, szkolenie psychoterapii, kwalifikacja CBT, rozmowa kwalifikacyjna psychoterapia, PTTPB szkolenie, szkoła HarmonJa rekrutacja">
+    <title>Rekrutacja - HarmonJa Szkoła Psychoterapii CBT</title>
+    <style>
+        :root {
+            --primary-color: #22c7d6;
+            --secondary-color: #1ab6c5;
+            --highlight-color: #00b4ff;
+            --light-blue: #f2fbfd;
+            --dark-blue: #09395f;
+            --accent-color: #22c7d6;
+            --text-color: #333;
+            --light-gray: #faf8f5;
+            --medium-gray: #eaeaea;
+            --white: #ffffff;
+            --cream-bg: #fef6f0;
+            --success-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* TESLA INNOVATION 1: Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        
+        .logo-container svg {
+            height: 90px;
+            width: auto;
+            max-width: 300px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            list-style: none;
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: block;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links > li > a:hover,
+        .nav-links > li > a:focus {
+            color: var(--highlight-color);
+            outline: none;
+        }
+        
+        .nav-links > li > a:hover::after,
+        .nav-links > li > a:focus::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-toggle::before {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .dropdown-toggle::before {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus {
+            background-color: var(--light-blue);
+            color: var(--highlight-color);
+            padding-left: 25px;
+            outline: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:focus {
+            outline: 2px solid var(--highlight-color);
+            outline-offset: 2px;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--highlight-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 180, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(34, 199, 214, 0.1) 0%, transparent 50%);
+            animation: heroFloat 25s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, -10px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-lead {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* TESLA INNOVATION 2: Process Stepper */
+        .process-stepper {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .stepper-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .stepper-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--light-gray) 0%, var(--light-gray) 100%);
+            z-index: 0;
+        }
+
+        .stepper-progress {
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            z-index: 1;
+            transition: width 1s ease-out;
+        }
+
+        .stepper-progress.active {
+            width: 80%;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: white;
+            border: 4px solid var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .step.active .step-circle {
+            border-color: var(--highlight-color);
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 180, 255, 0.3);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background: var(--highlight-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: var(--cream-bg);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        /* Requirements Grid */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .requirement-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--highlight-color);
+        }
+
+        .requirement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .requirement-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .requirement-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .requirement-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .requirement-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .requirement-list li::before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: var(--highlight-color);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* TESLA INNOVATION 3: Interactive Document Checklist */
+        .documents-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+        }
+
+        .documents-checklist {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .document-item {
+            background: white;
+            padding: 25px 30px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .document-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .document-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--medium-gray);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .document-item:hover .checkbox {
+            border-color: var(--highlight-color);
+        }
+
+        .document-item.checked .checkbox {
+            background: var(--highlight-color);
+            border-color: var(--highlight-color);
+        }
+
+        .document-item.checked .checkbox::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .document-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .document-info {
+            flex: 1;
+        }
+
+        .document-info h4 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+
+        .document-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Interview Section */
+        .interview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .interview-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .interview-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .interview-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .interview-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* TESLA INNOVATION 4: FAQ Accordion */
+        .faq-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 50px auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--highlight-color);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--light-blue);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--highlight-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 30px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 25px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* TESLA INNOVATION 5: Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .floating-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-cta-button {
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(0, 180, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .floating-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 180, 255, 0.5);
+        }
+
+        .floating-cta-button::after {
+            content: '→';
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-cta-button:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--highlight-color);
+            padding: 15px 35px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            padding: 25px 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight-color);
+            margin: 30px 0;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-box p {
+            color: var(--dark-blue);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: white;
+            outline: none;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .social-icon:hover,
+        .social-icon:focus {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                z-index: 999;
+                padding: 20px;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin-top: 10px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .logo-container svg {
+                height: 70px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-lead {
+                font-size: 1.05rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stepper-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .stepper-container::before,
+            .stepper-progress {
+                display: none;
+            }
+
+            .step {
+                opacity: 1;
+                transform: none;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-cta-button {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .content-section {
+                padding: 60px 0;
+            }
+
+            .document-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- TESLA INNOVATION 1: Scroll Progress Bar -->
+    <div class="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html" aria-label="HarmonJa - Strona główna">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="logo-title">
+                          <title id="logo-title">Logo HarmonJa Szkoła Psychoterapii CBT</title>
+                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
+                            Szkoła Psychoterapii CBT
+                          </text>
+                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
+                            Harmon
+                          </text>
+                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
+                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
+                            Ja
+                          </text>
+                        </svg>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    ☰
+                </button>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
+                    <li role="none"><a href="o-nas.html" role="menuitem">O nas</a></li>
+                    <li class="dropdown" role="none">
+                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Szkoła Psychoterapii</span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">Dzieci i Młodzieży</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Dorosłych</a></li>
+                        </ul>
+                    </li>
+                    <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
+                    <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
+                    <li role="none"><a href="kadra.html" role="menuitem">Kadra</a></li>
+                    <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Rekrutacja</h1>
+                <p class="hero-lead">
+                    Rozpocznij 4-letnie, certyfikowane szkolenie z psychoterapii poznawczo-behawioralnej (CBT), które łączy naukę, praktykę kliniczną i rozwój osobisty.
+                </p>
+                <p class="hero-lead">
+                    Dołącz do społeczności terapeutów, którzy uczą się skutecznie pomagać – w oparciu o dowody naukowe i wspierające środowisko.
+                </p>
+            </div>
+        </section>
+
+        <!-- TESLA INNOVATION 2: Process Stepper -->
+        <section class="process-stepper">
+            <div class="container">
+                <h2 class="section-title">Proces rekrutacji</h2>
+                <div class="stepper-container">
+                    <div class="stepper-progress"></div>
+                    
+                    <div class="step">
+                        <div class="step-circle">
+                            <span class="step-number">1</span>
+                            📝
+                        </div>
+                        <h3>Formularz i dokumenty</h3>
+                        <p>Wypełnij formularz i prześlij wymagane dokumenty</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-circle">
+                            <span class="step-number">2</span>
+                            ✓
+                        </div>
+                        <h3>Weryfikacja formalna</h3>
+                        <p>Sprawdzimy kompletność dokumentów</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-circle">
+                            <span class="step-number">3</span>
+                            💬
+                        </div>
+                        <h3>Rozmowa kwalifikacyjna</h3>
+                        <p>Poznamy Twoje motywacje i cele</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-circle">
+                            <span class="step-number">4</span>
+                            🎉
+                        </div>
+                        <h3>Decyzja</h3>
+                        <p>Otrzymasz wynik w ciągu 14 dni</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Dla kogo jest szkolenie?</h2>
+                <p class="section-subtitle">
+                    Szkolenie jest przeznaczone dla osób, które chcą rozpocząć lub pogłębić swoją drogę zawodową w kierunku psychoterapii poznawczo-behawioralnej – zgodnie ze standardami PTTPB i evidence-based practice.
+                </p>
+
+                <div class="requirements-grid">
+                    <div class="requirement-card">
+                        <div class="requirement-icon">🎓</div>
+                        <h3>Wymagane wykształcenie</h3>
+                        <p>Uczestnikiem szkolenia może zostać osoba z tytułem magistra w jednym z kierunków:</p>
+                        <ul class="requirement-list">
+                            <li>Psychologia</li>
+                            <li>Pedagogika specjalna</li>
+                            <li>Pedagogika resocjalizacyjna</li>
+                            <li>Pielęgniarstwo</li>
+                            <li>Lekarz medycyny</li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="requirement-icon">💼</div>
+                        <h3>Doświadczenie zawodowe</h3>
+                        <p>Od kandydatów nie wymagamy wcześniejszego doświadczenia w pracy terapeutycznej.</p>
+                        <p style="margin-top: 15px;">
+                            Mile widziane jest doświadczenie w pracy z ludźmi – w obszarach pomocy psychologicznej, edukacji, pracy socjalnej, medycyny lub innych dziedzinach związanych ze wsparciem drugiego człowieka.
+                        </p>
+                        <div class="info-box" style="margin-top: 20px;">
+                            <span class="info-icon">💡</span>
+                            <p>Wierzymy, że najważniejsza jest Twoja motywacja, otwartość na naukę i gotowość do rozwoju zawodowego i osobistego.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESLA INNOVATION 3: Documents Checklist -->
+        <section class="documents-section">
+            <div class="container">
+                <h2 class="section-title">Wymagane dokumenty</h2>
+                <p class="section-subtitle">
+                    Aby wziąć udział w rekrutacji, należy wypełnić formularz dostępny na stronie szkoły oraz załączyć komplet dokumentów w formie elektronicznej:
+                </p>
+
+                <div class="documents-checklist">
+                    <div class="document-item">
+                        <div class="checkbox"></div>
+                        <div class="document-icon">📄</div>
+                        <div class="document-info">
+                            <h4>CV</h4>
+                            <p>Z opisem dotychczasowego doświadczenia zawodowego</p>
+                        </div>
+                    </div>
+
+                    <div class="document-item">
+                        <div class="checkbox"></div>
+                        <div class="document-icon">✉️</div>
+                        <div class="document-info">
+                            <h4>List motywacyjny</h4>
+                            <p>Dlaczego chcesz rozpocząć szkolenie w HarmonJi</p>
+                        </div>
+                    </div>
+
+                    <div class="document-item">
+                        <div class="checkbox"></div>
+                        <div class="document-icon">🎓</div>
+                        <div class="document-info">
+                            <h4>Dyplom</h4>
+                            <p>Ukończenia studiów magisterskich lub lekarskich</p>
+                        </div>
+                    </div>
+
+                    <div class="document-item">
+                        <div class="checkbox"></div>
+                        <div class="document-icon">✓</div>
+                        <div class="document-info">
+                            <h4>Potwierdzenie doświadczenia</h4>
+                            <p>Zaświadczenie lub dwie pisemne rekomendacje</p>
+                        </div>
+                    </div>
+
+                    <div class="document-item">
+                        <div class="checkbox"></div>
+                        <div class="document-icon">💳</div>
+                        <div class="document-info">
+                            <h4>Potwierdzenie przelewu</h4>
+                            <p>Opłaty rekrutacyjnej (zgodnej z aktualnym cennikiem)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box" style="max-width: 800px; margin: 30px auto 0;">
+                    <span class="info-icon">ℹ️</span>
+                    <p>Opłata rekrutacyjna pokrywa koszty organizacji procesu kwalifikacyjnego i nie jest zwracana. Do formularza dołączona jest zgoda na przetwarzanie danych osobowych w celach rekrutacyjnych – zgodnie z obowiązującymi przepisami prawa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interview Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Rozmowa kwalifikacyjna</h2>
+                <p class="section-subtitle">
+                    Po pozytywnej weryfikacji formalnej kandydat zostaje zaproszony na rozmowę kwalifikacyjną z zespołem szkoleniowym. Rozmowę prowadzi Kierownik Programowy Szkolenia i/lub Kierownik Szkolenia.
+                </p>
+
+                <div class="interview-grid">
+                    <div class="interview-card">
+                        <h3>💫 Motywacja</h3>
+                        <p>Dlaczego chcesz zostać terapeutą?</p>
+                    </div>
+
+                    <div class="interview-card">
+                        <h3>🎯 Świadomość zawodu</h3>
+                        <p>Rozumienie istoty pracy psychoterapeuty i jej odpowiedzialności</p>
+                    </div>
+
+                    <div class="interview-card">
+                        <h3>🤝 Kompetencje interpersonalne</h3>
+                        <p>Umiejętność komunikacji, empatii i współpracy</p>
+                    </div>
+
+                    <div class="interview-card">
+                        <h3>📚 Wiedza bazowa</h3>
+                        <p>Znajomość podstaw psychologii, psychopatologii lub doświadczenia w pracy z ludźmi</p>
+                    </div>
+
+                    <div class="interview-card">
+                        <h3>🌱 Gotowość do rozwoju</h3>
+                        <p>Otwartość na uczenie się, superwizję i refleksję nad własną praktyką</p>
+                    </div>
+
+                    <div class="interview-card">
+                        <h3>⚖️ Etyka zawodowa</h3>
+                        <p>Zrozumienie zasad poufności, szacunku i odpowiedzialności</p>
+                    </div>
+
+                    <div class="interview-card">
+                        <h3>🧠 Zrozumienie CBT</h3>
+                        <p>Rozmowa o myśleniu terapeutycznym i analizie przykładowych sytuacji klinicznych</p>
+                    </div>
+                </div>
+
+                <div class="info-box" style="max-width: 800px; margin: 40px auto 0;">
+                    <span class="info-icon">🌱</span>
+                    <p>Rozmowa ma charakter merytoryczny i partnerski – naszym celem jest sprawdzić, czy HarmonJa to właściwe miejsce dla Ciebie, a Ty dla HarmonJi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decision Section -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Decyzja o przyjęciu</h2>
+                <p class="section-subtitle">
+                    Decyzję o przyjęciu podejmuje Kierownik Programowy Szkolenia wraz z Kierownikiem Szkolenia, na podstawie dokumentów i przebiegu rozmowy kwalifikacyjnej.
+                </p>
+
+                <div class="requirements-grid" style="max-width: 800px; margin: 0 auto;">
+                    <div class="requirement-card">
+                        <div class="requirement-icon">✉️</div>
+                        <h3>Informacja o wyniku</h3>
+                        <p>Otrzymasz ją drogą mailową w ciągu 14 dni od zakończenia rozmowy.</p>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="requirement-icon">✓</div>
+                        <h3>W przypadku przyjęcia</h3>
+                        <p>Kandydat zobowiązany jest do podpisania kompletu dokumentów w formie papierowej przed rozpoczęciem szkolenia.</p>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="requirement-icon">🔄</div>
+                        <h3>W przypadku nieprzyjęcia</h3>
+                        <p>Możesz ponownie aplikować w kolejnej edycji po uzupełnieniu wskazanych braków.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESLA INNOVATION 4: FAQ Accordion -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Najczęściej zadawane pytania</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Czy rekrutacja ma limit miejsc?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tak. Liczba miejsc w każdej edycji jest ograniczona, aby zapewnić wysoką jakość pracy dydaktycznej i superwizyjnej.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Czy muszę mieć doświadczenie w terapii?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nie. Oczekujemy gotowości do nauki, refleksji i rozwoju – doświadczenie w pracy z ludźmi jest mile widziane, ale nie obowiązkowe.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Czy rozmowa kwalifikacyjna jest stresująca?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nie ma takiej potrzeby 😊 Traktujemy ją jako rozmowę o Twoich celach i motywacjach, a nie egzamin.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Czy mogę uczyć się w HarmonJi mieszkając poza Warszawą lub Gdańskiem?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tak. Szkolenie odbywa się głównie stacjonarnie, ale część zajęć (wykładów i seminariów) może być prowadzona online – z zachowaniem standardów dydaktycznych PTTPB.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Gotowy na rozpoczęcie swojej drogi w psychoterapii?</h2>
+                <p>Zapisz się na rozmowę kwalifikacyjną i dołącz do Szkoły Psychoterapii HarmonJa</p>
+                <div class="cta-buttons">
+                    <a href="#apply-form" class="cta-button">Wypełnij formularz rekrutacyjny</a>
+                </div>
+                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9;">
+                    🔗 Rekrutacja trwa do wyczerpania miejsc. Zadbaj o wcześniejsze zgłoszenie – liczba uczestników w każdej edycji jest ograniczona.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- TESLA INNOVATION 5: Floating CTA Button -->
+    <div class="floating-cta">
+        <a href="#apply-form" class="floating-cta-button">
+            Aplikuj teraz
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Szkoła</h3>
+                    <ul class="footer-links">
+                        <li><a href="o-nas.html">O nas</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">Szkoła Dzieci i Młodzieży</a></li>
+                        <li><a href="szkola-dorosli.html">Szkoła Dorosłych</a></li>
+                        <li><a href="kadra.html">Kadra</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Dla kandydatów</h3>
+                    <ul class="footer-links">
+                        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+                        <li><a href="szkolenia-superwizja.html">Szkolenia i Superwizja</a></li>
+                        <li><a href="kontakt.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <div class="contact-info">
+                        <p>Email: kontakt@harmonja.pl</p>
+                        <p>Tel: +48 123 456 789</p>
+                        <p>ul. Przykładowa 123<br>00-000 Warszawa</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Informacje</h3>
+                    <ul class="footer-links">
+                        <li><a href="kontakt.html">Polityka prywatności</a></li>
+                        <li><a href="kontakt.html">Regulamin</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const isExpanded = navLinks.classList.contains('active');
+                this.setAttribute('aria-expanded', isExpanded);
+                this.textContent = isExpanded ? '✕' : '☰';
+                document.body.style.overflow = isExpanded ? 'hidden' : '';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '☰';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '☰';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Dropdown keyboard navigation
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const dropdown = this.closest('.dropdown');
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    
+                    if (!isExpanded) {
+                        menu.style.opacity = '1';
+                        menu.style.visibility = 'visible';
+                        menu.style.transform = 'translateY(0)';
+                    } else {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.transform = 'translateY(-10px)';
+                    }
+                }
+            });
+        });
+
+        // TESLA FEATURE 1: Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            
+            if (scrollProgress) {
+                scrollProgress.style.width = scrollPercent + '%';
+                scrollProgress.setAttribute('aria-valuenow', Math.round(scrollPercent));
+            }
+        });
+
+        // TESLA FEATURE 2: Process Stepper Animation
+        const stepObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                        entry.target.classList.add('active');
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.step').forEach(step => {
+            stepObserver.observe(step);
+        });
+
+        // Progress line animation
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progress = entry.target.querySelector('.stepper-progress');
+                    if (progress) {
+                        setTimeout(() => {
+                            progress.classList.add('active');
+                        }, 800);
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const stepperContainer = document.querySelector('.stepper-container');
+        if (stepperContainer) {
+            progressObserver.observe(stepperContainer);
+        }
+
+        // TESLA FEATURE 3: Interactive Document Checklist
+        const documentObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.document-item').forEach(item => {
+            documentObserver.observe(item);
+            
+            // Click to check/uncheck
+            item.addEventListener('click', function() {
+                this.classList.toggle('checked');
+            });
+        });
+
+        // TESLA FEATURE 4: FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // TESLA FEATURE 5: Floating CTA Button
+        const floatingCta = document.querySelector('.floating-cta');
+        
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            
+            if (scrollPosition > windowHeight * 0.5) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
