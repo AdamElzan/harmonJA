@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="description" content="Szkoła Psychoterapii HarmonJa – nowoczesne, certyfikowane szkolenie CBT oparte na dowodach naukowych. Uczymy, jak skutecznie pomagać, rozwijamy kompetencje kliniczne i badawcze, wspieramy rozwój zawodowy terapeutów.">
+    <meta name="keywords" content="szkoła psychoterapii poznawczo-behawioralnej, szkolenie CBT, certyfikowana psychoterapia, evidence-based psychotherapy, superwizja CBT, psychoterapia poznawczo-behawioralna Warszawa, Gdańsk">
+    <title>O nas - HarmonJa Szkoła Psychoterapii CBT</title>
+    <style>
+        :root {
+            --primary-color: #22c7d6;
+            --secondary-color: #1ab6c5;
+            --highlight-color: #00b4ff;
+            --light-blue: #f2fbfd;
+            --dark-blue: #09395f;
+            --accent-color: #22c7d6;
+            --text-color: #333;
+            --light-gray: #faf8f5;
+            --medium-gray: #eaeaea;
+            --white: #ffffff;
+            --cream-bg: #fef6f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--white);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        
+        .logo-container svg {
+            height: 90px;
+            width: auto;
+            max-width: 300px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            list-style: none;
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: block;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links > li > a:hover,
+        .nav-links > li > a:focus {
+            color: var(--highlight-color);
+            outline: none;
+        }
+        
+        .nav-links > li > a:hover::after,
+        .nav-links > li > a:focus::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-toggle::before {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .dropdown-toggle::before {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus {
+            background-color: var(--light-blue);
+            color: var(--highlight-color);
+            padding-left: 25px;
+            outline: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:focus {
+            outline: 2px solid var(--highlight-color);
+            outline-offset: 2px;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--highlight-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* Hero with Parallax - TESLA INNOVATION! */
+        .hero {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 180, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(34, 199, 214, 0.08) 0%, transparent 50%);
+            animation: parallaxFloat 30s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes parallaxFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-20px, -20px) scale(1.05); }
+            50% { transform: translate(20px, 10px) scale(1); }
+            75% { transform: translate(-10px, 20px) scale(0.95); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-lead {
+            font-size: 1.4rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Timeline - TESLA INNOVATION! */
+        .timeline-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--highlight-color), var(--primary-color));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 40px);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--highlight-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--light-blue);
+            z-index: 2;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Mission Section - Gradient Box */
+        .mission-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .mission-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-content h2 {
+            font-size: 2.6rem;
+            margin-bottom: 30px;
+        }
+
+        .mission-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Values - Interactive Pills */
+        .values-section {
+            padding: 80px 0;
+            background-color: var(--cream-bg);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: rotate(360deg) scale(1.1);
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: white;
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .team-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--medium-gray) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--highlight-color);
+            opacity: 0.3;
+        }
+
+        .team-info {
+            padding: 30px;
+        }
+
+        .team-name {
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .team-role {
+            font-size: 0.95rem;
+            color: var(--highlight-color);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .team-bio {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: var(--cream-bg);
+        }
+
+        .content-list {
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+
+        .content-list li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .content-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Philosophy Quote Section */
+        .philosophy-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #0a4a75 100%);
+            color: white;
+            position: relative;
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-size: 6rem;
+            color: var(--highlight-color);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .philosophy-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 30px;
+        }
+
+        .philosophy-content p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        /* Why Choose Grid */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-card h3 {
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--highlight-color);
+            padding: 15px 35px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: white;
+            outline: none;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .social-icon:hover,
+        .social-icon:focus {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                z-index: 999;
+                padding: 20px;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links > li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links > li > a {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin-top: 10px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .logo-container svg {
+                height: 70px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-lead {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-marker {
+                left: 20px;
+            }
+
+            .mission-content h2 {
+                font-size: 2rem;
+            }
+
+            .mission-content p {
+                font-size: 1.1rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-content h2 {
+                font-size: 2rem;
+            }
+
+            .philosophy-content p {
+                font-size: 1.05rem;
+            }
+
+            .why-choose-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .content-section, .values-section, .team-section, .timeline-section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html" aria-label="HarmonJa - Strona główna">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="logo-title">
+                          <title id="logo-title">Logo HarmonJa Szkoła Psychoterapii CBT</title>
+                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
+                            Szkoła Psychoterapii CBT
+                          </text>
+                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
+                            Harmon
+                          </text>
+                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
+                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
+                            Ja
+                          </text>
+                        </svg>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    ☰
+                </button>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
+                    <li role="none"><a href="o-nas.html" role="menuitem">O nas</a></li>
+                    <li class="dropdown" role="none">
+                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Szkoła Psychoterapii</span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">Dzieci i Młodzieży</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Dorosłych</a></li>
+                        </ul>
+                    </li>
+                    <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
+                    <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
+                    <li role="none"><a href="kadra.html" role="menuitem">Kadra</a></li>
+                    <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>O nas</h1>
+                <p class="hero-lead">
+                    Tworzymy przestrzeń, w której nauka, praktyka kliniczna i pasja spotykają się w jednym celu – aby kształcić skutecznych, rzetelnych i wspierających terapeutów poznawczo-behawioralnych.
+                </p>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="timeline-section">
+            <div class="container">
+                <h2 class="section-title">Kim jesteśmy</h2>
+                <p class="section-subtitle">
+                    Szkoła Psychoterapii HarmonJa powstała w 2024 roku z pasji do nauki i nauczania, a także z głębokiego przekonania, że psychoterapia poznawczo-behawioralna (CBT), wsparta współczesną wiedzą i technologią, może realnie zmieniać sposób kształcenia przyszłych terapeutów.
+                </p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <h3>Powstanie HarmonJa</h3>
+                            <p>Założycielami szkoły są Adam Elżanowski i Magdalena Skuza, których połączyła wspólna pasja do nauki, badań i rozwoju terapii poznawczo-behawioralnej.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Od początku</div>
+                            <h3>Zespół trzonowy</h3>
+                            <p>Od początku towarzyszyła im Karolina Rakocz, niezastąpiona w organizacji i koordynacji procesu szkoleniowego, oraz Marzena Badyna, czuwająca nad jakością i spójnością merytoryczną programu.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Doświadczenie</div>
+                            <h3>Praktyka i dydaktyka</h3>
+                            <p>Dzięki wspólnemu doświadczeniu superwizorskiemu i pracy dydaktycznej wiemy z pierwszej ręki, jakie są potrzeby i oczekiwania uczestników szkoleń psychoterapeutycznych. HarmonJa jest odpowiedzią na te potrzeby.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission -->
+        <section class="mission-section">
+            <div class="container">
+                <div class="mission-content">
+                    <h2>Nasza misja</h2>
+                    <p>
+                        Przygotowanie terapeutów-praktyków, którzy pracują w duchu evidence-based practice, łącząc aktualną wiedzę naukową, wysokie standardy kliniczne i praktykę w bezpiecznym, wspierającym środowisku.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-title">Nasze wartości</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🔥</div>
+                        <h3>Pasja</h3>
+                        <p>Psychoterapia to nasza droga, nie tylko zawód. Uczymy z zaangażowaniem i otwartością.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">📚</div>
+                        <h3>Nauka</h3>
+                        <p>Nasz program opiera się na badaniach, współpracy z instytucjami naukowymi i nowoczesnych metodach nauczania.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">✓</div>
+                        <h3>Rzetelność</h3>
+                        <p>Stawiamy na kompetencje praktyczne, etykę zawodu i kliniczne standardy.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Pomoc</h3>
+                        <p>Przygotowujemy do realnej pracy terapeutycznej, z pacjentami i zespołami klinicznymi, w ramach superwizji i mentoringu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">Założyciele i kluczowa kadra</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo">👨</div>
+                        <div class="team-info">
+                            <h3 class="team-name">Adam Elżanowski</h3>
+                            <p class="team-role">Założyciel, Superwizor-dydaktyk PTTPB nr 78</p>
+                            <p class="team-bio">
+                                Psycholog, psychoterapeuta poznawczo-behawioralny. Twórca podcastu „W Głowie się Mieści" i platformy AkademiaCBT. Łączy naukę z praktyką, współpracując z czołowymi ekspertami z kraju i zagranicy.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">👩</div>
+                        <div class="team-info">
+                            <h3 class="team-name">Magdalena Skuza</h3>
+                            <p class="team-role">Współzałożycielka, Superwizorka-dydaktyk PTTPB nr 87</p>
+                            <p class="team-bio">
+                                Psycholożka, socjolożka, certyfikowana psychoterapeutka (PTTPB nr 552). Specjalistka terapii DBT, EMDR i ACT, aktywna w strukturach międzynarodowych. Przewodnicząca Polskiego Towarzystwa Terapii Dialektyczno-Behawioralnej.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">👩</div>
+                        <div class="team-info">
+                            <h3 class="team-name">Marzena Badyna</h3>
+                            <p class="team-role">Dyrektorka merytoryczna, Superwizorka-dydaktyk PTTPB nr 50</p>
+                            <p class="team-bio">
+                                Psycholożka, psychoterapeutka poznawczo-behawioralna, terapeutka CBT nr 307. Odpowiedzialna za jakość i spójność programu szkoleniowego.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">👩</div>
+                        <div class="team-info">
+                            <h3 class="team-name">Karolina Rakocz</h3>
+                            <p class="team-role">Dyrektorka szkolenia, Psychoterapeutka PTTPB</p>
+                            <p class="team-bio">
+                                Psychoterapeutka poznawczo-behawioralna (certyfikowana PTTPB), specjalistka terapii uzależnień i Terapeutka Motywująca. Nasza „prawa ręka" w organizacji i koordynacji – dzięki niej szkoła funkcjonuje z niezawodną harmonią.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model kształcenia -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Nasz model kształcenia</h2>
+                <p class="section-subtitle">
+                    Oferujemy czteroletnie certyfikowane szkolenie w zakresie terapii poznawczo-behawioralnej, akredytowane przez Polskie Towarzystwo Terapii Poznawczej i Behawioralnej (PTTPB).
+                </p>
+                <ul class="content-list">
+                    <li>Zajęcia odbywają się głównie na żywo – w Warszawie i Gdańsku</li>
+                    <li>Wykorzystujemy nowoczesne narzędzia edukacyjne (platforma AkademiaCBT, interaktywne materiały, e-learning)</li>
+                    <li>Unikalnym elementem jest połączenie praktyki klinicznej z badaniami naukowymi</li>
+                    <li>Studenci od pierwszego roku współpracują z Instytutem Psychologii PAN</li>
+                    <li>Uczą się czytać i projektować badania oraz uczestniczą w zespołach badawczych</li>
+                    <li>W trakcie szkolenia realizowane są staże kliniczne, superwizje i projekty badawcze</li>
+                    <li>Program przygotowuje do realnej pracy terapeutycznej i certyfikacji PTTPB</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Why choose -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Dlaczego warto wybrać Szkołę HarmonJa</h2>
+                <div class="why-choose-grid">
+                    <div class="why-card">
+                        <h3>✓ Certyfikowane szkolenie CBT (PTTPB)</h3>
+                    </div>
+                    <div class="why-card">
+                        <h3>✓ Zajęcia prowadzone przez superwizorów-praktyków</h3>
+                    </div>
+                    <div class="why-card">
+                        <h3>✓ Integracja nauki, praktyki i technologii</h3>
+                    </div>
+                    <div class="why-card">
+                        <h3>✓ Badania i projekty naukowe od pierwszego roku</h3>
+                    </div>
+                    <div class="why-card">
+                        <h3>✓ Superwizje, mentoring i staże kliniczne</h3>
+                    </div>
+                    <div class="why-card">
+                        <h3>✓ Wspierające środowisko nauki i rozwoju</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="philosophy-section">
+            <div class="container">
+                <div class="philosophy-content">
+                    <div class="quote-mark">"</div>
+                    <h2>Nasza filozofia uczenia</h2>
+                    <p>
+                        Wierzymy, że skuteczny terapeuta to ktoś, kto łączy wiedzę naukową z rozumieniem człowieka w jego złożoności.
+                    </p>
+                    <p>
+                        Uczymy, jak stosować metody oparte na dowodach, zachowując jednocześnie empatię, uważność i indywidualne podejście do pacjenta.
+                    </p>
+                    <p>
+                        Naszym celem jest, by każdy absolwent czuł się przygotowany do pracy terapeutycznej – pewnie, bezpiecznie i z harmonią między teorią a praktyką.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Chcesz rozwijać się razem z nami?</h2>
+                <p>Dołącz do szkoły, która łączy naukę z pasją i praktyką kliniczną</p>
+                <div class="cta-buttons">
+                    <a href="rekrutacja.html" class="cta-button">Zapisz się na rozmowę kwalifikacyjną</a>
+                    <a href="szkola-dzieci-mlodziez.html" class="cta-button">Dowiedz się więcej o programie</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Szkoła</h3>
+                    <ul class="footer-links">
+                        <li><a href="o-nas.html">O nas</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">Szkoła Dzieci i Młodzieży</a></li>
+                        <li><a href="szkola-dorosli.html">Szkoła Dorosłych</a></li>
+                        <li><a href="kadra.html">Kadra</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Dla kandydatów</h3>
+                    <ul class="footer-links">
+                        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+                        <li><a href="szkolenia-superwizja.html">Szkolenia i Superwizja</a></li>
+                        <li><a href="kontakt.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <div class="contact-info">
+                        <p>Email: kontakt@harmonja.pl</p>
+                        <p>Tel: +48 123 456 789</p>
+                        <p>ul. Przykładowa 123<br>00-000 Warszawa</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Informacje</h3>
+                    <ul class="footer-links">
+                        <li><a href="kontakt.html">Polityka prywatności</a></li>
+                        <li><a href="kontakt.html">Regulamin</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const isExpanded = navLinks.classList.contains('active');
+                this.setAttribute('aria-expanded', isExpanded);
+                this.textContent = isExpanded ? '✕' : '☰';
+                document.body.style.overflow = isExpanded ? 'hidden' : '';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '☰';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '☰';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Dropdown keyboard navigation
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const dropdown = this.closest('.dropdown');
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    
+                    if (!isExpanded) {
+                        menu.style.opacity = '1';
+                        menu.style.visibility = 'visible';
+                        menu.style.transform = 'translateY(0)';
+                    } else {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.transform = 'translateY(-10px)';
+                    }
+                }
+            });
+        });
+
+        // Timeline animation on scroll - TESLA FEATURE!
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            timelineObserver.observe(item);
+        });
+
+        // Team cards animation
+        const teamObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.team-card').forEach(card => {
+            teamObserver.observe(card);
+        });
+
+        // Smooth scroll
+        document.querySelector('.skip-to-content')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#main-content')?.focus();
+            document.querySelector('#main-content')?.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Value cards hover effect enhancement
+        document.querySelectorAll('.value-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
