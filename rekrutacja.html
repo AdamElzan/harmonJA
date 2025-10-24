@@ -442,15 +442,25 @@
         }
 
         .requirement-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--light-blue), var(--white));
-            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .requirement-icon svg {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 4px 10px rgba(0, 180, 255, 0.15));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .requirement-card:hover .requirement-icon svg {
+            transform: scale(1.15) translateY(-5px);
+            filter: drop-shadow(0 8px 20px rgba(0, 180, 255, 0.3));
         }
 
         .requirement-card h3 {
@@ -546,15 +556,25 @@
         }
 
         .document-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--light-blue), var(--white));
-            border-radius: 8px;
+            width: 55px;
+            height: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
             flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .document-icon svg {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 2px 6px rgba(0, 180, 255, 0.15));
+            transition: all 0.3s;
+        }
+
+        .document-item:hover .document-icon svg {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 12px rgba(0, 180, 255, 0.25));
         }
 
         .document-info {
@@ -792,8 +812,18 @@
         }
 
         .info-icon {
-            font-size: 1.5rem;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
+        }
+
+        .info-icon svg {
+            width: 24px;
+            height: 24px;
+            filter: drop-shadow(0 2px 4px rgba(0, 180, 255, 0.2));
         }
 
         .info-box p {
@@ -1122,7 +1152,19 @@
 
                 <div class="requirements-grid">
                     <div class="requirement-card">
-                        <div class="requirement-icon">🎓</div>
+                        <div class="requirement-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="30" r="20" stroke="url(#gradReq1)" stroke-width="2"/>
+                                <path d="M30 15L37 28H23L30 15Z" fill="url(#gradReq1)"/>
+                                <rect x="22" y="32" width="16" height="8" stroke="url(#gradReq1)" stroke-width="2"/>
+                                <defs>
+                                    <linearGradient id="gradReq1" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>Wymagane wykształcenie</h3>
                         <p>Uczestnikiem szkolenia może zostać osoba z tytułem magistra w jednym z kierunków:</p>
                         <ul class="requirement-list">
@@ -1135,14 +1177,38 @@
                     </div>
 
                     <div class="requirement-card">
-                        <div class="requirement-icon">💼</div>
+                        <div class="requirement-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="15" y="20" width="30" height="25" stroke="url(#gradReq2)" stroke-width="2" rx="2"/>
+                                <path d="M20 28L28 35L40 23" stroke="url(#gradReq2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="30" y1="15" x2="30" y2="20" stroke="url(#gradReq2)" stroke-width="2"/>
+                                <defs>
+                                    <linearGradient id="gradReq2" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>Doświadczenie zawodowe</h3>
                         <p>Od kandydatów nie wymagamy wcześniejszego doświadczenia w pracy terapeutycznej.</p>
                         <p style="margin-top: 15px;">
                             Mile widziane jest doświadczenie w pracy z ludźmi – w obszarach pomocy psychologicznej, edukacji, pracy socjalnej, medycyny lub innych dziedzinach związanych ze wsparciem drugiego człowieka.
                         </p>
                         <div class="info-box" style="margin-top: 20px;">
-                            <span class="info-icon">💡</span>
+                            <span class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="url(#gradInfo1)" stroke-width="2"/>
+                                    <path d="M12 8L14 10L12 12" stroke="url(#gradInfo1)" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="12" cy="16" r="1.5" fill="url(#gradInfo1)"/>
+                                    <defs>
+                                        <linearGradient id="gradInfo1" x1="0" y1="0" x2="24" y2="24">
+                                            <stop offset="0%" stop-color="#00b4ff"/>
+                                            <stop offset="100%" stop-color="#22c7d6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </span>
                             <p>Wierzymy, że najważniejsza jest Twoja motywacja, otwartość na naukę i gotowość do rozwoju zawodowego i osobistego.</p>
                         </div>
                     </div>
@@ -1161,7 +1227,20 @@
                 <div class="documents-checklist">
                     <div class="document-item">
                         <div class="checkbox"></div>
-                        <div class="document-icon">📄</div>
+                        <div class="document-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="8" width="20" height="26" stroke="url(#gradDoc1)" stroke-width="2" rx="1"/>
+                                <line x1="14" y1="14" x2="26" y2="14" stroke="url(#gradDoc1)" stroke-width="1.5"/>
+                                <line x1="14" y1="18" x2="26" y2="18" stroke="url(#gradDoc1)" stroke-width="1.5"/>
+                                <line x1="14" y1="22" x2="22" y2="22" stroke="url(#gradDoc1)" stroke-width="1.5"/>
+                                <defs>
+                                    <linearGradient id="gradDoc1" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <div class="document-info">
                             <h4>CV</h4>
                             <p>Z opisem dotychczasowego doświadczenia zawodowego</p>
@@ -1170,7 +1249,18 @@
 
                     <div class="document-item">
                         <div class="checkbox"></div>
-                        <div class="document-icon">✉️</div>
+                        <div class="document-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 14L20 22L32 14" stroke="url(#gradDoc2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="8" y="12" width="24" height="16" stroke="url(#gradDoc2)" stroke-width="2" rx="2"/>
+                                <defs>
+                                    <linearGradient id="gradDoc2" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <div class="document-info">
                             <h4>List motywacyjny</h4>
                             <p>Dlaczego chcesz rozpocząć szkolenie w HarmonJi</p>
@@ -1179,7 +1269,19 @@
 
                     <div class="document-item">
                         <div class="checkbox"></div>
-                        <div class="document-icon">🎓</div>
+                        <div class="document-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="12" stroke="url(#gradDoc3)" stroke-width="2"/>
+                                <path d="M20 10L24 18H16L20 10Z" fill="url(#gradDoc3)"/>
+                                <rect x="15" y="21" width="10" height="5" stroke="url(#gradDoc3)" stroke-width="2"/>
+                                <defs>
+                                    <linearGradient id="gradDoc3" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <div class="document-info">
                             <h4>Dyplom</h4>
                             <p>Ukończenia studiów magisterskich lub lekarskich</p>
@@ -1188,7 +1290,18 @@
 
                     <div class="document-item">
                         <div class="checkbox"></div>
-                        <div class="document-icon">✓</div>
+                        <div class="document-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 10C20 10 12 14 12 22C12 26 16 30 20 34C24 30 28 26 28 22C28 14 20 10 20 10Z" stroke="url(#gradDoc4)" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M16 20L19 23L25 17" stroke="url(#gradDoc4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="gradDoc4" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <div class="document-info">
                             <h4>Potwierdzenie doświadczenia</h4>
                             <p>Zaświadczenie lub dwie pisemne rekomendacje</p>
@@ -1197,7 +1310,21 @@
 
                     <div class="document-item">
                         <div class="checkbox"></div>
-                        <div class="document-icon">💳</div>
+                        <div class="document-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="12" width="20" height="14" stroke="url(#gradDoc5)" stroke-width="2" rx="2"/>
+                                <rect x="10" y="17" width="20" height="4" fill="url(#gradDoc5)" opacity="0.3"/>
+                                <circle cx="16" cy="21" r="2" fill="url(#gradDoc5)"/>
+                                <line x1="21" y1="20" x2="27" y2="20" stroke="url(#gradDoc5)" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="21" y1="23" x2="25" y2="23" stroke="url(#gradDoc5)" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradDoc5" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <div class="document-info">
                             <h4>Potwierdzenie przelewu</h4>
                             <p>Opłaty rekrutacyjnej (zgodnej z aktualnym cennikiem)</p>
@@ -1206,7 +1333,19 @@
                 </div>
 
                 <div class="info-box" style="max-width: 800px; margin: 30px auto 0;">
-                    <span class="info-icon">ℹ️</span>
+                    <span class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="url(#gradInfo2)" stroke-width="2"/>
+                            <line x1="12" y1="11" x2="12" y2="17" stroke="url(#gradInfo2)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="7.5" r="1" fill="url(#gradInfo2)"/>
+                            <defs>
+                                <linearGradient id="gradInfo2" x1="0" y1="0" x2="24" y2="24">
+                                    <stop offset="0%" stop-color="#00b4ff"/>
+                                    <stop offset="100%" stop-color="#22c7d6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </span>
                     <p>Opłata rekrutacyjna pokrywa koszty organizacji procesu kwalifikacyjnego i nie jest zwracana. Do formularza dołączona jest zgoda na przetwarzanie danych osobowych w celach rekrutacyjnych – zgodnie z obowiązującymi przepisami prawa.</p>
                 </div>
             </div>
@@ -1222,43 +1361,150 @@
 
                 <div class="interview-grid">
                     <div class="interview-card">
-                        <h3>💫 Motywacja</h3>
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                <circle cx="10" cy="10" r="3" stroke="url(#gradInt1)" stroke-width="1.5"/>
+                                <circle cx="10" cy="10" r="7" stroke="url(#gradInt1)" stroke-width="1.5" opacity="0.5"/>
+                                <path d="M10 3L11 6L10 3Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
+                                <path d="M10 17L11 14L10 17Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
+                                <path d="M3 10L6 11L3 10Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
+                                <path d="M17 10L14 11L17 10Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
+                                <defs>
+                                    <linearGradient id="gradInt1" x1="0" y1="0" x2="20" y2="20">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Motywacja
+                        </h3>
                         <p>Dlaczego chcesz zostać terapeutą?</p>
                     </div>
 
                     <div class="interview-card">
-                        <h3>🎯 Świadomość zawodu</h3>
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                <circle cx="10" cy="10" r="7" stroke="url(#gradInt2)" stroke-width="1.5"/>
+                                <circle cx="10" cy="10" r="4" stroke="url(#gradInt2)" stroke-width="1.5"/>
+                                <circle cx="10" cy="10" r="1.5" fill="url(#gradInt2)"/>
+                                <defs>
+                                    <linearGradient id="gradInt2" x1="0" y1="0" x2="20" y2="20">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Świadomość zawodu
+                        </h3>
                         <p>Rozumienie istoty pracy psychoterapeuty i jej odpowiedzialności</p>
                     </div>
 
                     <div class="interview-card">
-                        <h3>🤝 Kompetencje interpersonalne</h3>
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                <circle cx="7" cy="8" r="3" stroke="url(#gradInt3)" stroke-width="1.5"/>
+                                <circle cx="13" cy="10" r="2.5" stroke="url(#gradInt3)" stroke-width="1.5"/>
+                                <path d="M9 10L11 12" stroke="url(#gradInt3)" stroke-width="1.5" stroke-linecap="round"/>
+                                <circle cx="10" cy="15" r="1.5" fill="url(#gradInt3)"/>
+                                <defs>
+                                    <linearGradient id="gradInt3" x1="0" y1="0" x2="20" y2="20">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Kompetencje interpersonalne
+                        </h3>
                         <p>Umiejętność komunikacji, empatii i współpracy</p>
                     </div>
 
                     <div class="interview-card">
-                        <h3>📚 Wiedza bazowa</h3>
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                <rect x="5" y="4" width="10" height="12" stroke="url(#gradInt4)" stroke-width="1.5" rx="1"/>
+                                <line x1="7" y1="7" x2="13" y2="7" stroke="url(#gradInt4)" stroke-width="1.2"/>
+                                <line x1="7" y1="10" x2="13" y2="10" stroke="url(#gradInt4)" stroke-width="1.2"/>
+                                <line x1="7" y1="13" x2="11" y2="13" stroke="url(#gradInt4)" stroke-width="1.2"/>
+                                <defs>
+                                    <linearGradient id="gradInt4" x1="0" y1="0" x2="20" y2="20">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Wiedza bazowa
+                        </h3>
                         <p>Znajomość podstaw psychologii, psychopatologii lub doświadczenia w pracy z ludźmi</p>
                     </div>
 
                     <div class="interview-card">
-                        <h3>🌱 Gotowość do rozwoju</h3>
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                <path d="M10 4C10 4 6 6 6 10C6 13 10 16 10 17C10 16 14 13 14 10C14 6 10 4 10 4Z" stroke="url(#gradInt5)" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M8 8L10 11L12 8" stroke="url(#gradInt5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="gradInt5" x1="0" y1="0" x2="20" y2="20">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Gotowość do rozwoju
+                        </h3>
                         <p>Otwartość na uczenie się, superwizję i refleksję nad własną praktyką</p>
                     </div>
 
                     <div class="interview-card">
-                        <h3>⚖️ Etyka zawodowa</h3>
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                <path d="M10 3L6 10H14L10 3Z" stroke="url(#gradInt6)" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M10 17L14 10H6L10 17Z" stroke="url(#gradInt6)" stroke-width="1.5" stroke-linejoin="round"/>
+                                <line x1="10" y1="7" x2="10" y2="13" stroke="url(#gradInt6)" stroke-width="1.5"/>
+                                <defs>
+                                    <linearGradient id="gradInt6" x1="0" y1="0" x2="20" y2="20">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Etyka zawodowa
+                        </h3>
                         <p>Zrozumienie zasad poufności, szacunku i odpowiedzialności</p>
                     </div>
 
                     <div class="interview-card">
-                        <h3>🧠 Zrozumienie CBT</h3>
+                        <h3>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                <path d="M6 10C6 10 6 7 10 7C14 7 14 10 14 10C14 10 14 13 10 13C6 13 6 10 6 10Z" stroke="url(#gradInt7)" stroke-width="1.5"/>
+                                <circle cx="8" cy="9" r="1" fill="url(#gradInt7)"/>
+                                <circle cx="12" cy="9" r="1" fill="url(#gradInt7)"/>
+                                <path d="M8 11Q10 12 12 11" stroke="url(#gradInt7)" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradInt7" x1="0" y1="0" x2="20" y2="20">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Zrozumienie CBT
+                        </h3>
                         <p>Rozmowa o myśleniu terapeutycznym i analizie przykładowych sytuacji klinicznych</p>
                     </div>
                 </div>
 
                 <div class="info-box" style="max-width: 800px; margin: 40px auto 0;">
-                    <span class="info-icon">🌱</span>
+                    <span class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5C12 5 8 7 8 12C8 15 12 18 12 20C12 18 16 15 16 12C16 7 12 5 12 5Z" stroke="url(#gradInfo3)" stroke-width="1.5" stroke-linejoin="round"/>
+                            <path d="M10 10L12 14L14 10" stroke="url(#gradInfo3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradInfo3" x1="0" y1="0" x2="24" y2="24">
+                                    <stop offset="0%" stop-color="#00b4ff"/>
+                                    <stop offset="100%" stop-color="#22c7d6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </span>
                     <p>Rozmowa ma charakter merytoryczny i partnerski – naszym celem jest sprawdzić, czy HarmonJa to właściwe miejsce dla Ciebie, a Ty dla HarmonJi.</p>
                 </div>
             </div>
@@ -1274,19 +1520,54 @@
 
                 <div class="requirements-grid" style="max-width: 800px; margin: 0 auto;">
                     <div class="requirement-card">
-                        <div class="requirement-icon">✉️</div>
+                        <div class="requirement-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 22L30 32L45 22" stroke="url(#gradDec1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="15" y="20" width="30" height="20" stroke="url(#gradDec1)" stroke-width="2" rx="2"/>
+                                <defs>
+                                    <linearGradient id="gradDec1" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>Informacja o wyniku</h3>
                         <p>Otrzymasz ją drogą mailową w ciągu 14 dni od zakończenia rozmowy.</p>
                     </div>
 
                     <div class="requirement-card">
-                        <div class="requirement-icon">✓</div>
+                        <div class="requirement-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 15C30 15 20 20 20 30C20 35 25 40 30 45C35 40 40 35 40 30C40 20 30 15 30 15Z" stroke="url(#gradDec2)" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M24 28L28 32L36 24" stroke="url(#gradDec2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="gradDec2" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>W przypadku przyjęcia</h3>
                         <p>Kandydat zobowiązany jest do podpisania kompletu dokumentów w formie papierowej przed rozpoczęciem szkolenia.</p>
                     </div>
 
                     <div class="requirement-card">
-                        <div class="requirement-icon">🔄</div>
+                        <div class="requirement-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="30" r="12" stroke="url(#gradDec3)" stroke-width="2"/>
+                                <path d="M30 24L35 30L30 24Z" stroke="url(#gradDec3)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M30 36L25 30L30 36Z" stroke="url(#gradDec3)" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="30" cy="30" r="5" stroke="url(#gradDec3)" stroke-width="2"/>
+                                <defs>
+                                    <linearGradient id="gradDec3" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>W przypadku nieprzyjęcia</h3>
                         <p>Możesz ponownie aplikować w kolejnej edycji po uzupełnieniu wskazanych braków.</p>
                     </div>
@@ -1388,9 +1669,20 @@
                 <div class="footer-col">
                     <h3>Kontakt</h3>
                     <div class="contact-info">
-                        <p>Email: kontakt@harmonja.pl</p>
-                        <p>Tel: +48 123 456 789</p>
-                        <p>ul. Przykładowa 123<br>00-000 Warszawa</p>
+                        <p><strong>Szkoła Psychoterapii HarmonJa</strong></p>
+                        <p>prowadzona przez</p>
+                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp. z o.o.</p>
+                        <p style="margin-top: 15px;">
+                            ul. Politechniczna 9/7<br>
+                            80-288 Gdańsk
+                        </p>
+                        <p style="margin-top: 10px;">
+                            Email: szkolaharmonja@gmail.com
+                        </p>
+                        <p>
+                            NIP: 9571190783<br>
+                            REGON: 542257334
+                        </p>
                     </div>
                     <div class="social-links">
                         <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
