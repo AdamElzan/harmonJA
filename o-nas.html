@@ -467,22 +467,25 @@
         }
 
         .value-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             margin: 0 auto 25px;
-            background: linear-gradient(135deg, var(--light-blue), var(--white));
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            transition: all 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .value-card:hover .value-icon {
-            transform: rotate(360deg) scale(1.1);
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            color: white;
+        .value-icon svg {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 4px 10px rgba(0, 180, 255, 0.15));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .value-card:hover .value-icon svg {
+            transform: scale(1.15) translateY(-5px);
+            filter: drop-shadow(0 8px 20px rgba(0, 180, 255, 0.3));
         }
 
         .value-card h3 {
@@ -578,6 +581,7 @@
         .content-list {
             max-width: 900px;
             margin: 40px auto 0;
+            list-style: none;
         }
 
         .content-list li {
@@ -586,6 +590,7 @@
             position: relative;
             color: #555;
             line-height: 1.7;
+            list-style: none;
         }
 
         .content-list li::before {
@@ -1044,22 +1049,76 @@
                 <h2 class="section-title">Nasze wartości</h2>
                 <div class="values-grid">
                     <div class="value-card">
-                        <div class="value-icon">🔥</div>
+                        <div class="value-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 10C30 10 20 15 20 25C20 35 30 45 30 50C30 45 40 35 40 25C40 15 30 10 30 10Z" stroke="url(#gradValue1)" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M27 20L30 28L33 20" stroke="url(#gradValue1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="30" cy="35" r="4" fill="url(#gradValue1)" opacity="0.6"/>
+                                <defs>
+                                    <linearGradient id="gradValue1" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>Pasja</h3>
                         <p>Psychoterapia to nasza droga, nie tylko zawód. Uczymy z zaangażowaniem i otwartością.</p>
                     </div>
                     <div class="value-card">
-                        <div class="value-icon">📚</div>
+                        <div class="value-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="18" y="15" width="24" height="30" stroke="url(#gradValue2)" stroke-width="2" rx="2"/>
+                                <line x1="23" y1="22" x2="37" y2="22" stroke="url(#gradValue2)" stroke-width="2"/>
+                                <line x1="23" y1="28" x2="37" y2="28" stroke="url(#gradValue2)" stroke-width="2"/>
+                                <line x1="23" y1="34" x2="33" y2="34" stroke="url(#gradValue2)" stroke-width="2"/>
+                                <circle cx="30" cy="30" r="18" stroke="url(#gradValue2)" stroke-width="1.5" opacity="0.3"/>
+                                <path d="M30 12L32 18L30 12Z" stroke="url(#gradValue2)" stroke-width="1.5"/>
+                                <defs>
+                                    <linearGradient id="gradValue2" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>Nauka</h3>
                         <p>Nasz program opiera się na badaniach, współpracy z instytucjami naukowymi i nowoczesnych metodach nauczania.</p>
                     </div>
                     <div class="value-card">
-                        <div class="value-icon">✓</div>
+                        <div class="value-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 15C30 15 20 20 20 30C20 35 25 40 30 45C35 40 40 35 40 30C40 20 30 15 30 15Z" stroke="url(#gradValue3)" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="30" cy="28" r="5" stroke="url(#gradValue3)" stroke-width="2"/>
+                                <path d="M25 32L28 35L35 28" stroke="url(#gradValue3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="gradValue3" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>Rzetelność</h3>
                         <p>Stawiamy na kompetencje praktyczne, etykę zawodu i kliniczne standardy.</p>
                     </div>
                     <div class="value-card">
-                        <div class="value-icon">🤝</div>
+                        <div class="value-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="10" stroke="url(#gradValue4)" stroke-width="2"/>
+                                <circle cx="38" cy="30" r="8" stroke="url(#gradValue4)" stroke-width="2"/>
+                                <path d="M30 30Q35 35 30 40" stroke="url(#gradValue4)" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="30" cy="40" r="3" fill="url(#gradValue4)"/>
+                                <path d="M20 30L25 35" stroke="url(#gradValue4)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M40 35L35 38" stroke="url(#gradValue4)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradValue4" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                         <h3>Pomoc</h3>
                         <p>Przygotowujemy do realnej pracy terapeutycznej, z pacjentami i zespołami klinicznymi, w ramach superwizji i mentoringu.</p>
                     </div>
@@ -1221,9 +1280,20 @@
                 <div class="footer-col">
                     <h3>Kontakt</h3>
                     <div class="contact-info">
-                        <p>Email: kontakt@harmonja.pl</p>
-                        <p>Tel: +48 123 456 789</p>
-                        <p>ul. Przykładowa 123<br>00-000 Warszawa</p>
+                        <p><strong>Szkoła Psychoterapii HarmonJa</strong></p>
+                        <p>prowadzona przez</p>
+                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp. z o.o.</p>
+                        <p style="margin-top: 15px;">
+                            ul. Politechniczna 9/7<br>
+                            80-288 Gdańsk
+                        </p>
+                        <p style="margin-top: 10px;">
+                            Email: szkolaharmonja@gmail.com
+                        </p>
+                        <p>
+                            NIP: 9571190783<br>
+                            REGON: 542257334
+                        </p>
                     </div>
                     <div class="social-links">
                         <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
