@@ -504,6 +504,265 @@
             }
         }
 
+        /* ==================== MODAL STYLES ==================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            padding: 40px 40px 30px;
+            border-bottom: 2px solid var(--medium-gray);
+            z-index: 10;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--medium-gray);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            transition: all 0.3s;
+            z-index: 11;
+        }
+
+        .modal-close:hover {
+            background: var(--error-red);
+            border-color: var(--error-red);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .modal-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-blue), var(--medium-gray));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--highlight-color);
+            font-weight: 700;
+            border: 6px solid var(--white);
+            box-shadow: 0 8px 30px rgba(0, 180, 255, 0.2);
+            margin: 0 auto 20px;
+        }
+
+        .modal-name {
+            font-size: 2.2rem;
+            color: var(--dark-blue);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .modal-tag {
+            padding: 6px 16px;
+            background: var(--light-blue);
+            border: 1px solid var(--highlight-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .bio-section {
+            margin-bottom: 40px;
+        }
+
+        .bio-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .bio-section-title {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bio-section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-blue), rgba(0, 180, 255, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bio-section-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .bio-section-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bio-section-content li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .bio-section-content li:last-child {
+            border-bottom: none;
+        }
+
+        .bio-section-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .modal-navigation {
+            position: sticky;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: var(--white);
+            border-top: 2px solid var(--medium-gray);
+            gap: 15px;
+        }
+
+        .modal-nav-btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: 2px solid var(--medium-gray);
+            background: var(--white);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color);
+        }
+
+        .modal-nav-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: var(--white);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 180, 255, 0.3);
+        }
+
+        .modal-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                max-height: 95vh;
+                border-radius: 20px 20px 0 0;
+            }
+
+            .modal-header,
+            .modal-body,
+            .modal-navigation {
+                padding: 30px 20px;
+            }
+
+            .modal-name {
+                font-size: 1.8rem;
+            }
+
+            .modal-title {
+                font-size: 1rem;
+            }
+
+            .modal-navigation {
+                flex-direction: column;
+            }
+
+            .modal-nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         .staff-section {
             padding: 80px 0;
             background: var(--light-gray);
@@ -1047,8 +1306,27 @@
         </div>
     </footer>
 
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Zamknij modal">✕</button>
+            <div class="modal-header" id="modalHeader"></div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-navigation">
+                <button class="modal-nav-btn" id="modalPrev">
+                    <span>←</span>
+                    <span>Poprzedni</span>
+                </button>
+                <button class="modal-nav-btn" id="modalNext">
+                    <span>Następny</span>
+                    <span>→</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // ==================== PEŁNE DANE KADRY - 45 OSÓB ====================
+        // ==================== PEŁNE DANE KADRY Z BIOGRAFIAMI - 45 OSÓB ====================
         const staffData = [
             // TIER 1: KIEROWNICTWO (4 osoby)
             {
@@ -1060,7 +1338,17 @@
                 keyExpertise: "Założyciel Szkoły HarmonJa, twórca podcastu 'W Głowie się Mieści', platformy AkademiaCBT",
                 tags: ["CBT", "Superwizja", "Trauma", "ACT"],
                 isDirector: true,
-                badgeText: "DYREKTOR KURSU"
+                badgeText: "DYREKTOR KURSU",
+                bio: {
+                    education: [
+                        "Magister Psychologii, Uniwersytet Gdański",
+                        "Certyfikowany Superwizor-Dydaktyk PTTPB (Polskie Towarzystwo Terapii Poznawczo-Behawioralnej)",
+                        "Certyfikowany Psychoterapeuta Poznawczo-Behawioralny",
+                        "Szkolenia z zakresu CBT, ACT, terapii traumy"
+                    ],
+                    experience: "Założyciel i dyrektor Szkoły Psychoterapii HarmonJa. Twórca popularnego podcastu psychologicznego 'W Głowie się Mieści' oraz platformy edukacyjnej AkademiaCBT. Wieloletnie doświadczenie w psychoterapii poznawczo-behawioralnej, ze szczególnym naciskiem na terapię traumy i zaburzeń lękowych. Prowadzi superwizje indywidualne i grupowe dla psychoterapeutów.",
+                    interests: "Rozwój evidence-based psychoterapii w Polsce, popularyzacja wiedzy psychologicznej poprzez podcast i media społecznościowe, integracja różnych nurtów terapeutycznych (CBT, ACT, terapia traumy)."
+                }
             },
             {
                 id: 2,
@@ -1071,7 +1359,19 @@
                 keyExpertise: "Przewodnicząca Polskiego Towarzystwa Terapii DBT, współpraca z prof. Alanem Fruzzettim (USA)",
                 tags: ["DBT", "EMDR", "ACT", "Dzieci"],
                 isDirector: true,
-                badgeText: "DYREKTOR KURSU"
+                badgeText: "DYREKTOR KURSU",
+                bio: {
+                    education: [
+                        "Magister Psychologii, Uniwersytet Gdański",
+                        "Magister Socjologii, Uniwersytet Gdański",
+                        "Certyfikowany Superwizor-Dydaktyk PTTPB nr 87",
+                        "DBT Intensive Training (certyfikacja międzynarodowa)",
+                        "EMDR Level 1 & 2 Training",
+                        "ACT Training - Acceptance and Commitment Therapy"
+                    ],
+                    experience: "Przewodnicząca Polskiego Towarzystwa Terapii DBT. Współpracuje z prof. Alanem Fruzzettim z USA, jednym z czołowych ekspertów DBT na świecie. Specjalizuje się w terapii dialektyczno-behawioralnej (DBT), EMDR oraz pracy z dziećmi i młodzieżą. Prowadzi szkolenia z DBT dla psychoterapeutów w całej Polsce.",
+                    interests: "Rozpowszechnianie DBT w Polsce, praca z zaburzeniami regulacji emocji, integracja EMDR z DBT, terapia dzieci i młodzieży z trudnościami emocjonalnymi."
+                }
             },
             {
                 id: 3,
@@ -1082,7 +1382,18 @@
                 keyExpertise: "Dialog Motywujący (PTTM nr 65), DBT, wieloletnie doświadczenie superwizyjne i dydaktyczne",
                 tags: ["CBT", "DBT", "Dialog Motywujący", "Schemat"],
                 isDirector: true,
-                badgeText: "KIEROWNIK MERYTORYCZNY"
+                badgeText: "KIEROWNIK MERYTORYCZNY",
+                bio: {
+                    education: [
+                        "Magister Psychologii",
+                        "Certyfikowany Superwizor-Dydaktyk PTTPB nr 50",
+                        "Certyfikowany Trener Dialogu Motywującego PTTM nr 65",
+                        "DBT Comprehensive Training",
+                        "Szkolenie z Terapii Schematów (poziom podstawowy i zaawansowany)"
+                    ],
+                    experience: "Kierownik merytoryczny Szkoły Psychoterapii HarmonJa. Wieloletnie doświadczenie w prowadzeniu superwizji indywidualnych i grupowych. Specjalistka Dialogu Motywującego z certyfikatem trenera PTTM. Łączy w praktyce klinicznej elementy CBT, DBT, terapii schematów i dialogu motywującego. Prowadzi szkolenia dla psychoterapeutów z zakresu pracy z oporem terapeutycznym.",
+                    interests: "Dialog Motywujący w psychoterapii, praca z ambiwałencją klientów, integracja różnych nurtów terapeutycznych, superwizja kliniczna."
+                }
             },
             {
                 id: 4,
@@ -1093,7 +1404,17 @@
                 keyExpertise: "Specjalistka terapii uzależnień, Dialog Motywujący, założicielka Fundacji Dbajmy o Siebie",
                 tags: ["CBT", "Uzależnienia", "Dialog Motywujący"],
                 isDirector: true,
-                badgeText: "DYREKTOR SZKOŁY"
+                badgeText: "DYREKTOR SZKOŁY",
+                bio: {
+                    education: [
+                        "Certyfikowana Psychoterapeutka Poznawczo-Behawioralna (PTTPB)",
+                        "Specjalizacja w terapii uzależnień",
+                        "Certyfikat Dialogu Motywującego",
+                        "Szkolenia z zakresu interwencji kryzysowej"
+                    ],
+                    experience: "Dyrektor Szkoły Psychoterapii HarmonJa. Założycielka Fundacji Dbajmy o Siebie, wspierającej osoby z problemami uzależnień. Specjalizuje się w terapii uzależnień behawioralnych i chemicznych, ze szczególnym uwzględnieniem Dialogu Motywującego. Wieloletnie doświadczenie w pracy z osobami w kryzysie i ich rodzinami. Prowadzi również warsztaty profilaktyczne dla młodzieży.",
+                    interests: "Profilaktyka uzależnień, Dialog Motywujący w pracy z uzależnieniami, wsparcie rodzin osób uzależnionych, redukcja szkód."
+                }
             },
 
             // TIER 2: PROFESOROWIE I SUPERWIZORZY (19 osób)
@@ -1104,7 +1425,22 @@
                 shortTitle: "Profesor Psychologii",
                 fullTitle: "Profesor Psychologii (Full Professor), Ph.D. in Psychology and Cognitive Neuroscience",
                 keyExpertise: "Neurobiologia uzależnień i kompulsywnych zachowań seksualnych",
-                tags: ["CBT", "Badania"]
+                tags: ["CBT", "Badania"],
+                bio: {
+                    education: [
+                        "Ph.D. in Psychology and Cognitive Neuroscience",
+                        "Full Professor - Profesor Psychologii",
+                        "Post-doctoral research at University of California San Diego",
+                        "Badania neurobiologiczne z użyciem fMRI"
+                    ],
+                    experience: "Profesor psychologii specjalizujący się w neuronaukach poznawczych i klinicznych. Prowadzi badania nad neurobiologią uzależnień, ze szczególnym naciskiem na kompulsywne zachowania seksualne. Publikuje w najbardziej prestiżowych czasopismach naukowych. Wykładowca akademicki, promotor prac doktorskich. Współpracuje z międzynarodowymi ośrodkami badawczymi.",
+                    publications: [
+                        "Liczne publikacje w czasopismach Impact Factor",
+                        "Badania nad neurobiologią CSBD (Compulsive Sexual Behavior Disorder)",
+                        "Współautor międzynarodowych guidelines ICD-11"
+                    ],
+                    interests: "Neuronauka uzależnień, kompulsywne zachowania seksualne, zastosowanie neurobiologii w psychoterapii, translational research."
+                }
             },
             {
                 id: 6,
@@ -1113,7 +1449,22 @@
                 shortTitle: "Profesor IP PAN",
                 fullTitle: "Dr hab. Psychologii, Profesor Instytutu Psychologii PAN",
                 keyExpertise: "Psychozy, hallucynacje, terapia poznawczo-behawioralna psychoz",
-                tags: ["CBT", "Badania"]
+                tags: ["CBT", "Badania"],
+                bio: {
+                    education: [
+                        "Doktor habilitowany Psychologii",
+                        "Profesor Instytutu Psychologii PAN",
+                        "Szkolenia z CBT for psychosis (UK)",
+                        "Badania eksperymentalne nad psychozami"
+                    ],
+                    experience: "Profesor IP PAN, zajmujący się badaniami nad psychozami i hallucynacjami. Specjalizuje się w terapii poznawczo-behawioralnej psychoz (CBTp). Prowadzi badania eksperymentalne nad mechanizmami powstawania halucynacji. Wykładowca akademicki, promotor doktorantów. Współpracuje z międzynarodowymi zespołami badawczymi z Wielkiej Brytanii i Niemiec.",
+                    publications: [
+                        "Publikacje w Journal of Abnormal Psychology, Schizophrenia Research",
+                        "Badania nad Syndromem Poznawczo-Uwagi (CAT)",
+                        "Metacognitive Training for psychosis"
+                    ],
+                    interests: "CBT w psychozach, mechanizmy poznawcze halucynacji, metakognicja, translacja badań do praktyki klinicznej."
+                }
             },
             {
                 id: 7,
@@ -1122,7 +1473,22 @@
                 shortTitle: "Profesor Medycyny",
                 fullTitle: "Profesor Dr hab. Medycyny, Specjalista Psychiatrii",
                 keyExpertise: "Psychiatria, psychoterapia, medytacja i mindfulness",
-                tags: ["Badania"]
+                tags: ["Badania"],
+                bio: {
+                    education: [
+                        "Profesor doktor habilitowany nauk medycznych",
+                        "Specjalista psychiatrii",
+                        "Szkolenia z zakresu mindfulness i medytacji",
+                        "Certyfikacje psychoterapeutyczne"
+                    ],
+                    experience: "Profesor medycyny, psychiatra z wieloletnim doświadczeniem klinicznym i akademickim. Specjalizuje się w integracji psychiatrii z psychoterapią i praktykami mindfulness. Autor licznych publikacji naukowych i książek popularnonaukowych. Wykładowca akademicki, promotor prac doktorskich. Propagator integracji praktyk uważności w medycynie i psychoterapii.",
+                    publications: [
+                        "Autor książek o mindfulness w psychoterapii",
+                        "Publikacje naukowe z zakresu psychiatrii",
+                        "Artykuły popularnonaukowe o medytacji"
+                    ],
+                    interests: "Mindfulness w psychiatrii i psychoterapii, integracja Wschód-Zachód, neurofizjologia medytacji, holistyczne podejście do zdrowia psychicznego."
+                }
             },
             {
                 id: 8,
@@ -1131,7 +1497,17 @@
                 shortTitle: "Superwizor-Dydaktyk PTTPB",
                 fullTitle: "Superwizor-dydaktyk PTTPB, psychoterapeutka poznawczo-behawioralna (nr 526)",
                 keyExpertise: "Psychoterapia dzieci, młodzieży i dorosłych, neuropsychologia",
-                tags: ["CBT", "Dzieci", "Superwizja"]
+                tags: ["CBT", "Dzieci", "Superwizja"],
+                bio: {
+                    education: [
+                        "Superwizor-dydaktyk PTTPB",
+                        "Psychoterapeutka poznawczo-behawioralna nr 526",
+                        "Szkolenia z neuropsychologii klinicznej",
+                        "CBT for children and adolescents"
+                    ],
+                    experience: "Doświadczona superwizorka i psychoterapeutka, pracująca z dziećmi, młodzieżą i dorosłymi. Specjalizuje się w integracji neuropsychologii z psychoterapią poznawczo-behawioralną. Prowadzi superwizje indywidualne i grupowe. Wykładowczyni na szkoleniach psychoterapeutycznych. Doświadczenie w pracy z zaburzeniami neurorozwojowymi.",
+                    interests: "Neuropsychologia w praktyce klinicznej, CBT dla dzieci i młodzieży, diagnoza różnicowa, superwizja kliniczna."
+                }
             },
             {
                 id: 9,
@@ -1140,7 +1516,17 @@
                 shortTitle: "Superwizor-Dydaktyk PTTPB",
                 fullTitle: "Superwizor-dydaktyk PTTPB, psychoterapeutka poznawczo-behawioralna, seksuolożka",
                 keyExpertise: "Psychoterapia zaburzeń lękowych, depresyjnych, seksuologia kliniczna",
-                tags: ["CBT", "Seksuologia", "Superwizja"]
+                tags: ["CBT", "Seksuologia", "Superwizja"],
+                bio: {
+                    education: [
+                        "Superwizor-dydaktyk PTTPB",
+                        "Psychoterapeutka poznawczo-behawioralna",
+                        "Certyfikowana seksuolożka kliniczna",
+                        "Szkolenia z zakresu zaburzeń lękowych i OCD"
+                    ],
+                    experience: "Doświadczona superwizorka i psychoterapeutka, specjalizująca się w zaburzeniach lękowych, depresyjnych oraz seksuologii klinicznej. Prowadzi terapię indywidualną i parową. Wykładowczyni na szkoleniach z CBT i seksuologii. Superwizorka grupowa i indywidualna. Doświadczenie w pracy z OCD, lękiem społecznym i zaburzeniami seksualnymi.",
+                    interests: "Seksuologia kliniczna w nurcie CBT, zaburzenia lękowe i obsesyjno-kompulsyjne, terapia par, superwizja kliniczna."
+                }
             },
             {
                 id: 10,
@@ -1149,7 +1535,18 @@
                 shortTitle: "Superwizor-Dydaktyk PTTPB",
                 fullTitle: "Superwizor-dydaktyk PTTPB, psychoterapeutka poznawczo-behawioralna (PTTPB nr 368, EABCT)",
                 keyExpertise: "DBT, zaburzenia osobowości, psychoterapia młodzieży i dorosłych",
-                tags: ["CBT", "DBT", "Superwizja"]
+                tags: ["CBT", "DBT", "Superwizja"],
+                bio: {
+                    education: [
+                        "Superwizor-dydaktyk PTTPB",
+                        "Psychoterapeutka poznawczo-behawioralna nr 368",
+                        "Certyfikat EABCT (European Association for Behavioural and Cognitive Therapies)",
+                        "DBT Comprehensive Training",
+                        "Szkolenia z zakresu zaburzeń osobowości"
+                    ],
+                    experience: "Doświadczona superwizorka i psychoterapeutka, specjalizująca się w DBT i zaburzeniach osobowości. Pracuje z młodzieżą i dorosłymi z trudnościami w regulacji emocji. Prowadzi superwizje indywidualne i grupowe, wykładowczyni na szkoleniach psychoterapeutycznych. Certyfikat międzynarodowy EABCT. Doświadczenie w prowadzeniu grupowej terapii DBT.",
+                    interests: "DBT w praktyce klinicznej, zaburzenia osobowości borderline, regulacja emocji, superwizja terapeutów DBT."
+                }
             },
             {
                 id: 11,
@@ -1472,6 +1869,7 @@
 
         let currentStaffList = [...staffData];
         let activeFilters = { tier: 'all', tags: [], search: '' };
+        let currentModalIndex = 0;
 
         function renderStaff() {
             const tier1Grid = document.getElementById('tier1Grid');
@@ -1543,6 +1941,7 @@
             card.style.animationDelay = `${index * 0.05}s`;
             card.setAttribute('role', 'button');
             card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', `Zobacz więcej informacji o ${person.name}`);
 
             const initials = person.name.split(' ').map(n => n[0]).join('');
 
@@ -1560,7 +1959,185 @@
                 <div class="staff-card-footer">Dowiedz się więcej →</div>
             `;
 
+            // Add click handler to open modal
+            card.addEventListener('click', () => openModal(person));
+            card.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(person);
+                }
+            });
+
             return card;
+        }
+
+        // ==================== MODAL FUNCTIONS ====================
+
+        function openModal(person) {
+            const modal = document.getElementById('modalOverlay');
+            const modalHeader = document.getElementById('modalHeader');
+            const modalBody = document.getElementById('modalBody');
+
+            // Find current index in filtered list
+            currentModalIndex = currentStaffList.findIndex(p => p.id === person.id);
+
+            // Build header
+            const initials = person.name.split(' ').map(n => n[0]).join('');
+            
+            modalHeader.innerHTML = `
+                <div class="modal-avatar-large">${initials}</div>
+                <h2 class="modal-name">${person.name}</h2>
+                <p class="modal-title">${person.fullTitle}</p>
+                <div class="modal-tags">
+                    ${person.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('')}
+                </div>
+            `;
+
+            // Build body with bio sections
+            let bioHTML = '';
+
+            // Education section
+            if (person.bio && person.bio.education) {
+                bioHTML += `
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">
+                            <div class="bio-section-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 3L2 9l10 6 10-6-10-6z" stroke="url(#gradBio1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 15l10 6 10-6M6 12v6c0 2-2 3-6 3" stroke="url(#gradBio1)" stroke-width="2" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="gradBio1" x1="0" y1="0" x2="24" y2="24">
+                                            <stop offset="0%" stop-color="#00b4ff"/>
+                                            <stop offset="100%" stop-color="#22c7d6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            Wykształcenie i certyfikacje
+                        </h3>
+                        <div class="bio-section-content">
+                            <ul>
+                                ${person.bio.education.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Experience section
+            if (person.bio && person.bio.experience) {
+                bioHTML += `
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">
+                            <div class="bio-section-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="6" y="8" width="12" height="10" stroke="url(#gradBio2)" stroke-width="2" rx="1"/>
+                                    <path d="M9 12L11 14L15 10" stroke="url(#gradBio2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="12" y1="6" x2="12" y2="8" stroke="url(#gradBio2)" stroke-width="2"/>
+                                    <defs>
+                                        <linearGradient id="gradBio2" x1="0" y1="0" x2="24" y2="24">
+                                            <stop offset="0%" stop-color="#00b4ff"/>
+                                            <stop offset="100%" stop-color="#22c7d6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            Doświadczenie
+                        </h3>
+                        <div class="bio-section-content">${person.bio.experience}</div>
+                    </div>
+                `;
+            }
+
+            // Publications section (optional)
+            if (person.bio && person.bio.publications && person.bio.publications.length > 0) {
+                bioHTML += `
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">
+                            <div class="bio-section-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="5" y="4" width="14" height="16" rx="1" stroke="url(#gradBio3)" stroke-width="2"/>
+                                    <line x1="9" y1="9" x2="15" y2="9" stroke="url(#gradBio3)" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="9" y1="13" x2="15" y2="13" stroke="url(#gradBio3)" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="9" y1="17" x2="12" y2="17" stroke="url(#gradBio3)" stroke-width="2" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="gradBio3" x1="0" y1="0" x2="24" y2="24">
+                                            <stop offset="0%" stop-color="#00b4ff"/>
+                                            <stop offset="100%" stop-color="#22c7d6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            Publikacje
+                        </h3>
+                        <div class="bio-section-content">
+                            <ul>
+                                ${person.bio.publications.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Interests section (optional)
+            if (person.bio && person.bio.interests) {
+                bioHTML += `
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">
+                            <div class="bio-section-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2l2.4 7.4h7.8l-6.3 4.6 2.4 7.4-6.3-4.6-6.3 4.6 2.4-7.4-6.3-4.6h7.8z" stroke="url(#gradBio4)" stroke-width="2" stroke-linejoin="round"/>
+                                    <defs>
+                                        <linearGradient id="gradBio4" x1="0" y1="0" x2="24" y2="24">
+                                            <stop offset="0%" stop-color="#00b4ff"/>
+                                            <stop offset="100%" stop-color="#22c7d6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            Zainteresowania i specjalizacje
+                        </h3>
+                        <div class="bio-section-content">${person.bio.interests}</div>
+                    </div>
+                `;
+            }
+
+            // If no bio data, show message
+            if (!person.bio || (!person.bio.education && !person.bio.experience)) {
+                bioHTML = `
+                    <div class="bio-section">
+                        <p style="text-align: center; color: #999; padding: 40px;">
+                            Szczegółowe informacje biograficzne będą wkrótce dostępne.
+                        </p>
+                    </div>
+                `;
+            }
+
+            modalBody.innerHTML = bioHTML;
+
+            // Update navigation buttons
+            document.getElementById('modalPrev').disabled = currentModalIndex === 0;
+            document.getElementById('modalNext').disabled = currentModalIndex === currentStaffList.length - 1;
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus on close button for accessibility
+            document.getElementById('modalClose').focus();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function navigateModal(direction) {
+            const newIndex = currentModalIndex + direction;
+            if (newIndex >= 0 && newIndex < currentStaffList.length) {
+                openModal(currentStaffList[newIndex]);
+            }
         }
 
         function updateActiveFiltersDisplay() {
@@ -1633,6 +2210,32 @@
 
         // Initialize
         renderStaff();
+
+        // Modal event listeners
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modalPrev').addEventListener('click', () => navigateModal(-1));
+        document.getElementById('modalNext').addEventListener('click', () => navigateModal(1));
+
+        // Close modal when clicking outside
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modalOverlay')) {
+                closeModal();
+            }
+        });
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('modalOverlay');
+            if (!modal.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                navigateModal(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateModal(1);
+            }
+        });
     </script>
 </body>
 </html>
