@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="description" content="Skontaktuj się ze Szkołą Psychoterapii HarmonJa. Biura w Warszawie i Gdańsku. Odpowiadamy w 24h. Rekrutacja, programy szkoleniowe, współpraca.">
+    <meta name="keywords" content="kontakt HarmonJa, szkoła psychoterapii kontakt, rekrutacja CBT, Warszawa Gdańsk">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kontakt - HarmonJa Szkoła Psychoterapii CBT">
+    <meta property="og:description" content="Skontaktuj się z nami. Biura w Warszawie i Gdańsku. Odpowiadamy w 24h.">
+    <meta property="og:type" content="website">
+    
+    <title>Kontakt - HarmonJa Szkoła Psychoterapii CBT</title>
+    
+    <style>
+        :root {
+            --primary-color: #22c7d6;
+            --secondary-color: #1ab6c5;
+            --highlight-color: #00b4ff;
+            --light-blue: #f2fbfd;
+            --dark-blue: #09395f;
+            --text-color: #333;
+            --light-gray: #faf8f5;
+            --medium-gray: #eaeaea;
+            --white: #ffffff;
+            --success-green: #10b981;
+            --error-red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--highlight-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            background-color: var(--white);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+        
+        .logo-container svg {
+            height: 90px;
+            width: auto;
+            max-width: 300px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a,
+        .nav-links > li > .dropdown-toggle {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: block;
+            position: relative;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .nav-links > li > a::after,
+        .nav-links > li > .dropdown-toggle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            transition: width 0.3s;
+        }
+
+        .nav-links > li > a:hover,
+        .nav-links > li > .dropdown-toggle:hover {
+            color: var(--highlight-color);
+        }
+
+        .nav-links > li > a:hover::after,
+        .nav-links > li > .dropdown-toggle:hover::after {
+            width: 100%;
+        }
+
+        .nav-links > li > a.active {
+            color: var(--highlight-color);
+        }
+
+        .nav-links > li > a.active::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-toggle::before {
+            content: '▼';
+            font-size: 0.65em;
+            margin-left: 5px;
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+
+        .dropdown:hover .dropdown-toggle::before {
+            transform: rotate(180deg);
+            opacity: 1;
+            color: var(--highlight-color);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            list-style: none;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-blue);
+            color: var(--highlight-color);
+        }
+
+        /* ==================== HERO WITH FLOATING ORBS ==================== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 50%, #fff9f0 100%);
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating Orbs - Tesla Innovation */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 180, 255, 0.15), rgba(34, 199, 214, 0.05));
+            pointer-events: none;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -50px;
+            animation-duration: 25s;
+        }
+
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: -50px;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 150px;
+            height: 150px;
+            bottom: -50px;
+            left: 20%;
+            animation-duration: 20s;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.15;
+            }
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+                opacity: 0.25;
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.95);
+                opacity: 0.2;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--dark-blue), var(--highlight-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .quick-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--white);
+            border: 2px solid var(--medium-gray);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .quick-link-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 180, 255, 0.2);
+            border-color: var(--highlight-color);
+            color: var(--highlight-color);
+        }
+
+        /* ==================== MULTI-STEP FORM - INNOVATION #1 ==================== */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        /* Progress Bar */
+        .progress-bar-container {
+            margin-bottom: 40px;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--medium-gray);
+            z-index: 0;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            transition: width 0.4s ease;
+            z-index: 1;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: all 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .step-circle.active {
+            border-color: var(--highlight-color);
+            background: var(--highlight-color);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .step-circle.completed {
+            border-color: var(--success-green);
+            background: var(--success-green);
+            color: var(--white);
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .step-label.active {
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+            animation: fadeInStep 0.4s ease;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeInStep {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .step-description {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        /* Profile Cards (Step 1) */
+        .profile-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            padding: 30px 20px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--white);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 180, 255, 0.15);
+            border-color: var(--highlight-color);
+        }
+
+        .profile-card.selected {
+            border-color: var(--highlight-color);
+            background: linear-gradient(135deg, rgba(0, 180, 255, 0.05), rgba(34, 199, 214, 0.05));
+            box-shadow: 0 8px 20px rgba(0, 180, 255, 0.2);
+        }
+
+        .profile-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .profile-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+
+        .profile-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Topic Cards (Step 2) */
+        .topic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic-card {
+            padding: 20px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: var(--white);
+        }
+
+        .topic-card:hover {
+            border-color: var(--highlight-color);
+            background: var(--light-blue);
+        }
+
+        .topic-card.selected {
+            border-color: var(--highlight-color);
+            background: var(--light-blue);
+        }
+
+        .topic-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s;
+            margin-top: 2px;
+        }
+
+        .topic-card.selected .topic-checkbox {
+            background: var(--highlight-color);
+            border-color: var(--highlight-color);
+        }
+
+        .topic-card.selected .topic-checkbox::after {
+            content: '✓';
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .topic-content {
+            flex: 1;
+        }
+
+        .topic-title {
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+
+        .topic-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Form Fields (Step 3) */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: 0.95rem;
+        }
+
+        .form-label .required {
+            color: var(--error-red);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.1);
+        }
+
+        .form-input.valid {
+            border-color: var(--success-green);
+        }
+
+        .form-input.invalid {
+            border-color: var(--error-red);
+            animation: shake 0.4s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .validation-message {
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .validation-message.show {
+            display: block;
+        }
+
+        .validation-message.error {
+            color: var(--error-red);
+        }
+
+        .validation-message.success {
+            color: var(--success-green);
+        }
+
+        /* Form Navigation */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: var(--light-gray);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--medium-gray);
+            transform: translateX(-3px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: var(--white);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 180, 255, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Summary View */
+        .summary-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-item {
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            border-left: 4px solid var(--highlight-color);
+        }
+
+        .summary-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-value {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+        }
+
+        /* Success Animation */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .success-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .success-message {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 500px;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-overlay.show .success-message {
+            transform: scale(1);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--success-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: successPulse 0.6s ease;
+        }
+
+        @keyframes successPulse {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .success-icon::after {
+            content: '✓';
+            font-size: 3rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .success-text {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        /* ==================== INTERACTIVE MAP - INNOVATION #2 ==================== */
+        .map-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .location-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+        }
+
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 180, 255, 0.15);
+        }
+
+        .location-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-blue), rgba(0, 180, 255, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .location-name {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .location-details {
+            margin-bottom: 25px;
+        }
+
+        .location-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .detail-icon {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .location-btn {
+            width: 100%;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .location-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 180, 255, 0.3);
+        }
+
+        /* ==================== FAQ ACCORDION - INNOVATION #3 ==================== */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 25px 30px;
+            background: var(--white);
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--light-blue);
+            border-color: var(--highlight-color);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--highlight-color);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: var(--light-gray);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 25px 30px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #051f34 100%);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 30px 30px;
+                transition: left 0.3s;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin-top: 10px;
+            }
+
+            .logo-container svg {
+                height: 70px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .profile-cards,
+            .topic-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .form-navigation {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html" aria-label="HarmonJa - Strona główna">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120">
+                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
+                            Szkoła Psychoterapii CBT
+                          </text>
+                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
+                            Harmon
+                          </text>
+                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
+                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
+                            Ja
+                          </text>
+                        </svg>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    ☰
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="o-nas.html">O nas</a></li>
+                    <li class="dropdown">
+                        <span class="dropdown-toggle" tabindex="0">Szkoła Psychoterapii</span>
+                        <ul class="dropdown-menu">
+                            <li><a href="szkola-dzieci-mlodziez.html">Dzieci i Młodzieży</a></li>
+                            <li><a href="szkola-dorosli.html">Dorosłych</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="rekrutacja.html">Rekrutacja</a></li>
+                    <li><a href="#">Szkolenia/Superwizja</a></li>
+                    <li><a href="kadra.html">Kadra</a></li>
+                    <li><a href="kontakt.html" class="active">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+
+        <div class="hero-content container">
+            <h1 class="hero-title">Skontaktuj się z nami</h1>
+            <p class="hero-subtitle">Odpowiadamy w ciągu 24 godzin. Jesteśmy dostępni w Warszawie i Gdańsku.</p>
+            
+            <div class="hero-quick-links">
+                <button class="quick-link-btn" onclick="scrollToForm()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>Wyślij wiadomość</span>
+                </button>
+                <button class="quick-link-btn" onclick="scrollToLocations()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2c-3.314 0-6 2.686-6 6 0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>Nasze biura</span>
+                </button>
+                <button class="quick-link-btn" onclick="scrollToFaq()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M10 14h.01M10 11c0-1 1-1.5 1.5-2 .5-.5 1-1 1-2 0-1.5-1.5-2.5-3-2.5S7 5.5 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>FAQ</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Step Contact Form -->
+    <section class="contact-section" id="main-content">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Formularz kontaktowy</h2>
+                <p class="section-subtitle">Wypełnij poniższy formularz - odpowiemy w ciągu 24h</p>
+            </div>
+
+            <div class="form-container">
+                <!-- Progress Bar -->
+                <div class="progress-bar-container">
+                    <div class="progress-steps">
+                        <div class="progress-line" id="progressLine"></div>
+                        <div class="step-item">
+                            <div class="step-circle active" id="stepCircle1">1</div>
+                            <span class="step-label active">Kim jesteś?</span>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-circle" id="stepCircle2">2</div>
+                            <span class="step-label">W czym możemy pomóc?</span>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-circle" id="stepCircle3">3</div>
+                            <span class="step-label">Twoje dane</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contactForm">
+                    <!-- Step 1: Profile -->
+                    <div class="form-step active" id="step1">
+                        <h3 class="step-title">Kim jesteś?</h3>
+                        <p class="step-description">Pomóż nam lepiej odpowiedzieć na Twoje pytanie</p>
+                        
+                        <div class="profile-cards">
+                            <div class="profile-card" data-profile="psychologist">
+                                <div class="profile-icon">
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="24" cy="14" r="8" stroke="url(#grad1)" stroke-width="2.5"/>
+                                        <path d="M10 38c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="url(#grad1)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <path d="M24 22v6M18 31h12" stroke="url(#grad1)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <defs>
+                                            <linearGradient id="grad1" x1="0" y1="0" x2="48" y2="48">
+                                                <stop offset="0%" stop-color="#00b4ff"/>
+                                                <stop offset="100%" stop-color="#22c7d6"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="profile-title">Psycholog</div>
+                                <div class="profile-desc">Chcę się doskonalić</div>
+                            </div>
+                            <div class="profile-card" data-profile="student">
+                                <div class="profile-icon">
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 8L6 18l18 10 18-10L24 8z" stroke="url(#grad2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 28l18 10 18-10M12 21v10c0 3-4 6-12 6" stroke="url(#grad2)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <defs>
+                                            <linearGradient id="grad2" x1="0" y1="0" x2="48" y2="48">
+                                                <stop offset="0%" stop-color="#00b4ff"/>
+                                                <stop offset="100%" stop-color="#22c7d6"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="profile-title">Student</div>
+                                <div class="profile-desc">Planuję karierę</div>
+                            </div>
+                            <div class="profile-card" data-profile="institution">
+                                <div class="profile-icon">
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="8" y="16" width="32" height="24" rx="2" stroke="url(#grad3)" stroke-width="2.5"/>
+                                        <path d="M16 16V12c0-2 2-4 8-4s8 2 8 4v4M24 28v4" stroke="url(#grad3)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <circle cx="24" cy="26" r="2" fill="url(#grad3)"/>
+                                        <defs>
+                                            <linearGradient id="grad3" x1="0" y1="0" x2="48" y2="48">
+                                                <stop offset="0%" stop-color="#00b4ff"/>
+                                                <stop offset="100%" stop-color="#22c7d6"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="profile-title">Instytucja</div>
+                                <div class="profile-desc">Współpraca B2B</div>
+                            </div>
+                            <div class="profile-card" data-profile="other">
+                                <div class="profile-icon">
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="24" cy="24" r="16" stroke="url(#grad4)" stroke-width="2.5"/>
+                                        <path d="M24 18v8M24 30h.01" stroke="url(#grad4)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <defs>
+                                            <linearGradient id="grad4" x1="0" y1="0" x2="48" y2="48">
+                                                <stop offset="0%" stop-color="#00b4ff"/>
+                                                <stop offset="100%" stop-color="#22c7d6"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="profile-title">Inne</div>
+                                <div class="profile-desc">Inne pytanie</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Topic -->
+                    <div class="form-step" id="step2">
+                        <h3 class="step-title">W czym możemy pomóc?</h3>
+                        <p class="step-description">Wybierz jeden lub więcej tematów</p>
+                        
+                        <div class="topic-cards">
+                            <div class="topic-card" data-topic="recruitment">
+                                <div class="topic-checkbox"></div>
+                                <div class="topic-content">
+                                    <div class="topic-title">Rekrutacja</div>
+                                    <div class="topic-desc">Proces naboru, wymagania</div>
+                                </div>
+                            </div>
+                            <div class="topic-card" data-topic="program">
+                                <div class="topic-checkbox"></div>
+                                <div class="topic-content">
+                                    <div class="topic-title">Program szkolenia</div>
+                                    <div class="topic-desc">Zakres, ramowy plan</div>
+                                </div>
+                            </div>
+                            <div class="topic-card" data-topic="financing">
+                                <div class="topic-checkbox"></div>
+                                <div class="topic-content">
+                                    <div class="topic-title">Finansowanie</div>
+                                    <div class="topic-desc">Opłaty, raty, dofinansowanie</div>
+                                </div>
+                            </div>
+                            <div class="topic-card" data-topic="cooperation">
+                                <div class="topic-checkbox"></div>
+                                <div class="topic-content">
+                                    <div class="topic-title">Współpraca</div>
+                                    <div class="topic-desc">Patronat, B2B, wykłady</div>
+                                </div>
+                            </div>
+                            <div class="topic-card" data-topic="supervision">
+                                <div class="topic-checkbox"></div>
+                                <div class="topic-content">
+                                    <div class="topic-title">Superwizja</div>
+                                    <div class="topic-desc">Superwizje indywidualne i grupowe</div>
+                                </div>
+                            </div>
+                            <div class="topic-card" data-topic="other">
+                                <div class="topic-checkbox"></div>
+                                <div class="topic-content">
+                                    <div class="topic-title">Inne</div>
+                                    <div class="topic-desc">Inne pytanie</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contact Details -->
+                    <div class="form-step" id="step3">
+                        <h3 class="step-title">Twoje dane kontaktowe</h3>
+                        <p class="step-description">Sprawdź podsumowanie i uzupełnij dane</p>
+                        
+                        <!-- Summary -->
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <div class="summary-label">Profil</div>
+                                <div class="summary-value" id="summaryProfile">-</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Tematy</div>
+                                <div class="summary-value" id="summaryTopics">-</div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="form-group">
+                            <label class="form-label" for="name">Imię i nazwisko <span class="required">*</span></label>
+                            <input type="text" id="name" class="form-input" required>
+                            <div class="validation-message" id="nameValidation"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" class="form-input" required>
+                            <div class="validation-message" id="emailValidation"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Telefon (opcjonalnie)</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="+48">
+                            <div class="validation-message" id="phoneValidation"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Wiadomość <span class="required">*</span></label>
+                            <textarea id="message" class="form-textarea" required placeholder="Opisz swoje pytanie lub potrzebę..."></textarea>
+                            <div class="validation-message" id="messageValidation"></div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)">
+                            <span>←</span>
+                            <span>Wstecz</span>
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">
+                            <span>Dalej</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="map-section" id="locations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nasze biura</h2>
+                <p class="section-subtitle">Odwiedź nas w Warszawie lub Gdańsku</p>
+            </div>
+
+            <div class="locations-grid">
+                <!-- Warsaw -->
+                <div class="location-card">
+                    <div class="location-icon">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="20" height="18" stroke="url(#gradLoc1)" stroke-width="2"/>
+                            <path d="M12 12V8h12v4M8 18h20M8 24h20M16 12v18M20 12v18" stroke="url(#gradLoc1)" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="gradLoc1" x1="0" y1="0" x2="36" y2="36">
+                                    <stop offset="0%" stop-color="#00b4ff"/>
+                                    <stop offset="100%" stop-color="#22c7d6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="location-name">Warszawa</h3>
+                    <div class="location-details">
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 2c-2.5 0-4.5 2-4.5 4.5C3.5 10 8 14 8 14s4.5-4 4.5-7.5C12.5 4 10.5 2 8 2z" stroke="currentColor" stroke-width="1.2"/>
+                                    <circle cx="8" cy="6.5" r="1.5" stroke="currentColor" stroke-width="1.2"/>
+                                </svg>
+                            </span>
+                            <div>ul. Przykładowa 123<br>00-001 Warszawa</div>
+                        </div>
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/>
+                                    <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>Pn-Pt: 9:00 - 17:00<br>Sob: 10:00 - 14:00</div>
+                        </div>
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 3h10c.5 0 1 .5 1 1v8c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1V4c0-.5.5-1 1-1z" stroke="currentColor" stroke-width="1.2"/>
+                                    <path d="M5 6h6M5 9h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>+48 123 456 789</div>
+                        </div>
+                    </div>
+                    <button class="location-btn" onclick="window.open('https://maps.google.com/?q=Warszawa,ul.+Przykładowa+123', '_blank')">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 2c-2.5 0-4.5 2-4.5 4.5C3.5 10 8 14 8 14s4.5-4 4.5-7.5C12.5 4 10.5 2 8 2z" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="8" cy="6.5" r="1.5" fill="currentColor"/>
+                        </svg>
+                        Pokaż na mapie
+                    </button>
+                </div>
+
+                <!-- Gdansk -->
+                <div class="location-card">
+                    <div class="location-icon">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 4L8 10v8c0 6 4 10 10 12 6-2 10-6 10-12v-8l-10-6z" stroke="url(#gradLoc2)" stroke-width="2"/>
+                            <path d="M13 16l3 3 7-7" stroke="url(#gradLoc2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradLoc2" x1="0" y1="0" x2="36" y2="36">
+                                    <stop offset="0%" stop-color="#00b4ff"/>
+                                    <stop offset="100%" stop-color="#22c7d6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="location-name">Gdańsk</h3>
+                    <div class="location-details">
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 2c-2.5 0-4.5 2-4.5 4.5C3.5 10 8 14 8 14s4.5-4 4.5-7.5C12.5 4 10.5 2 8 2z" stroke="currentColor" stroke-width="1.2"/>
+                                    <circle cx="8" cy="6.5" r="1.5" stroke="currentColor" stroke-width="1.2"/>
+                                </svg>
+                            </span>
+                            <div>ul. Politechniczna 9/7<br>80-288 Gdańsk</div>
+                        </div>
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/>
+                                    <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>Pn-Pt: 9:00 - 17:00<br>Sob: 10:00 - 14:00</div>
+                        </div>
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 3h10c.5 0 1 .5 1 1v8c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1V4c0-.5.5-1 1-1z" stroke="currentColor" stroke-width="1.2"/>
+                                    <path d="M5 6h6M5 9h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>+48 987 654 321</div>
+                        </div>
+                    </div>
+                    <button class="location-btn" onclick="window.open('https://maps.google.com/?q=Gdańsk,ul.+Politechniczna+9/7', '_blank')">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 2c-2.5 0-4.5 2-4.5 4.5C3.5 10 8 14 8 14s4.5-4 4.5-7.5C12.5 4 10.5 2 8 2z" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="8" cy="6.5" r="1.5" fill="currentColor"/>
+                        </svg>
+                        Pokaż na mapie
+                    </button>
+                </div>
+
+                <!-- Email Card -->
+                <div class="location-card">
+                    <div class="location-icon">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="8" width="28" height="20" rx="2" stroke="url(#gradLoc3)" stroke-width="2"/>
+                            <path d="M4 12l14 9 14-9" stroke="url(#gradLoc3)" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="gradLoc3" x1="0" y1="0" x2="36" y2="36">
+                                    <stop offset="0%" stop-color="#00b4ff"/>
+                                    <stop offset="100%" stop-color="#22c7d6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="location-name">Email</h3>
+                    <div class="location-details">
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="4" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                                    <path d="M2 6l6 4 6-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>szkolaharmonja@gmail.com</div>
+                        </div>
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/>
+                                    <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>Odpowiedź w ciągu 24h<br>(dni robocze)</div>
+                        </div>
+                        <div class="location-detail">
+                            <span class="detail-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/>
+                                    <path d="M6 8l2 2 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>Możesz zadać dowolne pytanie</div>
+                        </div>
+                    </div>
+                    <button class="location-btn" onclick="scrollToForm()">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="4" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M2 6l6 4 6-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        Napisz do nas
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Najczęściej zadawane pytania</h2>
+                <p class="section-subtitle">Może znajdziesz odpowiedź na swoje pytanie</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Jak wygląda proces rekrutacji?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Proces rekrutacji składa się z kilku etapów: wypełnienie formularza online, weryfikacja dokumentów, rozmowa kwalifikacyjna oraz ostateczna decyzja. Cały proces trwa około 2-3 tygodni. Szczegółowe informacje znajdziesz na stronie <a href="rekrutacja.html">Rekrutacja</a>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Jakie są terminy naboru na szkolenie?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nabór na szkolenia odbywa się dwa razy w roku: wiosną (luty-marzec) i jesienią (wrzesień-październik). Rekrutacja rozpoczyna się zazwyczaj 2 miesiące przed startem szkolenia. Aktualne terminy zawsze znajdziesz na stronie rekrutacji.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Czy mogę odwiedzić szkołę przed zapisaniem się?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Tak! Organizujemy regularne dni otwarte, podczas których możesz zwiedzić naszą siedzibę, poznać kadrę i zadać pytania. Dodatkowo możesz umówić się na indywidualne spotkanie - wyślij do nas wiadomość przez formularz kontaktowy.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Jakie są koszty szkolenia?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Koszty różnią się w zależności od wybranego programu. Oferujemy możliwość płatności ratalnej oraz zniżki dla grup. Szczegółowe informacje o cenach i możliwościach dofinansowania przekażemy podczas rozmowy kwalifikacyjnej.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Czy szkolenie jest akredytowane?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Tak, nasze szkolenia są w pełni akredytowane przez Polskie Towarzystwo Terapii Poznawczo-Behawioralnej (PTTPB). Po ukończeniu szkolenia otrzymasz certyfikat uznawany w całej Polsce i Europie (EABCT).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Jak długo trwa odpowiedź na wysłane zapytanie?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Staramy się odpowiadać na wszystkie zapytania w ciągu 24 godzin (dni robocze). W okresach wzmożonej rekrutacji czas odpowiedzi może się wydłużyć do 48 godzin. Zawsze otrzymasz potwierdzenie otrzymania wiadomości.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Overlay -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-message">
+            <div class="success-icon"></div>
+            <h3 class="success-title">Wiadomość wysłana!</h3>
+            <p class="success-text">Dziękujemy za kontakt. Odpowiemy na Twoje pytanie w ciągu 24 godzin.</p>
+            <button class="btn btn-primary" onclick="closeSuccess()">Zamknij</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>O Szkole</h3>
+                    <p>Szkoła Psychoterapii HarmonJa to nowoczesne, certyfikowane szkolenie w zakresie terapii poznawczo-behawioralnej, akredytowane przez PTTPB.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Szybkie linki</h3>
+                    <p><a href="index.html">Strona główna</a></p>
+                    <p><a href="o-nas.html">O nas</a></p>
+                    <p><a href="rekrutacja.html">Rekrutacja</a></p>
+                    <p><a href="kadra.html">Kadra</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <div class="contact-info">
+                        <p><strong>Szkoła Psychoterapii HarmonJa</strong></p>
+                        <p>prowadzona przez</p>
+                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp. z o.o.</p>
+                        <p style="margin-top: 15px;">
+                            ul. Politechniczna 9/7<br>
+                            80-288 Gdańsk
+                        </p>
+                        <p style="margin-top: 10px;">
+                            Email: szkolaharmonja@gmail.com
+                        </p>
+                        <p>
+                            NIP: 9571190783<br>
+                            REGON: 542257334
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HarmonJa Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== FORM STATE ====================
+        let currentStep = 1;
+        const totalSteps = 3;
+        let formData = {
+            profile: null,
+            topics: [],
+            name: '',
+            email: '',
+            phone: '',
+            message: ''
+        };
+
+        // Load from localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('contactFormData');
+            if (saved) {
+                formData = JSON.parse(saved);
+                restoreFormData();
+            }
+        });
+
+        function saveToLocalStorage() {
+            localStorage.setItem('contactFormData', JSON.stringify(formData));
+        }
+
+        function restoreFormData() {
+            if (formData.profile) {
+                const profileCard = document.querySelector(`[data-profile="${formData.profile}"]`);
+                if (profileCard) profileCard.classList.add('selected');
+            }
+            
+            formData.topics.forEach(topic => {
+                const topicCard = document.querySelector(`[data-topic="${topic}"]`);
+                if (topicCard) topicCard.classList.add('selected');
+            });
+
+            document.getElementById('name').value = formData.name || '';
+            document.getElementById('email').value = formData.email || '';
+            document.getElementById('phone').value = formData.phone || '';
+            document.getElementById('message').value = formData.message || '';
+        }
+
+        // ==================== MOBILE MENU ====================
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const isExpanded = navLinks.classList.contains('active');
+                this.setAttribute('aria-expanded', isExpanded);
+                this.textContent = isExpanded ? '✕' : '☰';
+                document.body.style.overflow = isExpanded ? 'hidden' : 'auto';
+            });
+        }
+
+        // ==================== SCROLL FUNCTIONS ====================
+        function scrollToForm() {
+            document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToLocations() {
+            document.getElementById('locations').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToFaq() {
+            document.getElementById('faq').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ==================== PROFILE SELECTION (STEP 1) ====================
+        document.querySelectorAll('.profile-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.profile-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                formData.profile = this.dataset.profile;
+                saveToLocalStorage();
+                
+                // Enable next button
+                document.getElementById('nextBtn').disabled = false;
+            });
+        });
+
+        // ==================== TOPIC SELECTION (STEP 2) ====================
+        document.querySelectorAll('.topic-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                const topic = this.dataset.topic;
+                
+                if (this.classList.contains('selected')) {
+                    if (!formData.topics.includes(topic)) {
+                        formData.topics.push(topic);
+                    }
+                } else {
+                    formData.topics = formData.topics.filter(t => t !== topic);
+                }
+                
+                saveToLocalStorage();
+                
+                // Enable next button if at least one topic selected
+                document.getElementById('nextBtn').disabled = formData.topics.length === 0;
+            });
+        });
+
+        // ==================== FORM VALIDATION ====================
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^(\+48)?[\s-]?[\d\s-]{9,}$/;
+
+        function validateField(field, value, validationId) {
+            const validationMsg = document.getElementById(validationId);
+            
+            if (field === 'name') {
+                if (value.length < 2) {
+                    showValidation(validationMsg, 'Imię i nazwisko jest za krótkie', 'error');
+                    return false;
+                } else {
+                    showValidation(validationMsg, 'Wygląda dobrze!', 'success');
+                    return true;
+                }
+            }
+            
+            if (field === 'email') {
+                if (!emailRegex.test(value)) {
+                    showValidation(validationMsg, 'Nieprawidłowy format email', 'error');
+                    return false;
+                } else {
+                    showValidation(validationMsg, 'Email poprawny!', 'success');
+                    return true;
+                }
+            }
+            
+            if (field === 'phone' && value) {
+                if (!phoneRegex.test(value)) {
+                    showValidation(validationMsg, 'Nieprawidłowy format telefonu', 'error');
+                    return false;
+                } else {
+                    showValidation(validationMsg, 'Telefon poprawny!', 'success');
+                    return true;
+                }
+            }
+            
+            if (field === 'message') {
+                if (value.length < 10) {
+                    showValidation(validationMsg, 'Wiadomość jest za krótka (min. 10 znaków)', 'error');
+                    return false;
+                } else {
+                    showValidation(validationMsg, 'Wiadomość OK!', 'success');
+                    return true;
+                }
+            }
+            
+            return true;
+        }
+
+        function showValidation(element, message, type) {
+            element.textContent = message;
+            element.className = `validation-message show ${type}`;
+        }
+
+        // Real-time validation
+        document.getElementById('name').addEventListener('input', function(e) {
+            formData.name = e.target.value;
+            saveToLocalStorage();
+            validateField('name', e.target.value, 'nameValidation');
+        });
+
+        document.getElementById('email').addEventListener('input', function(e) {
+            formData.email = e.target.value;
+            saveToLocalStorage();
+            validateField('email', e.target.value, 'emailValidation');
+        });
+
+        document.getElementById('phone').addEventListener('input', function(e) {
+            formData.phone = e.target.value;
+            saveToLocalStorage();
+            if (e.target.value) {
+                validateField('phone', e.target.value, 'phoneValidation');
+            }
+        });
+
+        document.getElementById('message').addEventListener('input', function(e) {
+            formData.message = e.target.value;
+            saveToLocalStorage();
+            validateField('message', e.target.value, 'messageValidation');
+        });
+
+        // ==================== STEP NAVIGATION ====================
+        function changeStep(direction) {
+            // Validation before proceeding
+            if (direction === 1) {
+                if (currentStep === 1 && !formData.profile) {
+                    alert('Proszę wybrać profil');
+                    return;
+                }
+                if (currentStep === 2 && formData.topics.length === 0) {
+                    alert('Proszę wybrać przynajmniej jeden temat');
+                    return;
+                }
+                if (currentStep === 3) {
+                    if (!validateAllFields()) {
+                        return;
+                    }
+                    // Submit form
+                    submitForm();
+                    return;
+                }
+            }
+
+            const newStep = currentStep + direction;
+            
+            if (newStep < 1 || newStep > totalSteps) return;
+            
+            // Hide current step
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            
+            // Update step
+            currentStep = newStep;
+            
+            // Show new step
+            document.getElementById(`step${currentStep}`).classList.add('active');
+            
+            // Update progress
+            updateProgress();
+            
+            // Update buttons
+            updateButtons();
+            
+            // Update summary if on step 3
+            if (currentStep === 3) {
+                updateSummary();
+            }
+        }
+
+        function updateProgress() {
+            const progressLine = document.getElementById('progressLine');
+            const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            progressLine.style.width = percentage + '%';
+            
+            // Update step circles
+            for (let i = 1; i <= totalSteps; i++) {
+                const circle = document.getElementById(`stepCircle${i}`);
+                const label = circle.nextElementSibling;
+                
+                if (i < currentStep) {
+                    circle.className = 'step-circle completed';
+                    circle.textContent = '✓';
+                    label.className = 'step-label';
+                } else if (i === currentStep) {
+                    circle.className = 'step-circle active';
+                    circle.textContent = i;
+                    label.className = 'step-label active';
+                } else {
+                    circle.className = 'step-circle';
+                    circle.textContent = i;
+                    label.className = 'step-label';
+                }
+            }
+        }
+
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.style.display = currentStep === 1 ? 'none' : 'flex';
+            
+            if (currentStep === totalSteps) {
+                nextBtn.innerHTML = '<span>Wyślij</span><span>✓</span>';
+            } else {
+                nextBtn.innerHTML = '<span>Dalej</span><span>→</span>';
+            }
+        }
+
+        function updateSummary() {
+            const profileNames = {
+                'psychologist': 'Psycholog',
+                'student': 'Student',
+                'institution': 'Instytucja',
+                'other': 'Inne'
+            };
+            
+            const topicNames = {
+                'recruitment': 'Rekrutacja',
+                'program': 'Program szkolenia',
+                'financing': 'Finansowanie',
+                'cooperation': 'Współpraca',
+                'supervision': 'Superwizja',
+                'other': 'Inne'
+            };
+            
+            document.getElementById('summaryProfile').textContent = profileNames[formData.profile] || '-';
+            document.getElementById('summaryTopics').textContent = 
+                formData.topics.map(t => topicNames[t]).join(', ') || '-';
+        }
+
+        function validateAllFields() {
+            const nameValid = validateField('name', formData.name, 'nameValidation');
+            const emailValid = validateField('email', formData.email, 'emailValidation');
+            const messageValid = validateField('message', formData.message, 'messageValidation');
+            
+            if (formData.phone) {
+                const phoneValid = validateField('phone', formData.phone, 'phoneValidation');
+                return nameValid && emailValid && phoneValid && messageValid;
+            }
+            
+            return nameValid && emailValid && messageValid;
+        }
+
+        // ==================== FORM SUBMISSION ====================
+        function submitForm() {
+            // Show success overlay
+            const overlay = document.getElementById('successOverlay');
+            overlay.classList.add('show');
+            
+            // Clear localStorage
+            localStorage.removeItem('contactFormData');
+            
+            // Log data (in production, send to server)
+            console.log('Form submitted:', formData);
+            
+            // Auto-close after 5 seconds
+            setTimeout(() => {
+                closeSuccess();
+            }, 5000);
+        }
+
+        function closeSuccess() {
+            const overlay = document.getElementById('successOverlay');
+            overlay.classList.remove('show');
+            
+            // Reset form
+            window.location.href = 'index.html';
+        }
+
+        // ==================== FAQ ACCORDION ====================
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            
+            // Open clicked if it wasn't active
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // ==================== INITIALIZE ====================
+        updateProgress();
+        updateButtons();
+    </script>
+</body>
+</html>
