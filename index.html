@@ -178,7 +178,7 @@
             top: 100%;
             left: 0;
             background-color: var(--white);
-            min-width: 280px;
+            min-width: 380px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             padding: 10px 0;
@@ -332,7 +332,7 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -371,11 +371,28 @@
         }
 
         .hero-lead {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: #555;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             line-height: 1.8;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-note {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.7);
+            border-left: 3px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+            backdrop-filter: blur(4px);
         }
 
         /* TESLA INNOVATION 3: Enhanced CTA Button */
@@ -494,9 +511,21 @@
             margin-bottom: 10px;
         }
 
+        .stat-suffix {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
         .stat-label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
+            line-height: 1.5;
+        }
+
+        .stat-sublabel {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 4px;
         }
 
         /* TESLA: PAN Partnership Section */
@@ -548,14 +577,29 @@
         }
 
         .pan-description {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             line-height: 1.8;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .pan-sub-info {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin-bottom: 50px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px 28px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
         }
 
         .pan-highlights {
@@ -597,6 +641,83 @@
             letter-spacing: 1px;
         }
 
+        /* TESLA: Technology & Clinical Base Section */
+        .tech-clinical {
+            padding: 80px 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .tech-clinical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .info-block {
+            padding: 40px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .info-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-block--tech {
+            background: linear-gradient(135deg, var(--light-blue), #e8f8ff);
+            border: 1px solid rgba(0, 180, 255, 0.12);
+        }
+
+        .info-block--clinical {
+            background: linear-gradient(135deg, var(--cream-bg), #fff5eb);
+            border: 1px solid rgba(34, 199, 214, 0.12);
+        }
+
+        .info-block--internship {
+            background: linear-gradient(135deg, #f0f7ff, var(--light-blue));
+            border: 1px solid rgba(9, 57, 95, 0.1);
+        }
+
+        .info-block:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-block__icon {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+        }
+
+        .info-block__icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .info-block h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .info-block p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
         /* Features Section */
         .features {
             padding: 80px 0;
@@ -613,10 +734,10 @@
 
         .section-subtitle {
             text-align: center;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 60px;
             color: #666;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
 
@@ -671,7 +792,7 @@
         }
         
         .feature-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-bottom: 15px;
             color: var(--dark-blue);
             font-weight: 600;
@@ -679,8 +800,8 @@
         
         .feature-card p {
             color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.93rem;
+            line-height: 1.65;
         }
 
         /* TESLA INNOVATION 6: 3D Tilt Program Cards */
@@ -712,7 +833,7 @@
         
         .programs-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         
@@ -737,18 +858,33 @@
             position: relative;
             z-index: 1;
         }
+
+        .program-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--highlight-color);
+            margin-bottom: 12px;
+            padding: 4px 12px;
+            background: var(--light-blue);
+            border-radius: 20px;
+        }
         
         .program-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 15px;
             color: var(--dark-blue);
             font-weight: 600;
+            line-height: 1.4;
         }
         
         .program-card .details {
             margin-bottom: 25px;
             color: #555;
             line-height: 1.7;
+            font-size: 0.95rem;
         }
         
         .program-card .program-btn {
@@ -1001,15 +1137,20 @@
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
             .hero-lead {
-                font-size: 1.05rem;
+                font-size: 1.02rem;
+            }
+
+            .hero-note {
+                font-size: 0.88rem;
+                padding: 14px 18px;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
 
             .stat-number {
@@ -1034,11 +1175,19 @@
             }
 
             .pan-description {
-                font-size: 1.05rem;
+                font-size: 1.02rem;
             }
 
             .pan-highlights {
                 gap: 20px;
+            }
+
+            .tech-clinical-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-block {
+                padding: 30px;
             }
         }
 
@@ -1048,7 +1197,7 @@
             }
 
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.65rem;
             }
 
             .cta-button {
@@ -1062,6 +1211,11 @@
 
             .programs-container {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
         }
 
@@ -1110,8 +1264,8 @@
                     <li class="dropdown" role="none">
                         <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Szkoła Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">Dzieci i Młodzieży</a></li>
-                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Dorosłych</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">Poszerzony moduł pracy z pacjentem w wieku rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Ścieżka ogólna (praca z osobami dorosłymi)</a></li>
                         </ul>
                     </li>
                     <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
@@ -1133,11 +1287,13 @@
             <div class="hero-content">
                 <h1>
                     Rozpocznij swoją drogę w<br>
-                    <span class="gradient-text">psychoterapii CBT</span>
+                    <span class="gradient-text">psychoterapii poznawczo-behawioralnej</span>
                 </h1>
                 <p class="hero-lead">
-                    Dołącz do certyfikowanej Szkoły Psychoterapii poznawczo-behawioralnej, 
-                    która łączy dowody naukowe z praktycznym doświadczeniem klinicznym.
+                    Dołącz do Szkoły Psychoterapii HarmonJa, która łączy dowody naukowe z praktyką kliniczną.
+                </p>
+                <p class="hero-note">
+                    Aktualnie nasza Szkoła ubiega się o rekomendację PTTPB do prowadzenia 4-letniego szkolenia psychoterapii poznawczo-behawioralnej osób dorosłych oraz 4-letniego szkolenia w psychoterapii poznawczo-behawioralnej z poszerzonym modułem rozwojowym pracy z pacjentem w wieku rozwojowym.
                 </p>
                 <a href="rekrutacja.html" class="cta-button">Sprawdź rekrutację</a>
             </div>
@@ -1153,26 +1309,28 @@
             <div class="container">
                 <div class="stats-container">
                     <div class="stat-item">
-                        <div class="stat-number" data-target="1640">0</div>
-                        <div class="stat-label">godzin szkolenia</div>
+                        <div class="stat-number" data-target="1381">0</div>
+                        <div class="stat-label">godzin szkolenia łącznie</div>
+                        <div class="stat-sublabel">w tym 1021h w ramach czesnego</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-target="4">0</div>
-                        <div class="stat-label">lata kształcenia</div>
+                        <div class="stat-number" data-target="360">0</div>
+                        <div class="stat-label">godzin stażu klinicznego</div>
+                        <div class="stat-sublabel">pomagamy w jego realizacji</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-target="35">0</div>
+                        <div class="stat-number" data-target="30" data-prefix="do ">0</div>
                         <div class="stat-label">osób w grupie</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-target="20">0</div>
-                        <div class="stat-label">ekspertów w kadre</div>
+                        <div class="stat-number" data-target="45">0</div>
+                        <div class="stat-label">ekspertów w kadrze</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TESLA: PAN Partnership Section -->
+        <!-- TESLA: PAN Partnership & Research Section -->
         <section class="pan-partnership">
             <div class="container">
                 <div class="pan-content">
@@ -1189,11 +1347,12 @@
                             </defs>
                         </svg>
                     </div>
-                    <h2 class="pan-title">Współpraca z Instytutem Psychologii PAN</h2>
+                    <h2 class="pan-title">Nauka, badania i praktyka kliniczna</h2>
                     <p class="pan-description">
-                        Jako uczestnik szkolenia stajesz się członkiem grupy badawczej, 
-                        pracując pod opieką wykwalifikowanego badacza z Polskiej Akademii Nauk. 
-                        Łączymy praktykę kliniczną z badaniami naukowymi na najwyższym poziomie.
+                        Jako uczestnik szkolenia od początku pracujesz w stałym, małym zespole kliniczno-badawczym pod opieką doświadczonych specjalistów (m.in. z&nbsp;PAN), rozwijając zarówno kompetencje terapeutyczne, jak i umiejętność łączenia praktyki klinicznej z projektami o charakterze badawczym w terapii poznawczo-behawioralnej.
+                    </p>
+                    <p class="pan-sub-info">
+                        Część zajęć oraz projektów badawczych realizowana jest w laboratoriach badawczych Pracowni Psychopatologii Eksperymentalnej Instytutu Psychologii PAN.
                     </p>
                     <div class="pan-highlights">
                         <div class="pan-highlight-item">
@@ -1213,15 +1372,60 @@
             </div>
         </section>
 
+        <!-- TESLA INNOVATION 7: Technology, Clinical Base & Internship Blocks -->
+        <section class="tech-clinical">
+            <div class="container">
+                <div class="tech-clinical-grid">
+                    <!-- Technology Block -->
+                    <div class="info-block info-block--tech">
+                        <div class="info-block__icon">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 3L3 9v10l11 6 11-6V9L14 3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+                                <circle cx="14" cy="14" r="4" stroke="#fff" stroke-width="1.5"/>
+                                <path d="M14 10v-4M14 22v-4M18 14h4M6 14h4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Psychoterapia wspierana technologią</h3>
+                        <p>Przygotowujemy terapeutów do pracy w świecie, który już się zmienił. Uczymy praktycznego wykorzystania aplikacji, sztucznej inteligencji i&nbsp;VR w procesie terapii — tak, aby technologia wzmacniała skuteczność, a&nbsp;nie zastępowała relację terapeutyczną.</p>
+                    </div>
+
+                    <!-- Clinical Base Block -->
+                    <div class="info-block info-block--clinical">
+                        <div class="info-block__icon">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="8" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.5"/>
+                                <path d="M14 4v4M10 8V6a4 4 0 018 0v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14 14v4M12 16h4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Baza kliniczna</h3>
+                        <p>Bazę kliniczną Szkoły Psychoterapii HarmonJa stanowią ośrodki w&nbsp;Warszawie (Fundacja Lazurowa Terapia) i w&nbsp;Trójmieście (Centrum Zdrowia Psychicznego HarmonJa) — od wielu lat świadczące kompleksową opiekę w zakresie zdrowia psychicznego, ze szczególnym uwzględnieniem psychoterapii poznawczo-behawioralnej.</p>
+                    </div>
+
+                    <!-- Clinical Internship Block -->
+                    <div class="info-block info-block--internship">
+                        <div class="info-block__icon">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 20l5-5 4 4 6-8 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="3" y="3" width="22" height="22" rx="3" stroke="#fff" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h3>360 godzin stażu klinicznego</h3>
+                        <p>Współpracujemy z placówkami, oddziałami i szpitalami psychiatrycznymi w całej Polsce, w których uczestnicy naszych szkoleń mogą realizować obowiązkowe staże kliniczne (120 i&nbsp;240&nbsp;godz.).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Features Section -->
         <section class="features">
             <div class="container">
-                <h2 class="section-title">Dlaczego HarmonJa?</h2>
+                <h2 class="section-title">Dlaczego Szkoła Psychoterapii HarmonJa?</h2>
                 <p class="section-subtitle">
-                    Nasza szkoła oferuje kompleksowe przygotowanie do pracy terapeutycznej, 
-                    łącząc teorię z praktyką i rozwojem osobistym.
+                    Nasza szkoła oferuje kompleksowe przygotowanie do pracy terapeutycznej jako proces rozwoju pod opieką doświadczonego zespołu, łączący rzetelną teorię, praktykę kliniczną, rozwój osobisty i&nbsp;wysokie standardy etyczne.
                 </p>
                 <div class="features-grid">
+                    <!-- Card 1: Standards PTTPB -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1236,9 +1440,11 @@
                                 </defs>
                             </svg>
                         </div>
-                        <h3>Akredytacja PTTPB</h3>
-                        <p>Certyfikowane szkolenia zgodne ze standardami Polskiego Towarzystwa Terapii Poznawczej i Behawioralnej.</p>
+                        <h3>Standardy PTTPB</h3>
+                        <p>Dążymy do spełnienia wymagań zawartych w Standardach Polskiego Towarzystwa Terapii Poznawczej i Behawioralnej. Aktualnie jesteśmy w procesie ubiegania się o rekomendację dla naszej Szkoły.</p>
                     </div>
+
+                    <!-- Card 2: Praktyczne doświadczenie -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1254,8 +1460,10 @@
                             </svg>
                         </div>
                         <h3>Praktyczne doświadczenie</h3>
-                        <p>Współpraca z Instytutem Psychologii PAN i możliwość prowadzenia terapii pod superwizją.</p>
+                        <p>Współpraca z Instytutem Psychologii PAN, ośrodkami klinicznymi w Polsce, w których pomagamy realizować staże kliniczne. Praca i rozwój pod stałą superwizją kliniczną. Wsparcie w rozwoju naukowym.</p>
                     </div>
+
+                    <!-- Card 3: Doświadczona kadra -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1273,8 +1481,10 @@
                             </svg>
                         </div>
                         <h3>Doświadczona kadra</h3>
-                        <p>Zajęcia prowadzone przez ekspertów – od profesorów uniwersytetów po praktyków z wieloletnim doświadczeniem klinicznym.</p>
+                        <p>Zajęcia prowadzone przez ekspertów — od profesorów uniwersytetów po praktyków z wieloletnim doświadczeniem klinicznym.</p>
                     </div>
+
+                    <!-- Card 4: Evidence-based practice -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1292,8 +1502,10 @@
                             </svg>
                         </div>
                         <h3>Evidence-based practice</h3>
-                        <p>Nauka oparta na najnowszych badaniach naukowych i sprawdzonych metodach terapeutycznych.</p>
+                        <p>Program szkolenia oparty na najnowszych badaniach naukowych i sprawdzonych metodach terapeutycznych. Realizacja własnych projektów badawczych przez uczestników.</p>
                     </div>
+
+                    <!-- Card 5: Rozwój osobisty -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1309,8 +1521,10 @@
                             </svg>
                         </div>
                         <h3>Rozwój osobisty</h3>
-                        <p>Terapia własna i praca nad sobą jako integralny element kształcenia psychoterapeuty.</p>
+                        <p>Self Practice / Self Reflection, trening umiejętności DBT oraz odosobnienie uważnościowe są integralną częścią szkolenia — 116 godzin wliczonych w czesne.</p>
                     </div>
+
+                    <!-- Card 6: Wspierająca społeczność -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1327,7 +1541,50 @@
                             </svg>
                         </div>
                         <h3>Wspierająca społeczność</h3>
-                        <p>Dołącz do grupy osób, które dzielą twoją pasję do pomagania innym i rozwoju zawodowego.</p>
+                        <p>Dołącz do grupy osób, które dzielą Twoją pasję do pomagania innym i rozwoju zawodowego. Od pierwszego roku, oprócz zjazdów weekendowych, spotkania w małych zespołach kliniczno-konsultacyjnych, które nie tylko budują kompetencje, ale i sieć wsparcia.</p>
+                    </div>
+
+                    <!-- Card 7: NEW — Ścieżki kształcenia -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 35L30 20L45 35" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20 42L30 32L40 42" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                                <circle cx="30" cy="15" r="4" stroke="url(#gradFeature7)" stroke-width="2"/>
+                                <line x1="22" y1="48" x2="38" y2="48" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradFeature7" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Ścieżki kształcenia</h3>
+                        <p>Oferujemy dwa równoległe programy szkoleniowe: jeden przeznaczony głównie dla osób pracujących z pacjentami dorosłymi oraz drugi dla osób pracujących przede wszystkim z pacjentami w wieku rozwojowym.</p>
+                    </div>
+
+                    <!-- Card 8: NEW — Technologie w psychoterapii -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="15" y="18" width="30" height="20" rx="3" stroke="url(#gradFeature8)" stroke-width="2"/>
+                                <line x1="30" y1="38" x2="30" y2="44" stroke="url(#gradFeature8)" stroke-width="2"/>
+                                <line x1="23" y1="44" x2="37" y2="44" stroke="url(#gradFeature8)" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="30" cy="28" r="5" stroke="url(#gradFeature8)" stroke-width="1.5"/>
+                                <path d="M28 28L30 30L33 26" stroke="url(#gradFeature8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 14L26 18" stroke="url(#gradFeature8)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                                <path d="M38 14L34 18" stroke="url(#gradFeature8)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                                <defs>
+                                    <linearGradient id="gradFeature8" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Najnowsze technologie w psychoterapii</h3>
+                        <p>Uczymy praktycznego wykorzystania aplikacji, AI i&nbsp;VR w procesie terapii. Pokazujemy, jak włączać je do konceptualizacji i planu pracy klinicznej w sposób przemyślany i evidence-based.</p>
                     </div>
                 </div>
             </div>
@@ -1336,27 +1593,27 @@
         <!-- Programs Section -->
         <section class="programs">
             <div class="container">
-                <h2 class="section-title">Nasze programy</h2>
+                <h2 class="section-title">Programy 4-letniego Szkolenia</h2>
                 <p class="section-subtitle">
-                    Wybierz szkolenie dostosowane do Twoich zainteresowań i potrzeb zawodowych.
+                    Wybierz ścieżkę szkolenia dostosowaną do Twoich zainteresowań i potrzeb zawodowych.
                 </p>
                 <div class="programs-container">
                     <div class="program-card">
                         <div class="program-content">
-                            <h3>Szkoła Psychoterapii Dzieci i Młodzieży</h3>
+                            <span class="program-tag">Wiek rozwojowy</span>
+                            <h3>Szkoła Psychoterapii HarmonJa — ścieżka z poszerzonym modułem pracy z pacjentem w&nbsp;wieku rozwojowym</h3>
                             <p class="details">
-                                4-letnie szkolenie z psychoterapii poznawczo-behawioralnej specjalizujące się w pracy z dziećmi i młodzieżą. 
-                                Nauczysz się skutecznych metod wspierania młodych ludzi w radzeniu sobie z trudnościami emocjonalnymi i behawioralnymi.
+                                4-letnie szkolenie w psychoterapii poznawczo-behawioralnej, obejmujące pełne przygotowanie do pracy z osobami dorosłymi oraz pogłębiony moduł dotyczący pracy z dziećmi i młodzieżą. Program rozwija kompetencje w zakresie diagnozy, konceptualizacji i terapii pacjentów w wieku rozwojowym oraz ich rodzin, z uwzględnieniem specyfiki rozwoju, kontekstu rodzinnego i środowiskowego.
                             </p>
                             <a href="szkola-dzieci-mlodziez.html" class="program-btn">Dowiedz się więcej</a>
                         </div>
                     </div>
                     <div class="program-card">
                         <div class="program-content">
-                            <h3>Szkoła Psychoterapii Dorosłych</h3>
+                            <span class="program-tag">Dorośli</span>
+                            <h3>Szkoła Psychoterapii HarmonJa — ścieżka ogólna (praca z osobami dorosłymi)</h3>
                             <p class="details">
-                                4-letnie szkolenie z psychoterapii poznawczo-behawioralnej dla osób pracujących z dorosłymi. 
-                                Zdobędziesz kompetencje w zakresie terapii zaburzeń nastroju, lękowych, zaburzeń osobowości i innych problemów zdrowia psychicznego.
+                                4-letnie szkolenie w psychoterapii poznawczo-behawioralnej, obejmujące pełne przygotowanie do pracy z osobami dorosłymi. Program rozwija kompetencje w zakresie diagnozy, konceptualizacji i prowadzenia terapii w podejściu poznawczo-behawioralnym, z pogłębionym zakresem treści dotyczącym kluczowych zagadnień pracy z pacjentem dorosłym, w tym relacji, schematów, regulacji emocji i współwystępowania różnych problemów psychicznych.
                             </p>
                             <a href="szkola-dorosli.html" class="program-btn">Dowiedz się więcej</a>
                         </div>
@@ -1392,8 +1649,8 @@
                     <h3>Szkoła</h3>
                     <ul class="footer-links">
                         <li><a href="o-nas.html">O nas</a></li>
-                        <li><a href="szkola-dzieci-mlodziez.html">Szkoła Dzieci i Młodzieży</a></li>
-                        <li><a href="szkola-dorosli.html">Szkoła Dorosłych</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">Poszerzony moduł pracy z pacjentem w wieku rozwojowym</a></li>
+                        <li><a href="szkola-dorosli.html">Ścieżka ogólna (praca z osobami dorosłymi)</a></li>
                         <li><a href="kadra.html">Kadra</a></li>
                     </ul>
                 </div>
@@ -1513,8 +1770,9 @@
             });
         });
 
-        // TESLA: Animated counter
+        // TESLA: Animated counter with prefix support
         function animateCounter(element, target, duration = 2000) {
+            const prefix = element.getAttribute('data-prefix') || '';
             const start = 0;
             const increment = target / (duration / 16);
             let current = start;
@@ -1522,12 +1780,12 @@
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    element.textContent = target.toLocaleString('pl-PL');
+                    element.textContent = prefix + target.toLocaleString('pl-PL');
                     clearInterval(timer);
                 } else {
-                    element.textContent = Math.floor(current).toLocaleString('pl-PL');
+                    element.textContent = prefix + Math.floor(current).toLocaleString('pl-PL');
                 }
-            }, 16); // 60 FPS
+            }, 16);
         }
 
         // TESLA: Intersection Observer for stats
@@ -1562,6 +1820,23 @@
 
         document.querySelectorAll('.feature-card').forEach(card => {
             featureObserver.observe(card);
+        });
+
+        // TESLA: Staggered reveal for info blocks
+        const infoBlockObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const blocks = entry.target.closest('.tech-clinical-grid')?.querySelectorAll('.info-block') || [entry.target];
+                    blocks.forEach((block, i) => {
+                        setTimeout(() => block.classList.add('visible'), i * 150);
+                    });
+                    infoBlockObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.info-block').forEach(block => {
+            infoBlockObserver.observe(block);
         });
 
         // TESLA: 3D tilt effect for program cards
