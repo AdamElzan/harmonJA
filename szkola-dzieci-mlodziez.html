@@ -3,37 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ścieżka z poszerzonym modułem pracy z pacjentem w wieku rozwojowym — 4-letni certyfikowany program CBT w Szkole Psychoterapii HarmonJa.">
-    <meta property="og:title" content="Ścieżka z poszerzonym modułem pracy z pacjentem w wieku rozwojowym — HarmonJa">
-    <meta property="og:description" content="4-letni certyfikowany program terapii poznawczo-behawioralnej dzieci i młodzieży. Evidence-based, akredytacja PTTPB.">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="description" content="4-letnie szkolenie w psychoterapii poznawczo-behawioralnej z poszerzonym modułem pracy z dziećmi i młodzieżą. 1381 godzin dydaktycznych, superwizja, rozwój osobisty, staż kliniczny. Szkoła HarmonJa.">
+    <meta property="og:title" content="Ścieżka rozwojowa (dzieci i młodzież) — Szkoła Psychoterapii HarmonJa">
+    <meta property="og:description" content="4-letni certyfikowany program CBT z rozszerzeniem o pracę z pacjentem w wieku rozwojowym. 1381h kształcenia, 245h superwizji, 360h stażu.">
     <meta property="og:type" content="website">
-    <title>Ścieżka z poszerzonym modułem pracy z pacjentem w wieku rozwojowym — HarmonJa</title>
+    <title>Ścieżka z poszerzonym modułem pracy z pacjentem w wieku rozwojowym — Szkoła Psychoterapii HarmonJa CBT</title>
     <style>
+        /* ========================================
+           DESIGN SYSTEM TOKENS
+           ======================================== */
         :root {
             --primary-color: #22c7d6;
             --secondary-color: #1ab6c5;
             --highlight-color: #00b4ff;
             --light-blue: #f2fbfd;
             --dark-blue: #09395f;
-            --accent-color: #22c7d6;
             --text-color: #333;
             --light-gray: #faf8f5;
             --medium-gray: #eaeaea;
-            --white: #ffffff;
+            --white: #fff;
             --cream-bg: #fef6f0;
         }
 
-        * {
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--text-color);
-            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         a {
@@ -41,21 +52,31 @@
             color: inherit;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 20px;
+        ul {
+            list-style: none;
         }
 
-        /* Skip to content */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* ========================================
+           SKIP TO CONTENT
+           ======================================== */
         .skip-to-content {
             position: absolute;
-            top: -100px;
+            top: -100%;
             left: 50%;
             transform: translateX(-50%);
             background: var(--highlight-color);
-            color: var(--white);
+            color: white;
             padding: 12px 24px;
             border-radius: 0 0 8px 8px;
             z-index: 10000;
@@ -65,15 +86,14 @@
 
         .skip-to-content:focus {
             top: 0;
-            outline: 3px solid var(--dark-blue);
-            outline-offset: 2px;
         }
 
-        /* Header */
+        /* ========================================
+           HEADER & NAVIGATION
+           ======================================== */
         header {
             background-color: var(--white);
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -83,182 +103,124 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
 
-        .logo-container {
+        .logo-container a {
             display: flex;
             align-items: center;
-            padding: 5px 0;
         }
 
         .logo-container svg {
             height: 90px;
             width: auto;
-            max-width: 300px;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
             align-items: center;
+            gap: 5px;
         }
 
-        .nav-links > li {
-            list-style: none;
-            position: relative;
-        }
-
-        .nav-links > li > a {
+        .nav-links > li > a,
+        .dropdown-toggle {
+            padding: 10px 15px;
             color: var(--text-color);
             font-weight: 500;
-            padding: 8px 0;
-            display: block;
-            position: relative;
+            font-size: 0.95rem;
             transition: color 0.3s;
+            border-radius: 6px;
+            display: block;
         }
 
-        .nav-links > li > a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--highlight-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links > li > a:hover {
+        .nav-links > li > a:hover,
+        .nav-links > li > a:focus,
+        .dropdown-toggle:hover,
+        .dropdown-toggle:focus {
             color: var(--highlight-color);
+            outline: none;
         }
 
-        .nav-links > li > a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links > li > a:focus {
-            outline: 2px solid var(--highlight-color);
-            outline-offset: 4px;
-            border-radius: 2px;
+        .nav-links > li > a.active {
+            color: var(--highlight-color);
+            font-weight: 600;
         }
 
         /* Dropdown */
-        .dropdown { position: relative; }
+        .dropdown {
+            position: relative;
+        }
 
         .dropdown-toggle {
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--text-color);
-            font-weight: 500;
-            padding: 8px 0;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .dropdown-toggle::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--highlight-color);
-            transition: width 0.3s ease;
-        }
-
-        .dropdown:hover .dropdown-toggle {
-            color: var(--highlight-color);
-        }
-
-        .dropdown:hover .dropdown-toggle::after {
-            width: 100%;
-        }
-
-        .dropdown-toggle::before {
-            content: '▼';
-            font-size: 0.7em;
-            margin-left: 5px;
-            transition: transform 0.3s;
-        }
-
-        .dropdown:hover .dropdown-toggle::before {
-            transform: rotate(180deg);
+            user-select: none;
         }
 
         .dropdown-menu {
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--white);
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
             min-width: 320px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            padding: 10px 0;
+            padding: 8px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
-            transition: all 0.3s;
-            margin-top: 10px;
+            transition: all 0.3s ease;
+            z-index: 100;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu,
+        .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .dropdown-menu li { list-style: none; }
-
         .dropdown-menu a {
             display: block;
-            padding: 12px 20px;
+            padding: 12px 16px;
+            font-size: 0.9rem;
             color: var(--text-color);
-            transition: all 0.3s;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .dropdown-menu a:hover {
-            background-color: var(--light-blue);
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus {
+            background: var(--light-blue);
             color: var(--highlight-color);
-            padding-left: 25px;
+            outline: none;
         }
 
-        /* Mobile menu */
+        .dropdown-menu a.active {
+            background: var(--light-blue);
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        /* Mobile menu button */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
+            font-size: 1.8rem;
             cursor: pointer;
-            padding: 10px;
+            color: var(--dark-blue);
+            padding: 5px;
+            line-height: 1;
             z-index: 1001;
         }
 
-        .mobile-menu-btn span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: var(--dark-blue);
-            margin: 6px 0;
-            transition: all 0.3s;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* Hero Section */
+        /* ========================================
+           SEKCJA 1: HERO
+           ======================================== */
         .hero {
             background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
-            padding: 80px 0 60px;
+            padding: 100px 0 80px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -266,33 +228,47 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(0, 180, 255, 0.05), transparent);
-            z-index: 0;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 180, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(34, 199, 214, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
         }
 
-        .badge {
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .certification-badge {
             display: inline-block;
             background-color: var(--highlight-color);
             color: white;
             padding: 8px 20px;
-            border-radius: 20px;
+            border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 500;
             margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
@@ -300,83 +276,64 @@
             color: var(--dark-blue);
             margin-bottom: 20px;
             line-height: 1.2;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero .subtitle {
-            font-size: 1.4rem;
-            color: var(--text-color);
-            margin-bottom: 30px;
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero .lead {
-            font-size: 1.15rem;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            max-width: 800px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0;
-            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero.animated .badge { animation: fadeInUp 0.6s ease forwards; }
-        .hero.animated h1 { animation: fadeInUp 0.6s ease 0.15s forwards; }
-        .hero.animated .subtitle { animation: fadeInUp 0.6s ease 0.3s forwards; }
-        .hero.animated .lead { animation: fadeInUp 0.6s ease 0.45s forwards; }
-
         @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Stats Section */
-        .stats-section {
-            background-color: var(--white);
-            padding: 60px 0;
-            margin-top: -30px;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
-        .stats-container {
+        .hero-description {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           SEKCJA 2: STATYSTYKI
+           ======================================== */
+        .stats {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
-            padding: 30px 20px;
-            border-radius: 12px;
             text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            border-radius: 12px;
+            border-top: 4px solid var(--highlight-color);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 180, 255, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .stat-card.animated {
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
         }
 
         .stat-card:hover {
@@ -388,36 +345,35 @@
             font-size: 3rem;
             font-weight: 700;
             color: var(--highlight-color);
-            margin-bottom: 5px;
-            line-height: 1;
-        }
-
-        .stat-suffix {
-            font-size: 1.5rem;
-            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
         }
 
         .stat-label {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-color);
             font-weight: 500;
-            line-height: 1.4;
         }
 
         .stat-sublabel {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             color: #888;
             margin-top: 4px;
-            line-height: 1.3;
         }
 
-        /* Content Sections */
+        /* ========================================
+           CONTENT SECTIONS (shared)
+           ======================================== */
         .content-section {
             padding: 80px 0;
         }
 
         .content-section.alt {
             background-color: var(--cream-bg);
+        }
+
+        .content-section.light-blue-bg {
+            background-color: var(--light-blue);
         }
 
         .section-title {
@@ -427,11 +383,12 @@
             font-weight: 600;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #666;
+        .section-description {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
             margin-bottom: 50px;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         /* Animate on scroll */
@@ -446,122 +403,425 @@
             transform: translateY(0);
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        /* ========================================
+           SEKCJA 3: CEL SZKOLENIA
+           ======================================== */
+        .goal-text {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.8;
+            max-width: 900px;
         }
 
-        .skill-item {
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid var(--highlight-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s;
-        }
-
-        .skill-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .skill-item h3 {
-            font-size: 1.1rem;
+        /* ========================================
+           SEKCJA 4: ORGANIZACJA SZKOLENIA
+           ======================================== */
+        .org-note {
+            display: inline-block;
+            background: var(--light-blue);
             color: var(--dark-blue);
-            margin-bottom: 10px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        /* Hours banner */
+        .hours-banner {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #0a4a70 100%);
+            color: white;
+            padding: 35px 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hours-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 180, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hours-banner-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hours-banner-suffix {
+            font-size: 1.5rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        .hours-banner-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hours-banner-label {
+            font-size: 1.2rem;
             font-weight: 600;
         }
 
-        .skill-item p {
+        .hours-banner-sublabel {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        /* Org grid */
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .org-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--highlight-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .org-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .org-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .org-card-hours {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+        }
+
+        .org-card p {
             font-size: 0.95rem;
             color: #666;
             line-height: 1.6;
         }
 
-        /* Info Cards */
-        .info-cards {
+        /* Hours detail grid */
+        .hours-detail-title {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+
+        .hours-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .hours-detail-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .hours-detail-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .hours-detail-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .hours-detail-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 36px;
+            text-align: center;
+        }
+
+        .hours-detail-content h4 {
+            font-size: 1.05rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .hours-detail-content h4 span {
+            color: var(--highlight-color);
+            font-weight: 700;
+        }
+
+        .hours-detail-content p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ========================================
+           SEKCJA 5: PROGRAM TEMATYCZNY
+           ======================================== */
+        .curriculum-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .curriculum-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .curriculum-lead {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 900px;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .curriculum-item {
+            background: var(--white);
+            padding: 18px 22px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.5;
+            transition: all 0.3s;
+        }
+
+        .curriculum-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .curriculum-item .item-number {
+            display: inline-block;
+            background: var(--light-blue);
+            color: var(--highlight-color);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .curriculum-hidden {
+            display: none;
+        }
+
+        .curriculum-hidden.visible {
+            display: grid;
+        }
+
+        .curriculum-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .curriculum-toggle-btn:hover,
+        .curriculum-toggle-btn:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 180, 255, 0.3);
+            outline: none;
+        }
+
+        .curriculum-toggle-btn .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .curriculum-toggle-btn.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Bottom stats (pod programem) */
+        .bottom-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--medium-gray);
+        }
+
+        .bottom-stat-card {
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        .bottom-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            margin-bottom: 5px;
+        }
+
+        .bottom-stat-label {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .bottom-stat-sublabel {
+            font-size: 0.82rem;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        /* ========================================
+           SEKCJA 6: FILARY KOMPETENCJI
+           ======================================== */
+        .pillars-lead {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            max-width: 900px;
+        }
+
+        .pillars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
-        .info-card {
-            background-color: var(--white);
+        .pillar-card {
+            background: var(--white);
             padding: 35px 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border-top: 3px solid var(--highlight-color);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--highlight-color);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .info-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .info-card h3 {
-            font-size: 1.3rem;
+        .pillar-icon {
+            margin-bottom: 20px;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.25rem;
             color: var(--dark-blue);
             margin-bottom: 15px;
             font-weight: 600;
         }
 
-        .info-card ul {
-            list-style: none;
-            padding: 0;
+        .pillar-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
         }
 
-        .info-card ul li {
-            padding: 8px 0;
+        .pillar-sublist {
+            margin-top: 15px;
+            padding-left: 0;
+        }
+
+        .pillar-sublist li {
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.9rem;
             color: #555;
-            position: relative;
-            padding-left: 25px;
         }
 
-        .info-card ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--highlight-color);
-            font-weight: bold;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
+        .pillar-sublist li::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            left: 0;
+            top: 12px;
+            width: 8px;
+            height: 8px;
+            background: var(--highlight-color);
             border-radius: 50%;
-            top: -150px;
-            right: -100px;
+        }
+
+        .pillar-sublist li strong {
+            color: var(--dark-blue);
+        }
+
+        /* ========================================
+           SEKCJA 7: CTA
+           ======================================== */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+            color: white;
+            text-align: center;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             margin-bottom: 20px;
-            position: relative;
         }
 
         .cta-section p {
             font-size: 1.2rem;
             margin-bottom: 40px;
             opacity: 0.95;
-            position: relative;
         }
 
         .cta-buttons {
@@ -569,29 +829,27 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            position: relative;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: var(--white);
+            background-color: white;
             color: var(--highlight-color);
-            padding: 16px 40px;
+            padding: 15px 35px;
             border-radius: 4px;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid white;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
+        .cta-button:hover,
         .cta-button:focus {
-            outline: 3px solid var(--white);
-            outline-offset: 3px;
+            background-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            outline: none;
         }
 
         .cta-button.secondary {
@@ -600,91 +858,15 @@
             border: 2px solid white;
         }
 
-        .cta-button.secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .cta-button.secondary:hover,
+        .cta-button.secondary:focus {
+            background-color: white;
+            color: var(--highlight-color);
         }
 
-        /* Newsletter */
-        .newsletter {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-        }
-
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .newsletter h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-
-        .newsletter p {
-            margin-bottom: 30px;
-            opacity: 0.95;
-            font-size: 1.1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 10px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .newsletter-input:focus {
-            outline: 3px solid rgba(255,255,255,0.5);
-            outline-offset: 2px;
-        }
-
-        .newsletter-btn {
-            background-color: var(--dark-blue);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .newsletter-btn:hover,
-        .newsletter-btn:focus {
-            background-color: #004a70;
-            transform: translateY(-2px);
-            outline: none;
-        }
-
-        /* Footer */
+        /* ========================================
+           FOOTER
+           ======================================== */
         footer {
             background-color: #333;
             color: white;
@@ -735,8 +917,8 @@
         }
 
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background-color: #444;
             display: flex;
             align-items: center;
@@ -748,8 +930,8 @@
 
         .social-icon:hover,
         .social-icon:focus {
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
             outline: none;
         }
 
@@ -761,7 +943,9 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        /* ========================================
+           RESPONSIVE: 768px
+           ======================================== */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -812,81 +996,105 @@
                 height: 70px;
             }
 
-            .hero {
-                padding: 60px 0 40px;
-            }
-
             .hero h1 {
-                font-size: 1.9rem;
+                font-size: 2rem;
             }
 
-            .hero .subtitle {
+            .hero-subtitle {
                 font-size: 1.1rem;
             }
 
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-
-            .stat-number {
-                font-size: 2.2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .skills-grid,
-            .info-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .cta-button {
-                padding: 14px 30px;
+            .hero-description {
                 font-size: 1rem;
             }
 
-            .newsletter h2 {
-                font-size: 1.8rem;
+            .section-title {
+                font-size: 2rem;
             }
 
-            .newsletter-form {
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hours-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-detail-card.full-width {
+                grid-column: auto;
+            }
+
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-banner {
                 flex-direction: column;
-                gap: 15px;
+                text-align: center;
+                padding: 25px;
             }
 
-            .newsletter-btn {
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
                 width: 100%;
+            }
+
+            .bottom-stats {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
+        /* ========================================
+           RESPONSIVE: 480px
+           ======================================== */
         @media (max-width: 480px) {
             .container {
                 padding: 0 15px;
             }
 
+            .hero {
+                padding: 60px 0 40px;
+            }
+
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
 
-            .stat-card {
-                padding: 22px 14px;
+            .content-section {
+                padding: 60px 0;
             }
 
-            .stat-number {
-                font-size: 1.9rem;
+            .stats {
+                padding: 60px 0;
             }
 
-            .stat-label {
-                font-size: 0.85rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .org-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom-stats {
+                grid-template-columns: 1fr;
             }
         }
 
+        /* ========================================
+           SCREEN READER ONLY
+           ======================================== */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -901,224 +1109,403 @@
     </style>
 </head>
 <body>
+    <!-- Skip to content -->
     <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
-    <!-- Header -->
+    <!-- ============================================ -->
+    <!-- HEADER (1:1 ze wzorca)                       -->
+    <!-- ============================================ -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <a href="index.html" aria-label="HarmonJa — Strona główna">
+                    <a href="index.html" aria-label="HarmonJa - Strona główna">
                         <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="logo-title">
-                            <title id="logo-title">Logo HarmonJa Szkoła Psychoterapii CBT</title>
-                            <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">Szkoła Psychoterapii CBT</text>
-                            <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">Harmon</text>
-                            <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
-                            <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">Ja</text>
+                          <title id="logo-title">Logo HarmonJa Szkoła Psychoterapii CBT</title>
+                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
+                            Szkoła Psychoterapii CBT
+                          </text>
+                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
+                            Harmon
+                          </text>
+                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
+                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
+                            Ja
+                          </text>
                         </svg>
                     </a>
                 </div>
-
-                <button class="mobile-menu-btn" aria-label="Menu nawigacji" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    ☰
                 </button>
-
-                <ul class="nav-links">
-                    <li><a href="index.html">Strona główna</a></li>
-                    <li><a href="o-nas.html">O nas</a></li>
-                    <li class="dropdown">
-                        <span class="dropdown-toggle" tabindex="0" role="button" aria-expanded="false" aria-haspopup="true">Szkoła Psychoterapii</span>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
+                    <li role="none"><a href="o-nas.html" role="menuitem">O&nbsp;nas</a></li>
+                    <li class="dropdown" role="none">
+                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Szkoła Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">Ścieżka z poszerzonym modułem pracy z pacjentem w wieku rozwojowym</a></li>
-                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Ścieżka ogólna (praca z osobami dorosłymi)</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem" class="active">Ścieżka z&nbsp;poszerzonym modułem pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Ścieżka ogólna (praca z&nbsp;osobami dorosłymi)</a></li>
                         </ul>
                     </li>
-                    <li><a href="rekrutacja.html">Rekrutacja</a></li>
-                    <li><a href="szkolenia-superwizja.html">Szkolenia/Superwizja</a></li>
-                    <li><a href="kadra.html">Kadra</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
+                    <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
+                    <li role="none"><a href="kadra.html" role="menuitem">Kadra</a></li>
+                    <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- ============================================ -->
+    <!-- MAIN CONTENT                                 -->
+    <!-- ============================================ -->
     <main id="main-content">
-        <!-- Hero Section -->
+
+        <!-- ======================================== -->
+        <!-- SEKCJA 1: HERO                           -->
+        <!-- ======================================== -->
         <section class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <div class="badge">Wiek rozwojowy</div>
-                    <h1>Ścieżka z poszerzonym modułem pracy z pacjentem w wieku rozwojowym</h1>
-                    <p class="subtitle">4-letni, certyfikowany program w terapii poznawczo-behawioralnej</p>
-                    <p class="lead">
-                        4-letnie szkolenie w psychoterapii poznawczo-behawioralnej, obejmujące pełne przygotowanie do pracy z osobami dorosłymi oraz pogłębiony moduł dotyczący pracy z dziećmi i młodzieżą. Program rozwija kompetencje w zakresie diagnozy, konceptualizacji i terapii pacjentów w wieku rozwojowym oraz ich rodzin, z uwzględnieniem specyfiki rozwoju, kontekstu rodzinnego i środowiskowego.
-                    </p>
-                </div>
+                <span class="certification-badge">Wiek rozwojowy</span>
+                <h1>Ścieżka z&nbsp;poszerzonym modułem pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</h1>
+                <p class="hero-subtitle">4-letni, certyfikowany program w&nbsp;terapii poznawczo-behawioralnej</p>
+                <p class="hero-description">
+                    4-letnie szkolenie w&nbsp;psychoterapii poznawczo-behawioralnej, obejmujące pełne przygotowanie do pracy z&nbsp;osobami dorosłymi oraz pogłębiony moduł dotyczący pracy z&nbsp;dziećmi i&nbsp;młodzieżą. Program rozwija kompetencje w&nbsp;zakresie diagnozy, konceptualizacji i&nbsp;terapii pacjentów w&nbsp;wieku rozwojowym oraz ich rodzin, z&nbsp;uwzględnieniem specyfiki rozwoju, kontekstu rodzinnego i&nbsp;środowiskowego.
+                </p>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section" aria-label="Statystyki programu">
+        <!-- ======================================== -->
+        <!-- SEKCJA 2: STATYSTYKI                     -->
+        <!-- ======================================== -->
+        <section class="stats" aria-label="Statystyki programu">
             <div class="container">
-                <div class="stats-container">
-                    <div class="stat-card" data-delay="0">
-                        <div class="stat-number"><span class="counter" data-target="405">0</span><span class="stat-suffix">h</span></div>
-                        <div class="stat-label">Ogólny program szkolenia</div>
-                        <div class="stat-sublabel">w terapii poznawczo-behawioralnej</div>
+                <div class="stats-grid">
+                    <div class="stat-card animate">
+                        <span class="stat-number" data-target="1381">0</span>
+                        <span class="stat-label">Godzin dydaktycznych</span>
+                        <span class="stat-sublabel">łącznie w&nbsp;4 lata</span>
                     </div>
-                    <div class="stat-card" data-delay="150">
-                        <div class="stat-number"><span class="counter" data-target="195">0</span><span class="stat-suffix">h</span></div>
-                        <div class="stat-label">Moduł pracy z pacjentem</div>
-                        <div class="stat-sublabel">w wieku rozwojowym</div>
+                    <div class="stat-card animate">
+                        <span class="stat-number" data-target="40">0</span>
+                        <span class="stat-label">Zjazdów weekendowych</span>
+                        <span class="stat-sublabel">zwykle 10 w&nbsp;roku</span>
                     </div>
-                    <div class="stat-card" data-delay="300">
-                        <div class="stat-number">do <span class="counter" data-target="30">0</span></div>
-                        <div class="stat-label">Osób w grupie</div>
-                        <div class="stat-sublabel">kameralna, warsztatowa formuła</div>
+                    <div class="stat-card animate">
+                        <span class="stat-number" data-target="245">0</span>
+                        <span class="stat-label">Superwizji CBT</span>
+                        <span class="stat-sublabel">min. 200h superwizowanej praktyki</span>
                     </div>
-                    <div class="stat-card" data-delay="450">
-                        <div class="stat-number"><span class="counter" data-target="360">0</span><span class="stat-suffix">h</span></div>
-                        <div class="stat-label">Godzin stażu klinicznego</div>
-                        <div class="stat-sublabel">pomagamy w jego realizacji</div>
+                    <div class="stat-card animate">
+                        <span class="stat-number" data-target="360">0</span>
+                        <span class="stat-label">Stażu klinicznego</span>
+                        <span class="stat-sublabel">potwierdzane zaświadczeniem</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Goal Section -->
+        <!-- ======================================== -->
+        <!-- SEKCJA 3: CEL SZKOLENIA                  -->
+        <!-- ======================================== -->
         <section class="content-section">
             <div class="container">
                 <h2 class="section-title animate">Cel szkolenia</h2>
-                <p class="section-subtitle animate">
-                    Celem programu jest rozwój pełnych kompetencji terapeuty poznawczo-behawioralnego w obszarze wieku rozwojowego. Uczestnicy uczą się diagnozować, planować i prowadzić terapię dzieci i młodzieży, a także współpracować z rodziną i środowiskiem dziecka. Szkolenie przygotowuje do samodzielnej praktyki terapeutycznej w ośrodkach klinicznych, placówkach edukacyjnych oraz w prywatnym gabinecie.
+                <p class="goal-text animate">
+                    Celem programu jest rozwój pełnych kompetencji terapeuty poznawczo-behawioralnego w&nbsp;obszarze wieku rozwojowego. Uczestnicy uczą się diagnozować, planować i&nbsp;prowadzić terapię dzieci i&nbsp;młodzieży, a&nbsp;także współpracować z&nbsp;rodziną i&nbsp;środowiskiem dziecka. Szkolenie przygotowuje do samodzielnej praktyki terapeutycznej w&nbsp;ośrodkach klinicznych, placówkach edukacyjnych oraz w&nbsp;prywatnym gabinecie.
                 </p>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- ======================================== -->
+        <!-- SEKCJA 4: JAK ZORGANIZOWANE SZKOLENIE    -->
+        <!-- ======================================== -->
         <section class="content-section alt">
             <div class="container">
-                <h2 class="section-title animate">Czego się nauczysz</h2>
-                <p class="section-subtitle animate">
-                    Szkolenie łączy teorię z intensywną praktyką i superwizją. W trakcie czterech lat rozwiniesz kompetencje w kluczowych obszarach terapii poznawczo-behawioralnej dzieci i młodzieży.
+                <h2 class="section-title animate">Jak zorganizowane jest szkolenie?</h2>
+                <p class="section-description animate">
+                    Szkoła Psychoterapii HarmonJa realizuje 4-letnie szkolenie w&nbsp;psychoterapii poznawczo-behawioralnej (CBT) w&nbsp;dwóch ścieżkach kształcenia. Szkolenie ma formę 40 zjazdów weekendowych (zwykle 10 w&nbsp;roku), realizowanych stacjonarnie.
                 </p>
-                <div class="skills-grid">
-                    <div class="skill-item animate">
-                        <h3>Diagnoza i konceptualizacja CBT</h3>
-                        <p>Diagnoza kliniczna i konceptualizacja przypadku w nurcie CBT</p>
+
+                <!-- Podsumowanie godzinowe -->
+                <h3 class="hours-detail-title animate">Podsumowanie godzinowe</h3>
+                <span class="org-note animate">Struktura wspólna dla obu ścieżek kształcenia</span>
+
+                <!-- Banner 1381h -->
+                <div class="hours-banner animate">
+                    <div class="hours-banner-number"><span class="banner-counter" data-target="1381">0</span><span class="hours-banner-suffix">h</span></div>
+                    <div class="hours-banner-text">
+                        <div class="hours-banner-label">Łączny wymiar kształcenia</div>
+                        <div class="hours-banner-sublabel">teoria + praktyka + superwizja + rozwój osobisty + staż</div>
                     </div>
-                    <div class="skill-item animate">
-                        <h3>Praca z emocjami i zachowaniem</h3>
-                        <p>Techniki pracy z emocjami, myślami i zachowaniami dostosowane do wieku pacjenta</p>
+                </div>
+
+                <!-- Dwie karty: W ośrodku / Staż -->
+                <div class="org-grid animate">
+                    <div class="org-card">
+                        <h3>W&nbsp;Ośrodku</h3>
+                        <div class="org-card-hours">1021 godzin</div>
+                        <p>Teoria, praktyka, superwizja, rozwój osobisty — realizowane w&nbsp;ramach zjazdów weekendowych i&nbsp;zajęć dodatkowych.</p>
                     </div>
-                    <div class="skill-item animate">
-                        <h3>Zaburzenia lękowe i afektywne</h3>
-                        <p>Prowadzenie terapii zaburzeń lękowych, afektywnych, OCD, tikowych</p>
+                    <div class="org-card">
+                        <h3>Staż kliniczny</h3>
+                        <div class="org-card-hours">360 godzin</div>
+                        <p>Realizowany w&nbsp;placówkach prowadzących diagnostykę i&nbsp;terapię — potwierdzane osobnym zaświadczeniem.</p>
                     </div>
-                    <div class="skill-item animate">
-                        <h3>Neuroróżnorodność</h3>
-                        <p>Praca z dziećmi z autyzmem, ADHD – adaptacje i współpraca z rodziną</p>
+                </div>
+
+                <!-- W ramach 1021 godzin -->
+                <h3 class="hours-detail-title animate">W&nbsp;ramach 1021 godzin w&nbsp;Ośrodku</h3>
+                <div class="hours-detail-grid animate">
+                    <div class="hours-detail-card full-width">
+                        <div class="hours-detail-icon">🕐</div>
+                        <div class="hours-detail-content">
+                            <h4><span>800h</span> — Zjazdy weekendowe</h4>
+                            <p>40 zjazdów × 20 godzin dydaktycznych</p>
+                        </div>
                     </div>
-                    <div class="skill-item animate">
-                        <h3>DBT dla młodzieży</h3>
-                        <p>Terapia osobowości borderline (DBT) – regulacja emocji i umiejętności interpersonalne</p>
+                    <div class="hours-detail-card">
+                        <div class="hours-detail-icon">🕐</div>
+                        <div class="hours-detail-content">
+                            <h4><span>245h</span> — Superwizja CBT</h4>
+                            <p>W&nbsp;ramach zjazdów + małe grupy superwizyjne</p>
+                        </div>
                     </div>
-                    <div class="skill-item animate">
-                        <h3>Trauma i przywiązanie</h3>
-                        <p>Terapia traumy, żałoby, zaburzeń przywiązania z wykorzystaniem technik CBT</p>
+                    <div class="hours-detail-card">
+                        <div class="hours-detail-icon">🕐</div>
+                        <div class="hours-detail-content">
+                            <h4><span>60h</span> — Zespoły konsultacyjne</h4>
+                            <p>I&nbsp;rok: 30h, II–IV: po 10h rocznie</p>
+                        </div>
                     </div>
-                    <div class="skill-item animate">
-                        <h3>Protokoły evidence-based</h3>
-                        <p>Stosowanie technik poznawczych i behawioralnych opartych na najnowszych protokołach</p>
-                    </div>
-                    <div class="skill-item animate">
-                        <h3>Współpraca systemowa</h3>
-                        <p>Współpraca z rodziną, szkołą i systemem opiekuńczym</p>
-                    </div>
-                    <div class="skill-item animate">
-                        <h3>Etyka i prawo</h3>
-                        <p>Aspekty etyczne i prawne pracy terapeutycznej z osobami niepełnoletnimi</p>
+                    <div class="hours-detail-card full-width">
+                        <div class="hours-detail-icon">🕐</div>
+                        <div class="hours-detail-content">
+                            <h4><span>116h</span> — Rozwój osobisty</h4>
+                            <p>SPSR (36h), trening DBT (48h), mindfulness retreat (32h)</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Details Section -->
+        <!-- ======================================== -->
+        <!-- SEKCJA 5: PEŁNY PROGRAM TEMATYCZNY       -->
+        <!-- ======================================== -->
         <section class="content-section">
             <div class="container">
-                <h2 class="section-title animate">Szczegóły organizacyjne</h2>
-                <div class="info-cards">
-                    <div class="info-card animate">
-                        <h3>Organizacja</h3>
-                        <ul>
-                            <li>Czas trwania: 4 lata</li>
-                            <li>Forma: zjazdy weekendowe</li>
-                            <li>Zajęcia na żywo</li>
-                            <li>Szkolenie w procesie ubiegania się o rekomendację PTTPB</li>
-                        </ul>
+                <div class="curriculum-header animate">
+                    <h2 class="section-title" style="margin-bottom: 0;">Ścieżka z&nbsp;poszerzonym modułem rozwojowym — pełny program tematyczny</h2>
+                    <span class="curriculum-badge">600 h zajęć warsztatowo-wykładowych</span>
+                </div>
+                <p class="curriculum-lead animate">
+                    Ta ścieżka obejmuje 600 godzin zajęć warsztatowo-wykładowych w&nbsp;cyklu 4-letnim, z&nbsp;rozszerzeniem o&nbsp;specjalistyczną perspektywę pracy z&nbsp;dziećmi i&nbsp;młodzieżą.
+                </p>
+
+                <!-- Widoczne tematy (1-12) -->
+                <div class="curriculum-grid animate" id="curriculum-visible">
+                    <div class="curriculum-item"><span class="item-number">1</span>Wprowadzenie do psychoterapii poznawczo-behawioralnej</div>
+                    <div class="curriculum-item"><span class="item-number">2</span>Psychopatologia, diagnoza nozologiczna, biologiczne podstawy zaburzeń psychicznych i&nbsp;podstawy farmakoterapii</div>
+                    <div class="curriculum-item"><span class="item-number">3</span>Konceptualizacja poznawczo-behawioralna</div>
+                    <div class="curriculum-item"><span class="item-number">4</span>Techniki terapii behawioralnej</div>
+                    <div class="curriculum-item"><span class="item-number">5</span>Techniki terapii poznawczej</div>
+                    <div class="curriculum-item"><span class="item-number">6</span>Terapia CBT zaburzeń lękowych (fobie specyficzne, GAD, fobia społeczna)</div>
+                    <div class="curriculum-item"><span class="item-number">7</span>Terapia CBT zaburzeń nastroju i&nbsp;afektywnych</div>
+                    <div class="curriculum-item"><span class="item-number">8</span>Terapia CBT zaburzeń OCD, tikowych i&nbsp;pokrewnych</div>
+                    <div class="curriculum-item"><span class="item-number">9</span>Rozwój psychiczny i&nbsp;emocjonalny od narodzin do dorosłości: od normy do psychopatologii</div>
+                    <div class="curriculum-item"><span class="item-number">10</span>Nowe technologie w&nbsp;CBT, badania nad skutecznością CBT</div>
+                    <div class="curriculum-item"><span class="item-number">11</span>Praca z&nbsp;pacjentem z&nbsp;ryzykiem samobójczym</div>
+                    <div class="curriculum-item"><span class="item-number">12</span>Zagadnienia etyczne i&nbsp;prawne w&nbsp;psychoterapii</div>
+                </div>
+
+                <!-- Ukryte tematy (13-33) -->
+                <div class="curriculum-grid curriculum-hidden" id="curriculum-hidden">
+                    <div class="curriculum-item"><span class="item-number">13</span>Neuroróżnorodność: spektrum autyzmu (perspektywa rozwojowa, ujęcie CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">14</span>Neuroróżnorodność: ADHD (perspektywa rozwojowa, ujęcie CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">15</span>CBT zaburzeń psychosomatycznych i&nbsp;somatyzacyjnych oraz lęku o&nbsp;zdrowie</div>
+                    <div class="curriculum-item"><span class="item-number">16</span>CBT zaburzeń odżywiania</div>
+                    <div class="curriculum-item"><span class="item-number">17</span>Zaburzenia z&nbsp;kręgu psychoz i&nbsp;schizofrenii w&nbsp;podejściu CBT</div>
+                    <div class="curriculum-item"><span class="item-number">18</span>Podstawy terapii CBT traumy, żałoby i&nbsp;PTSD</div>
+                    <div class="curriculum-item"><span class="item-number">19</span>Rozwój i&nbsp;zaburzenia tożsamości płciowej (perspektywa CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">20</span>Zaburzenia osobowości (perspektywa CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">21</span>Praca ze środowiskiem pacjenta oraz terapia rodzin (perspektywa CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">22</span>Relacja terapeutyczna z&nbsp;uwzględnieniem relacji z&nbsp;pacjentem w&nbsp;wieku rozwojowym i&nbsp;jego opiekunami</div>
+                    <div class="curriculum-item"><span class="item-number">23</span>Diagnoza i&nbsp;wywiad kliniczny z&nbsp;dziećmi i&nbsp;młodzieżą (perspektywa CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">24</span>Zaawansowana konceptualizacja przypadku w&nbsp;pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym (cz.&nbsp;II)</div>
+                    <div class="curriculum-item"><span class="item-number">25</span>CBT zaburzeń związanych z&nbsp;używaniem substancji i&nbsp;uzależnień u&nbsp;młodzieży i&nbsp;dorosłych</div>
+                    <div class="curriculum-item"><span class="item-number">26</span>CBT uzależnień cyfrowych i&nbsp;behawioralnych u&nbsp;dzieci, młodzieży i&nbsp;dorosłych</div>
+                    <div class="curriculum-item"><span class="item-number">27</span>Złożone PTSD (CPTSD) – potraumatyczny rozwój osobowości (perspektywa CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">28</span>Zaburzenie osobowości z&nbsp;pogranicza (BPD) oraz przewlekłe tendencje suicydalne: wprowadzenie do DBT</div>
+                    <div class="curriculum-item"><span class="item-number">29</span>Dzieci i&nbsp;młodzież w&nbsp;trudnych sytuacjach rodzinnych i&nbsp;opiekuńczych: rozwód, konflikt rodziców, piecza zastępcza</div>
+                    <div class="curriculum-item"><span class="item-number">30</span>Zagadnienia prawne i&nbsp;etyczne pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</div>
+                    <div class="curriculum-item"><span class="item-number">31</span>Terapia CBT dzieci i&nbsp;młodzieży z&nbsp;niedostosowaniem społecznym, demoralizacją, cechami osobowości dyssocjalnej</div>
+                    <div class="curriculum-item"><span class="item-number">32</span>Zaburzenia mowy i&nbsp;języka, zaburzenia uczenia się, niepełnosprawność intelektualna (perspektywa CBT)</div>
+                    <div class="curriculum-item"><span class="item-number">33</span>Aktualne protokoły, adaptacje i&nbsp;innowacje w&nbsp;CBT</div>
+                </div>
+
+                <!-- Toggle button -->
+                <button class="curriculum-toggle-btn" id="curriculum-toggle" aria-expanded="false" aria-controls="curriculum-hidden">
+                    Pokaż pełny program <span class="arrow">▼</span>
+                </button>
+
+                <!-- Bottom stats -->
+                <div class="bottom-stats animate">
+                    <div class="bottom-stat-card">
+                        <div class="bottom-stat-number">245h</div>
+                        <div class="bottom-stat-label">Superwizji</div>
+                        <div class="bottom-stat-sublabel">min. 200h praktyki superwizowanej</div>
                     </div>
-                    <div class="info-card animate">
-                        <h3>Program obejmuje</h3>
-                        <ul>
-                            <li>Zajęcia teoretyczne</li>
-                            <li>Warsztaty praktyczne</li>
-                            <li>Superwizję kliniczną</li>
-                            <li>Rozwój osobisty (Self Practice / Self Reflection)</li>
-                            <li>Trening umiejętności DBT</li>
-                            <li>Odosobnienie medytacyjne</li>
-                            <li>Egzamin końcowy</li>
-                        </ul>
+                    <div class="bottom-stat-card">
+                        <div class="bottom-stat-number">60h</div>
+                        <div class="bottom-stat-label">Zespołów konsultacyjnych</div>
+                        <div class="bottom-stat-sublabel">praktyka nad przypadkami</div>
                     </div>
-                    <div class="info-card animate">
-                        <h3>Dla kogo</h3>
-                        <ul>
-                            <li>Psycholodzy i pedagodzy</li>
-                            <li>Terapeuci z doświadczeniem</li>
-                            <li>Specjaliści pracujący z dziećmi</li>
-                            <li>Osoby szukające certyfikacji PTTPB</li>
-                        </ul>
+                    <div class="bottom-stat-card">
+                        <div class="bottom-stat-number">116h</div>
+                        <div class="bottom-stat-label">Rozwoju osobistego</div>
+                        <div class="bottom-stat-sublabel">SPSR, DBT, mindfulness</div>
+                    </div>
+                    <div class="bottom-stat-card">
+                        <div class="bottom-stat-number">360h</div>
+                        <div class="bottom-stat-label">Stażu klinicznego</div>
+                        <div class="bottom-stat-sublabel">osobne zaświadczenie</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
+        <!-- ======================================== -->
+        <!-- SEKCJA 6: FILARY KOMPETENCJI KLINICZNEJ  -->
+        <!-- ======================================== -->
+        <section class="content-section light-blue-bg">
+            <div class="container">
+                <h2 class="section-title animate">Elementy programu, które budują kompetencję kliniczną</h2>
+                <p class="pillars-lead animate">
+                    Oprócz zajęć warsztatowo-wykładowych, szkolenie obejmuje cztery kluczowe filary rozwoju klinicznego — każdy z&nbsp;nich jest integralną częścią programu.
+                </p>
+
+                <div class="pillars-grid">
+                    <!-- Filar 1: Superwizja -->
+                    <div class="pillar-card animate">
+                        <div class="pillar-icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="24" cy="24" r="14" stroke="url(#gradPillar1)" stroke-width="2.5"/>
+                                <line x1="34" y1="34" x2="46" y2="46" stroke="url(#gradPillar1)" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="20" cy="22" r="3" stroke="url(#gradPillar1)" stroke-width="1.5" opacity="0.6"/>
+                                <circle cx="28" cy="20" r="2" stroke="url(#gradPillar1)" stroke-width="1.5" opacity="0.4"/>
+                                <defs>
+                                    <linearGradient id="gradPillar1" x1="0" y1="0" x2="56" y2="56">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Superwizja — filar szkolenia (245h)</h3>
+                        <p>Superwizja jest stałym elementem procesu kształcenia i&nbsp;obejmuje 245 godzin. W&nbsp;jej ramach minimum 200 godzin praktyki terapeutycznej jest omawiane i&nbsp;prowadzone w&nbsp;trybie superwizyjnym (superwizowana praktyka kliniczna).</p>
+                    </div>
+
+                    <!-- Filar 2: Zespoły konsultacyjne -->
+                    <div class="pillar-card animate">
+                        <div class="pillar-icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="28" cy="16" r="6" stroke="url(#gradPillar2)" stroke-width="2"/>
+                                <circle cx="14" cy="30" r="5" stroke="url(#gradPillar2)" stroke-width="2"/>
+                                <circle cx="42" cy="30" r="5" stroke="url(#gradPillar2)" stroke-width="2"/>
+                                <line x1="22" y1="20" x2="17" y2="26" stroke="url(#gradPillar2)" stroke-width="1.5" opacity="0.6"/>
+                                <line x1="34" y1="20" x2="39" y2="26" stroke="url(#gradPillar2)" stroke-width="1.5" opacity="0.6"/>
+                                <line x1="19" y1="30" x2="37" y2="30" stroke="url(#gradPillar2)" stroke-width="1.5" opacity="0.4"/>
+                                <defs>
+                                    <linearGradient id="gradPillar2" x1="0" y1="0" x2="56" y2="56">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Zespoły konsultacyjne (60h)</h3>
+                        <p>Od pierwszego roku pracujesz w&nbsp;małej grupie (do 6 osób) prowadzonej przez certyfikowanego terapeutę CBT. To przestrzeń pracy nad przypadkami, konceptualizacją, planowaniem interwencji, a&nbsp;także nad projektem klinicznym realizowanym w&nbsp;cyklu szkolenia.</p>
+                    </div>
+
+                    <!-- Filar 3: Rozwój osobisty -->
+                    <div class="pillar-card animate">
+                        <div class="pillar-icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M28 44V24" stroke="url(#gradPillar3)" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M28 24C28 24 22 18 22 14C22 10 25 8 28 8C31 8 34 10 34 14C34 18 28 24 28 24Z" stroke="url(#gradPillar3)" stroke-width="2"/>
+                                <path d="M20 34C20 34 16 30 14 28" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                                <path d="M36 34C36 34 40 30 42 28" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                                <path d="M22 40C22 40 18 36 16 34" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                                <path d="M34 40C34 40 38 36 40 34" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                                <defs>
+                                    <linearGradient id="gradPillar3" x1="0" y1="0" x2="56" y2="56">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Rozwój osobisty terapeuty (116h · w&nbsp;ramach czesnego)</h3>
+                        <p>Program obejmuje 116 godzin zajęć rozwoju osobistego:</p>
+                        <ul class="pillar-sublist">
+                            <li><strong>Self-Practice / Self-Reflection (SPSR)</strong> — 36 h: ustrukturyzowana praca własna terapeuty w&nbsp;podejściu CBT.</li>
+                            <li><strong>Trening umiejętności DBT</strong> — 48 h: praktyczny trening kompetencji pracy z&nbsp;wysoką dysregulacją emocjonalną.</li>
+                            <li><strong>Mindfulness retreat</strong> — 32 h (4-dniowy moduł): pogłębiona praktyka uważności i&nbsp;integracja z&nbsp;pracą terapeutyczną.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Filar 4: Staż kliniczny -->
+                    <div class="pillar-card animate">
+                        <div class="pillar-icon">
+                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="12" y="18" width="32" height="28" stroke="url(#gradPillar4)" stroke-width="2.5" rx="3"/>
+                                <rect x="22" y="10" width="12" height="8" stroke="url(#gradPillar4)" stroke-width="2" rx="1"/>
+                                <line x1="28" y1="28" x2="28" y2="38" stroke="url(#gradPillar4)" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="23" y1="33" x2="33" y2="33" stroke="url(#gradPillar4)" stroke-width="2.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradPillar4" x1="0" y1="0" x2="56" y2="56">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>Staż kliniczny (360h)</h3>
+                        <p>Program obejmuje 360 godzin stażu klinicznego, realizowanego w&nbsp;placówkach prowadzących diagnostykę i&nbsp;terapię osób z&nbsp;zaburzeniami psychicznymi (potwierdzane osobnym zaświadczeniem).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- SEKCJA 7: CTA                            -->
+        <!-- ======================================== -->
         <section class="cta-section">
             <div class="container">
-                <h2 class="animate">Gotowy na rozpoczęcie szkolenia?</h2>
-                <p class="animate">Dołącz do grona certyfikowanych psychoterapeutów poznawczo-behawioralnych</p>
-                <div class="cta-buttons animate">
-                    <a href="rekrutacja.html" class="cta-button">Zgłoś się na rozmowę kwalifikacyjną</a>
-                    <a href="kontakt.html" class="cta-button secondary">Skontaktuj się z nami</a>
+                <h2>Chcesz się rozwijać razem z&nbsp;nami?</h2>
+                <p>Dołącz do szkoły, która łączy naukę z&nbsp;pasją i&nbsp;praktyką kliniczną.</p>
+                <div class="cta-buttons">
+                    <a href="rekrutacja.html" class="cta-button">Zapisz się na rozmowę kwalifikacyjną</a>
+                    <a href="szkola-dorosli.html" class="cta-button secondary">Dowiedz się więcej o&nbsp;programie</a>
                 </div>
             </div>
         </section>
 
-        <!-- Newsletter Section -->
-        <section class="newsletter" aria-label="Newsletter">
-            <div class="newsletter-container">
-                <h2>Bądź na bieżąco</h2>
-                <p>Zapisz się do newslettera i otrzymuj informacje o naborach, szkoleniach i wydarzeniach.</p>
-                <form class="newsletter-form" novalidate>
-                    <input type="email" class="newsletter-input" placeholder="Twój adres email" required aria-label="Adres email">
-                    <button type="submit" class="newsletter-btn">Zapisz się</button>
-                </form>
-            </div>
-        </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ============================================ -->
+    <!-- FOOTER (1:1 ze wzorca)                       -->
+    <!-- ============================================ -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Szkoła</h3>
                     <ul class="footer-links">
-                        <li><a href="o-nas.html">O nas</a></li>
-                        <li><a href="szkola-dzieci-mlodziez.html">Poszerzony moduł pracy z pacjentem w wieku rozwojowym</a></li>
-                        <li><a href="szkola-dorosli.html">Ścieżka ogólna (praca z osobami dorosłymi)</a></li>
+                        <li><a href="o-nas.html">O&nbsp;nas</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">Poszerzony moduł pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a></li>
+                        <li><a href="szkola-dorosli.html">Ścieżka ogólna (praca z&nbsp;osobami dorosłymi)</a></li>
                         <li><a href="kadra.html">Kadra</a></li>
                     </ul>
                 </div>
@@ -1126,7 +1513,7 @@
                     <h3>Dla kandydatów</h3>
                     <ul class="footer-links">
                         <li><a href="rekrutacja.html">Rekrutacja</a></li>
-                        <li><a href="szkolenia-superwizja.html">Szkolenia i Superwizja</a></li>
+                        <li><a href="szkolenia-superwizja.html">Szkolenia i&nbsp;Superwizja</a></li>
                         <li><a href="kontakt.html">FAQ</a></li>
                     </ul>
                 </div>
@@ -1135,18 +1522,11 @@
                     <div class="contact-info">
                         <p><strong>Szkoła Psychoterapii HarmonJa</strong></p>
                         <p>prowadzona przez</p>
-                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp. z o.o.</p>
+                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp.&nbsp;z&nbsp;o.o.</p>
                         <p style="margin-top: 15px;">
-                            ul. Politechniczna 9/7<br>
-                            80-288 Gdańsk
+                            ul. Grunwaldzka 56/7<br>80-241 Gdańsk
                         </p>
-                        <p style="margin-top: 10px;">
-                            Email: szkolaharmonja@gmail.com
-                        </p>
-                        <p>
-                            NIP: 9571190783<br>
-                            REGON: 542257334
-                        </p>
+                        <p>Email: <a href="mailto:kontakt@harmonja.pl" style="color: var(--primary-color);">kontakt@harmonja.pl</a></p>
                     </div>
                     <div class="social-links">
                         <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
@@ -1159,56 +1539,98 @@
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
                         </a>
-                        <a href="https://instagram.com" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.youtube.com/@wglowiesiemiesci3561" class="social-icon" aria-label="YouTube — podcast W Głowie się Mieści" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
                         </a>
                     </div>
                 </div>
-                <div class="footer-col">
-                    <h3>Informacje</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Polityka prywatności</a></li>
-                        <li><a href="#">Regulamin</a></li>
-                        <li><a href="kontakt.html">Kontakt</a></li>
-                    </ul>
-                </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2025 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
 
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT                                   -->
+    <!-- ============================================ -->
     <script>
-        /* Mobile menu toggle with scroll lock */
+        /* ========================================
+           MOBILE MENU
+           ======================================== */
         (function() {
             var btn = document.querySelector('.mobile-menu-btn');
             var nav = document.querySelector('.nav-links');
             if (!btn || !nav) return;
 
             btn.addEventListener('click', function() {
-                var isOpen = nav.classList.toggle('active');
-                btn.classList.toggle('active');
-                btn.setAttribute('aria-expanded', isOpen);
-                document.body.style.overflow = isOpen ? 'hidden' : '';
+                nav.classList.toggle('active');
+                var isExpanded = nav.classList.contains('active');
+                this.setAttribute('aria-expanded', isExpanded);
+                this.textContent = isExpanded ? '✕' : '☰';
+                document.body.style.overflow = isExpanded ? 'hidden' : '';
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('nav') && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.textContent = '☰';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.textContent = '☰';
+                    document.body.style.overflow = '';
+                }
             });
 
             nav.querySelectorAll('a').forEach(function(link) {
                 link.addEventListener('click', function() {
                     nav.classList.remove('active');
-                    btn.classList.remove('active');
                     btn.setAttribute('aria-expanded', 'false');
+                    btn.textContent = '☰';
                     document.body.style.overflow = '';
                 });
             });
         })();
 
-        /* Hero animation on load */
-        document.querySelector('.hero').classList.add('animated');
+        /* ========================================
+           DROPDOWN KEYBOARD NAVIGATION
+           ======================================== */
+        (function() {
+            var toggles = document.querySelectorAll('.dropdown-toggle');
+            toggles.forEach(function(toggle) {
+                toggle.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        var dropdown = this.closest('.dropdown');
+                        var menu = dropdown.querySelector('.dropdown-menu');
+                        var isExpanded = this.getAttribute('aria-expanded') === 'true';
+                        this.setAttribute('aria-expanded', !isExpanded);
+                        if (!isExpanded) {
+                            menu.style.opacity = '1';
+                            menu.style.visibility = 'visible';
+                            menu.style.transform = 'translateY(0)';
+                        } else {
+                            menu.style.opacity = '0';
+                            menu.style.visibility = 'hidden';
+                            menu.style.transform = 'translateY(-10px)';
+                        }
+                    }
+                });
+            });
+        })();
 
-        /* IntersectionObserver — animate on scroll with stagger */
+        /* ========================================
+           INTERSECTION OBSERVER — ANIMATE ON SCROLL
+           ======================================== */
         (function() {
             var items = document.querySelectorAll('.animate');
             if (!items.length) return;
@@ -1228,44 +1650,152 @@
             });
         })();
 
-        /* Stat card stagger animation */
+        /* ========================================
+           ANIMATED COUNTERS (Tesla-style, 60 FPS)
+           ======================================== */
+        (function() {
+            function animateCounter(element, target, duration) {
+                duration = duration || 2000;
+                var start = performance.now();
+
+                function step(now) {
+                    var progress = Math.min((now - start) / duration, 1);
+                    // ease-out quad
+                    var eased = 1 - (1 - progress) * (1 - progress);
+                    element.textContent = Math.round(target * eased).toLocaleString('pl-PL');
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
+            var observerOptions = { threshold: 0.5, rootMargin: '0px' };
+
+            var counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                        entry.target.classList.add('counted');
+                        var target = parseInt(entry.target.dataset.target);
+                        animateCounter(entry.target, target);
+                    }
+                });
+            }, observerOptions);
+
+            // Stat section counters
+            document.querySelectorAll('.stat-number').forEach(function(counter) {
+                counterObserver.observe(counter);
+            });
+
+            // Banner counter
+            document.querySelectorAll('.banner-counter').forEach(function(counter) {
+                counterObserver.observe(counter);
+            });
+        })();
+
+        /* ========================================
+           STAT CARD STAGGER ANIMATION
+           ======================================== */
         (function() {
             var cards = document.querySelectorAll('.stat-card');
             if (!cards.length) return;
 
             var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
+                entries.forEach(function(entry, index) {
                     if (entry.isIntersecting) {
-                        var delay = parseInt(entry.target.getAttribute('data-delay')) || 0;
                         setTimeout(function() {
-                            entry.target.classList.add('animated');
-                            startCounter(entry.target);
-                        }, delay);
-                        observer.unobserve(entry.target);
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 120);
                     }
                 });
-            }, { threshold: 0.3 });
+            }, { threshold: 0.1 });
 
-            cards.forEach(function(card) { observer.observe(card); });
+            cards.forEach(function(card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
         })();
 
-        /* Animated counters */
-        function startCounter(card) {
-            var el = card.querySelector('.counter');
-            if (!el) return;
-            var target = parseInt(el.getAttribute('data-target'));
-            var duration = 1200;
-            var start = performance.now();
+        /* ========================================
+           CURRICULUM TOGGLE
+           ======================================== */
+        (function() {
+            var btn = document.getElementById('curriculum-toggle');
+            var hidden = document.getElementById('curriculum-hidden');
+            if (!btn || !hidden) return;
 
-            function step(now) {
-                var progress = Math.min((now - start) / duration, 1);
-                /* ease-out quad */
-                var eased = 1 - (1 - progress) * (1 - progress);
-                el.textContent = Math.round(target * eased);
-                if (progress < 1) requestAnimationFrame(step);
+            btn.addEventListener('click', function() {
+                var isExpanded = hidden.classList.contains('visible');
+
+                if (isExpanded) {
+                    hidden.classList.remove('visible');
+                    btn.innerHTML = 'Pokaż pełny program <span class="arrow">▼</span>';
+                    btn.classList.remove('expanded');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    hidden.classList.add('visible');
+                    btn.innerHTML = 'Zwiń program <span class="arrow">▼</span>';
+                    btn.classList.add('expanded');
+                    btn.setAttribute('aria-expanded', 'true');
+
+                    // Stagger animation for newly visible items
+                    var items = hidden.querySelectorAll('.curriculum-item');
+                    items.forEach(function(item, i) {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(15px)';
+                        item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        setTimeout(function() {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, i * 50);
+                    });
+                }
+            });
+        })();
+
+        /* ========================================
+           PILLAR CARD STAGGER
+           ======================================== */
+        (function() {
+            var cards = document.querySelectorAll('.pillar-card');
+            if (!cards.length) return;
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry, index) {
+                    if (entry.isIntersecting) {
+                        setTimeout(function() {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 150);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(function(card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        })();
+
+        /* ========================================
+           SKIP TO CONTENT — smooth scroll
+           ======================================== */
+        (function() {
+            var skipLink = document.querySelector('.skip-to-content');
+            if (skipLink) {
+                skipLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var main = document.querySelector('#main-content');
+                    if (main) {
+                        main.focus();
+                        main.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
             }
-            requestAnimationFrame(step);
-        }
+        })();
     </script>
 </body>
 </html>
