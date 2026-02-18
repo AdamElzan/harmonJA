@@ -117,7 +117,7 @@
             width: 100%;
         }
 
-        /* TESLA FIX: Dropdown styling */
+        /* Dropdown styling */
         .dropdown {
             position: relative;
         }
@@ -134,7 +134,6 @@
             transition: all 0.3s;
         }
 
-        /* TESLA ENHANCEMENT: Arrow styling */
         .dropdown-toggle::after {
             content: '▼';
             font-size: 0.65em;
@@ -143,7 +142,6 @@
             opacity: 0.7;
         }
 
-        /* TESLA: Hover effect na dropdown toggle */
         .dropdown:hover .dropdown-toggle,
         .dropdown-toggle:focus {
             color: var(--highlight-color);
@@ -156,7 +154,6 @@
             color: var(--highlight-color);
         }
 
-        /* TESLA: Underline effect for dropdown */
         .dropdown-toggle::before {
             content: '';
             position: absolute;
@@ -207,7 +204,6 @@
             transition: all 0.3s;
         }
 
-        /* TESLA: Enhanced menu item hover */
         .dropdown-menu a:hover,
         .dropdown-menu a:focus {
             background: linear-gradient(90deg, var(--light-blue), transparent);
@@ -247,7 +243,7 @@
             top: 0;
         }
 
-        /* TESLA INNOVATION 1: Hero with Parallax Floating Shapes */
+        /* Hero with Parallax Floating Shapes */
         .hero {
             background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
             padding: 100px 0;
@@ -259,7 +255,6 @@
             align-items: center;
         }
 
-        /* TESLA: Floating animated shapes */
         .hero::before {
             content: '';
             position: absolute;
@@ -336,7 +331,6 @@
             margin: 0 auto;
         }
 
-        /* TESLA INNOVATION 2: Gradient Animated Text */
         .hero h1 {
             font-size: 3rem;
             color: var(--dark-blue);
@@ -371,11 +365,13 @@
         }
 
         .hero-lead {
-            font-size: 1.15rem;
-            color: #555;
+            font-size: 1.25rem;
+            color: var(--dark-blue);
             margin-bottom: 25px;
             line-height: 1.8;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            font-weight: 500;
+            font-style: italic;
         }
 
         .hero-note {
@@ -395,7 +391,28 @@
             backdrop-filter: blur(4px);
         }
 
-        /* TESLA INNOVATION 3: Enhanced CTA Button */
+        .hero-note a {
+            color: var(--highlight-color);
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        .hero-note a:hover,
+        .hero-note a:focus {
+            color: var(--dark-blue);
+            border-bottom-color: var(--highlight-color);
+            outline: none;
+        }
+
+        .hero-follow {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.35s backwards;
+        }
+
+        /* CTA Button */
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
@@ -409,6 +426,8 @@
             position: relative;
             overflow: hidden;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button::before {
@@ -433,7 +452,7 @@
             outline: none;
         }
 
-        /* TESLA INNOVATION 4: Scroll Down Indicator */
+        /* Scroll Down Indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -476,248 +495,6 @@
             100% { opacity: 0; transform: translateY(20px); }
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .stat-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-        }
-
-        .stat-suffix {
-            font-size: 1.6rem;
-            font-weight: 600;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .stat-sublabel {
-            font-size: 0.85rem;
-            color: #999;
-            margin-top: 4px;
-        }
-
-        /* TESLA: PAN Partnership Section */
-        .pan-partnership {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--dark-blue) 0%, #0a4a70 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pan-partnership::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 180, 255, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -200px;
-            right: -100px;
-            animation: floatShape1 25s ease-in-out infinite;
-        }
-
-        .pan-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .pan-badge {
-            margin: 0 auto 30px;
-            width: 60px;
-            height: 60px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .pan-badge svg {
-            filter: drop-shadow(0 4px 10px rgba(0, 180, 255, 0.3));
-        }
-
-        .pan-title {
-            font-size: 2.8rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-            line-height: 1.3;
-        }
-
-        .pan-description {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .pan-sub-info {
-            font-size: 1rem;
-            line-height: 1.7;
-            opacity: 0.85;
-            margin-bottom: 50px;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px 28px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: fadeInUp 0.8s ease-out 0.5s backwards;
-        }
-
-        .pan-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        .pan-highlight-item {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .pan-highlight-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-            border-color: rgba(0, 180, 255, 0.3);
-        }
-
-        .highlight-number {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-
-        .highlight-label {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* TESLA: Technology & Clinical Base Section */
-        .tech-clinical {
-            padding: 80px 0;
-            background: var(--white);
-            position: relative;
-        }
-
-        .tech-clinical-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .info-block {
-            padding: 40px;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .info-block.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .info-block--tech {
-            background: linear-gradient(135deg, var(--light-blue), #e8f8ff);
-            border: 1px solid rgba(0, 180, 255, 0.12);
-        }
-
-        .info-block--clinical {
-            background: linear-gradient(135deg, var(--cream-bg), #fff5eb);
-            border: 1px solid rgba(34, 199, 214, 0.12);
-        }
-
-        .info-block--internship {
-            background: linear-gradient(135deg, #f0f7ff, var(--light-blue));
-            border: 1px solid rgba(9, 57, 95, 0.1);
-        }
-
-        .info-block:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .info-block__icon {
-            width: 52px;
-            height: 52px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-        }
-
-        .info-block__icon svg {
-            width: 28px;
-            height: 28px;
-        }
-
-        .info-block h3 {
-            font-size: 1.3rem;
-            color: var(--dark-blue);
-            margin-bottom: 14px;
-            font-weight: 600;
-        }
-
-        .info-block p {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.7;
-        }
-
         /* Features Section */
         .features {
             padding: 80px 0;
@@ -747,7 +524,6 @@
             gap: 30px;
         }
 
-        /* TESLA INNOVATION 5: Staggered Feature Cards */
         .feature-card {
             background-color: var(--white);
             padding: 35px;
@@ -804,213 +580,179 @@
             line-height: 1.65;
         }
 
-        /* TESLA INNOVATION 6: 3D Tilt Program Cards */
-        .programs {
+        /* Stats Section */
+        .stats {
             padding: 80px 0;
-            background-color: var(--cream-bg);
-            position: relative;
-        }
-        
-        .programs::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(34, 199, 214, 0), rgba(34, 199, 214, 0.3) 50%, rgba(34, 199, 214, 0));
-        }
-        
-        .programs::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(34, 199, 214, 0), rgba(34, 199, 214, 0.3) 50%, rgba(34, 199, 214, 0));
-        }
-        
-        .programs-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        
-        .program-card {
             background-color: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            transition: all 0.4s;
-            position: relative;
-            border: 1px solid rgba(34, 199, 214, 0.1);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        
-        .program-card:hover {
-            box-shadow: 0 15px 40px rgba(0, 180, 255, 0.2);
-        }
-        
-        .program-content {
-            padding: 35px;
-            position: relative;
-            z-index: 1;
         }
 
-        .program-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--highlight-color);
-            margin-bottom: 12px;
-            padding: 4px 12px;
-            background: var(--light-blue);
-            border-radius: 20px;
-        }
-        
-        .program-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark-blue);
-            font-weight: 600;
-            line-height: 1.4;
-        }
-        
-        .program-card .details {
-            margin-bottom: 25px;
-            color: #555;
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-        
-        .program-card .program-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            color: white;
-            padding: 12px 25px;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3);
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
         }
 
-        .program-btn::after {
-            content: '→';
-            transition: transform 0.3s;
-        }
-        
-        .program-card .program-btn:hover,
-        .program-card .program-btn:focus {
-            transform: translateX(5px);
-            box-shadow: 0 6px 20px rgba(0, 180, 255, 0.4);
-            outline: none;
-        }
-
-        .program-card .program-btn:hover::after {
-            transform: translateX(3px);
-        }
-        
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+        .stat-item {
+            padding: 20px;
             opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .program-card:hover::before,
-        .program-card:focus-within::before {
-            opacity: 1;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
         }
 
-        /* Newsletter section */
-        .newsletter {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-suffix {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .stat-sublabel {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        /* PAN Partnership Section — Redesigned with 3 cards */
+        .pan-partnership {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #0a4a70 100%);
             color: white;
             position: relative;
             overflow: hidden;
         }
 
-        .newsletter::before {
+        .pan-partnership::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 180, 255, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            top: -100px;
+            top: -200px;
             right: -100px;
-            animation: floatShape1 15s ease-in-out infinite;
+            animation: floatShape1 25s ease-in-out infinite;
         }
 
-        .newsletter-container {
-            max-width: 600px;
+        .pan-content {
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
             position: relative;
             z-index: 1;
         }
 
-        .newsletter h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+        .pan-badge {
+            margin: 0 auto 30px;
+            width: 60px;
+            height: 60px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .newsletter p {
-            margin-bottom: 30px;
-            opacity: 0.95;
-            font-size: 1.1rem;
+        .pan-badge svg {
+            filter: drop-shadow(0 4px 10px rgba(0, 180, 255, 0.3));
         }
 
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 10px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-        }
-
-        .newsletter-input:focus {
-            outline: 3px solid rgba(255,255,255,0.5);
-            outline-offset: 2px;
-        }
-
-        .newsletter-btn {
-            background-color: var(--dark-blue);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
+        .pan-title {
+            font-size: 2.8rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            line-height: 1.3;
         }
 
-        .newsletter-btn:hover,
-        .newsletter-btn:focus {
-            background-color: #004a70;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            outline: none;
+        /* PAN 3-card grid */
+        .pan-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pan-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 35px 28px;
+            text-align: left;
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .pan-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pan-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(0, 180, 255, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .pan-card__icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 180, 255, 0.2), rgba(34, 199, 214, 0.2));
+        }
+
+        .pan-card__icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .pan-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--white);
+            line-height: 1.4;
+        }
+
+        .pan-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            opacity: 0.88;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .pan-sub-info {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.85;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 28px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
 
         /* Footer */
@@ -1141,7 +883,7 @@
             }
 
             .hero-lead {
-                font-size: 1.02rem;
+                font-size: 1.08rem;
             }
 
             .hero-note {
@@ -1157,15 +899,6 @@
                 font-size: 2.5rem;
             }
 
-            .newsletter-form {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .newsletter-btn {
-                width: 100%;
-            }
-
             .scroll-indicator {
                 display: none;
             }
@@ -1174,20 +907,13 @@
                 font-size: 2rem;
             }
 
-            .pan-description {
-                font-size: 1.02rem;
-            }
-
-            .pan-highlights {
+            .pan-cards-grid {
+                grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .tech-clinical-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .info-block {
-                padding: 30px;
+            .pan-card {
+                padding: 28px 22px;
             }
         }
 
@@ -1206,10 +932,6 @@
             }
 
             .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .programs-container {
                 grid-template-columns: 1fr;
             }
 
@@ -1278,9 +1000,10 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section with Tesla Innovations -->
+        <!-- ============================================ -->
+        <!-- SEKCJA 1: HERO                               -->
+        <!-- ============================================ -->
         <section class="hero">
-            <!-- Floating shapes -->
             <div class="floating-shape shape-1"></div>
             <div class="floating-shape shape-2"></div>
 
@@ -1289,135 +1012,41 @@
                     Rozpocznij swoją drogę w<br>
                     <span class="gradient-text">psychoterapii poznawczo-behawioralnej</span>
                 </h1>
+
+                <!-- ZMIANA 1: Nowy lead text -->
                 <p class="hero-lead">
-                    Dołącz do Szkoły Psychoterapii HarmonJa, która łączy dowody naukowe z praktyką kliniczną.
+                    Po prostu uczymy naukowej psychoterapii z&nbsp;sercem!
                 </p>
+
+                <!-- ZMIANA 2: Uzupełniony tekst z linkami do programów -->
                 <p class="hero-note">
-                    Aktualnie nasza Szkoła ubiega się o rekomendację PTTPB do prowadzenia 4-letniego szkolenia psychoterapii poznawczo-behawioralnej osób dorosłych oraz 4-letniego szkolenia w psychoterapii poznawczo-behawioralnej z poszerzonym modułem rozwojowym pracy z pacjentem w wieku rozwojowym.
+                    Aktualnie nasza Szkoła ubiega się o&nbsp;rekomendację PTTPB do prowadzenia <a href="szkola-dorosli.html">4-letniego szkolenia psychoterapii poznawczo-behawioralnej osób dorosłych</a> oraz <a href="szkola-dzieci-mlodziez.html">4-letniego szkolenia w&nbsp;psychoterapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a>.
                 </p>
-                <a href="rekrutacja.html" class="cta-button">Sprawdź rekrutację</a>
+
+                <!-- ZMIANA 2b: Dodatkowe zdanie o śledzeniu -->
+                <p class="hero-follow">
+                    Bądź na bieżąco — śledź aktualne informacje na naszej stronie, Facebooku i&nbsp;zamów nasz newsletter!
+                </p>
+
+                <!-- ZMIANA 3: Nowy przycisk CTA → Newsletter (gotowy na MailerLite) -->
+                <!-- 
+                    MailerLite integration: 
+                    Zamień href na link do formularza MailerLite lub dodaj 
+                    data-ml-modal="TWOJ_FORM_ID" po konfiguracji MailerLite.
+                    Przykład: <a href="#" data-ml-modal="ABC123" class="cta-button">
+                -->
+                <a href="#newsletter-signup" class="cta-button" id="cta-newsletter">Zapisz się na newsletter</a>
             </div>
 
-            <!-- Scroll indicator -->
-            <div class="scroll-indicator">
+            <div class="scroll-indicator" aria-hidden="true">
                 <span></span>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats">
-            <div class="container">
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="1381">0</div>
-                        <div class="stat-label">godzin szkolenia łącznie</div>
-                        <div class="stat-sublabel">w tym 1021h w ramach czesnego</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="360">0</div>
-                        <div class="stat-label">godzin stażu klinicznego</div>
-                        <div class="stat-sublabel">pomagamy w jego realizacji</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="30" data-prefix="do ">0</div>
-                        <div class="stat-label">osób w grupie</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="45">0</div>
-                        <div class="stat-label">ekspertów w kadrze</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESLA: PAN Partnership & Research Section -->
-        <section class="pan-partnership">
-            <div class="container">
-                <div class="pan-content">
-                    <div class="pan-badge">
-                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="30" cy="30" r="28" stroke="url(#grad1)" stroke-width="2"/>
-                            <path d="M30 15L35 25H25L30 15Z" fill="url(#grad1)"/>
-                            <circle cx="30" cy="35" r="8" stroke="url(#grad1)" stroke-width="2"/>
-                            <defs>
-                                <linearGradient id="grad1" x1="0" y1="0" x2="60" y2="60">
-                                    <stop offset="0%" stop-color="#00b4ff"/>
-                                    <stop offset="100%" stop-color="#22c7d6"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <h2 class="pan-title">Nauka, badania i praktyka kliniczna</h2>
-                    <p class="pan-description">
-                        Jako uczestnik szkolenia od początku pracujesz w stałym, małym zespole kliniczno-badawczym pod opieką doświadczonych specjalistów (m.in. z&nbsp;PAN), rozwijając zarówno kompetencje terapeutyczne, jak i umiejętność łączenia praktyki klinicznej z projektami o charakterze badawczym w terapii poznawczo-behawioralnej.
-                    </p>
-                    <p class="pan-sub-info">
-                        Część zajęć oraz projektów badawczych realizowana jest w laboratoriach badawczych Pracowni Psychopatologii Eksperymentalnej Instytutu Psychologii PAN.
-                    </p>
-                    <div class="pan-highlights">
-                        <div class="pan-highlight-item">
-                            <div class="highlight-number">100%</div>
-                            <div class="highlight-label">evidence-based</div>
-                        </div>
-                        <div class="pan-highlight-item">
-                            <div class="highlight-number">PAN</div>
-                            <div class="highlight-label">prestiż naukowy</div>
-                        </div>
-                        <div class="pan-highlight-item">
-                            <div class="highlight-number">Research</div>
-                            <div class="highlight-label">aktywna nauka</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESLA INNOVATION 7: Technology, Clinical Base & Internship Blocks -->
-        <section class="tech-clinical">
-            <div class="container">
-                <div class="tech-clinical-grid">
-                    <!-- Technology Block -->
-                    <div class="info-block info-block--tech">
-                        <div class="info-block__icon">
-                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14 3L3 9v10l11 6 11-6V9L14 3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
-                                <circle cx="14" cy="14" r="4" stroke="#fff" stroke-width="1.5"/>
-                                <path d="M14 10v-4M14 22v-4M18 14h4M6 14h4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3>Psychoterapia wspierana technologią</h3>
-                        <p>Przygotowujemy terapeutów do pracy w świecie, który już się zmienił. Uczymy praktycznego wykorzystania aplikacji, sztucznej inteligencji i&nbsp;VR w procesie terapii — tak, aby technologia wzmacniała skuteczność, a&nbsp;nie zastępowała relację terapeutyczną.</p>
-                    </div>
-
-                    <!-- Clinical Base Block -->
-                    <div class="info-block info-block--clinical">
-                        <div class="info-block__icon">
-                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="4" y="8" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.5"/>
-                                <path d="M14 4v4M10 8V6a4 4 0 018 0v2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                                <path d="M14 14v4M12 16h4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3>Baza kliniczna</h3>
-                        <p>Bazę kliniczną Szkoły Psychoterapii HarmonJa stanowią ośrodki w&nbsp;Warszawie (Fundacja Lazurowa Terapia) i w&nbsp;Trójmieście (Centrum Zdrowia Psychicznego HarmonJa) — od wielu lat świadczące kompleksową opiekę w zakresie zdrowia psychicznego, ze szczególnym uwzględnieniem psychoterapii poznawczo-behawioralnej.</p>
-                    </div>
-
-                    <!-- Clinical Internship Block -->
-                    <div class="info-block info-block--internship">
-                        <div class="info-block__icon">
-                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 20l5-5 4 4 6-8 5 5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <rect x="3" y="3" width="22" height="22" rx="3" stroke="#fff" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3>360 godzin stażu klinicznego</h3>
-                        <p>Współpracujemy z placówkami, oddziałami i szpitalami psychiatrycznymi w całej Polsce, w których uczestnicy naszych szkoleń mogą realizować obowiązkowe staże kliniczne (120 i&nbsp;240&nbsp;godz.).</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
+        <!-- ============================================ -->
+        <!-- SEKCJA 2: DLACZEGO HARMONJA (8 kafelków)     -->
+        <!-- ZMIANA 4: Przeniesiona nad sekcję PAN        -->
+        <!-- ============================================ -->
         <section class="features">
             <div class="container">
                 <h2 class="section-title">Dlaczego Szkoła Psychoterapii HarmonJa?</h2>
@@ -1444,7 +1073,27 @@
                         <p>Dążymy do spełnienia wymagań zawartych w Standardach Polskiego Towarzystwa Terapii Poznawczej i Behawioralnej. Aktualnie jesteśmy w procesie ubiegania się o rekomendację dla naszej Szkoły.</p>
                     </div>
 
-                    <!-- Card 2: Praktyczne doświadczenie -->
+                    <!-- ZMIANA 5: Card 2 — zmieniona nazwa na "2 ścieżki kształcenia" -->
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 35L30 20L45 35" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20 42L30 32L40 42" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                                <circle cx="30" cy="15" r="4" stroke="url(#gradFeature7)" stroke-width="2"/>
+                                <line x1="22" y1="48" x2="38" y2="48" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="gradFeature7" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#00b4ff"/>
+                                        <stop offset="100%" stop-color="#22c7d6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>2 ścieżki kształcenia</h3>
+                        <p>Oferujemy dwa równoległe programy szkoleniowe: jeden przeznaczony głównie dla osób pracujących z pacjentami dorosłymi oraz drugi dla osób pracujących przede wszystkim z pacjentami w wieku rozwojowym.</p>
+                    </div>
+
+                    <!-- Card 3: Praktyczne doświadczenie -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1463,7 +1112,7 @@
                         <p>Współpraca z Instytutem Psychologii PAN, ośrodkami klinicznymi w Polsce, w których pomagamy realizować staże kliniczne. Praca i rozwój pod stałą superwizją kliniczną. Wsparcie w rozwoju naukowym.</p>
                     </div>
 
-                    <!-- Card 3: Doświadczona kadra -->
+                    <!-- Card 4: Doświadczona kadra -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1484,7 +1133,7 @@
                         <p>Zajęcia prowadzone przez ekspertów — od profesorów uniwersytetów po praktyków z wieloletnim doświadczeniem klinicznym.</p>
                     </div>
 
-                    <!-- Card 4: Evidence-based practice -->
+                    <!-- Card 5: Evidence-based practice -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1505,7 +1154,7 @@
                         <p>Program szkolenia oparty na najnowszych badaniach naukowych i sprawdzonych metodach terapeutycznych. Realizacja własnych projektów badawczych przez uczestników.</p>
                     </div>
 
-                    <!-- Card 5: Rozwój osobisty -->
+                    <!-- Card 6: Rozwój osobisty -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1524,7 +1173,7 @@
                         <p>Self Practice / Self Reflection, trening umiejętności DBT oraz odosobnienie uważnościowe są integralną częścią szkolenia — 116 godzin wliczonych w czesne.</p>
                     </div>
 
-                    <!-- Card 6: Wspierająca społeczność -->
+                    <!-- Card 7: Wspierająca społeczność -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1544,27 +1193,7 @@
                         <p>Dołącz do grupy osób, które dzielą Twoją pasję do pomagania innym i rozwoju zawodowego. Od pierwszego roku, oprócz zjazdów weekendowych, spotkania w małych zespołach kliniczno-konsultacyjnych, które nie tylko budują kompetencje, ale i sieć wsparcia.</p>
                     </div>
 
-                    <!-- Card 7: NEW — Ścieżki kształcenia -->
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15 35L30 20L45 35" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M20 42L30 32L40 42" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-                                <circle cx="30" cy="15" r="4" stroke="url(#gradFeature7)" stroke-width="2"/>
-                                <line x1="22" y1="48" x2="38" y2="48" stroke="url(#gradFeature7)" stroke-width="2" stroke-linecap="round"/>
-                                <defs>
-                                    <linearGradient id="gradFeature7" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
-                        <h3>Ścieżki kształcenia</h3>
-                        <p>Oferujemy dwa równoległe programy szkoleniowe: jeden przeznaczony głównie dla osób pracujących z pacjentami dorosłymi oraz drugi dla osób pracujących przede wszystkim z pacjentami w wieku rozwojowym.</p>
-                    </div>
-
-                    <!-- Card 8: NEW — Technologie w psychoterapii -->
+                    <!-- Card 8: Najnowsze technologie w psychoterapii -->
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1590,55 +1219,117 @@
             </div>
         </section>
 
-        <!-- Programs Section -->
-        <section class="programs">
+        <!-- ============================================ -->
+        <!-- SEKCJA 3: STATYSTYKI (4 kafelki z liczbami)  -->
+        <!-- ZMIANA 5: Po features, przed PAN             -->
+        <!-- ============================================ -->
+        <section class="stats">
             <div class="container">
-                <h2 class="section-title">Programy 4-letniego Szkolenia</h2>
-                <p class="section-subtitle">
-                    Wybierz ścieżkę szkolenia dostosowaną do Twoich zainteresowań i potrzeb zawodowych.
-                </p>
-                <div class="programs-container">
-                    <div class="program-card">
-                        <div class="program-content">
-                            <span class="program-tag">Wiek rozwojowy</span>
-                            <h3>Szkoła Psychoterapii HarmonJa — ścieżka z poszerzonym modułem pracy z pacjentem w&nbsp;wieku rozwojowym</h3>
-                            <p class="details">
-                                4-letnie szkolenie w psychoterapii poznawczo-behawioralnej, obejmujące pełne przygotowanie do pracy z osobami dorosłymi oraz pogłębiony moduł dotyczący pracy z dziećmi i młodzieżą. Program rozwija kompetencje w zakresie diagnozy, konceptualizacji i terapii pacjentów w wieku rozwojowym oraz ich rodzin, z uwzględnieniem specyfiki rozwoju, kontekstu rodzinnego i środowiskowego.
-                            </p>
-                            <a href="szkola-dzieci-mlodziez.html" class="program-btn">Dowiedz się więcej</a>
-                        </div>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1381">0</div>
+                        <div class="stat-label">godzin szkolenia łącznie</div>
+                        <div class="stat-sublabel">w tym 1021h w ramach czesnego</div>
                     </div>
-                    <div class="program-card">
-                        <div class="program-content">
-                            <span class="program-tag">Dorośli</span>
-                            <h3>Szkoła Psychoterapii HarmonJa — ścieżka ogólna (praca z osobami dorosłymi)</h3>
-                            <p class="details">
-                                4-letnie szkolenie w psychoterapii poznawczo-behawioralnej, obejmujące pełne przygotowanie do pracy z osobami dorosłymi. Program rozwija kompetencje w zakresie diagnozy, konceptualizacji i prowadzenia terapii w podejściu poznawczo-behawioralnym, z pogłębionym zakresem treści dotyczącym kluczowych zagadnień pracy z pacjentem dorosłym, w tym relacji, schematów, regulacji emocji i współwystępowania różnych problemów psychicznych.
-                            </p>
-                            <a href="szkola-dorosli.html" class="program-btn">Dowiedz się więcej</a>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="360">0</div>
+                        <div class="stat-label">godzin stażu klinicznego</div>
+                        <div class="stat-sublabel">pomagamy w jego realizacji</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="30" data-prefix="do ">0</div>
+                        <div class="stat-label">osób w grupie</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="45">0</div>
+                        <div class="stat-label">ekspertów w kadrze</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Newsletter Section -->
-        <section class="newsletter">
-            <div class="newsletter-container">
-                <h2>Bądź na bieżąco</h2>
-                <p>Zapisz się do newslettera i otrzymuj informacje o naborach, szkoleniach i wydarzeniach.</p>
-                <form class="newsletter-form">
-                    <input 
-                        type="email" 
-                        class="newsletter-input" 
-                        placeholder="Twój adres email" 
-                        required
-                        aria-label="Adres email"
-                    >
-                    <button type="submit" class="newsletter-btn">Zapisz się</button>
-                </form>
+        <!-- ============================================ -->
+        <!-- SEKCJA 4: NAUKA, BADANIA, PRAKTYKA KLINICZNA -->
+        <!-- ZMIANA 6: Przeformułowana — 3 karty + tekst  -->
+        <!-- Ostatnia sekcja strony głównej               -->
+        <!-- ============================================ -->
+        <section class="pan-partnership">
+            <div class="container">
+                <div class="pan-content">
+                    <div class="pan-badge">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="28" stroke="url(#grad1)" stroke-width="2"/>
+                            <path d="M30 15L35 25H25L30 15Z" fill="url(#grad1)"/>
+                            <circle cx="30" cy="35" r="8" stroke="url(#grad1)" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="grad1" x1="0" y1="0" x2="60" y2="60">
+                                    <stop offset="0%" stop-color="#00b4ff"/>
+                                    <stop offset="100%" stop-color="#22c7d6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 class="pan-title">Nauka, badania i&nbsp;praktyka kliniczna</h2>
+
+                    <!-- 3 karty -->
+                    <div class="pan-cards-grid">
+                        <!-- Karta 1: Stałe zespoły kliniczno-badawcze -->
+                        <div class="pan-card">
+                            <div class="pan-card__icon">
+                                <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="13" cy="9" r="4" stroke="#fff" stroke-width="1.5"/>
+                                    <circle cx="6" cy="17" r="3" stroke="#fff" stroke-width="1.5"/>
+                                    <circle cx="20" cy="17" r="3" stroke="#fff" stroke-width="1.5"/>
+                                    <path d="M9 12L6 14M17 12L20 14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M6 21v1M13 21v1M20 21v1" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>Stałe zespoły kliniczno&#8209;badawcze</h3>
+                            <p>Od początku szkolenia pracujesz w&nbsp;małym zespole pod opieką doświadczonych specjalistów, łącząc rozwój kompetencji terapeutycznych z&nbsp;udziałem w&nbsp;projektach kliniczno&#8209;badawczych w&nbsp;nurcie CBT.</p>
+                        </div>
+
+                        <!-- Karta 2: Silna baza kliniczna w dwóch miastach -->
+                        <div class="pan-card">
+                            <div class="pan-card__icon">
+                                <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="10" width="9" height="13" rx="1.5" stroke="#fff" stroke-width="1.5"/>
+                                    <rect x="14" y="6" width="9" height="17" rx="1.5" stroke="#fff" stroke-width="1.5"/>
+                                    <path d="M6 14h3M6 17h3M6 20h3" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+                                    <path d="M17 10h3M17 13h3M17 16h3M17 19h3" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+                                    <path d="M7.5 10V7a1 1 0 011-1h2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>Silna baza kliniczna w&nbsp;dwóch miastach</h3>
+                            <p>Bazę Szkoły tworzą ośrodki w&nbsp;Warszawie (Fundacja Lazurowa Terapia) i&nbsp;w&nbsp;Trójmieście (Centrum Zdrowia Psychicznego HarmonJa), od lat oferujące kompleksową opiekę psychoterapeutyczną ze szczególnym uwzględnieniem CBT.</p>
+                        </div>
+
+                        <!-- Karta 3: Partnerstwo z Instytutem Psychologii PAN -->
+                        <div class="pan-card">
+                            <div class="pan-card__icon">
+                                <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 3L3 8v4l10 5 10-5V8L13 3z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+                                    <path d="M3 12v5l10 5 10-5v-5" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+                                    <circle cx="13" cy="13" r="3" stroke="#fff" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <h3>Partnerstwo z&nbsp;Instytutem Psychologii PAN</h3>
+                            <p>Współpraca z&nbsp;Instytutem Psychologii Polskiej Akademii Nauk pozwala integrować program szkolenia z&nbsp;aktualnymi badaniami i&nbsp;rozwijać projekty naukowe wprost osadzone w&nbsp;praktyce klinicznej.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tekst pod kartami -->
+                    <p class="pan-sub-info">
+                        Część zajęć oraz projektów badawczych realizowana jest w&nbsp;laboratoriach badawczych Pracowni Psychopatologii Eksperymentalnej Instytutu Psychologii PAN.
+                    </p>
+                </div>
             </div>
         </section>
+
+        <!-- USUNIĘTE SEKCJE:
+             - tech-clinical (treść przeniesiona do kart PAN)
+             - programs (przeniesione na podstrony programów)
+             - newsletter (CTA w hero prowadzi do newslettera)
+        -->
     </main>
 
     <!-- Footer -->
@@ -1770,7 +1461,7 @@
             });
         });
 
-        // TESLA: Animated counter with prefix support
+        // Animated counter with prefix support
         function animateCounter(element, target, duration = 2000) {
             const prefix = element.getAttribute('data-prefix') || '';
             const start = 0;
@@ -1788,7 +1479,7 @@
             }, 16);
         }
 
-        // TESLA: Intersection Observer for stats
+        // Intersection Observer for stats
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1807,7 +1498,7 @@
             statsObserver.observe(item);
         });
 
-        // TESLA: Staggered reveal for feature cards
+        // Staggered reveal for feature cards
         const featureObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
@@ -1822,54 +1513,22 @@
             featureObserver.observe(card);
         });
 
-        // TESLA: Staggered reveal for info blocks
-        const infoBlockObserver = new IntersectionObserver((entries) => {
+        // Staggered reveal for PAN cards
+        const panCardObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    const blocks = entry.target.closest('.tech-clinical-grid')?.querySelectorAll('.info-block') || [entry.target];
-                    blocks.forEach((block, i) => {
-                        setTimeout(() => block.classList.add('visible'), i * 150);
+                    const cards = entry.target.closest('.pan-cards-grid')?.querySelectorAll('.pan-card') || [entry.target];
+                    cards.forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), i * 150);
                     });
-                    infoBlockObserver.unobserve(entry.target);
+                    panCardObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.info-block').forEach(block => {
-            infoBlockObserver.observe(block);
+        document.querySelectorAll('.pan-card').forEach(card => {
+            panCardObserver.observe(card);
         });
-
-        // TESLA: 3D tilt effect for program cards
-        document.querySelectorAll('.program-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-            });
-        });
-
-        // Newsletter form handler
-        const newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('.newsletter-input').value;
-                alert(`Dziękujemy! Wkrótce wyślemy wiadomość na adres: ${email}`);
-                this.reset();
-            });
-        }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
