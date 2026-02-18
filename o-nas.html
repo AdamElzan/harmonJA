@@ -340,7 +340,7 @@
         }
 
         .hero-photo {
-            flex: 0 0 340px;
+            flex: 0 0 450px;
             animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
@@ -891,7 +891,7 @@
 
             .hero-photo {
                 flex: 0 0 auto;
-                max-width: 320px;
+                max-width: 400px;
                 width: 100%;
             }
 
@@ -1008,10 +1008,10 @@
                     <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
                     <li role="none"><a href="o-nas.html" role="menuitem" class="active">O nas</a></li>
                     <li class="dropdown" role="none">
-                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Nasze Programy</span>
+                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie psychoterapii poznawczo-behawioralnej osób dorosłych</a></li>
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie w psychoterapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
                         </ul>
                     </li>
                     <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
@@ -1212,7 +1212,7 @@
                             80-288 Gdańsk
                         </p>
                         <p style="margin-top: 10px;">
-                            Email: szkolaharmonja@gmail.com
+                            Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="681b120307040900091a0507060209280f05090104460b0705">[email&#160;protected]</a>
                         </p>
                         <p>
                             NIP: 9571190783<br>
@@ -1252,7 +1252,7 @@
     <!-- ============================================
          SCRIPTS (wzorce: mobile menu, IO, body-lock)
          ============================================ -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         /* ---- Mobile Menu ---- */
         (function() {
             var btn = document.querySelector('.mobile-menu-btn');
@@ -1326,13 +1326,3 @@
                         setTimeout(function() {
                             entry.target.classList.add('visible');
                         }, idx * 150);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            items.forEach(function(item) { observer.observe(item); });
-        })();
-    </script>
-</body>
-</html>
