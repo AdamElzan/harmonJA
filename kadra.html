@@ -3,11 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta name="description" content="Kadra naukowo-dydaktyczna Szkoły Psychoterapii HarmonJa – 45 ekspertów: profesorowie, superwizorzy PTTPB, specjaliści CBT, DBT, terapii schematów, traumy i więcej.">
-    <title>Kadra - HarmonJa Szkoła Psychoterapii CBT | 45 Ekspertów</title>
-    
+    <meta name="description" content="Kadra naukowo-dydaktyczna Szkoły Psychoterapii HarmonJa – superwizorzy PTTPB, profesorowie, certyfikowani psychoterapeuci CBT, DBT, terapii schematów. Poznaj nasz zespół.">
+    <meta name="keywords" content="kadra psychoterapii, wykładowcy CBT, superwizorzy PTTPB, terapeuci DBT, szkoła HarmonJa, kadra naukowo-dydaktyczna">
+    <title>Kadra – HarmonJa Szkoła Psychoterapii CBT</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="canonical" href="https://harmonja.pl/kadra.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kadra – HarmonJa Szkoła Psychoterapii CBT">
+    <meta property="og:description" content="Poznaj zespół ponad 40 ekspertów: superwizorów PTTPB, profesorów i certyfikowanych psychoterapeutów.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://harmonja.pl/kadra.html">
+    <meta property="og:image" content="https://harmonja.pl/og-kadra.jpg">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="HarmonJa Szkoła Psychoterapii">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "HarmonJa Szkoła Psychoterapii CBT",
+        "url": "https://harmonja.pl",
+        "description": "4-letnie certyfikowane szkolenie w zakresie terapii poznawczo-behawioralnej.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ul. Wały Piastowskie 1/1508",
+            "addressLocality": "Gdańsk",
+            "postalCode": "80-855",
+            "addressCountry": "PL"
+        },
+        "sameAs": [
+            "https://www.facebook.com/szkola.harmonja/",
+            "https://www.linkedin.com/company/szkola-harmonja/",
+            "https://www.instagram.com/szkola.harmonja/",
+            "https://www.youtube.com/@wglowiesiemiesci3561/"
+        ]
+    }
+    </script>
+
     <style>
+        /* ========================================
+           DESIGN TOKENS
+           ======================================== */
         :root {
             --primary-color: #22c7d6;
             --secondary-color: #1ab6c5;
@@ -18,10 +56,7 @@
             --light-gray: #faf8f5;
             --medium-gray: #eaeaea;
             --white: #ffffff;
-            --tier1-gold: #FFD700;
-            --tier1-gold-dark: #FFA500;
-            --tier2-blue: #00b4ff;
-            --tier3-gray: #888;
+            --cream-bg: #fef6f0;
         }
 
         * {
@@ -38,10 +73,22 @@
             background: var(--white);
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        a { text-decoration: none; color: inherit; }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 0 0 8px 8px;
+            z-index: 10001;
+            font-weight: 600;
+            transition: top 0.3s;
         }
+        .skip-link:focus { top: 0; }
 
         .container {
             width: 100%;
@@ -50,46 +97,29 @@
             padding: 0 20px;
         }
 
-        .skip-to-content {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--highlight-color);
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 100;
-        }
-
-        .skip-to-content:focus {
-            top: 0;
-        }
-
+        /* ========================================
+           HEADER / NAV (matching o-nas.html)
+           ======================================== */
         header {
             background-color: var(--white);
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        nav {
+        header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 0;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            padding: 5px 0;
-        }
-        
-        .logo-container svg {
-            height: 90px;
+        .logo-img {
+            height: 70px;
             width: auto;
-            max-width: 300px;
+            max-width: 280px;
+            display: block;
         }
 
         .mobile-menu-btn {
@@ -97,10 +127,10 @@
             background: none;
             border: none;
             font-size: 1.8rem;
-            color: var(--dark-blue);
             cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
+            color: var(--dark-blue);
+            padding: 8px;
+            line-height: 1;
         }
 
         .nav-links {
@@ -110,12 +140,10 @@
             list-style: none;
         }
 
-        .nav-links > li {
-            position: relative;
-        }
+        .nav-links > li { position: relative; }
 
         .nav-links > li > a,
-        .nav-links > li > .dropdown-toggle {
+        .dropdown-toggle {
             color: var(--text-color);
             font-weight: 500;
             padding: 8px 0;
@@ -124,102 +152,80 @@
             transition: color 0.3s;
             cursor: pointer;
         }
-        
-        .nav-links > li > a::after,
-        .nav-links > li > .dropdown-toggle::after {
+
+        .nav-links > li > a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
             background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
-            transition: width 0.3s;
+            transition: width 0.3s ease;
         }
 
         .nav-links > li > a:hover,
-        .nav-links > li > .dropdown-toggle:hover {
-            color: var(--highlight-color);
-        }
+        .nav-links > li > a:focus { color: var(--highlight-color); outline: none; }
 
         .nav-links > li > a:hover::after,
-        .nav-links > li > .dropdown-toggle:hover::after {
-            width: 100%;
-        }
+        .nav-links > li > a:focus::after { width: 100%; }
 
-        .nav-links > li > a.active {
-            color: var(--highlight-color);
-        }
+        .nav-links > li > a.active { color: var(--highlight-color); }
+        .nav-links > li > a.active::after { width: 100%; }
 
-        .nav-links > li > a.active::after {
-            width: 100%;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
+        /* Dropdown */
         .dropdown-toggle {
             display: flex;
             align-items: center;
             gap: 5px;
         }
-
-        .dropdown-toggle::before {
-            content: '▼';
-            font-size: 0.65em;
-            margin-left: 5px;
-            transition: all 0.3s;
-            opacity: 0.7;
+        .dropdown-toggle::after {
+            content: '\25BC';
+            font-size: 0.6em;
+            transition: transform 0.3s;
         }
-
-        .dropdown:hover .dropdown-toggle::before {
-            transform: rotate(180deg);
-            opacity: 1;
-            color: var(--highlight-color);
-        }
+        .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+        .dropdown:hover .dropdown-toggle,
+        .dropdown:focus-within .dropdown-toggle { color: var(--highlight-color); }
 
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: 0;
-            background: var(--white);
-            min-width: 200px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background-color: var(--white);
+            min-width: 340px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
             border-radius: 8px;
+            padding: 8px 0;
+            list-style: none;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-            list-style: none;
-            padding: 10px 0;
-            margin-top: 10px;
+            transition: all 0.3s ease;
+            z-index: 100;
         }
 
         .dropdown:hover .dropdown-menu,
         .dropdown:focus-within .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu li {
-            list-style: none;
+            transform: translateX(-50%) translateY(0);
         }
 
         .dropdown-menu a {
             display: block;
             padding: 12px 20px;
+            font-size: 0.95rem;
             color: var(--text-color);
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
-
         .dropdown-menu a:hover {
             background: var(--light-blue);
             color: var(--highlight-color);
         }
 
-        .hero-section {
+        /* ========================================
+           HERO
+           ======================================== */
+        .hero {
             background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
             padding: 100px 0 80px;
             text-align: center;
@@ -227,2015 +233,1647 @@
             overflow: hidden;
         }
 
-        .hero-section::before {
+        .hero::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0, 180, 255, 0.15) 0%, transparent 70%);
+            top: -40%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0,180,255,0.06) 0%, transparent 70%);
             border-radius: 50%;
-            top: -100px;
-            left: -100px;
-            animation: floatShape1 20s ease-in-out infinite;
-            z-index: 0;
+            pointer-events: none;
         }
 
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(34, 199, 214, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -50px;
-            right: -50px;
-            animation: floatShape2 25s ease-in-out infinite;
-            z-index: 0;
-        }
-
-        .floating-shape {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 180, 255, 0.1) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .shape-1 {
-            width: 200px;
-            height: 200px;
-            top: 20%;
-            right: 15%;
-            animation: floatShape3 30s ease-in-out infinite;
-        }
-
-        .shape-2 {
-            width: 150px;
-            height: 150px;
-            bottom: 30%;
-            left: 10%;
-            animation: floatShape4 22s ease-in-out infinite;
-        }
-
-        @keyframes floatShape1 {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-            50% { transform: translate(30px, -30px) scale(1.1); opacity: 0.25; }
-        }
-
-        @keyframes floatShape2 {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-            50% { transform: translate(-30px, 30px) scale(1.15); opacity: 0.25; }
-        }
-
-        @keyframes floatShape3 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
-            50% { transform: translate(-20px, 20px) rotate(180deg); opacity: 0.2; }
-        }
-
-        @keyframes floatShape4 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
-            50% { transform: translate(20px, -20px) rotate(-180deg); opacity: 0.2; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: 3.2rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--dark-blue), var(--highlight-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 20px;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
+        .hero-lead {
+            font-size: 1.25rem;
             color: #666;
             font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
 
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .search-filter-section {
+        /* ========================================
+           FOUNDERS SECTION
+           ======================================== */
+        .founders {
+            padding: 80px 0;
             background: var(--white);
-            padding: 40px 0;
-            border-bottom: 1px solid var(--medium-gray);
-            position: sticky;
-            top: 110px;
-            z-index: 999;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .search-bar {
+        .founders-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--highlight-color);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .founder-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275), box-shadow 0.4s;
+            cursor: pointer;
             position: relative;
         }
 
-        .search-input {
+        .founder-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,180,255,0.12);
+        }
+
+        .founder-avatar {
             width: 100%;
-            padding: 15px 50px 15px 20px;
-            border: 2px solid var(--medium-gray);
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: var(--white);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--highlight-color);
-            box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-            font-size: 1.2rem;
-        }
-
-        .filter-pills {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--light-blue), #e8f4f8);
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .filter-pill {
-            padding: 10px 25px;
-            border-radius: 25px;
-            border: 2px solid var(--medium-gray);
-            background: var(--white);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-weight: 500;
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-
-        .filter-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 180, 255, 0.2);
-        }
-
-        .filter-pill.active {
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            border-color: transparent;
-            color: var(--white);
-            box-shadow: 0 4px 12px rgba(0, 180, 255, 0.3);
-        }
-
-        .expertise-tags {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .expertise-tag {
-            padding: 6px 18px;
-            border-radius: 20px;
-            background: var(--light-gray);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-            color: #666;
-            border: 2px solid transparent;
-        }
-
-        .expertise-tag:hover {
-            background: var(--light-blue);
-            color: var(--highlight-color);
-            border-color: var(--light-blue);
-        }
-
-        .expertise-tag.active {
-            background: var(--light-blue);
-            color: var(--highlight-color);
-            font-weight: 600;
-            border-color: var(--highlight-color);
-        }
-
-        .active-filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            min-height: 30px;
-        }
-
-        .active-filter-badge {
-            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            color: var(--white);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            animation: slideIn 0.3s ease-out;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            position: relative;
+            overflow: hidden;
         }
 
-        .active-filter-badge button {
-            background: none;
-            border: none;
-            color: var(--white);
-            cursor: pointer;
-            font-size: 1.1rem;
-            line-height: 1;
-            padding: 0;
-            margin: 0;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .active-filter-badge button:hover {
-            opacity: 1;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ==================== MODAL STYLES ==================== */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .founder-avatar img {
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+            transition: transform 0.5s ease;
         }
 
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
+        .founder-card:hover .founder-avatar img {
+            transform: scale(1.03);
         }
 
-        .modal-content {
-            background: var(--white);
-            border-radius: 20px;
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            position: sticky;
-            top: 0;
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
-            padding: 40px 40px 30px;
-            border-bottom: 2px solid var(--medium-gray);
-            z-index: 10;
-        }
-
-        .modal-close {
+        .founder-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--white);
-            border: 2px solid var(--medium-gray);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--text-color);
-            transition: all 0.3s;
-            z-index: 11;
-        }
-
-        .modal-close:hover {
-            background: var(--error-red);
-            border-color: var(--error-red);
+            top: 16px;
+            left: 16px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
             color: var(--white);
-            transform: rotate(90deg);
-        }
-
-        .modal-avatar-large {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--light-blue), var(--medium-gray));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--highlight-color);
+            font-size: 0.7rem;
             font-weight: 700;
-            border: 6px solid var(--white);
-            box-shadow: 0 8px 30px rgba(0, 180, 255, 0.2);
-            margin: 0 auto 20px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
         }
 
-        .modal-name {
-            font-size: 2.2rem;
+        .founder-info {
+            padding: 28px 24px;
+        }
+
+        .founder-name {
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--dark-blue);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
-        .modal-title {
-            font-size: 1.2rem;
+        .founder-title {
+            font-size: 0.9rem;
             background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-align: center;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
-        .modal-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
+        .founder-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
         }
 
-        .modal-tag {
-            padding: 6px 16px;
-            background: var(--light-blue);
-            border: 1px solid var(--highlight-color);
-            border-radius: 20px;
+        .founder-cta {
             font-size: 0.85rem;
             color: var(--highlight-color);
             font-weight: 600;
-        }
-
-        .modal-body {
-            padding: 40px;
-        }
-
-        .bio-section {
-            margin-bottom: 40px;
-        }
-
-        .bio-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .bio-section-title {
-            font-size: 1.5rem;
-            color: var(--dark-blue);
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px;
+            transition: gap 0.3s;
         }
 
-        .bio-section-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--light-blue), rgba(0, 180, 255, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .founder-card:hover .founder-cta { gap: 10px; }
 
-        .bio-section-content {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        .bio-section-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .bio-section-content li {
-            padding: 12px 0;
-            padding-left: 30px;
-            position: relative;
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .bio-section-content li:last-child {
-            border-bottom: none;
-        }
-
-        .bio-section-content li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--highlight-color);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .modal-navigation {
-            position: sticky;
-            bottom: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 40px;
-            background: var(--white);
-            border-top: 2px solid var(--medium-gray);
-            gap: 15px;
-        }
-
-        .modal-nav-btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            border: 2px solid var(--medium-gray);
-            background: var(--white);
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-color);
-        }
-
-        .modal-nav-btn:hover:not(:disabled) {
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            color: var(--white);
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 180, 255, 0.3);
-        }
-
-        .modal-nav-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        @media (max-width: 768px) {
-            .modal-content {
-                max-height: 95vh;
-                border-radius: 20px 20px 0 0;
-            }
-
-            .modal-header,
-            .modal-body,
-            .modal-navigation {
-                padding: 30px 20px;
-            }
-
-            .modal-name {
-                font-size: 1.8rem;
-            }
-
-            .modal-title {
-                font-size: 1rem;
-            }
-
-            .modal-navigation {
-                flex-direction: column;
-            }
-
-            .modal-nav-btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
+        /* ========================================
+           STAFF SECTIONS
+           ======================================== */
         .staff-section {
             padding: 80px 0;
+        }
+
+        .staff-section:nth-child(even) {
             background: var(--light-gray);
         }
 
-        .tier-group {
-            margin-bottom: 80px;
+        .staff-section:nth-child(odd) {
+            background: var(--white);
         }
 
-        .tier-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .tier-title {
-            font-size: 2rem;
-            color: var(--dark-blue);
-            margin-bottom: 15px;
-            font-weight: 700;
+        .staff-header {
             text-align: center;
+            margin-bottom: 50px;
         }
 
-        .tier-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .staff-header .section-title {
+            font-size: 1.8rem;
         }
 
         .staff-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
         }
 
+        /* Staff Cards */
         .staff-card {
             background: var(--white);
-            border-radius: 16px;
-            padding: 30px 25px;
+            border-radius: 12px;
+            padding: 28px 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        .staff-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, transparent);
-            transition: all 0.4s;
-        }
-
-        .staff-card.tier-1::before {
-            background: linear-gradient(90deg, var(--tier1-gold), var(--tier1-gold-dark));
-        }
-
-        .staff-card.tier-2::before {
-            background: linear-gradient(90deg, var(--tier2-blue), var(--primary-color));
-        }
-
-        .staff-card.tier-3::before {
-            background: linear-gradient(90deg, var(--tier3-gray), #aaa);
-        }
-
-        .staff-card.is-director {
-            background: linear-gradient(135deg, #fff9e6 0%, var(--white) 100%);
-        }
-
-        .staff-card.is-director::before {
-            height: 6px;
-            background: linear-gradient(90deg, var(--tier1-gold), var(--tier1-gold-dark), var(--tier1-gold));
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .staff-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
         }
 
         .staff-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 180, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,180,255,0.1);
         }
 
-        .staff-avatar {
-            width: 100px;
-            height: 100px;
+        .staff-card:focus-visible {
+            outline: 2px solid var(--highlight-color);
+            outline-offset: 2px;
+        }
+
+        .card-avatar {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, var(--light-blue), var(--medium-gray));
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--light-blue), #e8f8fb);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 1.6rem;
             color: var(--highlight-color);
             font-weight: 700;
-            border: 4px solid var(--white);
-            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.15);
-            transition: all 0.3s;
+            overflow: hidden;
+            position: relative;
         }
 
-        .staff-card.is-director .staff-avatar {
-            width: 140px;
-            height: 140px;
-            font-size: 3.5rem;
-            border: 6px solid var(--tier1-gold);
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+        .card-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+            transition: transform 0.4s ease;
         }
 
-        .staff-card.tier-1 .staff-avatar {
-            width: 120px;
-            height: 120px;
-            font-size: 3rem;
-        }
-
-        .staff-card:hover .staff-avatar {
+        .staff-card:hover .card-avatar img {
             transform: scale(1.05);
         }
 
-        .staff-role-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: linear-gradient(135deg, var(--tier1-gold), var(--tier1-gold-dark));
-            color: var(--white);
-            font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-        }
-
-        .staff-role-badge.director-badge {
-            font-size: 0.85rem;
-            padding: 8px 20px;
-            animation: glow 2s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3); }
-            50% { box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5); }
-        }
-
-        .staff-name {
-            font-size: 1.3rem;
+        .card-name {
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--dark-blue);
+            margin-bottom: 6px;
+        }
+
+        .card-title {
+            font-size: 0.82rem;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
             margin-bottom: 8px;
+            line-height: 1.4;
         }
 
-        .staff-card.tier-1 .staff-name {
-            font-size: 1.5rem;
+        .card-expertise {
+            font-size: 0.82rem;
+            color: #888;
+            line-height: 1.5;
         }
 
-        .staff-card.is-director .staff-name {
-            font-size: 1.7rem;
+        .card-more {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--medium-gray);
+            font-size: 0.8rem;
+            color: var(--highlight-color);
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .staff-title {
+        .staff-card:hover .card-more { opacity: 1; }
+
+        /* Role badge on card */
+        .card-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        /* ========================================
+           MODAL
+           ======================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(9,57,95,0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 680px;
+            width: 92%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95) translateY(10px);
+            transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-top {
+            padding: 36px 36px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .modal-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-blue), #e8f8fb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--highlight-color);
+            font-weight: 700;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .modal-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+        }
+
+        .modal-info { flex: 1; }
+
+        .modal-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 6px;
+        }
+
+        .modal-title-text {
             font-size: 0.95rem;
             background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 600;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .staff-expertise {
-            font-size: 0.9rem;
-            color: #666;
             line-height: 1.5;
-            min-height: 42px;
         }
 
-        .staff-card-footer {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid var(--medium-gray);
-            font-size: 0.85rem;
-            color: var(--highlight-color);
-            font-weight: 600;
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s;
         }
 
-        .staff-card:hover .staff-card-footer {
-            color: var(--primary-color);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            color: #999;
-            display: none;
-        }
-
-        .empty-state-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
-
-        .empty-state-text {
-            font-size: 1.2rem;
-        }
-
-        footer {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, #051f34 100%);
+        .modal-close:hover {
+            background: var(--highlight-color);
             color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 0 36px 36px;
+        }
+
+        .modal-section {
+            margin-bottom: 24px;
+        }
+
+        .modal-section:last-child { margin-bottom: 0; }
+
+        .modal-section h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--highlight-color);
+            margin-bottom: 10px;
+        }
+
+        .modal-section p,
+        .modal-section li {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-section li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+        }
+
+        .modal-section li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .modal-divider {
+            height: 1px;
+            background: var(--medium-gray);
+            margin: 0 36px;
+        }
+
+        /* ========================================
+           CTA SECTION
+           ======================================== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #051f34 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,180,255,0.4);
+        }
+
+        /* ========================================
+           FOOTER (unified pattern)
+           ======================================== */
+        footer {
+            background-color: #2a2a2a;
+            color: white;
             padding: 60px 0 30px;
         }
 
-        .footer-content {
+        .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
 
-        .footer-section h3 {
+        .footer-col h3 {
+            font-size: 1.1rem;
             margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
             color: var(--primary-color);
+            font-weight: 600;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: white;
+            outline: none;
         }
 
         .contact-info p {
-            margin: 8px 0;
+            color: #bbb;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 6px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .contact-info strong {
+            color: #ddd;
         }
 
-        .staff-card {
-            animation: fadeInUp 0.6s ease-out;
-            animation-fill-mode: both;
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .staff-card:nth-child(1) { animation-delay: 0.05s; }
-        .staff-card:nth-child(2) { animation-delay: 0.1s; }
-        .staff-card:nth-child(3) { animation-delay: 0.15s; }
-        .staff-card:nth-child(4) { animation-delay: 0.2s; }
-        .staff-card:nth-child(5) { animation-delay: 0.25s; }
-        .staff-card:nth-child(6) { animation-delay: 0.3s; }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .social-icon:hover,
+        .social-icon:focus {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 968px) {
+            .hero h1 { font-size: 2.4rem; }
+            .founders-grid { gap: 24px; }
+            .staff-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+        }
 
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
+            .mobile-menu-btn { display: block; }
 
             .nav-links {
                 position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                max-width: 300px;
+                top: 0; left: 0;
+                width: 100%;
                 height: 100vh;
                 background: var(--white);
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 30px 30px;
-                transition: left 0.3s;
-                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-                gap: 10px;
+                justify-content: center;
+                gap: 24px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 999;
             }
 
-            .nav-links.active {
-                left: 0;
+            .nav-links.active { transform: translateX(0); }
+
+            .nav-links > li > a,
+            .dropdown-toggle {
+                font-size: 1.2rem;
+                padding: 12px 0;
             }
 
             .dropdown-menu {
                 position: static;
-                opacity: 1;
-                visibility: visible;
                 transform: none;
                 box-shadow: none;
-                margin-top: 10px;
+                min-width: auto;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                padding: 0;
+                background: transparent;
             }
 
-            .logo-container svg {
-                height: 70px;
-            }
+            .dropdown.open .dropdown-menu { display: block; }
 
-            .hero-section {
-                padding: 60px 0 40px;
-            }
+            .hero { padding: 70px 0 50px; }
+            .hero h1 { font-size: 2rem; }
+            .hero-lead { font-size: 1.05rem; }
 
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .hero-stats {
-                gap: 30px;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .search-filter-section {
-                top: 0;
-                position: relative;
-            }
-
-            .staff-grid {
+            .founders-grid {
                 grid-template-columns: 1fr;
+                max-width: 400px;
             }
+
+            .staff-grid { grid-template-columns: 1fr 1fr; }
+
+            .section-title { font-size: 1.6rem; }
+
+            .modal-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 28px 24px 20px;
+            }
+            .modal-body { padding: 0 24px 28px; }
+            .modal-name { font-size: 1.3rem; }
         }
 
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.7rem;
-            }
+            .staff-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.7rem; }
+            .cta-section h2 { font-size: 1.5rem; }
+        }
 
-            .stat-number {
-                font-size: 2rem;
-            }
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--dark-blue);
+            color: var(--white);
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s ease;
+            z-index: 90;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
 
-            .filter-pills {
-                gap: 8px;
-            }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-            .filter-pill {
-                padding: 8px 16px;
-                font-size: 0.85rem;
-            }
+        .back-to-top:hover,
+        .back-to-top:focus {
+            background: var(--highlight-color);
+            transform: translateY(-2px);
+            outline: none;
+        }
 
-            .expertise-tag {
-                padding: 5px 14px;
-                font-size: 0.85rem;
+        /* A11y: respect user motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
+            .staff-card { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
+    <a href="#main-content" class="skip-link">Przejdź do treści</a>
 
+    <!-- ========== HEADER ========== -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <a href="index.html" aria-label="HarmonJa - Strona główna">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120">
-                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
-                            Szkoła Psychoterapii CBT
-                          </text>
-                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
-                            Harmon
-                          </text>
-                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
-                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
-                            Ja
-                          </text>
-                        </svg>
+                    <a href="index.html" aria-label="HarmonJa – Strona główna">
+                        <img src="logo-harmonja.png" alt="HarmonJa – Szkoła Psychoterapii" class="logo-img">
                     </a>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-                    ☰
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Strona główna</a></li>
-                    <li><a href="o-nas.html">O nas</a></li>
-                    <li class="dropdown">
-                        <span class="dropdown-toggle" tabindex="0">Szkoła Psychoterapii</span>
-                        <ul class="dropdown-menu">
-                            <li><a href="szkola-dzieci-mlodziez.html">Dzieci i Młodzieży</a></li>
-                            <li><a href="szkola-dorosli.html">Dorosłych</a></li>
+                <button class="mobile-menu-btn" aria-label="Otwórz menu nawigacyjne" aria-expanded="false">&#9776;</button>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
+                    <li role="none"><a href="o-nas.html" role="menuitem">O&nbsp;nas</a></li>
+                    <li class="dropdown" role="none">
+                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
                         </ul>
                     </li>
-                    <li><a href="rekrutacja.html">Rekrutacja</a></li>
-                    <li><a href="#">Szkolenia/Superwizja</a></li>
-                    <li><a href="kadra.html" class="active">Kadra</a></li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
+                    <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
+                    <li role="none"><a href="kadra.html" role="menuitem" class="active" aria-current="page">Kadra</a></li>
+                    <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
+    <!-- ========== MAIN ========== -->
+    <main id="main-content">
 
-        <div class="hero-content container">
-            <h1 class="hero-title">Kadra, która łączy naukę z praktyką</h1>
-            <p class="hero-subtitle">Profesorowie, superwizorzy PTTPB i eksperci kliniczni — zespół 45 specjalistów w CBT, DBT, terapii schematów i więcej</p>
-            
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">45</span>
-                    <span class="stat-label">Ekspertów</span>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <h1>Kadra, która łączy naukę z&nbsp;praktyką</h1>
+                <p class="hero-lead">Ponad 40&nbsp;ekspertów — superwizorów&nbsp;PTTPB, profesorów i&nbsp;certyfikowanych psychoterapeutów — tworzy zespół, który uczy psychoterapii z&nbsp;sercem.</p>
+            </div>
+        </section>
+
+        <!-- FOUNDERS -->
+        <section class="founders">
+            <div class="container">
+                <div class="founders-intro">
+                    <span class="section-label">Współzałożyciele</span>
+                    <h2 class="section-title">Ludzie, od których wszystko się zaczęło</h2>
+                    <p class="section-subtitle">Łączy nas wspólna pasja do nauki, dydaktyki i&nbsp;rozwoju terapii poznawczo-behawioralnej.</p>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">8</span>
-                    <span class="stat-label">Superwizorów PTTPB</span>
+
+                <div class="founders-grid">
+                    <!-- Adam — aby dodać zdjęcie: zamień "AE" na <img src="kadra/adam-elzanowski.jpg" alt="Adam Elżanowski"> -->
+                    <div class="founder-card" tabindex="0" role="button" aria-label="Adam Elżanowski – przejdź do biografii" data-staff="adam">
+                        <div class="founder-avatar">
+                            <span class="founder-badge">Współzałożyciel</span>
+                            AE
+                        </div>
+                        <div class="founder-info">
+                            <h3 class="founder-name">Adam Elżanowski</h3>
+                            <p class="founder-title">Superwizor-Dydaktyk PTTPB, Certyfikowany Psychoterapeuta CBT</p>
+                            <p class="founder-desc">Psycholog, certyfikowany psychoterapeuta CBT&nbsp;(PTTPB&nbsp;nr&nbsp;500, EABCT&nbsp;nr&nbsp;61). Twórca podcastu „W&nbsp;Głowie&nbsp;się&nbsp;Mieści" i&nbsp;platformy AkademiaCBT. Specjalista terapii traumy.</p>
+                            <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Magdalena — aby dodać zdjęcie: zamień "MS" na <img src="kadra/magdalena-skuza.jpg" alt="Magdalena Skuza"> -->
+                    <div class="founder-card" tabindex="0" role="button" aria-label="Magdalena Skuza – przejdź do biografii" data-staff="magda">
+                        <div class="founder-avatar">
+                            <span class="founder-badge">Współzałożycielka</span>
+                            MS
+                        </div>
+                        <div class="founder-info">
+                            <h3 class="founder-name">Magdalena Skuza</h3>
+                            <p class="founder-title">Superwizor-Dydaktyk PTTPB nr&nbsp;87, Certyfikowana Psychoterapeutka CBT</p>
+                            <p class="founder-desc">Psycholożka, specjalistka DBT, EMDR i&nbsp;ACT (PTTPB&nbsp;nr&nbsp;552). Współzałożycielka i&nbsp;wieloletnia przewodnicząca Polskiego Towarzystwa Terapii&nbsp;DBT.</p>
+                            <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">3</span>
-                    <span class="stat-label">Profesorów</span>
+            </div>
+        </section>
+
+        <!-- KIEROWNICTWO I SUPERWIZORZY -->
+        <section class="staff-section" style="background: var(--light-gray);">
+            <div class="container">
+                <div class="staff-header">
+                    <span class="section-label">Kierownictwo i&nbsp;Superwizorzy</span>
+                    <h2 class="section-title">Superwizorzy-Dydaktycy PTTPB</h2>
+                    <p class="section-subtitle">Doświadczeni klinicyści i&nbsp;dydaktycy, którzy prowadzą superwizje i&nbsp;kształcą następne pokolenia terapeutów.</p>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Specjalizacji</span>
+                <div class="staff-grid" id="supervisorsGrid"></div>
+            </div>
+        </section>
+
+        <!-- KADRA NAUKOWA -->
+        <section class="staff-section" style="background: var(--white);">
+            <div class="container">
+                <div class="staff-header">
+                    <span class="section-label">Kadra Naukowa</span>
+                    <h2 class="section-title">Profesorowie i&nbsp;naukowcy</h2>
+                    <p class="section-subtitle">Badacze i&nbsp;wykładowcy akademiccy wnoszący do naszego programu najnowsze osiągnięcia nauki.</p>
+                </div>
+                <div class="staff-grid" id="scientistsGrid"></div>
+            </div>
+        </section>
+
+        <!-- SPECJALIŚCI I DYDAKTYCY -->
+        <section class="staff-section" style="background: var(--light-gray);">
+            <div class="container">
+                <div class="staff-header">
+                    <span class="section-label">Specjaliści i&nbsp;Dydaktycy</span>
+                    <h2 class="section-title">Certyfikowani psychoterapeuci i&nbsp;wykładowcy</h2>
+                    <p class="section-subtitle">Aktywni klinicyści, którzy na co dzień łączą praktykę terapeutyczną z&nbsp;nauczaniem.</p>
+                </div>
+                <div class="staff-grid" id="specialistsGrid"></div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Chcesz się uczyć od&nbsp;najlepszych?</h2>
+                <p>Rozpocznij 4-letnie szkolenie psychoterapii CBT pod okiem naszych ekspertów.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="rekrutacja.html" class="cta-btn">Sprawdź rekrutację →</a>
+                    <a href="kontakt.html" class="cta-btn" style="background: transparent; border: 2px solid white;">Zadaj pytanie</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section class="search-filter-section">
-        <div class="container">
-            <div class="search-bar">
-                <input type="text" class="search-input" id="searchInput" placeholder="Szukaj po nazwisku lub specjalizacji...">
-                <span class="search-icon">🔍</span>
-            </div>
-            
-            <div class="filter-pills">
-                <button class="filter-pill active" data-tier="all">Wszyscy</button>
-                <button class="filter-pill" data-tier="1">Kierownictwo</button>
-                <button class="filter-pill" data-tier="2">Profesorowie i Superwizorzy</button>
-                <button class="filter-pill" data-tier="3">Dydaktycy i Praktycy</button>
-            </div>
-
-            <div class="expertise-tags">
-                <button class="expertise-tag" data-tag="CBT">CBT</button>
-                <button class="expertise-tag" data-tag="DBT">DBT</button>
-                <button class="expertise-tag" data-tag="Schemat">Terapia Schematów</button>
-                <button class="expertise-tag" data-tag="ACT">ACT</button>
-                <button class="expertise-tag" data-tag="Dzieci">Dzieci i Młodzież</button>
-                <button class="expertise-tag" data-tag="Trauma">Trauma/PTSD</button>
-                <button class="expertise-tag" data-tag="Uzależnienia">Uzależnienia</button>
-                <button class="expertise-tag" data-tag="Seksuologia">Seksuologia</button>
-                <button class="expertise-tag" data-tag="EMDR">EMDR</button>
-                <button class="expertise-tag" data-tag="Dialog Motywujący">Dialog Motywujący</button>
-                <button class="expertise-tag" data-tag="Badania">Badania</button>
-            </div>
-
-            <div class="active-filters" id="activeFilters"></div>
-        </div>
-    </section>
-
-    <section class="staff-section" id="main-content">
-        <div class="container">
-            <div class="tier-group" id="tier1">
-                <h2 class="tier-title">Kierownictwo Szkoły</h2>
-                <p class="tier-subtitle">Dyrektor Kursu i Kierownicy Merytoryczni</p>
-                <div class="staff-grid" id="tier1Grid"></div>
-            </div>
-
-            <div class="tier-group" id="tier2">
-                <h2 class="tier-title">Profesorowie i Superwizorzy-Dydaktycy PTTPB</h2>
-                <p class="tier-subtitle">Kadra naukowa i doświadczeni superwizorzy</p>
-                <div class="staff-grid" id="tier2Grid"></div>
-            </div>
-
-            <div class="tier-group" id="tier3">
-                <h2 class="tier-title">Dydaktycy i Praktycy CBT</h2>
-                <p class="tier-subtitle">Certyfikowani psychoterapeuci i wykładowcy</p>
-                <div class="staff-grid" id="tier3Grid"></div>
-            </div>
-
-            <div class="empty-state" id="emptyState">
-                <div class="empty-state-icon">🔍</div>
-                <p class="empty-state-text">Nie znaleziono pasujących wyników</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- ========== FOOTER (unified) ========== -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>O Szkole</h3>
-                    <p>Szkoła Psychoterapii HarmonJa to nowoczesne, certyfikowane szkolenie w zakresie terapii poznawczo-behawioralnej, akredytowane przez PTTPB.</p>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Szkoła</h3>
+                    <ul class="footer-links">
+                        <li><a href="o-nas.html">O&nbsp;nas</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">Poszerzony moduł pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a></li>
+                        <li><a href="szkola-dorosli.html">Ścieżka ogólna (praca z&nbsp;osobami dorosłymi)</a></li>
+                        <li><a href="kadra.html">Kadra</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Szybkie linki</h3>
-                    <p><a href="index.html">Strona główna</a></p>
-                    <p><a href="o-nas.html">O nas</a></p>
-                    <p><a href="rekrutacja.html">Rekrutacja</a></p>
-                    <p><a href="kadra.html">Kadra</a></p>
+                <div class="footer-col">
+                    <h3>Dla kandydatów</h3>
+                    <ul class="footer-links">
+                        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+                        <li><a href="szkolenia-superwizja.html">Szkolenia i&nbsp;Superwizja</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-col">
                     <h3>Kontakt</h3>
                     <div class="contact-info">
                         <p><strong>Szkoła Psychoterapii HarmonJa</strong></p>
                         <p>prowadzona przez</p>
-                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp. z o.o.</p>
-                        <p style="margin-top: 15px;">
-                            ul. Politechniczna 9/7<br>
-                            80-288 Gdańsk
+                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp.&nbsp;z&nbsp;o.o.</p>
+                        <p style="margin-top: 12px;">
+                            ul. Wały Piastowskie 1/1508<br>
+                            80-855 Gdańsk
                         </p>
-                        <p style="margin-top: 10px;">
-                            Email: szkolaharmonja@gmail.com
-                        </p>
-                        <p>
-                            NIP: 9571190783<br>
-                            REGON: 542257334
-                        </p>
+                        <p style="margin-top: 8px;">Email: <a href="mailto:szkolaharmonja@gmail.com" style="color: var(--primary-color);">szkolaharmonja@gmail.com</a></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/szkola.harmonja/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/szkola-harmonja/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/szkola.harmonja/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@wglowiesiemiesci3561/" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 HarmonJa Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+            <div class="copyright">
+                <p>&copy; 2025–2026 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal Overlay -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Zamknij modal">✕</button>
-            <div class="modal-header" id="modalHeader"></div>
+    <!-- ========== MODAL ========== -->
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Biografia pracownika">
+        <div class="modal">
+            <button class="modal-close" id="modalClose" aria-label="Zamknij">&times;</button>
+            <div class="modal-top" id="modalTop"></div>
+            <div class="modal-divider"></div>
             <div class="modal-body" id="modalBody"></div>
-            <div class="modal-navigation">
-                <button class="modal-nav-btn" id="modalPrev">
-                    <span>←</span>
-                    <span>Poprzedni</span>
-                </button>
-                <button class="modal-nav-btn" id="modalNext">
-                    <span>Następny</span>
-                    <span>→</span>
-                </button>
-            </div>
         </div>
     </div>
 
+    <!-- ========== SCRIPTS ========== -->
     <script>
-        // ==================== PEŁNE DANE KADRY Z BIOGRAFIAMI - 45 OSÓB ====================
-        const staffData = [
-            // TIER 1: KIEROWNICTWO (4 osoby)
+    /* ============================
+       STAFF DATA (45 people)
+       ============================ */
+    const staffData = {
+        founders: [
             {
-                id: 1,
-                tier: 1,
-                name: "Adam Elżanowski",
-                shortTitle: "Dyrektor Kursu, Założyciel",
-                fullTitle: "Mgr Psychologii, Dyrektor Kursu, Założyciel Szkoły, Certyfikowany Superwizor-Dydaktyk PTTPB",
-                keyExpertise: "Założyciel Szkoły HarmonJa, twórca podcastu 'W Głowie się Mieści', platformy AkademiaCBT",
-                tags: ["CBT", "Superwizja", "Trauma", "ACT"],
-                isDirector: true,
-                badgeText: "DYREKTOR KURSU",
+                id: 'adam',
+                name: 'Adam Elżanowski',
+                // photo: 'kadra/adam-elzanowski.jpg',  // ← dodaj ścieżkę do zdjęcia
+                shortTitle: 'Superwizor-Dydaktyk PTTPB',
+                fullTitle: 'Certyfikowany psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61), Superwizor-Dydaktyk PTTPB',
+                expertise: 'Terapia traumy, ACT, CFT, terapia schematów, popularyzacja nauki',
                 bio: {
                     education: [
-                        "Magister Psychologii, Uniwersytet Gdański",
-                        "Certyfikowany Superwizor-Dydaktyk PTTPB (Polskie Towarzystwo Terapii Poznawczo-Behawioralnej)",
-                        "Certyfikowany Psychoterapeuta Poznawczo-Behawioralny",
-                        "Szkolenia z zakresu CBT, ACT, terapii traumy"
+                        'Certyfikowany Psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61)',
+                        'Certyfikowany Superwizor-Dydaktyk PTTPB',
+                        'Szkolenia: TF-CBT, protokół przedłużonej ekspozycji, ACT, CFT, terapia schematów'
                     ],
-                    experience: "Założyciel i dyrektor Szkoły Psychoterapii HarmonJa. Twórca popularnego podcastu psychologicznego 'W Głowie się Mieści' oraz platformy edukacyjnej AkademiaCBT. Wieloletnie doświadczenie w psychoterapii poznawczo-behawioralnej, ze szczególnym naciskiem na terapię traumy i zaburzeń lękowych. Prowadzi superwizje indywidualne i grupowe dla psychoterapeutów.",
-                    interests: "Rozwój evidence-based psychoterapii w Polsce, popularyzacja wiedzy psychologicznej poprzez podcast i media społecznościowe, integracja różnych nurtów terapeutycznych (CBT, ACT, terapia traumy)."
+                    experience: 'Współzałożyciel Szkoły Psychoterapii HarmonJa i Fundacji Lazurowa Terapia Poznawczo-Behawioralna. Ponad 15 lat doświadczenia klinicznego. Prowadzi psychoterapię indywidualną i grupową. Był związany z Mazowieckim Szpitalem Bródnowskim. Prowadzi szkolenia i superwizje dla psychoterapeutów w całej Polsce.',
+                    interests: 'Twórca podcastu „W Głowie się Mieści" i platformy edukacyjnej AkademiaCBT. Nowoczesne metody nauczania CBT, technologia w edukacji terapeutów.'
                 }
             },
             {
-                id: 2,
-                tier: 1,
-                name: "Magdalena Skuza",
-                shortTitle: "Dyrektor Kursu",
-                fullTitle: "Mgr Psychologii, Mgr Socjologii, Dyrektor Kursu, Certyfikowany Superwizor-Dydaktyk PTTPB nr 87",
-                keyExpertise: "Przewodnicząca Polskiego Towarzystwa Terapii DBT, współpraca z prof. Alanem Fruzzettim (USA)",
-                tags: ["DBT", "EMDR", "ACT", "Dzieci"],
-                isDirector: true,
-                badgeText: "DYREKTOR KURSU",
+                id: 'magda',
+                name: 'Magdalena Skuza',
+                shortTitle: 'Superwizor-Dydaktyk PTTPB nr 87',
+                fullTitle: 'Certyfikowana psychoterapeutka CBT (PTTPB nr 552), Superwizor-Dydaktyk PTTPB nr 87',
+                expertise: 'DBT, EMDR, ACT, terapia dzieci, młodzieży, dorosłych i rodzin',
                 bio: {
                     education: [
-                        "Magister Psychologii, Uniwersytet Gdański",
-                        "Magister Socjologii, Uniwersytet Gdański",
-                        "Certyfikowany Superwizor-Dydaktyk PTTPB nr 87",
-                        "DBT Intensive Training (certyfikacja międzynarodowa)",
-                        "EMDR Level 1 & 2 Training",
-                        "ACT Training - Acceptance and Commitment Therapy"
+                        'Certyfikowana Psychoterapeutka CBT (PTTPB nr 552)',
+                        'Superwizor-Dydaktyk PTTPB nr 87',
+                        'DBT Comprehensive, EMDR, ACT',
+                        'Członkini zespołu szkoleniowego Center for DBT and Families (prof. Alan Fruzzetti, USA)'
                     ],
-                    experience: "Przewodnicząca Polskiego Towarzystwa Terapii DBT. Współpracuje z prof. Alanem Fruzzettim z USA, jednym z czołowych ekspertów DBT na świecie. Specjalizuje się w terapii dialektyczno-behawioralnej (DBT), EMDR oraz pracy z dziećmi i młodzieżą. Prowadzi szkolenia z DBT dla psychoterapeutów w całej Polsce.",
-                    interests: "Rozpowszechnianie DBT w Polsce, praca z zaburzeniami regulacji emocji, integracja EMDR z DBT, terapia dzieci i młodzieży z trudnościami emocjonalnymi."
+                    experience: 'Współzałożycielka Szkoły Psychoterapii HarmonJa oraz Centrum Zdrowia Psychicznego HarmonJa w Gdańsku. Prowadzi psychoterapię dzieci, młodzieży, dorosłych i rodzin. Współzałożycielka i wieloletnia przewodnicząca Polskiego Towarzystwa Terapii Dialektyczno-Behawioralnej (PTDBT). Prowadzi liczne szkolenia i superwizje, wykłada na konferencjach w Polsce i za granicą.',
+                    interests: 'Regulacja emocji, mindfulness, organizacja społeczności terapeutów DBT w Polsce, współpraca międzynarodowa.'
                 }
-            },
-            {
-                id: 3,
-                tier: 1,
-                name: "Marzena Badyna",
-                shortTitle: "Kierownik Merytoryczny Kursu",
-                fullTitle: "Mgr Psychologii, Kierownik Merytoryczny Kursu, Certyfikowany Superwizor-Dydaktyk PTTPB nr 50",
-                keyExpertise: "Dialog Motywujący (PTTM nr 65), DBT, wieloletnie doświadczenie superwizyjne i dydaktyczne",
-                tags: ["CBT", "DBT", "Dialog Motywujący", "Schemat"],
-                isDirector: true,
-                badgeText: "KIEROWNIK MERYTORYCZNY",
-                bio: {
-                    education: [
-                        "Magister Psychologii",
-                        "Certyfikowany Superwizor-Dydaktyk PTTPB nr 50",
-                        "Certyfikowany Trener Dialogu Motywującego PTTM nr 65",
-                        "DBT Comprehensive Training",
-                        "Szkolenie z Terapii Schematów (poziom podstawowy i zaawansowany)"
-                    ],
-                    experience: "Kierownik merytoryczny Szkoły Psychoterapii HarmonJa. Wieloletnie doświadczenie w prowadzeniu superwizji indywidualnych i grupowych. Specjalistka Dialogu Motywującego z certyfikatem trenera PTTM. Łączy w praktyce klinicznej elementy CBT, DBT, terapii schematów i dialogu motywującego. Prowadzi szkolenia dla psychoterapeutów z zakresu pracy z oporem terapeutycznym.",
-                    interests: "Dialog Motywujący w psychoterapii, praca z ambiwałencją klientów, integracja różnych nurtów terapeutycznych, superwizja kliniczna."
-                }
-            },
-            {
-                id: 4,
-                tier: 1,
-                name: "Karolina Rakocz",
-                shortTitle: "Dyrektor Szkoły",
-                fullTitle: "Dyrektor Szkoły, Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB)",
-                keyExpertise: "Specjalistka terapii uzależnień, Dialog Motywujący, założicielka Fundacji Dbajmy o Siebie",
-                tags: ["CBT", "Uzależnienia", "Dialog Motywujący"],
-                isDirector: true,
-                badgeText: "DYREKTOR SZKOŁY",
-                bio: {
-                    education: [
-                        "Certyfikowana Psychoterapeutka Poznawczo-Behawioralna (PTTPB)",
-                        "Specjalizacja w terapii uzależnień",
-                        "Certyfikat Dialogu Motywującego",
-                        "Szkolenia z zakresu interwencji kryzysowej"
-                    ],
-                    experience: "Dyrektor Szkoły Psychoterapii HarmonJa. Założycielka Fundacji Dbajmy o Siebie, wspierającej osoby z problemami uzależnień. Specjalizuje się w terapii uzależnień behawioralnych i chemicznych, ze szczególnym uwzględnieniem Dialogu Motywującego. Wieloletnie doświadczenie w pracy z osobami w kryzysie i ich rodzinami. Prowadzi również warsztaty profilaktyczne dla młodzieży.",
-                    interests: "Profilaktyka uzależnień, Dialog Motywujący w pracy z uzależnieniami, wsparcie rodzin osób uzależnionych, redukcja szkód."
-                }
-            },
-
-            // TIER 2: PROFESOROWIE I SUPERWIZORZY (19 osób)
-            {
-                id: 5,
-                tier: 2,
-                name: "Prof. Mateusz Gola",
-                shortTitle: "Profesor Psychologii",
-                fullTitle: "Profesor Psychologii (Full Professor), Ph.D. in Psychology and Cognitive Neuroscience",
-                keyExpertise: "Neurobiologia uzależnień i kompulsywnych zachowań seksualnych",
-                tags: ["CBT", "Badania"],
-                bio: {
-                    education: [
-                        "Ph.D. in Psychology and Cognitive Neuroscience",
-                        "Full Professor - Profesor Psychologii",
-                        "Post-doctoral research at University of California San Diego",
-                        "Badania neurobiologiczne z użyciem fMRI"
-                    ],
-                    experience: "Profesor psychologii specjalizujący się w neuronaukach poznawczych i klinicznych. Prowadzi badania nad neurobiologią uzależnień, ze szczególnym naciskiem na kompulsywne zachowania seksualne. Publikuje w najbardziej prestiżowych czasopismach naukowych. Wykładowca akademicki, promotor prac doktorskich. Współpracuje z międzynarodowymi ośrodkami badawczymi.",
-                    publications: [
-                        "Liczne publikacje w czasopismach Impact Factor",
-                        "Badania nad neurobiologią CSBD (Compulsive Sexual Behavior Disorder)",
-                        "Współautor międzynarodowych guidelines ICD-11"
-                    ],
-                    interests: "Neuronauka uzależnień, kompulsywne zachowania seksualne, zastosowanie neurobiologii w psychoterapii, translational research."
-                }
-            },
-            {
-                id: 6,
-                tier: 2,
-                name: "Dr hab. Łukasz Gawęda",
-                shortTitle: "Profesor IP PAN",
-                fullTitle: "Dr hab. Psychologii, Profesor Instytutu Psychologii PAN",
-                keyExpertise: "Psychozy, hallucynacje, terapia poznawczo-behawioralna psychoz",
-                tags: ["CBT", "Badania"],
-                bio: {
-                    education: [
-                        "Doktor habilitowany Psychologii",
-                        "Profesor Instytutu Psychologii PAN",
-                        "Szkolenia z CBT for psychosis (UK)",
-                        "Badania eksperymentalne nad psychozami"
-                    ],
-                    experience: "Profesor IP PAN, zajmujący się badaniami nad psychozami i hallucynacjami. Specjalizuje się w terapii poznawczo-behawioralnej psychoz (CBTp). Prowadzi badania eksperymentalne nad mechanizmami powstawania halucynacji. Wykładowca akademicki, promotor doktorantów. Współpracuje z międzynarodowymi zespołami badawczymi z Wielkiej Brytanii i Niemiec.",
-                    publications: [
-                        "Publikacje w Journal of Abnormal Psychology, Schizophrenia Research",
-                        "Badania nad Syndromem Poznawczo-Uwagi (CAT)",
-                        "Metacognitive Training for psychosis"
-                    ],
-                    interests: "CBT w psychozach, mechanizmy poznawcze halucynacji, metakognicja, translacja badań do praktyki klinicznej."
-                }
-            },
-            {
-                id: 7,
-                tier: 2,
-                name: "Prof. dr hab. med. Andrzej Kokoszka",
-                shortTitle: "Profesor Medycyny",
-                fullTitle: "Profesor Dr hab. Medycyny, Specjalista Psychiatrii",
-                keyExpertise: "Psychiatria, psychoterapia, medytacja i mindfulness",
-                tags: ["Badania"],
-                bio: {
-                    education: [
-                        "Profesor doktor habilitowany nauk medycznych",
-                        "Specjalista psychiatrii",
-                        "Szkolenia z zakresu mindfulness i medytacji",
-                        "Certyfikacje psychoterapeutyczne"
-                    ],
-                    experience: "Profesor medycyny, psychiatra z wieloletnim doświadczeniem klinicznym i akademickim. Specjalizuje się w integracji psychiatrii z psychoterapią i praktykami mindfulness. Autor licznych publikacji naukowych i książek popularnonaukowych. Wykładowca akademicki, promotor prac doktorskich. Propagator integracji praktyk uważności w medycynie i psychoterapii.",
-                    publications: [
-                        "Autor książek o mindfulness w psychoterapii",
-                        "Publikacje naukowe z zakresu psychiatrii",
-                        "Artykuły popularnonaukowe o medytacji"
-                    ],
-                    interests: "Mindfulness w psychiatrii i psychoterapii, integracja Wschód-Zachód, neurofizjologia medytacji, holistyczne podejście do zdrowia psychicznego."
-                }
-            },
-            {
-                id: 8,
-                tier: 2,
-                name: "Magdalena Krzyżak-Gawron",
-                shortTitle: "Superwizor-Dydaktyk PTTPB",
-                fullTitle: "Superwizor-dydaktyk PTTPB, psychoterapeutka poznawczo-behawioralna (nr 526)",
-                keyExpertise: "Psychoterapia dzieci, młodzieży i dorosłych, neuropsychologia",
-                tags: ["CBT", "Dzieci", "Superwizja"],
-                bio: {
-                    education: [
-                        "Superwizor-dydaktyk PTTPB",
-                        "Psychoterapeutka poznawczo-behawioralna nr 526",
-                        "Szkolenia z neuropsychologii klinicznej",
-                        "CBT for children and adolescents"
-                    ],
-                    experience: "Doświadczona superwizorka i psychoterapeutka, pracująca z dziećmi, młodzieżą i dorosłymi. Specjalizuje się w integracji neuropsychologii z psychoterapią poznawczo-behawioralną. Prowadzi superwizje indywidualne i grupowe. Wykładowczyni na szkoleniach psychoterapeutycznych. Doświadczenie w pracy z zaburzeniami neurorozwojowymi.",
-                    interests: "Neuropsychologia w praktyce klinicznej, CBT dla dzieci i młodzieży, diagnoza różnicowa, superwizja kliniczna."
-                }
-            },
-            {
-                id: 9,
-                tier: 2,
-                name: "Marta Nagrodzka",
-                shortTitle: "Superwizor-Dydaktyk PTTPB",
-                fullTitle: "Superwizor-dydaktyk PTTPB, psychoterapeutka poznawczo-behawioralna, seksuolożka",
-                keyExpertise: "Psychoterapia zaburzeń lękowych, depresyjnych, seksuologia kliniczna",
-                tags: ["CBT", "Seksuologia", "Superwizja"],
-                bio: {
-                    education: [
-                        "Superwizor-dydaktyk PTTPB",
-                        "Psychoterapeutka poznawczo-behawioralna",
-                        "Certyfikowana seksuolożka kliniczna",
-                        "Szkolenia z zakresu zaburzeń lękowych i OCD"
-                    ],
-                    experience: "Doświadczona superwizorka i psychoterapeutka, specjalizująca się w zaburzeniach lękowych, depresyjnych oraz seksuologii klinicznej. Prowadzi terapię indywidualną i parową. Wykładowczyni na szkoleniach z CBT i seksuologii. Superwizorka grupowa i indywidualna. Doświadczenie w pracy z OCD, lękiem społecznym i zaburzeniami seksualnymi.",
-                    interests: "Seksuologia kliniczna w nurcie CBT, zaburzenia lękowe i obsesyjno-kompulsyjne, terapia par, superwizja kliniczna."
-                }
-            },
-            {
-                id: 10,
-                tier: 2,
-                name: "Aleksandra Naumowicz-Kucharska",
-                shortTitle: "Superwizor-Dydaktyk PTTPB",
-                fullTitle: "Superwizor-dydaktyk PTTPB, psychoterapeutka poznawczo-behawioralna (PTTPB nr 368, EABCT)",
-                keyExpertise: "DBT, zaburzenia osobowości, psychoterapia młodzieży i dorosłych",
-                tags: ["CBT", "DBT", "Superwizja"],
-                bio: {
-                    education: [
-                        "Superwizor-dydaktyk PTTPB",
-                        "Psychoterapeutka poznawczo-behawioralna nr 368",
-                        "Certyfikat EABCT (European Association for Behavioural and Cognitive Therapies)",
-                        "DBT Comprehensive Training",
-                        "Szkolenia z zakresu zaburzeń osobowości"
-                    ],
-                    experience: "Doświadczona superwizorka i psychoterapeutka, specjalizująca się w DBT i zaburzeniach osobowości. Pracuje z młodzieżą i dorosłymi z trudnościami w regulacji emocji. Prowadzi superwizje indywidualne i grupowe, wykładowczyni na szkoleniach psychoterapeutycznych. Certyfikat międzynarodowy EABCT. Doświadczenie w prowadzeniu grupowej terapii DBT.",
-                    interests: "DBT w praktyce klinicznej, zaburzenia osobowości borderline, regulacja emocji, superwizja terapeutów DBT."
-                }
-            },
-            {
-                id: 11,
-                tier: 2,
-                name: "Magdalena Muracka-Tylko",
-                shortTitle: "DBT Comprehensive, Mentorka i Nauczycielka",
-                fullTitle: "Specjalistka DBT Comprehensive (Mentorka i Nauczycielka)",
-                keyExpertise: "Koordynatorka programu Family Connections w Polsce",
-                tags: ["DBT"]
-            },
-            {
-                id: 12,
-                tier: 2,
-                name: "Alicja Balińska",
-                shortTitle: "Trainer & Supervisor Level Certificate in Schema Therapy",
-                fullTitle: "Trainer & Supervisor Level Certificate in Individual Schema Therapy IND-3304 (ISST)",
-                keyExpertise: "Prowadzi szkolenia podstawowe i zaawansowane z Terapii Schematu",
-                tags: ["Schemat"]
-            },
-            {
-                id: 13,
-                tier: 2,
-                name: "Dr Katarzyna Bajszczak",
-                shortTitle: "Dr nauk medycznych",
-                fullTitle: "Dr nauk medycznych, Specjalistka w dziedzinie psychoseksuologii i psychoterapii dzieci i młodzieży",
-                keyExpertise: "Praca z zaburzeniami rozwoju płci (DSD) i dysforią płciową",
-                tags: ["Dzieci", "Seksuologia"]
-            },
-            {
-                id: 14,
-                tier: 2,
-                name: "Dr Joachim Kowalski",
-                shortTitle: "Dr nauk społecznych, Adiunkt IP PAN",
-                fullTitle: "Dr nauk społecznych (psychologia), Adiunkt IP PAN",
-                keyExpertise: "Syndrom Poznawczo-Uwagi (CAT), psychozy, psychopatologia eksperymentalna",
-                tags: ["Badania", "CBT"]
-            },
-            {
-                id: 15,
-                tier: 2,
-                name: "Dr Małgorzata Draps",
-                shortTitle: "Dr n. społ., Adiunkt IP PAN",
-                fullTitle: "Dr nauk społecznych, Adiunkt Instytutu Psychologii PAN",
-                keyExpertise: "Neuronauka Kliniczna, badania fMRI, kompulsywne zachowania seksualne (CSBD)",
-                tags: ["Badania"]
-            },
-            {
-                id: 16,
-                tier: 2,
-                name: "Alicja Baranek",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 463 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 463), terapeutka DBT i RO DBT",
-                keyExpertise: "RO DBT - Radykalnie Otwarta Dialektyczna Terapia Behawioralna",
-                tags: ["CBT", "DBT"]
-            },
-            {
-                id: 17,
-                tier: 2,
-                name: "Emilia Sygulska",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1210 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1210), terapeutka DBT",
-                keyExpertise: "Tożsamość płciowa i seksualna, współautorka podcastu 'Kurs na DBT'",
-                tags: ["DBT", "CBT", "Dzieci"]
-            },
-            {
-                id: 18,
-                tier: 2,
-                name: "Gabriela Zajdel",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1124 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1124), terapeutka DBT",
-                keyExpertise: "Lider szkoleń Treningu Umiejętności DBT, interwencja kryzysowa",
-                tags: ["DBT", "Trauma"]
-            },
-            {
-                id: 19,
-                tier: 2,
-                name: "Dagmara Zinkowska-Sopek",
-                shortTitle: "Certyfikowana Terapeutka Schematu (poziom zaawansowany)",
-                fullTitle: "Certyfikowana Terapeutka Schematu (poziom zaawansowany), Certyfikowana psychoterapeutka CBT (nr 833 PTTPB)",
-                keyExpertise: "Integracja Schemat, CBT, Dialog Motywujący, neurobiologia traumy",
-                tags: ["Schemat", "CBT", "Trauma"]
-            },
-            {
-                id: 20,
-                tier: 2,
-                name: "Katarzyna Łynka",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 255 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 255), certyfikowana terapeutka schematów (ISST, IND-4083)",
-                keyExpertise: "Zaburzenia odżywiania, lękowe i OCD",
-                tags: ["Schemat", "CBT"]
-            },
-            {
-                id: 21,
-                tier: 2,
-                name: "Marta Wojsz-Rączko",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1578 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1578), terapeutka schematu w trakcie certyfikacji",
-                keyExpertise: "Integracja CBT z terapiami trzeciej fali",
-                tags: ["CBT", "Schemat", "ACT"]
-            },
-            {
-                id: 22,
-                tier: 2,
-                name: "Jędrzej Kosewski",
-                shortTitle: "Certyfikowany psychoterapeuta CBT (nr 201 PTTPB)",
-                fullTitle: "Certyfikowany psychoterapeuta poznawczo-behawioralny (PTTPB nr 201), certyfikowany terapeuta i superwizor terapii schematów (ISST)",
-                keyExpertise: "Dyrektor Rocznego Programu Szkolenia w Terapii Schematów",
-                tags: ["CBT", "Schemat", "Superwizja"]
-            },
-            {
-                id: 23,
-                tier: 2,
-                name: "Milena Filippowicz",
-                shortTitle: "Certyfikowany Psychoterapeuta CBT (nr 1552)",
-                fullTitle: "Certyfikowany Psychoterapeuta CBT (nr 1552), Psychologia Sądowa i Penitencjarna",
-                keyExpertise: "Diagnoza psychologiczna ADHD i ASD (Certyfikat ADOS-2)",
-                tags: ["CBT", "Dzieci"]
-            },
-
-            // TIER 3: DYDAKTYCY I PRAKTYCY (22 osoby)
-            {
-                id: 24,
-                tier: 3,
-                name: "Dr Andrzej Śliwerski",
-                shortTitle: "Dr Psychologii, Certyfikowany psychoterapeuta PTTPB",
-                fullTitle: "Dr Psychologii, Certyfikowany psychoterapeuta PTTPB (nr 267)",
-                keyExpertise: "CBT, Terapia Schematów, PTSD/TF-CBT, ACT",
-                tags: ["CBT", "Schemat", "Trauma", "ACT"]
-            },
-            {
-                id: 25,
-                tier: 3,
-                name: "Laura Andrzejczyk",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 2113 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 2113)",
-                keyExpertise: "DBT-A, młodzież w kryzysie, diagnoza zaburzeń osobowości",
-                tags: ["CBT", "DBT", "Dzieci"]
-            },
-            {
-                id: 26,
-                tier: 3,
-                name: "Agnieszka Winiarek",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1613 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1613)",
-                keyExpertise: "CBT/DBT dla młodzieży i dorosłych, neuroróżnorodność (ADHD, ASD)",
-                tags: ["CBT", "DBT", "Dzieci"]
-            },
-            {
-                id: 27,
-                tier: 3,
-                name: "Dr Anna Englert-Bator",
-                shortTitle: "Dr nauk społecznych, Certyfikowana psychoterapeutka CBT (nr 1188 PTTPB)",
-                fullTitle: "Dr nauk społecznych, Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1188), terapeutka DBT",
-                keyExpertise: "Zaburzenia osobowości borderline, zaburzenia odżywiania, PTSD",
-                tags: ["CBT", "DBT", "Trauma"]
-            },
-            {
-                id: 28,
-                tier: 3,
-                name: "Monika Cybulska",
-                shortTitle: "Psycholożka, psychoterapeutka CBT, Trenerka Umiejętności DBT",
-                fullTitle: "Psycholożka, psychoterapeutka poznawczo-behawioralna, Trenerka Umiejętności DBT",
-                keyExpertise: "Seksuologia kliniczna, DBT, zaburzenia emocjonalne",
-                tags: ["CBT", "DBT", "Seksuologia"]
-            },
-            {
-                id: 29,
-                tier: 3,
-                name: "Agnieszka Drabina",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1339 PTTPB), Liderka Family Connections",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1339), Liderka Family Connections",
-                keyExpertise: "DBT dla dzieci i młodzieży, Family Connections",
-                tags: ["CBT", "DBT", "Dzieci"]
-            },
-            {
-                id: 30,
-                tier: 3,
-                name: "Magdalena Dziadura",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1329 PTTPB), terapeutka schematu (ISST, IND-3873)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1329), terapeutka schematu w trakcie certyfikacji (ISST, IND-3873)",
-                keyExpertise: "Terapia schematów, trauma, mieszkanie treningowe",
-                tags: ["CBT", "Schemat", "Trauma"]
-            },
-            {
-                id: 31,
-                tier: 3,
-                name: "Patryk Skowroń",
-                shortTitle: "Certyfikowany psychoterapeuta CBT (nr 1620 PTTPB)",
-                fullTitle: "Certyfikowany psychoterapeuta poznawczo-behawioralny (PTTPB nr 1620)",
-                keyExpertise: "Interwencja kryzysowa, case management",
-                tags: ["CBT", "Trauma"]
-            },
-            {
-                id: 32,
-                tier: 3,
-                name: "Kaja Wieczorek-Socha",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1086 PTTPB), terapeutka DBT",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1086), psycholożka kliniczna dzieci i młodzieży, terapeutka DBT",
-                keyExpertise: "DBT-A, współtwórczyni Dialektycznie.pl i podcastu 'Kurs na DBT'",
-                tags: ["CBT", "DBT", "Dzieci"]
-            },
-            {
-                id: 33,
-                tier: 3,
-                name: "Artur Gębka",
-                shortTitle: "Certyfikowany psychoterapeuta CBT (PTTPB), autor książek psychologicznych",
-                fullTitle: "Certyfikowany psychoterapeuta poznawczo-behawioralny (PTTPB), autor książek dla dzieci i młodzieży wprowadzających do CBT",
-                keyExpertise: "Lider Family Connections, autor 'Znikodem i zagadka lęku'",
-                tags: ["CBT", "DBT", "Dzieci"]
-            },
-            {
-                id: 34,
-                tier: 3,
-                name: "Anna Maniewska",
-                shortTitle: "Psychoterapeutka CBT w trakcie certyfikacji PTTPB, terapeutka DBT",
-                fullTitle: "Psychoterapeutka poznawczo-behawioralna w trakcie certyfikacji PTTPB, terapeutka DBT",
-                keyExpertise: "DBT, praca z młodzieżą i ASD, Family Connections",
-                tags: ["CBT", "DBT", "Dzieci"]
-            },
-            {
-                id: 35,
-                tier: 3,
-                name: "Magdalena Jasińska",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1302 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1302)",
-                keyExpertise: "Zaburzenia lękowe, depresyjne, osobowości, diagnostyka neuropsychologiczna",
-                tags: ["CBT"]
-            },
-            {
-                id: 36,
-                tier: 3,
-                name: "Katarzyna R. Fąk",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB), terapeutka DBT i terapii schematów",
-                keyExpertise: "Kryzysy psychiczne, uzależnienia, trauma, kierownik poradni",
-                tags: ["CBT", "DBT", "Schemat", "Uzależnienia", "Trauma"]
-            },
-            {
-                id: 37,
-                tier: 3,
-                name: "Magdalena Świtalska-Jastrzębowska",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1155 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1155), terapeutka DM i psychodramy",
-                keyExpertise: "Dialog motywujący, psychodrama, zaburzenia psychosomatyczne",
-                tags: ["CBT", "Dialog Motywujący"]
-            },
-            {
-                id: 38,
-                tier: 3,
-                name: "Monika Zabel",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 997 PTTPB)",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 997), terapeutka schematów w trakcie certyfikacji ISST",
-                keyExpertise: "Wykładowczyni WUM, praca z traumą",
-                tags: ["CBT", "Schemat", "Trauma"]
-            },
-            {
-                id: 39,
-                tier: 3,
-                name: "Iga Zdanowska",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 955 PTTPB), terapeutka DBT",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 955), terapeutka DBT",
-                keyExpertise: "Treningi umiejętności DBT, prokrastynacja (projekt IP PAN)",
-                tags: ["CBT", "DBT"]
-            },
-            {
-                id: 40,
-                tier: 3,
-                name: "Ewelina Zimna",
-                shortTitle: "Specjalistka psychoterapii uzależnień, Certyfikowana psychoterapeutka CBT (PTTPB)",
-                fullTitle: "Specjalistka psychoterapii uzależnień, Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB)",
-                keyExpertise: "Kierowniczka ośrodka 'Nadzieja Rodzinie', MONAR",
-                tags: ["CBT", "Uzależnienia", "Dzieci"]
-            },
-            {
-                id: 41,
-                tier: 3,
-                name: "Nicol Śliwińska",
-                shortTitle: "Certyfikowana psychoterapeutka CBT (nr 1562 PTTPB), terapeutka DBT i Liderka Family Connections",
-                fullTitle: "Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB nr 1562), terapeutka DBT i Liderka Family Connections",
-                keyExpertise: "Psychoterapia dzieci i młodzieży (5-21 lat), doświadczenie międzynarodowe (Niemcy)",
-                tags: ["CBT", "DBT", "Dzieci"]
-            },
-            {
-                id: 42,
-                tier: 3,
-                name: "Sylwia Bobińska",
-                shortTitle: "Psycholożka, psychoterapeutka CBT, terapeutka DBT",
-                fullTitle: "Psycholożka, psychoterapeutka poznawczo-behawioralna, terapeutka DBT",
-                keyExpertise: "Praca socjalna, asystent rodziny",
-                tags: ["CBT", "DBT"]
-            },
-            {
-                id: 43,
-                tier: 3,
-                name: "Magdalena Nowakowska",
-                shortTitle: "Psycholożka, terapeutka CBT",
-                fullTitle: "Psycholożka, terapeutka poznawczo-behawioralna (ukończone kursy CBT)",
-                keyExpertise: "Psychologia edukacji i rodziny, poradnia psychologiczno-pedagogiczna",
-                tags: ["CBT", "Dzieci"]
-            },
-            {
-                id: 44,
-                tier: 3,
-                name: "Dr n. med. Joanna Ostasz-Ważny",
-                shortTitle: "Specjalistka psychiatrii dzieci i młodzieży, Certyfikowana psychoterapeutka CBT (PTTPB)",
-                fullTitle: "Specjalistka psychiatrii dzieci i młodzieży, Certyfikowana psychoterapeutka poznawczo-behawioralna (PTTPB)",
-                keyExpertise: "Psychiatria, lekarz, doświadczenie szpitalne i ambulatoryjne",
-                tags: ["CBT", "Dzieci"]
-            },
-            {
-                id: 45,
-                tier: 3,
-                name: "Marcin Łapiński",
-                shortTitle: "Radca prawny",
-                fullTitle: "Radca prawny, wykładowca akademicki",
-                keyExpertise: "Prawo medyczne, organizacyjne i prawne aspekty psychoterapii",
-                tags: ["Badania"]
             }
-        ];
+        ],
 
-        let currentStaffList = [...staffData];
-        let activeFilters = { tier: 'all', tags: [], search: '' };
-        let currentModalIndex = 0;
-
-        function renderStaff() {
-            const tier1Grid = document.getElementById('tier1Grid');
-            const tier2Grid = document.getElementById('tier2Grid');
-            const tier3Grid = document.getElementById('tier3Grid');
-            const emptyState = document.getElementById('emptyState');
-
-            tier1Grid.innerHTML = '';
-            tier2Grid.innerHTML = '';
-            tier3Grid.innerHTML = '';
-
-            // Filter staff
-            let filteredStaff = staffData.filter(person => {
-                if (activeFilters.tier !== 'all' && person.tier != activeFilters.tier) return false;
-                
-                if (activeFilters.tags.length > 0) {
-                    const hasMatchingTag = activeFilters.tags.some(filterTag => person.tags.includes(filterTag));
-                    if (!hasMatchingTag) return false;
+        supervisors: [
+            {
+                name: 'Karolina Rakocz',
+                shortTitle: 'Dyrektor Szkoły',
+                fullTitle: 'Certyfikowana psychoterapeutka CBT (PTTPB), specjalistka terapii uzależnień (KBPN)',
+                expertise: 'Terapia uzależnień, Dialog Motywujący',
+                badge: 'Dyrektor Szkoły',
+                bio: {
+                    education: ['Certyfikowana Psychoterapeutka CBT (PTTPB)', 'Specjalistka terapii uzależnień (KBPN)', 'Certyfikowana terapeutka Dialogu Motywującego'],
+                    experience: 'Dyrektor Szkoły Psychoterapii HarmonJa. Założycielka Fundacji „Dbajmy o Siebie". Doświadczenie w Jurajskim Centrum Leczenia Uzależnień, MONAR. Prowadzi szkolenia dla szkół psychoterapii (AMiE, Instytut Poznawczy, Cogito, Lazurowa Terapia).',
+                    interests: 'Profilaktyka uzależnień, Dialog Motywujący, wsparcie rodzin osób uzależnionych.'
                 }
-                
-                if (activeFilters.search) {
-                    const search = activeFilters.search.toLowerCase();
-                    return person.name.toLowerCase().includes(search) ||
-                           person.keyExpertise.toLowerCase().includes(search) ||
-                           person.tags.some(tag => tag.toLowerCase().includes(search));
+            },
+            {
+                name: 'Marzena Badyna',
+                shortTitle: 'Kierownik Merytoryczny',
+                fullTitle: 'Superwizor-Dydaktyk PTTPB nr 50, Certyfikowana psychoterapeutka CBT',
+                expertise: 'Superwizja CBT, zaburzenia lękowe, depresyjne, osobowości, Dialog Motywujący',
+                badge: 'Kierownik Merytoryczny',
+                bio: {
+                    education: ['Superwizor-Dydaktyk PTTPB nr 50', 'Certyfikowana Psychoterapeutka CBT (PTTPB)', 'Certyfikowana terapeutka Dialogu Motywującego (PTTM nr 65)', 'DBT Practitioner Training'],
+                    experience: 'Wieloletnie doświadczenie w Mazowieckim Szpitalu Wojewódzkim i brytyjskiej NHS. Doświadczona superwizorka i wykładowczyni w AMIE, SWPS, WUM i Synapsis. Specjalizuje się w psychoterapii zaburzeń lękowych, depresyjnych, osobowości.',
+                    interests: 'Rozwój kompetencji terapeutycznych, superwizja, integracja DBT i Dialogu Motywującego.'
                 }
-                return true;
-            });
-
-            currentStaffList = filteredStaff;
-
-            if (filteredStaff.length === 0) {
-                emptyState.style.display = 'block';
-                document.getElementById('tier1').style.display = 'none';
-                document.getElementById('tier2').style.display = 'none';
-                document.getElementById('tier3').style.display = 'none';
-            } else {
-                emptyState.style.display = 'none';
-
-                const tier1Staff = filteredStaff.filter(p => p.tier === 1);
-                const tier2Staff = filteredStaff.filter(p => p.tier === 2);
-                const tier3Staff = filteredStaff.filter(p => p.tier === 3);
-
-                document.getElementById('tier1').style.display = tier1Staff.length ? 'block' : 'none';
-                document.getElementById('tier2').style.display = tier2Staff.length ? 'block' : 'none';
-                document.getElementById('tier3').style.display = tier3Staff.length ? 'block' : 'none';
-
-                tier1Staff.forEach((person, index) => {
-                    tier1Grid.appendChild(createStaffCard(person, index));
-                });
-
-                tier2Staff.forEach((person, index) => {
-                    tier2Grid.appendChild(createStaffCard(person, index));
-                });
-
-                tier3Staff.forEach((person, index) => {
-                    tier3Grid.appendChild(createStaffCard(person, index));
-                });
+            },
+            {
+                name: 'Magdalena Krzyżak-Gawron',
+                shortTitle: 'Superwizor-Dydaktyk PTTPB',
+                fullTitle: 'Superwizor-Dydaktyk PTTPB, psychoterapeutka CBT (PTTPB nr 526)',
+                expertise: 'Psychoterapia dzieci, młodzieży i dorosłych, neuropsychologia',
+                bio: {
+                    education: ['Superwizor-Dydaktyk PTTPB', 'Psychoterapeutka CBT (PTTPB nr 526)', 'Szkolenie z psychoterapii integracyjnej', 'Studia podyplomowe z neuropsychologii'],
+                    experience: 'Prowadzi Centrum Diagnozy i Terapii „Engram" w Kielcach. Zajmuje się psychoterapią dzieci, młodzieży i dorosłych oraz szkoleniem i superwizją terapeutów. Wykłada i superwizuje w Akademii Motywacji i Edukacji oraz Akademii Psychoterapii Interego.',
+                    interests: 'Neuropsychologia w praktyce klinicznej, CBT dla dzieci i młodzieży, diagnoza różnicowa.'
+                }
+            },
+            {
+                name: 'Marta Nagrodzka',
+                shortTitle: 'Superwizor-Dydaktyk PTTPB',
+                fullTitle: 'Superwizor-Dydaktyk PTTPB, psychoterapeutka CBT, seksuolożka',
+                expertise: 'Zaburzenia lękowe, depresyjne, psychosomatyczne, seksuologia kliniczna',
+                bio: {
+                    education: ['Superwizor-Dydaktyk PTTPB', 'Psychoterapeutka CBT (PTTPB)', 'Certyfikowana seksuolożka kliniczna'],
+                    experience: 'Prowadzi psychoterapię indywidualną dzieci, młodzieży, dorosłych oraz par. Superwizorka w Instytucie Poznawczym, SWPS i Akademii Motywacji i Edukacji. Prowadzi prywatną praktykę w Centrum Psychoterapii i Seksuologii MindClinic w Nysie.',
+                    interests: 'Seksuologia kliniczna w nurcie CBT, zaburzenia lękowe i OCD, terapia par.'
+                }
+            },
+            {
+                name: 'Aleksandra Naumowicz-Kucharska',
+                shortTitle: 'Superwizor-Dydaktyk PTTPB',
+                fullTitle: 'Superwizor-Dydaktyk PTTPB, psychoterapeutka CBT (PTTPB nr 368, EABCT)',
+                expertise: 'DBT, zaburzenia osobowości, psychoterapia młodzieży i dorosłych',
+                bio: {
+                    education: ['Superwizor-Dydaktyk PTTPB', 'Psychoterapeutka CBT (PTTPB nr 368, EABCT)', 'DBT Comprehensive Training'],
+                    experience: 'Kieruje ośrodkiem „TuTerapia" w Gdańsku. Specjalizuje się w psychoterapii młodzieży, dorosłych i par oraz w terapii DBT i zaburzeń osobowości. Była wiceprzewodniczącą i członkinią Zarządu PTTPB. Prowadzi superwizje i zajęcia dydaktyczne w Instytucie Poznawczym.',
+                    interests: 'DBT, zaburzenia osobowości, regulacja emocji, superwizja kliniczna.'
+                }
             }
+        ],
 
-            updateActiveFiltersDisplay();
-        }
-
-        function createStaffCard(person, index) {
-            const card = document.createElement('div');
-            let cardClasses = `staff-card tier-${person.tier}`;
-            if (person.isDirector) cardClasses += ' is-director';
-            card.className = cardClasses;
-            card.style.animationDelay = `${index * 0.05}s`;
-            card.setAttribute('role', 'button');
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('aria-label', `Zobacz więcej informacji o ${person.name}`);
-
-            const initials = person.name.split(' ').map(n => n[0]).join('');
-
-            let roleBadge = '';
-            if (person.isDirector && person.badgeText) {
-                roleBadge = `<div class="staff-role-badge director-badge">${person.badgeText}</div>`;
-            }
-
-            card.innerHTML = `
-                <div class="staff-avatar">${initials}</div>
-                ${roleBadge}
-                <h3 class="staff-name">${person.name}</h3>
-                <p class="staff-title">${person.shortTitle}</p>
-                <p class="staff-expertise">${person.keyExpertise}</p>
-                <div class="staff-card-footer">Dowiedz się więcej →</div>
-            `;
-
-            // Add click handler to open modal
-            card.addEventListener('click', () => openModal(person));
-            card.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openModal(person);
+        scientists: [
+            {
+                name: 'Prof. Mateusz Gola',
+                shortTitle: 'Profesor Psychologii, IP PAN',
+                fullTitle: 'Profesor Psychologii, IP PAN i University of California San Diego, psychoterapeuta CBT (PTTPB nr 320)',
+                expertise: 'Neurobiologia uzależnień behawioralnych, kompulsywne zachowania seksualne',
+                bio: {
+                    education: ['Profesor Psychologii (Full Professor)', 'Psychoterapeuta CBT (PTTPB nr 320)', 'Ph.D. in Psychology and Cognitive Neuroscience'],
+                    experience: 'Profesor w Instytucie Psychologii PAN i Associate Research Professor w University of California San Diego. Kierownik licznych grantów NCN, NCBR i NIH. Specjalizuje się w badaniach nad mechanizmami uzależnień behawioralnych. Współautor aplikacji „Nalogometr".',
+                    interests: 'Neuroscience, uzależnienia behawioralne, brain imaging (fMRI), kompulsywność.'
                 }
-            });
+            },
+            {
+                name: 'Dr hab. Łukasz Gawęda',
+                shortTitle: 'Profesor IP PAN',
+                fullTitle: 'Profesor IP PAN, Kierownik Pracowni Psychopatologii Eksperymentalnej, z-ca dyrektora ds. nauki',
+                expertise: 'Psychopatologia psychoz, metapoznanie, zaburzenia lękowe i depresyjne',
+                bio: {
+                    education: ['Dr hab. nauk medycznych (WUM)', 'Profesor Instytutu Psychologii PAN', 'Specjalizacja: psychopatologia eksperymentalna'],
+                    experience: 'Kierownik Pracowni Psychopatologii Eksperymentalnej IP PAN. Zastępca dyrektora ds. nauki. Doświadczenie kliniczne w II Klinice Psychiatrycznej WUM. Laureat nagród naukowych FNP START, DAAD, NCN. Autor wielu publikacji w Schizophrenia Bulletin, Psychological Medicine.',
+                    interests: 'Psychozy, halucynacje, metapoznanie, interwencje psychologiczne.'
+                }
+            },
+            {
+                name: 'Prof. dr hab. med. Andrzej Kokoszka',
+                shortTitle: 'Profesor Medycyny, Psychiatra',
+                fullTitle: 'Profesor Medycyny, Kierownik II Kliniki Psychiatrycznej WUM',
+                expertise: 'Psychiatria, psychoterapia integracyjna, psychiatria środowiskowa',
+                bio: {
+                    education: ['Profesor doktor habilitowany nauk medycznych', 'Specjalista psychiatrii', 'Psycholog (mgr UJ)'],
+                    experience: 'Kierownik II Kliniki Psychiatrycznej WUM. Koordynator Bródnowskiego Centrum Zdrowia Psychicznego. Uznany ekspert w zakresie psychiatrii środowiskowej. Autor licznych publikacji i książek z zakresu psychiatrii.',
+                    interests: 'Psychiatria środowiskowa, psychoterapia integracyjna, zmienione stany świadomości, psychologia ewolucyjna.'
+                }
+            },
+            {
+                name: 'Dr Joachim Kowalski',
+                shortTitle: 'Adiunkt IP PAN',
+                fullTitle: 'Dr nauk społecznych, Adiunkt w Pracowni Psychopatologii Eksperymentalnej IP PAN',
+                expertise: 'Mechanizmy poznawcze psychoz, halucynacje, metapoznanie',
+                bio: {
+                    education: ['Doktor nauk społecznych (UW)', 'Adiunkt IP PAN'],
+                    experience: 'Adiunkt w Pracowni Psychopatologii Eksperymentalnej IP PAN. Kierownik grantu NCN SONATINA. Prowadził psychoterapię indywidualną i grupową w nurcie CBT i metapoznawczym. Doświadczenie w Szpitalu Bródnowskim i IPIN.',
+                    interests: 'Psychozy, halucynacje, procesy metapoznawcze, psychopatologia eksperymentalna.'
+                }
+            },
+            {
+                name: 'Dr Małgorzata Draps',
+                shortTitle: 'Adiunkt IP PAN',
+                fullTitle: 'Dr nauk społecznych, Adiunkt w Pracowni Neuronauki Klinicznej IP PAN',
+                expertise: 'Neuronauka kliniczna, kompulsywne zachowania seksualne, badania fMRI',
+                bio: {
+                    education: ['Doktor nauk społecznych', 'Adiunkt IP PAN', 'Stypendystka programu START FNP'],
+                    experience: 'Główny koordynator badania klinicznego dot. leczenia kompulsywnych zachowań seksualnych. Staż w Lyon Neuroscience Research Center (CNRS-INSERM, Francja). Laureatka grantów NCN i Agencji Badań Medycznych.',
+                    interests: 'Neuronauka, badania fMRI, uzależnienia behawioralne, kompulsywność.'
+                }
+            }
+        ],
 
-            return card;
-        }
+        specialists: [
+            // PHOTO GUIDE: dodaj 'photo: "kadra/imie-nazwisko.jpg"' do dowolnej osoby.
+            // Zdjęcia: 400×400px minimum, kwadratowe, JPG. Folder: kadra/
+            // Przykład: { name: 'Jan Kowalski', photo: 'kadra/jan-kowalski.jpg', ... }
+            {
+                name: 'Alicja Balińska',
+                // photo: 'kadra/alicja-balinska.jpg',
+                shortTitle: 'Superwizorka/Trenerka Terapii Schematu (ISST)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 498), Superwizorka i Trenerka Terapii Schematu (ISST, IND-3304)',
+                expertise: 'Terapia Schematu — szkolenia i superwizje, zaburzenia osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 498)', 'Superwizorka/Trenerka Terapii Schematu (ISST, IND-3304)'],
+                    experience: 'Prowadzi szkolenia podstawowe i zaawansowane z terapii schematu w Nowoczesnej Terapii Schematu. Doświadczenie w Oddziale Dziennym Leczenia Zaburzeń Nerwicowych oraz Szpitalu Wolskim.',
+                    interests: 'Terapia Schematu, zaburzenia osobowości, szkolenie terapeutów.'
+                }
+            },
+            {
+                name: 'Jędrzej Kosewski',
+                shortTitle: 'Terapeuta i Superwizor Schematu (ISST)',
+                fullTitle: 'Psychoterapeuta CBT (PTTPB nr 201), terapeuta i superwizor terapii schematów (ISST)',
+                expertise: 'Dyrektor Rocznego Programu Szkolenia w Terapii Schematów',
+                bio: {
+                    education: ['Psychoterapeuta CBT (PTTPB nr 201)', 'Certyfikowany terapeuta i superwizor ISST', 'Szkolenie CBT Oxford Cognitive Therapy Centre'],
+                    experience: 'Od 2015 roku dyrektor Rocznego Programu Szkolenia w Terapii Schematów (akredytacja ISST). Wieloletnie doświadczenie w Oddziale Leczenia Nerwic Szpitala MSWiA w Otwocku. Prowadzi prywatną praktykę, szkoli i superwizuje psychoterapeutów.',
+                    interests: 'Terapia Schematu, zaburzenia osobowości, kształcenie terapeutów.'
+                }
+            },
+            {
+                name: 'Dr Andrzej Śliwerski',
+                shortTitle: 'Adiunkt UŁ, Psychoterapeuta CBT',
+                fullTitle: 'Dr Psychologii, Adiunkt UŁ, Psychoterapeuta CBT (PTTPB nr 267)',
+                expertise: 'CBT, Terapia Schematów, PTSD/TF-CBT, ACT, praca z osobami LGBTQ+',
+                bio: {
+                    education: ['Doktor nauk społecznych', 'Psychoterapeuta CBT (PTTPB nr 267)', 'Szkolenia: Terapia Schematów, TF-CBT, ACT'],
+                    experience: 'Adiunkt w Instytucie Psychologii Uniwersytetu Łódzkiego. Współtwórca Instytutu Psychoterapii CBT „Schemat" w Łodzi. Wykładowca w szkołach psychoterapii (CTPB, CBT Edu, Vis Salutis, DIALOG).',
+                    interests: 'CBT, terapia traumy, Terapia Schematów, praca z osobami LGBTQ+.'
+                }
+            },
+            {
+                name: 'Dr Katarzyna Bajszczak',
+                shortTitle: 'Dr n. med., Seksuolożka kliniczna',
+                fullTitle: 'Dr nauk medycznych, psychoterapeutka CBT, seksuolożka kliniczna (PTS nr 122)',
+                expertise: 'Psychoseksuologia, rozwój płci, dysforia płciowa, psychoterapia dzieci i młodzieży',
+                bio: {
+                    education: ['Doktor nauk medycznych', 'Seksuolożka kliniczna (PTS nr 122)', 'Psychoterapeutka CBT', 'Specjalistka psychoseksuologii i psychoterapii dzieci i młodzieży'],
+                    experience: 'Związana z Kliniką Psychiatrii Dzieci i Młodzieży w „Pomnik – Centrum Zdrowia Dziecka". Współpracuje z SWPS i UAM. Autorka publikacji naukowych i koordynatorka fakultetów. Uczestniczka projektu badawczego UE FP7 „DSD-LIFE".',
+                    interests: 'Psychoseksuologia, rozwój płci, dysforia płciowa, seksuologia wieku rozwojowego.'
+                }
+            },
+            {
+                name: 'Dr Anna Englert-Bator',
+                shortTitle: 'Dr nauk społ., Psychoterapeutka CBT/DBT',
+                fullTitle: 'Dr nauk społecznych, psychoterapeutka CBT (PTTPB nr 1188), terapeutka DBT',
+                expertise: 'Zaburzenia osobowości borderline, zaburzenia odżywiania, PTSD',
+                bio: {
+                    education: ['Doktor nauk społecznych', 'Psychoterapeutka CBT (PTTPB nr 1188)', 'DBT Comprehensive', 'Szkolenia: ACT, RO-DBT, terapia schematów, EMDR'],
+                    experience: 'Adiunkt Uniwersytetu Rzeszowskiego. Wiceprzewodnicząca Polskiego Towarzystwa Terapii DBT. Specjalizuje się w terapii zaburzeń osobowości borderline, zaburzeń odżywiania, PTSD i depresji.',
+                    interests: 'DBT, zaburzenia osobowości, zaburzenia odżywiania, badania naukowe.'
+                }
+            },
+            {
+                name: 'Dr n. med. Joanna Ostasz-Ważny',
+                shortTitle: 'Psychiatra dzieci i młodzieży',
+                fullTitle: 'Dr n. med., specjalistka psychiatrii dzieci i młodzieży, psychoterapeutka CBT (PTTPB)',
+                expertise: 'Psychiatria dzieci i młodzieży, diagnostyka, psychofarmakologia',
+                bio: {
+                    education: ['Doktor nauk medycznych', 'Specjalistka psychiatrii i psychiatrii dzieci i młodzieży', 'Psychoterapeutka CBT (PTTPB)'],
+                    experience: 'Starszy asystent w Szpitalu Wolskim. Doświadczenie w Klinice Psychiatrii Dzieci i Młodzieży WUM, Szpitalu Bródnowskim, Mazowieckim Centrum Neuropsychiatrii.',
+                    interests: 'Psychiatria dzieci i młodzieży, integracja farmakoterapii z psychoterapią.'
+                }
+            },
+            {
+                name: 'Alicja Baranek',
+                shortTitle: 'Psychoterapeutka CBT, DBT, RO DBT',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 463), specjalistka DBT i RO DBT',
+                expertise: 'DBT Comprehensive, Radykalnie Otwarta DBT (RO-DBT)',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 463)', 'DBT Comprehensive (Behavioral Tech)', 'RO-DBT (edukacja 2020-2025)', 'Terapia Schematów, ACT'],
+                    experience: 'Prowadzi ośrodek poznawczo.pl w Gliwicach. Aktywna członkini PTTPB i Polskiego Towarzystwa DBT — Przewodnicząca Komisji Rewizyjnej. Szkoli terapeutów, prowadzi warsztaty i mentoringi w nurcie DBT.',
+                    interests: 'DBT, RO-DBT, rozpowszechnianie DBT w Polsce, mentoring terapeutów.'
+                }
+            },
+            {
+                name: 'Dagmara Zinkowska-Sopek',
+                shortTitle: 'Psychoterapeutka CBT, Terapia Schematu',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 833), certyfikowana terapeutka schematów (ISST, IND-3426, zaawansowany)',
+                expertise: 'Terapia Schematu, trauma złożona, neurobiologia interpersonalna',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 833)', 'Zaawansowany certyfikat Terapii Schematu (ISST, IND-3426)', 'Kurs terapii traumy (80h)'],
+                    experience: 'Specjalizuje się w terapii osób dorosłych z zaburzeniami osobowości, depresją i traumą złożoną. Łączy CBT, terapię schematów, Dialog Motywujący i podejścia oparte na neurobiologii interpersonalnej.',
+                    interests: 'Terapia Schematu, neurobiologia, trauma złożona, integracja metod.'
+                }
+            },
+            {
+                name: 'Katarzyna Łynka',
+                shortTitle: 'Psychoterapeutka CBT, Terapeutka Schematu',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 255), certyfikowana terapeutka schematów (ISST, IND-4083)',
+                expertise: 'Zaburzenia lękowe, OCD, zaburzenia odżywiania, zaburzenia osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 255)', 'Certyfikowana terapeutka schematów (zaawansowany ISST, IND-4083)'],
+                    experience: 'Od 2009 roku prowadzi gabinet psychoterapii maSens w Warszawie. Specjalizuje się w psychoterapii młodzieży i dorosłych z zaburzeniami lękowymi, OCD, zaburzeniami odżywiania i osobowości. Prowadzi szkolenia z CBT i terapii schematów.',
+                    interests: 'CBT, Terapia Schematu, zaburzenia odżywiania, OCD.'
+                }
+            },
+            {
+                name: 'Katarzyna R. Fąk',
+                shortTitle: 'Psychoterapeutka CBT, DBT, Schematu',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB), kierownik Poradni Zdrowia Psychicznego w Szpitalu Bielańskim',
+                expertise: 'Kryzysy psychiczne, uzależnienia, trauma, zaburzenia osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB)', 'DBT, Terapia Schematów', 'CBT w leczeniu uzależnień'],
+                    experience: 'Kierownik Poradni Zdrowia Psychicznego w Szpitalu Bielańskim. Prowadzi szkolenia i zajęcia dydaktyczne na UKSW. Łączy CBT, DBT i Terapię Schematu w pracy z osobami dorosłymi i młodzieżą.',
+                    interests: 'Kryzysy psychiczne, uzależnienia, trauma, praca integracyjna.'
+                }
+            },
+            {
+                name: 'Milena Filippowicz',
+                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1552)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1552), diagnoza ADHD i ASD (certyfikat ADOS-2)',
+                expertise: 'Diagnoza ADHD i ASD, psychologia sądowa',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1552)', 'Certyfikat ADOS-2 (diagnoza ASD)', 'Specjalizacja: psychologia sądowa i penitencjarna'],
+                    experience: 'Właścicielka Centrum Terapii Malachit w Warszawie. Doświadczenie jako psycholog policyjny w Komendzie Głównej Policji. Pracowała w Krajowym Ośrodku Zapobiegania Zachowaniom Dyssocjalnym w Gostyninie.',
+                    interests: 'CBT, diagnostyka ADHD i ASD, psychologia sądowa.'
+                }
+            },
+            {
+                name: 'Magdalena Muracka-Tylko',
+                shortTitle: 'Psychoterapeutka CBT/DBT',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB), terapeutka DBT, w trakcie certyfikacji superwizorskiej',
+                expertise: 'Kryzys suicydalny, zaburzenia osobowości, Family Connections',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB)', 'DBT Comprehensive (prof. Alan Fruzzetti)', 'Program kształcenia superwizorów CBT (SWPS)'],
+                    experience: 'Właścicielka gabinetu PO POMOC w Warszawie. Była Przewodnicząca Zarządu PTDBT. Koordynatorka programu Family Connections™ w Polsce. Prowadzi terapię indywidualną i grupową, warsztaty dla terapeutów.',
+                    interests: 'DBT, praca z kryzysem suicydalnym, Family Connections, szkolenie terapeutów.'
+                }
+            },
+            {
+                name: 'Emilia Sygulska',
+                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1210)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1210), terapeutka DBT',
+                expertise: 'DBT-A (wielorodzinna), podcast „Kurs na DBT"',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1210)', 'DBT Comprehensive'],
+                    experience: 'Prowadzi psychoterapię indywidualną dzieci, młodzieży i dorosłych. Prowadzi treningi umiejętności DBT-A. Inicjatorka i współautorka podcastu „Kurs na DBT". Wykładowczyni na Uniwersytecie Jagiellońskim. Współprowadzi szkolenie DBT Comprehensive.',
+                    interests: 'DBT, podcasting edukacyjny, praca z młodzieżą.'
+                }
+            },
+            {
+                name: 'Kaja Wieczorek-Socha',
+                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1086)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1086), specjalistka psychologii klinicznej dzieci i młodzieży',
+                expertise: 'DBT-A, Family Connections, Szpital Uniwersytecki w Krakowie',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1086)', 'Specjalistka psychologii klinicznej dzieci i młodzieży', 'DBT Comprehensive'],
+                    experience: 'Starszy asystent — psycholog w Szpitalu Uniwersyteckim w Krakowie. Współtwórczyni projektu Dialektycznie.pl i podcastu „Kurs na DBT". Prowadzi treningi DBT-A dla nastolatków i ich rodzin.',
+                    interests: 'DBT-A, psychologia kliniczna dzieci, Family Connections.'
+                }
+            },
+            {
+                name: 'Gabriela Zajdel',
+                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1124)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1124), terapeutka DBT',
+                expertise: 'Dysregulacja emocjonalna, interwencja kryzysowa, Trening Umiejętności DBT',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1124)', 'DBT Comprehensive'],
+                    experience: 'Współtworzy program leczenia osób z dysregulacją emocjonalną w dialektycznie.pl. Doświadczenie w Ośrodkach Interwencji Kryzysowej. Prowadzi szkolenia z Treningu Umiejętności DBT dla profesjonalistów.',
+                    interests: 'DBT, interwencja kryzysowa, szkolenie umiejętności.'
+                }
+            },
+            {
+                name: 'Artur Gębka',
+                shortTitle: 'Psychoterapeuta CBT, Autor książek',
+                fullTitle: 'Psychoterapeuta CBT (PTTPB), autor książek psychologicznych dla dzieci i młodzieży',
+                expertise: 'CBT w literaturze dla młodych, Family Connections',
+                bio: {
+                    education: ['Psychoterapeuta CBT (PTTPB)', 'Szkolenie liderów Family Connections'],
+                    experience: 'Autor książek „Znikodem i zagadka lęku" i „Na tropie podejrzanych myśli" (GWP). Współpracował z Kliniką Poznawczo-Behawioralną SWPS oraz Centrum Zdrowia Psychicznego HarmonJa. Prowadzi terapie DBT-A i grupy Family Connections.',
+                    interests: 'Popularyzacja CBT przez literaturę, praca z dziećmi i młodzieżą.'
+                }
+            },
+            {
+                name: 'Magdalena Dziadura',
+                shortTitle: 'Psychoterapeutka CBT/Schematu',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1329), terapeutka schematu (ISST, IND-3873)',
+                expertise: 'Zaburzenia lękowe, nastroju, osobowości, trauma',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1329)', 'Certyfikat ISST (IND-3873)', 'Ukończone z wyróżnieniem Szkoła Psychoterapii SWPS i Kurs Terapii Schematu'],
+                    experience: 'Pracuje w Fundacji Lazurowa Terapia. Koordynator projektu „Prowadzenie mieszkania treningowego dla osób chorujących psychicznie" w Stowarzyszeniu „Integracja". Doświadczenie w Instytucie Psychiatrii i Neurologii.',
+                    interests: 'Terapia Schematu, CBT, praca z zaburzeniami osobowości, trauma.'
+                }
+            },
+            {
+                name: 'Marta Wojsz-Rączko',
+                shortTitle: 'Psychoterapeutka CBT/Schematu',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1578), terapeutka schematu (w trakcie certyfikacji ISST)',
+                expertise: 'Integracja CBT z terapiami trzeciej fali (ACT, CFT, TSR)',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1578)', 'Terapia Schematu (Nowoczesna Szkoła TS, 2023-2025)', 'Studia z psychoonkologii'],
+                    experience: 'Współpracuje z Lazurową Terapią i ośrodkiem AdAlta. Integruje CBT, terapię schematów, ACT, CFT i TSR. Członkini PTTPB i ISST.',
+                    interests: 'Terapia Schematu, ACT, CFT, TSR, integracja metod terapeutycznych.'
+                }
+            },
+            {
+                name: 'Monika Zabel',
+                shortTitle: 'Psychoterapeutka CBT/Schematu (PTTPB nr 997)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 997), terapeutka schematów (w trakcie certyfikacji ISST)',
+                expertise: 'CBT, terapia dzieci i młodzieży, praca z traumą',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 997)', 'Terapia Schematu (w trakcie certyfikacji ISST)'],
+                    experience: 'Prowadzi Poradnię „Poza schematami" i pracuje w Mazowieckim Szpitalu Drewnica. Wykładowczyni na WUM i w szkołach psychoterapii. Prowadzi zajęcia z CBT, terapii dzieci i młodzieży oraz pracy z traumą.',
+                    interests: 'Terapia Schematu, CBT dzieci i młodzieży, praca z traumą.'
+                }
+            },
+            {
+                name: 'Agnieszka Winiarek',
+                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1613)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1613), terapeutka DBT',
+                expertise: 'Neuroróżnorodność (ADHD, ASD), zaburzenia lękowe i osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1613)', 'DBT Comprehensive'],
+                    experience: 'Związana z Centrum Zdrowia Psychicznego HarmonJa w Gdańsku. Specjalizuje się w pracy z osobami neuroróżnorodnymi (ADHD, ASD) oraz z zaburzeniami lękowymi, nastroju i osobowości. Prowadzi warsztaty i szkolenia z CBT i DBT.',
+                    interests: 'CBT, DBT, neuroróżnorodność, szkolenie terapeutów.'
+                }
+            },
+            {
+                name: 'Laura Andrzejczyk',
+                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 2113)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 2113), terapeutka DBT',
+                expertise: 'DBT-A, diagnoza zaburzeń osobowości, Treningi Umiejętności',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 2113)', 'DBT Comprehensive', 'Szkolenia: PTSD, Family Connections, MMPI-2, Stanford-Binet'],
+                    experience: 'Pracowała w Centrum Zdrowia Psychicznego HarmonJa oraz w Szpitalu w Starogardzie Gdańskim (oddział ogólnopsychiatryczny i sądowy), prowadząc terapię indywidualną, Treningi Umiejętności DBT-A oraz diagnozy sądowe.',
+                    interests: 'DBT, praca z zaburzeniami osobowości, diagnostyka.'
+                }
+            },
+            {
+                name: 'Monika Cybulska',
+                shortTitle: 'Trenerka Umiejętności DBT',
+                fullTitle: 'Psychoterapeutka CBT, Trenerka Umiejętności DBT w HarmonJa',
+                expertise: 'DBT, seksuologia kliniczna, zaburzenia emocjonalne i osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (Szkoła SWPS)', 'DBT Comprehensive', 'Studia podyplomowe z Seksuologii Klinicznej'],
+                    experience: 'Związana z Kliniką Terapii CBT SWPS oraz Centrum Zdrowia Psychicznego HarmonJa. Trenerka Umiejętności DBT w HarmonJa. Specjalizuje się w pracy z osobami z zaburzeniami emocjonalnymi i osobowości.',
+                    interests: 'DBT, seksuologia kliniczna, treningi umiejętności.'
+                }
+            },
+            {
+                name: 'Agnieszka Drabina',
+                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1339)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1339), Liderka Family Connections',
+                expertise: 'Psychoterapia dzieci, młodzieży i dorosłych, Family Connections',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1339)', 'Liderka programu Family Connections'],
+                    experience: 'Współpracuje z Kliniką Poznawczo-Behawioralną SWPS oraz Centrum Zdrowia Psychicznego HarmonJa. Prowadzi grupy wsparcia Family Connections oraz treningi umiejętności DBT dla młodzieży i ich rodziców.',
+                    interests: 'Psychoterapia dzieci i młodzieży, Family Connections, DBT.'
+                }
+            },
+            {
+                name: 'Nicol Śliwińska',
+                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1562)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1562), terapeutka DBT, Liderka Family Connections',
+                expertise: 'Praca z dziećmi i młodzieżą (5-21 lat), doświadczenie międzynarodowe',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1562)', 'Szkolenie CBT dzieci i młodzieży (Niemcy)', 'Liderka Family Connections'],
+                    experience: 'Związana z Centrum Zdrowia Psychicznego HarmonJa. Specjalizuje się w pracy z dziećmi i młodzieżą z zaburzeniami lękowymi, depresyjnymi, borderline, zaburzeniami odżywiania, ADHD i ASD. Doświadczenie międzynarodowe (Klinik Walstedde, Niemcy).',
+                    interests: 'CBT i DBT dzieci i młodzieży, Family Connections, praca międzynarodowa.'
+                }
+            },
+            {
+                name: 'Magdalena Jasińska',
+                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1302)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1302)',
+                expertise: 'Zaburzenia lękowe, depresyjne, osobowości, neuropsychologia',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1302)'],
+                    experience: 'Związana z Lazurową Terapią. Doświadczenie w Mazowieckim Szpitalu Wojewódzkim Drewnica. Prowadzi psychoterapię i diagnozy neuropsychologiczne.',
+                    interests: 'CBT, neuropsychologia, zaburzenia osobowości.'
+                }
+            },
+            {
+                name: 'Patryk Skowroń',
+                shortTitle: 'Psychoterapeuta CBT (PTTPB nr 1620)',
+                fullTitle: 'Psychoterapeuta CBT (PTTPB nr 1620)',
+                expertise: 'Kryzysy psychiczne, zaburzenia lękowe i depresyjne',
+                bio: {
+                    education: ['Psychoterapeuta CBT (PTTPB nr 1620)'],
+                    experience: 'Związany z Lazurową Terapią oraz Warszawskim Centrum Pomocy Rodzinie. Doświadczenie w Mazowieckim Szpitalu Bródnowskim i Szpitalu Wolskim. Specjalizuje się w pracy z osobami doświadczającymi kryzysów psychicznych.',
+                    interests: 'CBT, kryzysy psychiczne, zaburzenia lękowe.'
+                }
+            },
+            {
+                name: 'Anna Maniewska',
+                shortTitle: 'Psychoterapeutka CBT/DBT',
+                fullTitle: 'Psychoterapeutka CBT (w trakcie certyfikacji PTTPB), terapeutka DBT',
+                expertise: 'DBT Comprehensive, Family Connections, praca z młodzieżą i dorosłymi',
+                bio: {
+                    education: ['Szkoła Psychoterapii CBT SWPS', 'DBT Comprehensive', 'Liderka programu Family Connections'],
+                    experience: 'Pracuje w Centrum Zdrowia Psychicznego HarmonJa w Gdańsku. Specjalizuje się w pracy z młodzieżą i dorosłymi w nurcie CBT i DBT. Posiada doświadczenie w pracy z osobami ze spektrum autyzmu i ich rodzinami.',
+                    interests: 'DBT, CBT, Family Connections, praca z ASD.'
+                }
+            },
+            {
+                name: 'Magdalena Nowakowska',
+                shortTitle: 'Psycholożka, Terapeutka CBT',
+                fullTitle: 'Psycholożka, absolwentka kursów psychoterapii CBT dzieci, młodzieży i dorosłych',
+                expertise: 'Psychologia edukacji i rodziny, CBT dzieci i młodzieży',
+                bio: {
+                    education: ['Magister psychologii (UJ)', 'Kursy psychoterapii CBT (Centrum CBT, Warszawa)'],
+                    experience: 'Od 2009 roku pracuje w Poradni Psychologiczno-Pedagogicznej nr 1 w Krakowie. Specjalizuje się w psychologii edukacji i rodziny.',
+                    interests: 'CBT dzieci i młodzieży, psychologia edukacji, wsparcie rodzin.'
+                }
+            },
+            {
+                name: 'Iga Zdanowska',
+                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 955)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 955), terapeutka DBT',
+                expertise: 'Grupowe treningi umiejętności DBT, badania nad prokrastynacją',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 955)', 'DBT Comprehensive'],
+                    experience: 'Współprowadzi Centrum NOVITE w Sosnowcu. Związana z Centrum Neuro-Care w Katowicach. Prowadzi grupowe treningi umiejętności DBT. Wykładowczyni w Akademii Humanitas. Uczestniczy w badaniach IP PAN dot. grupowej terapii CBT prokrastynacji.',
+                    interests: 'DBT, grupowe treningi umiejętności, prokrastynacja, badania naukowe.'
+                }
+            },
+            {
+                name: 'Ewelina Zimna',
+                shortTitle: 'Psychoterapeutka CBT, Terapia uzależnień',
+                fullTitle: 'Specjalistka psychoterapii uzależnień, psychoterapeutka CBT (PTTPB)',
+                expertise: 'Uzależnienia u dzieci i młodzieży, interwencja kryzysowa',
+                bio: {
+                    education: ['Specjalistka psychoterapii uzależnień', 'Psychoterapeutka CBT (PTTPB)'],
+                    experience: 'Kierowniczka ośrodka psychoterapii dzieci i młodzieży „Nadzieja Rodzinie" w Kielcach. Wieloletnie doświadczenie w MONAR i placówkach leczenia uzależnień. Kierowniczka specjalizacji w dziedzinie psychoterapii uzależnień w Vis Salutis.',
+                    interests: 'Terapia uzależnień, praca z młodzieżą, interwencja kryzysowa.'
+                }
+            },
+            {
+                name: 'Magdalena Świtalska-Jastrzębowska',
+                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1155)',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1155), terapeutka Dialogu Motywującego',
+                expertise: 'Zaburzenia lękowe, depresyjne, psychosomatyczne, osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1155)', 'Dialog Motywujący (w trakcie specjalizacji)', 'Asystent Psychodramy'],
+                    experience: 'Prowadzi prywatną praktykę. Pracowała w Oddziale Dziennym Instytutu Psychiatrii i Neurologii (IPIN). Specjalizuje się w terapii osób dorosłych z zaburzeniami lękowymi, depresyjnymi, psychosomatycznymi i osobowości.',
+                    interests: 'CBT, Dialog Motywujący, psychodrama, zaburzenia psychosomatyczne.'
+                }
+            },
+            {
+                name: 'Sylwia Bobińska',
+                shortTitle: 'Psychoterapeutka CBT/DBT',
+                fullTitle: 'Psychoterapeutka CBT, terapeutka DBT',
+                expertise: 'Psychoterapia młodzieży i dorosłych w nurcie CBT i DBT',
+                bio: {
+                    education: ['Szkoła Psychoterapii CBT (SWPS)', 'DBT Comprehensive'],
+                    experience: 'Prowadzi terapię w Centrum Zdrowia Psychicznego HarmonJa i w Klinice Uniwersytetu SWPS. Doświadczenie w Wojewódzkim Szpitalu Psychiatrycznym im. prof. Bilikiewicza w Gdańsku.',
+                    interests: 'CBT, DBT, praca z młodzieżą, regulacja emocji.'
+                }
+            },
+            {
+                name: 'Marcin Łapiński',
+                shortTitle: 'Radca prawny, Wykładowca',
+                fullTitle: 'Radca prawny, wykładowca akademicki — aspekty prawne psychoterapii',
+                expertise: 'Prawo w psychoterapii, postępowanie cywilne, etyka zawodowa',
+                bio: {
+                    education: ['Radca prawny', 'Aplikacja komornicza i radcowska'],
+                    experience: 'Wykładowca na studiach podyplomowych Szkoły Psychoterapii CBT (WSB Saint Louis University). Prowadzi zajęcia z organizacyjnych i prawnych aspektów psychoterapii. Wykłada także na Uniwersytecie Gdańskim i w Akademii Humanitas.',
+                    interests: 'Prawo w psychoterapii, ochrona danych, regulacje zawodowe.'
+                }
+            }
+        ]
+    };
 
-        // ==================== MODAL FUNCTIONS ====================
+    /* ============================
+       RENDER FUNCTIONS
+       ============================ */
+    function createCard(person) {
+        const initials = person.name.replace(/^(Prof\.\s*|Dr\s*(hab\.)?\s*(n\.\s*med\.)?\s*)/i, '').split(' ').map(n => n[0]).join('');
+        const card = document.createElement('div');
+        card.className = 'staff-card';
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', person.name + ' — ' + person.shortTitle);
 
-        function openModal(person) {
-            const modal = document.getElementById('modalOverlay');
-            const modalHeader = document.getElementById('modalHeader');
-            const modalBody = document.getElementById('modalBody');
+        const badgeHTML = person.badge ? `<div class="card-badge">${person.badge}</div>` : '';
+        const avatarContent = person.photo
+            ? `<img src="${person.photo}" alt="${person.name}" loading="lazy">`
+            : initials;
 
-            // Find current index in filtered list
-            currentModalIndex = currentStaffList.findIndex(p => p.id === person.id);
+        card.innerHTML = `
+            <div class="card-avatar">${avatarContent}</div>
+            ${badgeHTML}
+            <h3 class="card-name">${person.name}</h3>
+            <p class="card-title">${person.shortTitle}</p>
+            <p class="card-expertise">${person.expertise}</p>
+            <div class="card-more">Dowiedz się więcej →</div>
+        `;
 
-            // Build header
-            const initials = person.name.split(' ').map(n => n[0]).join('');
-            
-            modalHeader.innerHTML = `
-                <div class="modal-avatar-large">${initials}</div>
+        const openFn = () => openModal(person);
+        card.addEventListener('click', openFn);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFn(); } });
+
+        return card;
+    }
+
+    function renderGrid(gridId, people) {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
+        people.forEach(p => grid.appendChild(createCard(p)));
+    }
+
+    renderGrid('supervisorsGrid', staffData.supervisors);
+    renderGrid('scientistsGrid', staffData.scientists);
+    renderGrid('specialistsGrid', staffData.specialists);
+
+    /* ============================
+       MODAL
+       ============================ */
+    function openModal(person) {
+        const overlay = document.getElementById('modalOverlay');
+        const top = document.getElementById('modalTop');
+        const body = document.getElementById('modalBody');
+
+        const initials = person.name.replace(/^(Prof\.\s*|Dr\s*(hab\.)?\s*(n\.\s*med\.)?\s*)/i, '').split(' ').map(n => n[0]).join('');
+        const avatarContent = person.photo
+            ? `<img src="${person.photo}" alt="${person.name}">`
+            : initials;
+
+        top.innerHTML = `
+            <div class="modal-avatar">${avatarContent}</div>
+            <div class="modal-info">
                 <h2 class="modal-name">${person.name}</h2>
-                <p class="modal-title">${person.fullTitle}</p>
-                <div class="modal-tags">
-                    ${person.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('')}
-                </div>
-            `;
+                <p class="modal-title-text">${person.fullTitle}</p>
+            </div>
+        `;
 
-            // Build body with bio sections
-            let bioHTML = '';
+        let html = '';
 
-            // Education section
-            if (person.bio && person.bio.education) {
-                bioHTML += `
-                    <div class="bio-section">
-                        <h3 class="bio-section-title">
-                            <div class="bio-section-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 3L2 9l10 6 10-6-10-6z" stroke="url(#gradBio1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M2 15l10 6 10-6M6 12v6c0 2-2 3-6 3" stroke="url(#gradBio1)" stroke-width="2" stroke-linecap="round"/>
-                                    <defs>
-                                        <linearGradient id="gradBio1" x1="0" y1="0" x2="24" y2="24">
-                                            <stop offset="0%" stop-color="#00b4ff"/>
-                                            <stop offset="100%" stop-color="#22c7d6"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            Wykształcenie i certyfikacje
-                        </h3>
-                        <div class="bio-section-content">
-                            <ul>
-                                ${person.bio.education.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Experience section
-            if (person.bio && person.bio.experience) {
-                bioHTML += `
-                    <div class="bio-section">
-                        <h3 class="bio-section-title">
-                            <div class="bio-section-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="6" y="8" width="12" height="10" stroke="url(#gradBio2)" stroke-width="2" rx="1"/>
-                                    <path d="M9 12L11 14L15 10" stroke="url(#gradBio2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <line x1="12" y1="6" x2="12" y2="8" stroke="url(#gradBio2)" stroke-width="2"/>
-                                    <defs>
-                                        <linearGradient id="gradBio2" x1="0" y1="0" x2="24" y2="24">
-                                            <stop offset="0%" stop-color="#00b4ff"/>
-                                            <stop offset="100%" stop-color="#22c7d6"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            Doświadczenie
-                        </h3>
-                        <div class="bio-section-content">${person.bio.experience}</div>
-                    </div>
-                `;
-            }
-
-            // Publications section (optional)
-            if (person.bio && person.bio.publications && person.bio.publications.length > 0) {
-                bioHTML += `
-                    <div class="bio-section">
-                        <h3 class="bio-section-title">
-                            <div class="bio-section-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="5" y="4" width="14" height="16" rx="1" stroke="url(#gradBio3)" stroke-width="2"/>
-                                    <line x1="9" y1="9" x2="15" y2="9" stroke="url(#gradBio3)" stroke-width="2" stroke-linecap="round"/>
-                                    <line x1="9" y1="13" x2="15" y2="13" stroke="url(#gradBio3)" stroke-width="2" stroke-linecap="round"/>
-                                    <line x1="9" y1="17" x2="12" y2="17" stroke="url(#gradBio3)" stroke-width="2" stroke-linecap="round"/>
-                                    <defs>
-                                        <linearGradient id="gradBio3" x1="0" y1="0" x2="24" y2="24">
-                                            <stop offset="0%" stop-color="#00b4ff"/>
-                                            <stop offset="100%" stop-color="#22c7d6"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            Publikacje
-                        </h3>
-                        <div class="bio-section-content">
-                            <ul>
-                                ${person.bio.publications.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Interests section (optional)
-            if (person.bio && person.bio.interests) {
-                bioHTML += `
-                    <div class="bio-section">
-                        <h3 class="bio-section-title">
-                            <div class="bio-section-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2l2.4 7.4h7.8l-6.3 4.6 2.4 7.4-6.3-4.6-6.3 4.6 2.4-7.4-6.3-4.6h7.8z" stroke="url(#gradBio4)" stroke-width="2" stroke-linejoin="round"/>
-                                    <defs>
-                                        <linearGradient id="gradBio4" x1="0" y1="0" x2="24" y2="24">
-                                            <stop offset="0%" stop-color="#00b4ff"/>
-                                            <stop offset="100%" stop-color="#22c7d6"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                            Zainteresowania i specjalizacje
-                        </h3>
-                        <div class="bio-section-content">${person.bio.interests}</div>
-                    </div>
-                `;
-            }
-
-            // If no bio data, show message
-            if (!person.bio || (!person.bio.education && !person.bio.experience)) {
-                bioHTML = `
-                    <div class="bio-section">
-                        <p style="text-align: center; color: #999; padding: 40px;">
-                            Szczegółowe informacje biograficzne będą wkrótce dostępne.
-                        </p>
-                    </div>
-                `;
-            }
-
-            modalBody.innerHTML = bioHTML;
-
-            // Update navigation buttons
-            document.getElementById('modalPrev').disabled = currentModalIndex === 0;
-            document.getElementById('modalNext').disabled = currentModalIndex === currentStaffList.length - 1;
-
-            // Show modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Focus on close button for accessibility
-            document.getElementById('modalClose').focus();
+        if (person.bio.education && person.bio.education.length) {
+            html += `<div class="modal-section"><h3>Wykształcenie i certyfikacje</h3><ul>${person.bio.education.map(e => `<li>${e}</li>`).join('')}</ul></div>`;
+        }
+        if (person.bio.experience) {
+            html += `<div class="modal-section"><h3>Doświadczenie</h3><p>${person.bio.experience}</p></div>`;
+        }
+        if (person.bio.interests) {
+            html += `<div class="modal-section"><h3>Zainteresowania i specjalizacje</h3><p>${person.bio.interests}</p></div>`;
         }
 
-        function closeModal() {
-            const modal = document.getElementById('modalOverlay');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+        body.innerHTML = html;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('modalClose').focus();
+    }
 
-        function navigateModal(direction) {
-            const newIndex = currentModalIndex + direction;
-            if (newIndex >= 0 && newIndex < currentStaffList.length) {
-                openModal(currentStaffList[newIndex]);
+    function closeModal() {
+        document.getElementById('modalOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    /* Founders cards click */
+    document.querySelectorAll('.founder-card').forEach(card => {
+        const id = card.dataset.staff;
+        const person = staffData.founders.find(f => f.id === id);
+        if (!person) return;
+        const openFn = () => openModal(person);
+        card.addEventListener('click', openFn);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFn(); } });
+    });
+
+    /* ============================
+       INTERSECTION OBSERVER
+       ============================ */
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                const idx = Array.from(card.parentNode.children).indexOf(card);
+                setTimeout(() => card.classList.add('visible'), idx * 80);
+                io.unobserve(card);
             }
-        }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        function updateActiveFiltersDisplay() {
-            const activeFiltersContainer = document.getElementById('activeFilters');
-            activeFiltersContainer.innerHTML = '';
+    document.querySelectorAll('.staff-card').forEach(card => io.observe(card));
 
-            if (activeFilters.tags.length === 0) return;
+    /* ============================
+       MOBILE MENU
+       ============================ */
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
 
-            activeFilters.tags.forEach(tag => {
-                const badge = document.createElement('div');
-                badge.className = 'active-filter-badge';
-                badge.innerHTML = `${tag} <button onclick="removeTagFilter('${tag}')" aria-label="Usuń filtr ${tag}">✕</button>`;
-                activeFiltersContainer.appendChild(badge);
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', isOpen);
+            menuBtn.textContent = isOpen ? '\u2715' : '\u2630';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+    }
+
+    /* Dropdown on mobile */
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                toggle.parentElement.classList.toggle('open');
+            }
+        });
+    });
+
+    /* Close mobile menu on nav link click */
+    document.querySelectorAll('.nav-links a[role="menuitem"]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.textContent = '\u2630';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    /* Back to top (premium UX for long page) */
+    const backBtn = document.createElement('button');
+    backBtn.className = 'back-to-top';
+    backBtn.setAttribute('aria-label', 'Przewiń do góry');
+    backBtn.innerHTML = '↑';
+    document.body.appendChild(backBtn);
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                backBtn.classList.toggle('show', window.scrollY > 600);
+                ticking = false;
             });
+            ticking = true;
         }
+    }, { passive: true });
 
-        function removeTagFilter(tag) {
-            activeFilters.tags = activeFilters.tags.filter(t => t !== tag);
-            const tagButton = document.querySelector(`.expertise-tag[data-tag="${tag}"]`);
-            if (tagButton) tagButton.classList.remove('active');
-            renderStaff();
-        }
-
-        // Mobile menu
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                const isExpanded = navLinks.classList.contains('active');
-                this.setAttribute('aria-expanded', isExpanded);
-                this.textContent = isExpanded ? '✕' : '☰';
-                document.body.style.overflow = isExpanded ? 'hidden' : 'auto';
-            });
-        }
-
-        // Search
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            activeFilters.search = e.target.value;
-            renderStaff();
-        });
-
-        // Filter pills (Tier filter)
-        document.querySelectorAll('.filter-pill').forEach(pill => {
-            pill.addEventListener('click', () => {
-                document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-                activeFilters.tier = pill.dataset.tier;
-                renderStaff();
-            });
-        });
-
-        // ✅ MULTI-SELECT Expertise tags with OR logic
-        document.querySelectorAll('.expertise-tag').forEach(tag => {
-            tag.addEventListener('click', () => {
-                const tagValue = tag.dataset.tag;
-                
-                if (tag.classList.contains('active')) {
-                    tag.classList.remove('active');
-                    activeFilters.tags = activeFilters.tags.filter(t => t !== tagValue);
-                } else {
-                    tag.classList.add('active');
-                    activeFilters.tags.push(tagValue);
-                }
-                
-                renderStaff();
-            });
-        });
-
-        // Initialize
-        renderStaff();
-
-        // Modal event listeners
-        document.getElementById('modalClose').addEventListener('click', closeModal);
-        document.getElementById('modalPrev').addEventListener('click', () => navigateModal(-1));
-        document.getElementById('modalNext').addEventListener('click', () => navigateModal(1));
-
-        // Close modal when clicking outside
-        document.getElementById('modalOverlay').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('modalOverlay')) {
-                closeModal();
-            }
-        });
-
-        // Keyboard navigation for modal
-        document.addEventListener('keydown', (e) => {
-            const modal = document.getElementById('modalOverlay');
-            if (!modal.classList.contains('active')) return;
-
-            if (e.key === 'Escape') {
-                closeModal();
-            } else if (e.key === 'ArrowLeft') {
-                navigateModal(-1);
-            } else if (e.key === 'ArrowRight') {
-                navigateModal(1);
-            }
-        });
+    backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     </script>
 </body>
 </html>
