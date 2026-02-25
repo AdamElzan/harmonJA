@@ -48,7 +48,9 @@
             padding: 0 20px;
         }
 
-        /* TESLA INNOVATION 1: Scroll Progress Bar */
+        /* ========================================
+           SCROLL PROGRESS BAR (Tesla Innovation 1)
+           ======================================== */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -60,54 +62,53 @@
             transition: width 0.1s ease-out;
         }
 
-        /* Header */
+        /* ========================================
+           HEADER / NAV (matching o-nas.html pattern)
+           ======================================== */
         header {
             background-color: var(--white);
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        nav {
+        header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 0;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            padding: 5px 0;
-        }
-        
-        .logo-container svg {
-            height: 90px;
+        .logo-img {
+            height: 70px;
             width: auto;
-            max-width: 300px;
+            max-width: 280px;
+            display: block;
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
             align-items: center;
+            list-style: none;
         }
 
         .nav-links > li {
-            list-style: none;
             position: relative;
         }
 
-        .nav-links > li > a {
+        .nav-links > li > a,
+        .dropdown-toggle {
             color: var(--text-color);
             font-weight: 500;
             padding: 8px 0;
             display: block;
             position: relative;
             transition: color 0.3s;
+            cursor: pointer;
         }
-        
+
         .nav-links > li > a::after {
             content: '';
             position: absolute;
@@ -118,52 +119,60 @@
             background-color: var(--highlight-color);
             transition: width 0.3s ease;
         }
-        
+
         .nav-links > li > a:hover,
         .nav-links > li > a:focus {
             color: var(--highlight-color);
             outline: none;
         }
-        
+
         .nav-links > li > a:hover::after,
         .nav-links > li > a:focus::after {
             width: 100%;
         }
 
-        .dropdown {
-            position: relative;
+        .nav-links > li > a.active {
+            color: var(--highlight-color);
         }
 
+        .nav-links > li > a.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
         .dropdown-toggle {
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
-        .dropdown-toggle::before {
+        .dropdown-toggle::after {
             content: '▼';
-            font-size: 0.7em;
-            margin-left: 5px;
+            font-size: 0.6em;
             transition: transform 0.3s;
         }
 
-        .dropdown:hover .dropdown-toggle::before {
+        .dropdown:hover .dropdown-toggle::after {
             transform: rotate(180deg);
+        }
+
+        .dropdown:hover .dropdown-toggle,
+        .dropdown:focus-within .dropdown-toggle {
+            color: var(--highlight-color);
         }
 
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
             background-color: var(--white);
-            min-width: 280px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            padding: 10px 0;
+            min-width: 340px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+            padding: 8px 0;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-10px);
             transition: all 0.3s;
             margin-top: 10px;
         }
@@ -172,7 +181,7 @@
         .dropdown:focus-within .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: translateX(-50%) translateY(0);
         }
 
         .dropdown-menu li {
@@ -184,6 +193,8 @@
             padding: 12px 20px;
             color: var(--text-color);
             transition: all 0.3s;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .dropdown-menu a:hover,
@@ -225,7 +236,9 @@
             top: 0;
         }
 
-        /* Hero */
+        /* ========================================
+           HERO
+           ======================================== */
         .hero {
             background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
             padding: 100px 0 80px;
@@ -262,16 +275,28 @@
         .hero h1 {
             font-size: 2.8rem;
             color: var(--dark-blue);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             animation: fadeInUp 0.8s ease-out;
         }
 
-        .hero-lead {
-            font-size: 1.2rem;
+        .hero-question {
+            font-size: 1.25rem;
             color: #555;
             line-height: 1.8;
-            margin-bottom: 15px;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.8s ease-out 0.15s backwards;
+            font-weight: 400;
+        }
+
+        .hero-tagline {
+            font-size: 1.15rem;
+            color: var(--dark-blue);
+            line-height: 1.6;
+            font-style: italic;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            opacity: 0.85;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
         @keyframes fadeInUp {
@@ -285,18 +310,42 @@
             }
         }
 
-        /* TESLA INNOVATION 2: Process Stepper */
-        .process-stepper {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
+        /* ========================================
+           SECTION COMMON
+           ======================================== */
         .section-title {
             font-size: 2.4rem;
             color: var(--dark-blue);
             margin-bottom: 20px;
             font-weight: 600;
             text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: var(--cream-bg);
+        }
+
+        /* ========================================
+           PROCESS STEPPER (Tesla Innovation 2)
+           ======================================== */
+        .process-stepper {
+            padding: 80px 0;
+            background-color: var(--white);
         }
 
         .stepper-container {
@@ -399,27 +448,128 @@
             line-height: 1.5;
         }
 
-        /* Content Sections */
-        .content-section {
-            padding: 80px 0;
+        .step-link {
+            color: var(--highlight-color);
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+            cursor: pointer;
         }
 
-        .content-section:nth-child(even) {
-            background-color: var(--cream-bg);
+        .step-link:hover,
+        .step-link:focus {
+            border-color: var(--highlight-color);
         }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            text-align: center;
-            margin-bottom: 50px;
+        /* ========================================
+           FORM APPLICATION BOX
+           ======================================== */
+        .apply-box {
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
+            margin: 50px auto 0;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--highlight-color);
         }
 
-        /* Requirements Grid */
+        .apply-box h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .apply-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .apply-option {
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .apply-option:hover {
+            border-color: var(--highlight-color);
+            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.1);
+        }
+
+        .apply-option-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .apply-option h4 {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .apply-option p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .apply-option-note {
+            font-size: 0.8rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        .btn-apply {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-apply:hover,
+        .btn-apply:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 180, 255, 0.4);
+            outline: none;
+        }
+
+        .btn-apply-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--highlight-color);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--highlight-color);
+            cursor: pointer;
+        }
+
+        .btn-apply-outline:hover,
+        .btn-apply-outline:focus {
+            background: var(--light-blue);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        /* ========================================
+           REQUIREMENTS GRID
+           ======================================== */
         .requirements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -491,7 +641,9 @@
             line-height: 1;
         }
 
-        /* TESLA INNOVATION 3: Interactive Document Checklist */
+        /* ========================================
+           DOCUMENTS SECTION (Tesla Innovation 3)
+           ======================================== */
         .documents-section {
             padding: 80px 0;
             background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
@@ -511,7 +663,6 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            cursor: pointer;
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateX(-30px);
@@ -527,32 +678,18 @@
             transform: translateX(5px);
         }
 
-        .checkbox {
-            width: 30px;
-            height: 30px;
-            border: 3px solid var(--medium-gray);
-            border-radius: 6px;
+        .doc-number {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
             flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .document-item:hover .checkbox {
-            border-color: var(--highlight-color);
-        }
-
-        .document-item.checked .checkbox {
-            background: var(--highlight-color);
-            border-color: var(--highlight-color);
-        }
-
-        .document-item.checked .checkbox::after {
-            content: '✓';
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
         }
 
         .document-icon {
@@ -592,7 +729,45 @@
             color: #666;
         }
 
-        /* Interview Section */
+        .fee-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            color: var(--dark-blue);
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 180, 255, 0.2);
+        }
+
+        /* ========================================
+           DOCUMENTS APPLY CTA
+           ======================================== */
+        .docs-cta {
+            max-width: 800px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        .docs-cta .btn-apply {
+            padding: 16px 50px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0, 180, 255, 0.3);
+        }
+
+        .docs-cta .btn-apply:hover {
+            box-shadow: 0 12px 35px rgba(0, 180, 255, 0.45);
+        }
+
+        .docs-cta p {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* ========================================
+           INTERVIEW GRID
+           ======================================== */
         .interview-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -626,7 +801,9 @@
             line-height: 1.6;
         }
 
-        /* TESLA INNOVATION 4: FAQ Accordion */
+        /* ========================================
+           FAQ ACCORDION (Tesla Innovation 4)
+           ======================================== */
         .faq-section {
             padding: 80px 0;
             background-color: var(--white);
@@ -659,6 +836,10 @@
             gap: 20px;
             background: white;
             transition: all 0.3s ease;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
         }
 
         .faq-question:hover {
@@ -707,7 +888,9 @@
             line-height: 1.7;
         }
 
-        /* TESLA INNOVATION 5: Floating CTA Button */
+        /* ========================================
+           FLOATING CTA (Tesla Innovation 5)
+           ======================================== */
         .floating-cta {
             position: fixed;
             bottom: 30px;
@@ -752,23 +935,53 @@
             transform: translateX(5px);
         }
 
-        /* CTA Section */
+        /* ========================================
+           CTA SECTION
+           ======================================== */
         .cta-section {
             padding: 80px 0;
             background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .cta-section h2 {
             font-size: 2.4rem;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
-        .cta-section p {
+        .cta-section > .container > p {
             font-size: 1.2rem;
             margin-bottom: 40px;
             opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-buttons {
@@ -776,6 +989,8 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button {
@@ -799,7 +1014,9 @@
             outline: none;
         }
 
-        /* Info Box */
+        /* ========================================
+           INFO BOX
+           ======================================== */
         .info-box {
             background: linear-gradient(135deg, var(--light-blue), var(--white));
             padding: 25px 30px;
@@ -831,7 +1048,9 @@
             line-height: 1.7;
         }
 
-        /* Footer */
+        /* ========================================
+           FOOTER (matching o-nas.html pattern)
+           ======================================== */
         footer {
             background-color: #333;
             color: white;
@@ -862,6 +1081,9 @@
         .footer-links a {
             color: #bbb;
             transition: color 0.3s;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: inline-block;
         }
 
         .footer-links a:hover,
@@ -873,6 +1095,12 @@
         .contact-info p {
             margin-bottom: 10px;
             color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .contact-info strong {
+            color: #ddd;
         }
 
         .social-links {
@@ -882,8 +1110,8 @@
         }
 
         .social-icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             background-color: #444;
             display: flex;
             align-items: center;
@@ -895,8 +1123,8 @@
 
         .social-icon:hover,
         .social-icon:focus {
-            background-color: var(--primary-color);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            transform: translateY(-3px);
             outline: none;
         }
 
@@ -908,7 +1136,9 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -931,29 +1161,41 @@
                 display: flex;
             }
 
+            .nav-links > li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links > li > a,
+            .dropdown-toggle {
+                font-size: 1.15rem;
+                padding: 12px;
+            }
+
             .dropdown-menu {
                 position: static;
                 opacity: 1;
                 visibility: visible;
                 transform: none;
                 box-shadow: none;
-                margin-top: 10px;
+                margin-top: 5px;
+                min-width: auto;
             }
 
             .mobile-menu-btn {
                 display: block;
             }
 
-            .logo-container svg {
-                height: 70px;
+            .logo-img {
+                height: 50px;
             }
 
             .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero-lead {
-                font-size: 1.05rem;
+            .hero-question {
+                font-size: 1.08rem;
             }
 
             .section-title {
@@ -980,6 +1222,10 @@
             }
 
             .interview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .apply-options {
                 grid-template-columns: 1fr;
             }
 
@@ -1019,6 +1265,10 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            .apply-box {
+                padding: 25px 20px;
+            }
         }
 
         .sr-only {
@@ -1035,45 +1285,36 @@
     </style>
 </head>
 <body>
-    <!-- TESLA INNOVATION 1: Scroll Progress Bar -->
+    <!-- Scroll Progress Bar -->
     <div class="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
     <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
+    <!-- ============================================
+         HEADER (wzorzec globalny – updated menu)
+         ============================================ -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <a href="index.html" aria-label="HarmonJa - Strona główna">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="logo-title">
-                          <title id="logo-title">Logo HarmonJa Szkoła Psychoterapii CBT</title>
-                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
-                            Szkoła Psychoterapii CBT
-                          </text>
-                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
-                            Harmon
-                          </text>
-                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
-                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
-                            Ja
-                          </text>
-                        </svg>
+                    <a href="index.html" aria-label="HarmonJa – Strona główna">
+                        <img src="logo-harmonja.png" alt="HarmonJa – Szkoła Psychoterapii" class="logo-img">
                     </a>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <button class="mobile-menu-btn" aria-label="Otwórz menu nawigacyjne" aria-expanded="false">
                     ☰
                 </button>
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
                     <li role="none"><a href="o-nas.html" role="menuitem">O nas</a></li>
                     <li class="dropdown" role="none">
-                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Szkoła Psychoterapii</span>
+                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">Dzieci i Młodzieży</a></li>
-                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Dorosłych</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
                         </ul>
                     </li>
-                    <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
+                    <li role="none"><a href="rekrutacja.html" role="menuitem" class="active">Rekrutacja</a></li>
                     <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
                     <li role="none"><a href="kadra.html" role="menuitem">Kadra</a></li>
                     <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
@@ -1083,21 +1324,22 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero -->
+
+        <!-- ========== HERO ========== -->
         <section class="hero">
             <div class="hero-content">
                 <h1>Rekrutacja</h1>
-                <p class="hero-lead">
-                    Rozpocznij 4-letnie, certyfikowane szkolenie z psychoterapii poznawczo-behawioralnej (CBT), które łączy naukę, praktykę kliniczną i rozwój osobisty.
+                <p class="hero-question">
+                    Jak rozpocząć 4-letnie szkolenie z&nbsp;terapii poznawczo-behawioralnej?
                 </p>
-                <p class="hero-lead">
-                    Dołącz do społeczności terapeutów, którzy uczą się skutecznie pomagać – w oparciu o dowody naukowe i wspierające środowisko.
+                <p class="hero-tagline">
+                    Po prostu uczymy naukowej psychoterapii z&nbsp;sercem!
                 </p>
             </div>
         </section>
 
-        <!-- TESLA INNOVATION 2: Process Stepper -->
-        <section class="process-stepper">
+        <!-- ========== PROCESS STEPPER ========== -->
+        <section class="process-stepper" id="process">
             <div class="container">
                 <h2 class="section-title">Proces rekrutacji</h2>
                 <div class="stepper-container">
@@ -1106,16 +1348,27 @@
                     <div class="step">
                         <div class="step-circle">
                             <span class="step-number">1</span>
-                            📝
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="9" y="5" width="18" height="24" rx="2" stroke="url(#gStep1)" stroke-width="1.8"/>
+                                <line x1="13" y1="12" x2="23" y2="12" stroke="url(#gStep1)" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="13" y1="16.5" x2="21" y2="16.5" stroke="url(#gStep1)" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="13" y1="21" x2="18" y2="21" stroke="url(#gStep1)" stroke-width="1.4" stroke-linecap="round"/>
+                                <path d="M22 20L24 28L26.5 22.5L29 28L31 20" stroke="url(#gStep1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                                <defs><linearGradient id="gStep1" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
+                            </svg>
                         </div>
-                        <h3>Formularz i dokumenty</h3>
-                        <p>Wypełnij formularz i prześlij wymagane dokumenty</p>
+                        <h3>Formularz i&nbsp;dokumenty</h3>
+                        <p><a href="#apply-form" class="step-link">Wypełnij formularz</a> i&nbsp;prześlij wymagane dokumenty</p>
                     </div>
 
                     <div class="step">
                         <div class="step-circle">
                             <span class="step-number">2</span>
-                            ✓
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="18" cy="18" r="11" stroke="url(#gStep2)" stroke-width="1.8"/>
+                                <path d="M13 18.5L16.5 22L23.5 14" stroke="url(#gStep2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs><linearGradient id="gStep2" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
+                            </svg>
                         </div>
                         <h3>Weryfikacja formalna</h3>
                         <p>Sprawdzimy kompletność dokumentów</p>
@@ -1124,49 +1377,56 @@
                     <div class="step">
                         <div class="step-circle">
                             <span class="step-number">3</span>
-                            💬
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="13" cy="14" r="5" stroke="url(#gStep3)" stroke-width="1.8"/>
+                                <circle cx="23" cy="14" r="5" stroke="url(#gStep3)" stroke-width="1.8"/>
+                                <path d="M8 28C8 24 10 22 13 22" stroke="url(#gStep3)" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M28 28C28 24 26 22 23 22" stroke="url(#gStep3)" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M15.5 25Q18 21 20.5 25" stroke="url(#gStep3)" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+                                <defs><linearGradient id="gStep3" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
+                            </svg>
                         </div>
                         <h3>Rozmowa kwalifikacyjna</h3>
-                        <p>Poznamy Twoje motywacje i cele</p>
+                        <p>Poznamy Twoje motywacje i&nbsp;cele</p>
                     </div>
 
                     <div class="step">
                         <div class="step-circle">
                             <span class="step-number">4</span>
-                            🎉
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M18 6L20.5 13H28L22 17.5L24 25L18 20.5L12 25L14 17.5L8 13H15.5L18 6Z" stroke="url(#gStep4)" stroke-width="1.8" stroke-linejoin="round"/>
+                                <circle cx="18" cy="16" r="3" stroke="url(#gStep4)" stroke-width="1.2" opacity="0.5"/>
+                                <defs><linearGradient id="gStep4" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
+                            </svg>
                         </div>
                         <h3>Decyzja</h3>
-                        <p>Otrzymasz wynik w ciągu 14 dni</p>
+                        <p>Otrzymasz wynik w&nbsp;ciągu 14 dni</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Requirements Section -->
+        <!-- ========== DLA KOGO? ========== -->
         <section class="content-section">
             <div class="container">
                 <h2 class="section-title">Dla kogo jest szkolenie?</h2>
                 <p class="section-subtitle">
-                    Szkolenie jest przeznaczone dla osób, które chcą rozpocząć lub pogłębić swoją drogę zawodową w kierunku psychoterapii poznawczo-behawioralnej – zgodnie ze standardami PTTPB i evidence-based practice.
+                    Szkolenie jest przeznaczone dla osób, które chcą rozwijać się w&nbsp;opartej na dowodach terapii poznawczo-behawioralnej – zgodnie ze standardami PTTPB i&nbsp;evidence-based practice. Zapraszamy zarówno osoby planujące pracę terapeutyczną z&nbsp;dorosłymi, jak i&nbsp;te, które chcą w&nbsp;przyszłości pracować z&nbsp;dziećmi i&nbsp;młodzieżą. Szkolenie jest również doskonałym wyborem dla osób, które widzą siebie w&nbsp;roli badaczy i&nbsp;naukowców w&nbsp;zakresie psychologii i&nbsp;psychoterapii.
                 </p>
 
                 <div class="requirements-grid">
                     <div class="requirement-card">
                         <div class="requirement-icon">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="30" cy="30" r="20" stroke="url(#gradReq1)" stroke-width="2"/>
-                                <path d="M30 15L37 28H23L30 15Z" fill="url(#gradReq1)"/>
-                                <rect x="22" y="32" width="16" height="8" stroke="url(#gradReq1)" stroke-width="2"/>
-                                <defs>
-                                    <linearGradient id="gradReq1" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M30 14L10 24L30 34L50 24L30 14Z" stroke="url(#gReq1)" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M16 27V38C16 38 22 44 30 44C38 44 44 38 44 38V27" stroke="url(#gReq1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="50" y1="24" x2="50" y2="40" stroke="url(#gReq1)" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="50" cy="42" r="2" fill="url(#gReq1)" opacity="0.6"/>
+                                <defs><linearGradient id="gReq1" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <h3>Wymagane wykształcenie</h3>
-                        <p>Uczestnikiem szkolenia może zostać osoba z tytułem magistra w jednym z kierunków:</p>
+                        <p>Uczestnikiem szkolenia może zostać osoba z&nbsp;tytułem magistra w&nbsp;jednym z&nbsp;kierunków:</p>
                         <ul class="requirement-list">
                             <li>Psychologia</li>
                             <li>Pedagogika specjalna</li>
@@ -1178,67 +1438,52 @@
 
                     <div class="requirement-card">
                         <div class="requirement-icon">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="15" y="20" width="30" height="25" stroke="url(#gradReq2)" stroke-width="2" rx="2"/>
-                                <path d="M20 28L28 35L40 23" stroke="url(#gradReq2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="30" y1="15" x2="30" y2="20" stroke="url(#gradReq2)" stroke-width="2"/>
-                                <defs>
-                                    <linearGradient id="gradReq2" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="22" cy="20" r="7" stroke="url(#gReq2)" stroke-width="2"/>
+                                <circle cx="38" cy="20" r="7" stroke="url(#gReq2)" stroke-width="2"/>
+                                <path d="M10 46C10 38 15 34 22 34" stroke="url(#gReq2)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M50 46C50 38 45 34 38 34" stroke="url(#gReq2)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M26 38Q30 32 34 38" stroke="url(#gReq2)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                                <circle cx="30" cy="44" r="3" stroke="url(#gReq2)" stroke-width="1.5" opacity="0.4"/>
+                                <defs><linearGradient id="gReq2" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <h3>Doświadczenie zawodowe</h3>
-                        <p>Od kandydatów nie wymagamy wcześniejszego doświadczenia w pracy terapeutycznej.</p>
+                        <p>Od kandydatów nie wymagamy wcześniejszego doświadczenia w&nbsp;pracy terapeutycznej.</p>
                         <p style="margin-top: 15px;">
-                            Mile widziane jest doświadczenie w pracy z ludźmi – w obszarach pomocy psychologicznej, edukacji, pracy socjalnej, medycyny lub innych dziedzinach związanych ze wsparciem drugiego człowieka.
+                            Mile widziane jest doświadczenie w&nbsp;pracy z&nbsp;ludźmi – w&nbsp;obszarach pomocy psychologicznej, edukacji, pracy socjalnej, medycyny lub innych dziedzinach związanych ze wsparciem drugiego człowieka.
                         </p>
                         <div class="info-box" style="margin-top: 20px;">
                             <span class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="12" r="10" stroke="url(#gradInfo1)" stroke-width="2"/>
-                                    <path d="M12 8L14 10L12 12" stroke="url(#gradInfo1)" stroke-width="2" stroke-linecap="round"/>
-                                    <circle cx="12" cy="16" r="1.5" fill="url(#gradInfo1)"/>
-                                    <defs>
-                                        <linearGradient id="gradInfo1" x1="0" y1="0" x2="24" y2="24">
-                                            <stop offset="0%" stop-color="#00b4ff"/>
-                                            <stop offset="100%" stop-color="#22c7d6"/>
-                                        </linearGradient>
-                                    </defs>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M12 21C12 21 4 15 4 9.5C4 6.5 6.5 4 9 4C10.5 4 11.5 4.8 12 5.5C12.5 4.8 13.5 4 15 4C17.5 4 20 6.5 20 9.5C20 15 12 21 12 21Z" stroke="url(#gI1)" stroke-width="1.5" stroke-linejoin="round"/>
+                                    <defs><linearGradient id="gI1" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                                 </svg>
                             </span>
-                            <p>Wierzymy, że najważniejsza jest Twoja motywacja, otwartość na naukę i gotowość do rozwoju zawodowego i osobistego.</p>
+                            <p>Wierzymy, że najważniejsza jest Twoja motywacja, otwartość na naukę i&nbsp;gotowość do rozwoju zawodowego i&nbsp;osobistego.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TESLA INNOVATION 3: Documents Checklist -->
-        <section class="documents-section">
+        <!-- ========== WYMAGANE DOKUMENTY ========== -->
+        <section class="documents-section" id="documents">
             <div class="container">
                 <h2 class="section-title">Wymagane dokumenty</h2>
                 <p class="section-subtitle">
-                    Aby wziąć udział w rekrutacji, należy wypełnić formularz dostępny na stronie szkoły oraz załączyć komplet dokumentów w formie elektronicznej:
+                    Aby wziąć udział w&nbsp;rekrutacji, należy wypełnić formularz dostępny na stronie szkoły oraz załączyć komplet dokumentów w&nbsp;formie elektronicznej:
                 </p>
 
                 <div class="documents-checklist">
                     <div class="document-item">
-                        <div class="checkbox"></div>
+                        <span class="doc-number">1</span>
                         <div class="document-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="10" y="8" width="20" height="26" stroke="url(#gradDoc1)" stroke-width="2" rx="1"/>
-                                <line x1="14" y1="14" x2="26" y2="14" stroke="url(#gradDoc1)" stroke-width="1.5"/>
-                                <line x1="14" y1="18" x2="26" y2="18" stroke="url(#gradDoc1)" stroke-width="1.5"/>
-                                <line x1="14" y1="22" x2="22" y2="22" stroke="url(#gradDoc1)" stroke-width="1.5"/>
-                                <defs>
-                                    <linearGradient id="gradDoc1" x1="0" y1="0" x2="40" y2="40">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="10" y="6" width="20" height="28" rx="2" stroke="url(#gD1)" stroke-width="1.6"/>
+                                <circle cx="20" cy="15" r="4" stroke="url(#gD1)" stroke-width="1.4"/>
+                                <path d="M14 27C14 23 16.5 21 20 21C23.5 21 26 23 26 27" stroke="url(#gD1)" stroke-width="1.4" stroke-linecap="round"/>
+                                <defs><linearGradient id="gD1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="document-info">
@@ -1248,38 +1493,33 @@
                     </div>
 
                     <div class="document-item">
-                        <div class="checkbox"></div>
+                        <span class="doc-number">2</span>
                         <div class="document-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 14L20 22L32 14" stroke="url(#gradDoc2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <rect x="8" y="12" width="24" height="16" stroke="url(#gradDoc2)" stroke-width="2" rx="2"/>
-                                <defs>
-                                    <linearGradient id="gradDoc2" x1="0" y1="0" x2="40" y2="40">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="6" y="12" width="28" height="18" rx="2" stroke="url(#gD2)" stroke-width="1.6"/>
+                                <path d="M6 14L20 24L34 14" stroke="url(#gD2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M28 6L30 8L24 14L22 12.5L28 6Z" stroke="url(#gD2)" stroke-width="1.2" stroke-linejoin="round" opacity="0.6"/>
+                                <defs><linearGradient id="gD2" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="document-info">
                             <h4>List motywacyjny</h4>
-                            <p>Dlaczego chcesz rozpocząć szkolenie w HarmonJi</p>
+                            <p>Dlaczego chcesz rozpocząć szkolenie w&nbsp;Szkole HarmonJa</p>
                         </div>
                     </div>
 
                     <div class="document-item">
-                        <div class="checkbox"></div>
+                        <span class="doc-number">3</span>
                         <div class="document-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="12" stroke="url(#gradDoc3)" stroke-width="2"/>
-                                <path d="M20 10L24 18H16L20 10Z" fill="url(#gradDoc3)"/>
-                                <rect x="15" y="21" width="10" height="5" stroke="url(#gradDoc3)" stroke-width="2"/>
-                                <defs>
-                                    <linearGradient id="gradDoc3" x1="0" y1="0" x2="40" y2="40">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M10 8C10 8 10 6 12 6H28C30 6 30 8 30 8V30C30 30 30 32 28 32H12C10 32 10 30 10 30V8Z" stroke="url(#gD3)" stroke-width="1.6"/>
+                                <path d="M10 8Q8 8 8 10V12Q8 14 10 14" stroke="url(#gD3)" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                                <path d="M30 8Q32 8 32 10V12Q32 14 30 14" stroke="url(#gD3)" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+                                <circle cx="20" cy="22" r="5" stroke="url(#gD3)" stroke-width="1.4"/>
+                                <path d="M18 22L19.5 23.5L22.5 20" stroke="url(#gD3)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="15" y1="13" x2="25" y2="13" stroke="url(#gD3)" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="17" y1="16" x2="23" y2="16" stroke="url(#gD3)" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+                                <defs><linearGradient id="gD3" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="document-info">
@@ -1289,17 +1529,12 @@
                     </div>
 
                     <div class="document-item">
-                        <div class="checkbox"></div>
+                        <span class="doc-number">4</span>
                         <div class="document-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 10C20 10 12 14 12 22C12 26 16 30 20 34C24 30 28 26 28 22C28 14 20 10 20 10Z" stroke="url(#gradDoc4)" stroke-width="2" stroke-linejoin="round"/>
-                                <path d="M16 20L19 23L25 17" stroke="url(#gradDoc4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <defs>
-                                    <linearGradient id="gradDoc4" x1="0" y1="0" x2="40" y2="40">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M20 6L8 12V22C8 28 13 33 20 36C27 33 32 28 32 22V12L20 6Z" stroke="url(#gD4)" stroke-width="1.6" stroke-linejoin="round"/>
+                                <path d="M20 15L21.5 18.5H25.5L22.5 20.5L23.5 24.5L20 22L16.5 24.5L17.5 20.5L14.5 18.5H18.5L20 15Z" stroke="url(#gD4)" stroke-width="1.2" stroke-linejoin="round" opacity="0.8"/>
+                                <defs><linearGradient id="gD4" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="document-info">
@@ -1309,72 +1544,62 @@
                     </div>
 
                     <div class="document-item">
-                        <div class="checkbox"></div>
+                        <span class="doc-number">5</span>
                         <div class="document-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="10" y="12" width="20" height="14" stroke="url(#gradDoc5)" stroke-width="2" rx="2"/>
-                                <rect x="10" y="17" width="20" height="4" fill="url(#gradDoc5)" opacity="0.3"/>
-                                <circle cx="16" cy="21" r="2" fill="url(#gradDoc5)"/>
-                                <line x1="21" y1="20" x2="27" y2="20" stroke="url(#gradDoc5)" stroke-width="1.5" stroke-linecap="round"/>
-                                <line x1="21" y1="23" x2="25" y2="23" stroke="url(#gradDoc5)" stroke-width="1.5" stroke-linecap="round"/>
-                                <defs>
-                                    <linearGradient id="gradDoc5" x1="0" y1="0" x2="40" y2="40">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="6" y="10" width="28" height="18" rx="3" stroke="url(#gD5)" stroke-width="1.6"/>
+                                <line x1="6" y1="16" x2="34" y2="16" stroke="url(#gD5)" stroke-width="1.6"/>
+                                <line x1="10" y1="22" x2="18" y2="22" stroke="url(#gD5)" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+                                <line x1="10" y1="25" x2="15" y2="25" stroke="url(#gD5)" stroke-width="1.3" stroke-linecap="round" opacity="0.4"/>
+                                <circle cx="29" cy="23" r="4.5" stroke="url(#gD5)" stroke-width="1.3"/>
+                                <path d="M27 23L28.5 24.5L31.5 21.5" stroke="url(#gD5)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs><linearGradient id="gD5" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="document-info">
                             <h4>Potwierdzenie przelewu</h4>
-                            <p>Opłaty rekrutacyjnej (zgodnej z aktualnym cennikiem)</p>
+                            <p>Opłata za rozmowę rekrutacyjną wynosi <span class="fee-highlight">300 PLN</span> i&nbsp;pokrywa koszty organizacji procesu kwalifikacyjnego</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="info-box" style="max-width: 800px; margin: 30px auto 0;">
                     <span class="info-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10" stroke="url(#gradInfo2)" stroke-width="2"/>
-                            <line x1="12" y1="11" x2="12" y2="17" stroke="url(#gradInfo2)" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="12" cy="7.5" r="1" fill="url(#gradInfo2)"/>
-                            <defs>
-                                <linearGradient id="gradInfo2" x1="0" y1="0" x2="24" y2="24">
-                                    <stop offset="0%" stop-color="#00b4ff"/>
-                                    <stop offset="100%" stop-color="#22c7d6"/>
-                                </linearGradient>
-                            </defs>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" stroke="url(#gI2)" stroke-width="1.5"/>
+                            <line x1="12" y1="8" x2="12" y2="13" stroke="url(#gI2)" stroke-width="1.8" stroke-linecap="round"/>
+                            <circle cx="12" cy="16.5" r="1.2" fill="url(#gI2)"/>
+                            <defs><linearGradient id="gI2" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                         </svg>
                     </span>
-                    <p>Opłata rekrutacyjna pokrywa koszty organizacji procesu kwalifikacyjnego i nie jest zwracana. Do formularza dołączona jest zgoda na przetwarzanie danych osobowych w celach rekrutacyjnych – zgodnie z obowiązującymi przepisami prawa.</p>
+                    <p>Opłata rekrutacyjna nie jest zwracana. Do formularza dołączona jest zgoda na przetwarzanie danych osobowych w&nbsp;celach rekrutacyjnych – zgodnie z&nbsp;obowiązującymi przepisami prawa.</p>
+                </div>
+
+                <!-- Apply CTA pod dokumentami -->
+                <div class="docs-cta">
+                    <a href="#apply-form" class="btn-apply">Złóż aplikację</a>
+                    <p>Przejdź do formularza rekrutacyjnego</p>
                 </div>
             </div>
         </section>
 
-        <!-- Interview Section -->
+        <!-- ========== ROZMOWA KWALIFIKACYJNA ========== -->
         <section class="content-section">
             <div class="container">
                 <h2 class="section-title">Rozmowa kwalifikacyjna</h2>
                 <p class="section-subtitle">
-                    Po pozytywnej weryfikacji formalnej kandydat zostaje zaproszony na rozmowę kwalifikacyjną z zespołem szkoleniowym. Rozmowę prowadzi Kierownik Programowy Szkolenia i/lub Kierownik Szkolenia.
+                    Po pozytywnej weryfikacji formalnej kandydat zostaje zaproszony na rozmowę kwalifikacyjną z&nbsp;zespołem szkoleniowym. Rozmowę prowadzi Kierownik Programowy Szkolenia i/lub Kierownik Szkolenia.
                 </p>
 
                 <div class="interview-grid">
                     <div class="interview-card">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                                <circle cx="10" cy="10" r="3" stroke="url(#gradInt1)" stroke-width="1.5"/>
-                                <circle cx="10" cy="10" r="7" stroke="url(#gradInt1)" stroke-width="1.5" opacity="0.5"/>
-                                <path d="M10 3L11 6L10 3Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
-                                <path d="M10 17L11 14L10 17Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
-                                <path d="M3 10L6 11L3 10Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
-                                <path d="M17 10L14 11L17 10Z" stroke="url(#gradInt1)" stroke-width="1.5"/>
-                                <defs>
-                                    <linearGradient id="gradInt1" x1="0" y1="0" x2="20" y2="20">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
+                                <circle cx="10" cy="10" r="8" stroke="url(#gInt1)" stroke-width="1.4"/>
+                                <path d="M10 4V6M10 14V16M4 10H6M14 10H16" stroke="url(#gInt1)" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                                <path d="M7 13L9 9L13 7L11 11L7 13Z" stroke="url(#gInt1)" stroke-width="1.3" stroke-linejoin="round"/>
+                                <circle cx="10" cy="10" r="1.2" fill="url(#gInt1)"/>
+                                <defs><linearGradient id="gInt1" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                             Motywacja
                         </h3>
@@ -1383,269 +1608,280 @@
 
                     <div class="interview-card">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                                <circle cx="10" cy="10" r="7" stroke="url(#gradInt2)" stroke-width="1.5"/>
-                                <circle cx="10" cy="10" r="4" stroke="url(#gradInt2)" stroke-width="1.5"/>
-                                <circle cx="10" cy="10" r="1.5" fill="url(#gradInt2)"/>
-                                <defs>
-                                    <linearGradient id="gradInt2" x1="0" y1="0" x2="20" y2="20">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
+                                <circle cx="10" cy="10" r="8" stroke="url(#gInt2)" stroke-width="1.4"/>
+                                <circle cx="10" cy="10" r="5" stroke="url(#gInt2)" stroke-width="1.2" opacity="0.6"/>
+                                <circle cx="10" cy="10" r="2" stroke="url(#gInt2)" stroke-width="1.2"/>
+                                <circle cx="10" cy="10" r="0.8" fill="url(#gInt2)"/>
+                                <defs><linearGradient id="gInt2" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                             Świadomość zawodu
                         </h3>
-                        <p>Rozumienie istoty pracy psychoterapeuty i jej odpowiedzialności</p>
+                        <p>Rozumienie istoty pracy psychoterapeuty i&nbsp;związanej z&nbsp;nią odpowiedzialności</p>
                     </div>
 
                     <div class="interview-card">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                                <circle cx="7" cy="8" r="3" stroke="url(#gradInt3)" stroke-width="1.5"/>
-                                <circle cx="13" cy="10" r="2.5" stroke="url(#gradInt3)" stroke-width="1.5"/>
-                                <path d="M9 10L11 12" stroke="url(#gradInt3)" stroke-width="1.5" stroke-linecap="round"/>
-                                <circle cx="10" cy="15" r="1.5" fill="url(#gradInt3)"/>
-                                <defs>
-                                    <linearGradient id="gradInt3" x1="0" y1="0" x2="20" y2="20">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
+                                <circle cx="6" cy="7" r="2.5" stroke="url(#gInt3)" stroke-width="1.3"/>
+                                <circle cx="14" cy="7" r="2.5" stroke="url(#gInt3)" stroke-width="1.3"/>
+                                <path d="M2 15C2 12 3.5 11 6 11" stroke="url(#gInt3)" stroke-width="1.3" stroke-linecap="round"/>
+                                <path d="M18 15C18 12 16.5 11 14 11" stroke="url(#gInt3)" stroke-width="1.3" stroke-linecap="round"/>
+                                <path d="M8.5 12Q10 10 11.5 12" stroke="url(#gInt3)" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                                <defs><linearGradient id="gInt3" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                             Kompetencje interpersonalne
                         </h3>
-                        <p>Umiejętność komunikacji, empatii i współpracy</p>
+                        <p>Umiejętność komunikacji, empatii i&nbsp;współpracy</p>
                     </div>
 
                     <div class="interview-card">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                                <rect x="5" y="4" width="10" height="12" stroke="url(#gradInt4)" stroke-width="1.5" rx="1"/>
-                                <line x1="7" y1="7" x2="13" y2="7" stroke="url(#gradInt4)" stroke-width="1.2"/>
-                                <line x1="7" y1="10" x2="13" y2="10" stroke="url(#gradInt4)" stroke-width="1.2"/>
-                                <line x1="7" y1="13" x2="11" y2="13" stroke="url(#gradInt4)" stroke-width="1.2"/>
-                                <defs>
-                                    <linearGradient id="gradInt4" x1="0" y1="0" x2="20" y2="20">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
+                                <path d="M10 5C10 5 7 3 3 4V15C7 14 10 16 10 16C10 16 13 14 17 15V4C13 3 10 5 10 5Z" stroke="url(#gInt4)" stroke-width="1.3" stroke-linejoin="round"/>
+                                <line x1="10" y1="5" x2="10" y2="16" stroke="url(#gInt4)" stroke-width="1.2" opacity="0.4"/>
+                                <defs><linearGradient id="gInt4" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                             Wiedza bazowa
                         </h3>
-                        <p>Znajomość podstaw psychologii, psychopatologii lub doświadczenia w pracy z ludźmi</p>
+                        <p>Znajomość podstaw psychologii, psychopatologii lub doświadczenie pracy z&nbsp;ludźmi</p>
                     </div>
 
                     <div class="interview-card">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                                <path d="M10 4C10 4 6 6 6 10C6 13 10 16 10 17C10 16 14 13 14 10C14 6 10 4 10 4Z" stroke="url(#gradInt5)" stroke-width="1.5" stroke-linejoin="round"/>
-                                <path d="M8 8L10 11L12 8" stroke="url(#gradInt5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                <defs>
-                                    <linearGradient id="gradInt5" x1="0" y1="0" x2="20" y2="20">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
+                                <path d="M10 17V10" stroke="url(#gInt5)" stroke-width="1.3" stroke-linecap="round"/>
+                                <path d="M10 10C10 10 6 8 6 5C9 5 10 7 10 10Z" stroke="url(#gInt5)" stroke-width="1.3" stroke-linejoin="round"/>
+                                <path d="M10 8C10 8 14 6 14 3C11 3 10 5.5 10 8Z" stroke="url(#gInt5)" stroke-width="1.3" stroke-linejoin="round" opacity="0.7"/>
+                                <path d="M7 17H13" stroke="url(#gInt5)" stroke-width="1.3" stroke-linecap="round" opacity="0.4"/>
+                                <defs><linearGradient id="gInt5" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                             Gotowość do rozwoju
                         </h3>
-                        <p>Otwartość na uczenie się, superwizję i refleksję nad własną praktyką</p>
+                        <p>Otwartość na uczenie się, superwizję i&nbsp;refleksję nad własną praktyką</p>
                     </div>
 
                     <div class="interview-card">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                                <path d="M10 3L6 10H14L10 3Z" stroke="url(#gradInt6)" stroke-width="1.5" stroke-linejoin="round"/>
-                                <path d="M10 17L14 10H6L10 17Z" stroke="url(#gradInt6)" stroke-width="1.5" stroke-linejoin="round"/>
-                                <line x1="10" y1="7" x2="10" y2="13" stroke="url(#gradInt6)" stroke-width="1.5"/>
-                                <defs>
-                                    <linearGradient id="gradInt6" x1="0" y1="0" x2="20" y2="20">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
+                                <line x1="10" y1="3" x2="10" y2="16" stroke="url(#gInt6)" stroke-width="1.3" stroke-linecap="round"/>
+                                <line x1="4" y1="6" x2="16" y2="6" stroke="url(#gInt6)" stroke-width="1.3" stroke-linecap="round"/>
+                                <path d="M4 6L3 11H7L4 6Z" stroke="url(#gInt6)" stroke-width="1.2" stroke-linejoin="round"/>
+                                <path d="M16 6L15 11H19L16 6Z" stroke="url(#gInt6)" stroke-width="1.2" stroke-linejoin="round"/>
+                                <line x1="7" y1="16" x2="13" y2="16" stroke="url(#gInt6)" stroke-width="1.3" stroke-linecap="round"/>
+                                <defs><linearGradient id="gInt6" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                             Etyka zawodowa
                         </h3>
-                        <p>Zrozumienie zasad poufności, szacunku i odpowiedzialności</p>
+                        <p>Rozumienie zasad poufności, szacunku i&nbsp;odpowiedzialności</p>
                     </div>
 
                     <div class="interview-card">
                         <h3>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
-                                <path d="M6 10C6 10 6 7 10 7C14 7 14 10 14 10C14 10 14 13 10 13C6 13 6 10 6 10Z" stroke="url(#gradInt7)" stroke-width="1.5"/>
-                                <circle cx="8" cy="9" r="1" fill="url(#gradInt7)"/>
-                                <circle cx="12" cy="9" r="1" fill="url(#gradInt7)"/>
-                                <path d="M8 11Q10 12 12 11" stroke="url(#gradInt7)" stroke-width="1.5" stroke-linecap="round"/>
-                                <defs>
-                                    <linearGradient id="gradInt7" x1="0" y1="0" x2="20" y2="20">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 8px;" aria-hidden="true">
+                                <path d="M10 3C7 3 4 5 4 8C4 10 5 11.5 7 12.5V16H10V12.5" stroke="url(#gInt7)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 3C13 3 16 5 16 8C16 10 15 11.5 13 12.5V16H10V12.5" stroke="url(#gInt7)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="3" x2="10" y2="12.5" stroke="url(#gInt7)" stroke-width="1" opacity="0.3"/>
+                                <line x1="7.5" y1="17" x2="12.5" y2="17" stroke="url(#gInt7)" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+                                <defs><linearGradient id="gInt7" x1="0" y1="0" x2="20" y2="20"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                             Zrozumienie CBT
                         </h3>
-                        <p>Rozmowa o myśleniu terapeutycznym i analizie przykładowych sytuacji klinicznych</p>
+                        <p>Rozmowa o&nbsp;myśleniu terapeutycznym i&nbsp;analizie przykładowych sytuacji klinicznych</p>
                     </div>
                 </div>
 
                 <div class="info-box" style="max-width: 800px; margin: 40px auto 0;">
                     <span class="info-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5C12 5 8 7 8 12C8 15 12 18 12 20C12 18 16 15 16 12C16 7 12 5 12 5Z" stroke="url(#gradInfo3)" stroke-width="1.5" stroke-linejoin="round"/>
-                            <path d="M10 10L12 14L14 10" stroke="url(#gradInfo3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <defs>
-                                <linearGradient id="gradInfo3" x1="0" y1="0" x2="24" y2="24">
-                                    <stop offset="0%" stop-color="#00b4ff"/>
-                                    <stop offset="100%" stop-color="#22c7d6"/>
-                                </linearGradient>
-                            </defs>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M4 14L8 10L12 13L16 9L20 12" stroke="url(#gI3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="13" r="2" stroke="url(#gI3)" stroke-width="1.2" opacity="0.5"/>
+                            <path d="M4 18H20" stroke="url(#gI3)" stroke-width="1.2" stroke-linecap="round" opacity="0.3"/>
+                            <defs><linearGradient id="gI3" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                         </svg>
                     </span>
-                    <p>Rozmowa ma charakter merytoryczny i partnerski – naszym celem jest sprawdzić, czy HarmonJa to właściwe miejsce dla Ciebie, a Ty dla HarmonJi.</p>
+                    <p>Rozmowa ma charakter merytoryczny i&nbsp;partnerski – chcemy dowiedzieć się, jak Szkoła HarmonJa może pomóc w&nbsp;realizacji Twoich celów.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Decision Section -->
+        <!-- ========== DECYZJA O PRZYJĘCIU ========== -->
         <section class="content-section">
             <div class="container">
-                <h2 class="section-title">Decyzja o przyjęciu</h2>
+                <h2 class="section-title">Decyzja o&nbsp;przyjęciu</h2>
                 <p class="section-subtitle">
-                    Decyzję o przyjęciu podejmuje Kierownik Programowy Szkolenia wraz z Kierownikiem Szkolenia, na podstawie dokumentów i przebiegu rozmowy kwalifikacyjnej.
+                    Decyzję o&nbsp;przyjęciu podejmuje Kierownik Programowy Szkolenia wraz z&nbsp;Kierownikiem Szkolenia, na podstawie dokumentów i&nbsp;przebiegu rozmowy kwalifikacyjnej.
                 </p>
 
                 <div class="requirements-grid" style="max-width: 800px; margin: 0 auto;">
                     <div class="requirement-card">
                         <div class="requirement-icon">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15 22L30 32L45 22" stroke="url(#gradDec1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <rect x="15" y="20" width="30" height="20" stroke="url(#gradDec1)" stroke-width="2" rx="2"/>
-                                <defs>
-                                    <linearGradient id="gradDec1" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 20L48 14L32 46L26 32L12 20Z" stroke="url(#gDec1)" stroke-width="2" stroke-linejoin="round"/>
+                                <line x1="48" y1="14" x2="26" y2="32" stroke="url(#gDec1)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                                <circle cx="38" cy="22" r="3" stroke="url(#gDec1)" stroke-width="1.2" opacity="0.3"/>
+                                <defs><linearGradient id="gDec1" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
-                        <h3>Informacja o wyniku</h3>
-                        <p>Otrzymasz ją drogą mailową w ciągu 14 dni od zakończenia rozmowy.</p>
+                        <h3>Informacja o&nbsp;wyniku</h3>
+                        <p>Otrzymasz ją drogą mailową w&nbsp;ciągu 14 dni od zakończenia rozmowy.</p>
                     </div>
 
                     <div class="requirement-card">
                         <div class="requirement-icon">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30 15C30 15 20 20 20 30C20 35 25 40 30 45C35 40 40 35 40 30C40 20 30 15 30 15Z" stroke="url(#gradDec2)" stroke-width="2" stroke-linejoin="round"/>
-                                <path d="M24 28L28 32L36 24" stroke="url(#gradDec2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <defs>
-                                    <linearGradient id="gradDec2" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="24" cy="26" r="10" stroke="url(#gDec2)" stroke-width="2"/>
+                                <circle cx="24" cy="26" r="4" stroke="url(#gDec2)" stroke-width="1.5" opacity="0.6"/>
+                                <line x1="34" y1="26" x2="48" y2="26" stroke="url(#gDec2)" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="42" y1="26" x2="42" y2="32" stroke="url(#gDec2)" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="46" y1="26" x2="46" y2="30" stroke="url(#gDec2)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M20 42L24 38L28 42" stroke="url(#gDec2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                                <defs><linearGradient id="gDec2" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
-                        <h3>W przypadku przyjęcia</h3>
-                        <p>Kandydat zobowiązany jest do podpisania kompletu dokumentów w formie papierowej przed rozpoczęciem szkolenia.</p>
+                        <h3>W&nbsp;przypadku przyjęcia</h3>
+                        <p>Kandydat zobowiązany jest do podpisania kompletu dokumentów w&nbsp;formie papierowej przed rozpoczęciem szkolenia.</p>
                     </div>
 
                     <div class="requirement-card">
                         <div class="requirement-icon">
-                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="30" cy="30" r="12" stroke="url(#gradDec3)" stroke-width="2"/>
-                                <path d="M30 24L35 30L30 24Z" stroke="url(#gradDec3)" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M30 36L25 30L30 36Z" stroke="url(#gradDec3)" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="30" cy="30" r="5" stroke="url(#gradDec3)" stroke-width="2"/>
-                                <defs>
-                                    <linearGradient id="gradDec3" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M42 22A14 14 0 0 0 18 22" stroke="url(#gDec3)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M18 38A14 14 0 0 0 42 38" stroke="url(#gDec3)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M18 22L14 18L22 16" stroke="url(#gDec3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M42 38L46 42L38 44" stroke="url(#gDec3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="30" cy="30" r="4" stroke="url(#gDec3)" stroke-width="1.5" opacity="0.4"/>
+                                <defs><linearGradient id="gDec3" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
-                        <h3>W przypadku nieprzyjęcia</h3>
-                        <p>Możesz ponownie aplikować w kolejnej edycji po uzupełnieniu wskazanych braków.</p>
+                        <h3>W&nbsp;przypadku nieprzyjęcia</h3>
+                        <p>Możesz ponownie aplikować w&nbsp;kolejnej edycji po uzupełnieniu wskazanych braków.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TESLA INNOVATION 4: FAQ Accordion -->
+        <!-- ========== FAQ ========== -->
         <section class="faq-section">
             <div class="container">
                 <h2 class="section-title">Najczęściej zadawane pytania</h2>
                 <div class="faq-container">
                     <div class="faq-item">
-                        <div class="faq-question">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
                             <h3>Czy rekrutacja ma limit miejsc?</h3>
-                            <span class="faq-icon">+</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </div>
-                        <div class="faq-answer">
-                            <p>Tak. Liczba miejsc w każdej edycji jest ograniczona, aby zapewnić wysoką jakość pracy dydaktycznej i superwizyjnej.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Czy muszę mieć doświadczenie w terapii?</h3>
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Nie. Oczekujemy gotowości do nauki, refleksji i rozwoju – doświadczenie w pracy z ludźmi jest mile widziane, ale nie obowiązkowe.</p>
+                        <div class="faq-answer" role="region">
+                            <p>Tak. Liczba miejsc w&nbsp;każdej edycji jest ograniczona, aby zapewnić wysoką jakość pracy dydaktycznej i&nbsp;superwizyjnej.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <div class="faq-question">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <h3>Czy muszę mieć doświadczenie w&nbsp;terapii?</h3>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </div>
+                        <div class="faq-answer" role="region">
+                            <p>Nie. Oczekujemy gotowości do nauki, refleksji i&nbsp;rozwoju – doświadczenie w&nbsp;pracy z&nbsp;ludźmi jest mile widziane, ale nie obowiązkowe.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
                             <h3>Czy rozmowa kwalifikacyjna jest stresująca?</h3>
-                            <span class="faq-icon">+</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </div>
-                        <div class="faq-answer">
-                            <p>Nie ma takiej potrzeby 😊 Traktujemy ją jako rozmowę o Twoich celach i motywacjach, a nie egzamin.</p>
+                        <div class="faq-answer" role="region">
+                            <p>Na rozmowie staramy się stworzyć przyjazną, partnerską atmosferę :) Traktujemy ją jako rozmowę o&nbsp;Twoich celach i&nbsp;motywacjach, a&nbsp;nie egzamin.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Czy mogę uczyć się w HarmonJi mieszkając poza Warszawą lub Gdańskiem?</h3>
-                            <span class="faq-icon">+</span>
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <h3>Czy mogę uczyć się w&nbsp;Szkole HarmonJa mieszkając poza Warszawą lub Gdańskiem?</h3>
+                            <span class="faq-icon" aria-hidden="true">+</span>
                         </div>
-                        <div class="faq-answer">
-                            <p>Tak. Szkolenie odbywa się głównie stacjonarnie, ale część zajęć (wykładów i seminariów) może być prowadzona online – z zachowaniem standardów dydaktycznych PTTPB.</p>
+                        <div class="faq-answer" role="region">
+                            <p>Tak. Szkolenie odbywa się głównie stacjonarnie, ale część zajęć (wykładów i&nbsp;seminariów) może być prowadzona online – z&nbsp;zachowaniem standardów dydaktycznych PTTPB.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
+        <!-- ========== FORMULARZ APLIKACYJNY ========== -->
+        <section class="content-section" id="apply-form" style="background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);">
+            <div class="container">
+                <h2 class="section-title">Złóż aplikację</h2>
+                <p class="section-subtitle">
+                    Wybierz wygodny dla siebie sposób przesłania dokumentów rekrutacyjnych.
+                </p>
+
+                <div class="apply-box">
+                    <div class="apply-options">
+                        <div class="apply-option">
+                            <div class="apply-option-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="12" y="8" width="24" height="32" rx="3" stroke="url(#gAp1)" stroke-width="1.8"/>
+                                    <rect x="18" y="4" width="12" height="8" rx="2" stroke="url(#gAp1)" stroke-width="1.6"/>
+                                    <line x1="17" y1="20" x2="31" y2="20" stroke="url(#gAp1)" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+                                    <line x1="17" y1="25" x2="28" y2="25" stroke="url(#gAp1)" stroke-width="1.3" stroke-linecap="round" opacity="0.4"/>
+                                    <line x1="17" y1="30" x2="24" y2="30" stroke="url(#gAp1)" stroke-width="1.3" stroke-linecap="round" opacity="0.3"/>
+                                    <circle cx="34" cy="34" r="8" fill="white" stroke="url(#gAp1)" stroke-width="1.5"/>
+                                    <path d="M30.5 34L33 36.5L38 31.5" stroke="url(#gAp1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <defs><linearGradient id="gAp1" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
+                                </svg>
+                            </div>
+                            <h4>Formularz online</h4>
+                            <p>Wypełnij formularz Google i&nbsp;załącz wymagane dokumenty w&nbsp;formacie PDF.</p>
+                            <a href="#" class="btn-apply" id="google-form-link">Wypełnij formularz</a>
+                            <p class="apply-option-note" style="margin-top: 12px;">Wymaga konta Google (Gmail)</p>
+                        </div>
+                        <div class="apply-option">
+                            <div class="apply-option-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="6" y="14" width="36" height="24" rx="3" stroke="url(#gAp2)" stroke-width="1.8"/>
+                                    <path d="M6 17L24 30L42 17" stroke="url(#gAp2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M34 8L36 6L38 8V18" stroke="url(#gAp2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                                    <circle cx="36" cy="10" r="1" fill="url(#gAp2)" opacity="0.4"/>
+                                    <defs><linearGradient id="gAp2" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
+                                </svg>
+                            </div>
+                            <h4>Wyślij e-mailem</h4>
+                            <p>Pobierz pakiet dokumentów, wypełnij i&nbsp;prześlij na nasz adres e-mail.</p>
+                            <a href="#" class="btn-apply-outline" id="download-docs-link">Pobierz dokumenty</a>
+                            <p class="apply-option-note" style="margin-top: 12px;">Wyślij na: <strong>szkolaharmonja@gmail.com</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA ========== -->
         <section class="cta-section">
             <div class="container">
-                <h2>Gotowy na rozpoczęcie swojej drogi w psychoterapii?</h2>
-                <p>Zapisz się na rozmowę kwalifikacyjną i dołącz do Szkoły Psychoterapii HarmonJa</p>
+                <h2>Gotowy na rozpoczęcie swojej drogi w&nbsp;psychoterapii?</h2>
+                <p>Zapisz się na rozmowę kwalifikacyjną i&nbsp;dołącz do Szkoły Psychoterapii HarmonJa</p>
                 <div class="cta-buttons">
                     <a href="#apply-form" class="cta-button">Wypełnij formularz rekrutacyjny</a>
                 </div>
-                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9;">
-                    🔗 Rekrutacja trwa do wyczerpania miejsc. Zadbaj o wcześniejsze zgłoszenie – liczba uczestników w każdej edycji jest ograniczona.
+                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9; position: relative; z-index: 1;">
+                    Rekrutacja trwa do wyczerpania miejsc. Zadbaj o&nbsp;wcześniejsze zgłoszenie – liczba uczestników w&nbsp;każdej edycji jest ograniczona.
                 </p>
             </div>
         </section>
     </main>
 
-    <!-- TESLA INNOVATION 5: Floating CTA Button -->
+    <!-- Floating CTA -->
     <div class="floating-cta">
         <a href="#apply-form" class="floating-cta-button">
             Aplikuj teraz
         </a>
     </div>
 
-    <!-- Footer -->
+    <!-- ============================================
+         FOOTER (matching o-nas.html pattern)
+         ============================================ -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -1712,13 +1948,15 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2025 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu
+        // ========================================
+        // MOBILE MENU
+        // ========================================
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         
@@ -1750,37 +1988,39 @@
             });
         }
 
-        // Dropdown keyboard navigation
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-        dropdownToggles.forEach(toggle => {
+        // ========================================
+        // DROPDOWN KEYBOARD NAV
+        // ========================================
+        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
             toggle.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    const dropdown = this.closest('.dropdown');
-                    const menu = dropdown.querySelector('.dropdown-menu');
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    var dropdown = this.closest('.dropdown');
+                    var menu = dropdown.querySelector('.dropdown-menu');
+                    var isExpanded = this.getAttribute('aria-expanded') === 'true';
                     this.setAttribute('aria-expanded', !isExpanded);
-                    
                     if (!isExpanded) {
                         menu.style.opacity = '1';
                         menu.style.visibility = 'visible';
-                        menu.style.transform = 'translateY(0)';
+                        menu.style.transform = 'translateX(-50%) translateY(0)';
                     } else {
                         menu.style.opacity = '0';
                         menu.style.visibility = 'hidden';
-                        menu.style.transform = 'translateY(-10px)';
+                        menu.style.transform = 'translateX(-50%) translateY(-10px)';
                     }
                 }
             });
         });
 
-        // TESLA FEATURE 1: Scroll Progress Bar
+        // ========================================
+        // SCROLL PROGRESS BAR
+        // ========================================
         window.addEventListener('scroll', function() {
-            const scrollProgress = document.querySelector('.scroll-progress');
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            var scrollProgress = document.querySelector('.scroll-progress');
+            var windowHeight = window.innerHeight;
+            var documentHeight = document.documentElement.scrollHeight;
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
             
             if (scrollProgress) {
                 scrollProgress.style.width = scrollPercent + '%';
@@ -1788,29 +2028,34 @@
             }
         });
 
-        // TESLA FEATURE 2: Process Stepper Animation
-        const stepObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+        // ========================================
+        // PROCESS STEPPER ANIMATION
+        // ========================================
+        var stepObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                        entry.target.classList.add('active');
-                    }, index * 200);
+                    var steps = entry.target.parentElement.querySelectorAll('.step');
+                    steps.forEach(function(step, index) {
+                        setTimeout(function() {
+                            step.classList.add('visible');
+                            step.classList.add('active');
+                        }, index * 200);
+                    });
                 }
             });
         }, { threshold: 0.3 });
 
-        document.querySelectorAll('.step').forEach(step => {
+        document.querySelectorAll('.step').forEach(function(step) {
             stepObserver.observe(step);
         });
 
-        // Progress line animation
-        const progressObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        // Progress line
+        var progressObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    const progress = entry.target.querySelector('.stepper-progress');
+                    var progress = entry.target.querySelector('.stepper-progress');
                     if (progress) {
-                        setTimeout(() => {
+                        setTimeout(function() {
                             progress.classList.add('active');
                         }, 800);
                     }
@@ -1818,55 +2063,67 @@
             });
         }, { threshold: 0.3 });
 
-        const stepperContainer = document.querySelector('.stepper-container');
+        var stepperContainer = document.querySelector('.stepper-container');
         if (stepperContainer) {
             progressObserver.observe(stepperContainer);
         }
 
-        // TESLA FEATURE 3: Interactive Document Checklist
-        const documentObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+        // ========================================
+        // DOCUMENT LIST ANIMATION (no checkbox)
+        // ========================================
+        var documentObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
+                    var items = document.querySelectorAll('.document-item');
+                    items.forEach(function(item, index) {
+                        setTimeout(function() {
+                            item.classList.add('visible');
+                        }, index * 100);
+                    });
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.document-item').forEach(item => {
-            documentObserver.observe(item);
-            
-            // Click to check/uncheck
-            item.addEventListener('click', function() {
-                this.classList.toggle('checked');
-            });
-        });
+        var firstDocItem = document.querySelector('.document-item');
+        if (firstDocItem) {
+            documentObserver.observe(firstDocItem);
+        }
 
-        // TESLA FEATURE 4: FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
+        // ========================================
+        // FAQ ACCORDION
+        // ========================================
+        document.querySelectorAll('.faq-question').forEach(function(question) {
             question.addEventListener('click', function() {
-                const faqItem = this.closest('.faq-item');
-                const isActive = faqItem.classList.contains('active');
+                var faqItem = this.closest('.faq-item');
+                var isActive = faqItem.classList.contains('active');
                 
-                // Close all other FAQs
-                document.querySelectorAll('.faq-item').forEach(item => {
+                document.querySelectorAll('.faq-item').forEach(function(item) {
                     if (item !== faqItem) {
                         item.classList.remove('active');
+                        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                     }
                 });
                 
-                // Toggle current FAQ
                 faqItem.classList.toggle('active');
+                this.setAttribute('aria-expanded', !isActive);
+            });
+
+            question.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
             });
         });
 
-        // TESLA FEATURE 5: Floating CTA Button
-        const floatingCta = document.querySelector('.floating-cta');
+        // ========================================
+        // FLOATING CTA
+        // ========================================
+        var floatingCta = document.querySelector('.floating-cta');
         
         window.addEventListener('scroll', function() {
-            const scrollPosition = window.pageYOffset;
-            const windowHeight = window.innerHeight;
+            var scrollPosition = window.pageYOffset;
+            var windowHeight = window.innerHeight;
             
             if (scrollPosition > windowHeight * 0.5) {
                 floatingCta.classList.add('visible');
@@ -1875,11 +2132,13 @@
             }
         });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // ========================================
+        // SMOOTH SCROLL
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                var target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
