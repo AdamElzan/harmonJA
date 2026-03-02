@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="description" content="4-letnie szkolenie w psychoterapii poznawczo-behawioralnej z poszerzonym modułem pracy z dziećmi i młodzieżą. 1381 godzin dydaktycznych, superwizja, rozwój osobisty, staż kliniczny. Szkoła HarmonJa.">
     <meta property="og:title" content="Ścieżka rozwojowa (dzieci i młodzież) — Szkoła Psychoterapii HarmonJa">
-    <meta property="og:description" content="4-letni certyfikowany program CBT z rozszerzeniem o pracę z pacjentem w wieku rozwojowym. 1381h kształcenia, 245h superwizji, 360h stażu.">
+    <meta property="og:description" content="4-letni program CBT z rozszerzeniem o pracę z pacjentem w wieku rozwojowym. 1381h kształcenia, 245h superwizji, 360h stażu.">
     <meta property="og:type" content="website">
     <title>Ścieżka z poszerzonym modułem pracy z pacjentem w wieku rozwojowym — Szkoła Psychoterapii HarmonJa CBT</title>
     <style>
@@ -111,9 +111,10 @@
             align-items: center;
         }
 
-        .logo-container svg {
-            height: 90px;
+        .logo-container img {
+            height: 70px;
             width: auto;
+            display: block;
         }
 
         .nav-links {
@@ -154,6 +155,24 @@
         .dropdown-toggle {
             cursor: pointer;
             user-select: none;
+        }
+
+        .dropdown-toggle::after {
+            content: '▾';
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 0.75em;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .dropdown-toggle::after,
+        .dropdown-toggle[aria-expanded="true"]::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-toggle.active {
+            color: var(--highlight-color);
+            font-weight: 600;
         }
 
         .dropdown-menu {
@@ -425,6 +444,22 @@
             font-size: 0.85rem;
             font-weight: 500;
             margin-bottom: 30px;
+        }
+
+        /* UWAGA banner */
+        .uwaga-banner {
+            background: linear-gradient(135deg, #fff3cd 0%, #fef9e7 100%);
+            border-left: 4px solid #f0ad4e;
+            padding: 18px 24px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .uwaga-banner strong {
+            color: #664d03;
         }
 
         /* Hours banner */
@@ -917,8 +952,8 @@
         }
 
         .social-icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             background-color: #444;
             display: flex;
             align-items: center;
@@ -930,8 +965,8 @@
 
         .social-icon:hover,
         .social-icon:focus {
-            background-color: var(--primary-color);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            transform: translateY(-3px);
             outline: none;
         }
 
@@ -992,8 +1027,8 @@
                 display: block;
             }
 
-            .logo-container svg {
-                height: 70px;
+            .logo-container img {
+                height: 55px;
             }
 
             .hero h1 {
@@ -1120,19 +1155,7 @@
             <nav>
                 <div class="logo-container">
                     <a href="index.html" aria-label="HarmonJa - Strona główna">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="90" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="logo-title">
-                          <title id="logo-title">Logo HarmonJa Szkoła Psychoterapii CBT</title>
-                          <text x="200" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="400" fill="#09395f">
-                            Szkoła Psychoterapii CBT
-                          </text>
-                          <text x="200" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="52" font-weight="500" fill="#09395f">
-                            Harmon
-                          </text>
-                          <rect x="295" y="40" width="65" height="50" fill="#00b4ff"/>
-                          <text x="327.5" y="80" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="46" font-weight="400" fill="#ffffff">
-                            Ja
-                          </text>
-                        </svg>
+                        <img src="logo-harmonja.png" alt="Szkoła Psychoterapii HarmonJa" width="206" height="70" loading="eager" fetchpriority="high">
                     </a>
                 </div>
                 <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -1142,10 +1165,10 @@
                     <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
                     <li role="none"><a href="o-nas.html" role="menuitem">O&nbsp;nas</a></li>
                     <li class="dropdown" role="none">
-                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Szkoła Psychoterapii</span>
+                        <span class="dropdown-toggle active" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem" class="active">Ścieżka z&nbsp;poszerzonym modułem pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a></li>
-                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">Ścieżka ogólna (praca z&nbsp;osobami dorosłymi)</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem" class="active">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
                         </ul>
                     </li>
                     <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
@@ -1169,7 +1192,7 @@
             <div class="container">
                 <span class="certification-badge">Wiek rozwojowy</span>
                 <h1>Ścieżka z&nbsp;poszerzonym modułem pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</h1>
-                <p class="hero-subtitle">4-letni, certyfikowany program w&nbsp;terapii poznawczo-behawioralnej</p>
+                <p class="hero-subtitle">4-letni program w&nbsp;terapii poznawczo-behawioralnej</p>
                 <p class="hero-description">
                     4-letnie szkolenie w&nbsp;psychoterapii poznawczo-behawioralnej, obejmujące pełne przygotowanie do pracy z&nbsp;osobami dorosłymi oraz pogłębiony moduł dotyczący pracy z&nbsp;dziećmi i&nbsp;młodzieżą. Program rozwija kompetencje w&nbsp;zakresie diagnozy, konceptualizacji i&nbsp;terapii pacjentów w&nbsp;wieku rozwojowym oraz ich rodzin, z&nbsp;uwzględnieniem specyfiki rozwoju, kontekstu rodzinnego i&nbsp;środowiskowego.
                 </p>
@@ -1227,6 +1250,11 @@
                 <p class="section-description animate">
                     Szkoła Psychoterapii HarmonJa realizuje 4-letnie szkolenie w&nbsp;psychoterapii poznawczo-behawioralnej (CBT) w&nbsp;dwóch ścieżkach kształcenia. Szkolenie ma formę 40 zjazdów weekendowych (zwykle 10 w&nbsp;roku), realizowanych stacjonarnie.
                 </p>
+
+                <!-- UWAGA: rekomendacja PTTPB -->
+                <div class="uwaga-banner animate">
+                    <strong>UWAGA:</strong> Program zostanie uruchomiony pod warunkiem uzyskania rekomendacji PTTPB.
+                </div>
 
                 <!-- Podsumowanie godzinowe -->
                 <h3 class="hours-detail-title animate">Podsumowanie godzinowe</h3>
@@ -1495,7 +1523,7 @@
     </main>
 
     <!-- ============================================ -->
-    <!-- FOOTER (1:1 ze wzorca)                       -->
+    <!-- FOOTER (1:1 ze wzorca — ujednolicony)        -->
     <!-- ============================================ -->
     <footer>
         <div class="container">
@@ -1504,8 +1532,8 @@
                     <h3>Szkoła</h3>
                     <ul class="footer-links">
                         <li><a href="o-nas.html">O&nbsp;nas</a></li>
-                        <li><a href="szkola-dzieci-mlodziez.html">Poszerzony moduł pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a></li>
-                        <li><a href="szkola-dorosli.html">Ścieżka ogólna (praca z&nbsp;osobami dorosłymi)</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">Szkolenie z&nbsp;poszerzonym modułem rozwojowym</a></li>
+                        <li><a href="szkola-dorosli.html">Szkolenie terapii osób dorosłych</a></li>
                         <li><a href="kadra.html">Kadra</a></li>
                     </ul>
                 </div>
@@ -1524,19 +1552,30 @@
                         <p>prowadzona przez</p>
                         <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp.&nbsp;z&nbsp;o.o.</p>
                         <p style="margin-top: 15px;">
-                            ul. Grunwaldzka 56/7<br>80-241 Gdańsk
+                            ul. Politechniczna 9/7<br>80-288 Gdańsk
                         </p>
-                        <p>Email: <a href="mailto:kontakt@harmonja.pl" style="color: var(--primary-color);">kontakt@harmonja.pl</a></p>
+                        <p style="margin-top: 10px;">
+                            Email: <a href="mailto:szkolaharmonja@gmail.com" style="color: var(--primary-color);">szkolaharmonja@gmail.com</a>
+                        </p>
+                        <p>
+                            NIP: 9571190783<br>
+                            REGON: 542257334
+                        </p>
                     </div>
                     <div class="social-links">
-                        <a href="https://facebook.com" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <a href="https://facebook.com/szkola.harmonja/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                             </svg>
                         </a>
-                        <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com/company/szkola-harmonja/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/szkola.harmonja/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
                             </svg>
                         </a>
                         <a href="https://www.youtube.com/@wglowiesiemiesci3561" class="social-icon" aria-label="YouTube — podcast W Głowie się Mieści" target="_blank" rel="noopener noreferrer">
@@ -1546,9 +1585,17 @@
                         </a>
                     </div>
                 </div>
+                <div class="footer-col">
+                    <h3>Informacje</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Polityka prywatności</a></li>
+                        <li><a href="#">Regulamin</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2025 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
@@ -1660,7 +1707,6 @@
 
                 function step(now) {
                     var progress = Math.min((now - start) / duration, 1);
-                    // ease-out quad
                     var eased = 1 - (1 - progress) * (1 - progress);
                     element.textContent = Math.round(target * eased).toLocaleString('pl-PL');
                     if (progress < 1) requestAnimationFrame(step);
@@ -1680,12 +1726,10 @@
                 });
             }, observerOptions);
 
-            // Stat section counters
             document.querySelectorAll('.stat-number').forEach(function(counter) {
                 counterObserver.observe(counter);
             });
 
-            // Banner counter
             document.querySelectorAll('.banner-counter').forEach(function(counter) {
                 counterObserver.observe(counter);
             });
@@ -1739,7 +1783,6 @@
                     btn.classList.add('expanded');
                     btn.setAttribute('aria-expanded', 'true');
 
-                    // Stagger animation for newly visible items
                     var items = hidden.querySelectorAll('.curriculum-item');
                     items.forEach(function(item, i) {
                         item.style.opacity = '0';
