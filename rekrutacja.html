@@ -2076,7 +2076,7 @@
                             <h4>Wyślij e-mailem</h4>
                             <p>Pobierz pakiet dokumentów, wypełnij i&nbsp;prześlij na nasz adres e-mail.</p>
                             <a href="#" class="btn-apply-outline" id="download-docs-link">Pobierz dokumenty</a>
-                            <p class="apply-option-note" style="margin-top: 12px;">Wyślij na: <strong><a href="/cdn-cgi/l/email-protection#dcb7b3b2a8bdb7a89cb4bdaeb1b3b2b6bdf2b9b8a9f2acb0" style="color: var(--highlight-color);"><span class="__cf_email__" data-cfemail="86ede9e8f2e7edf2c6eee7f4ebe9e8ece7a8e3e2f3a8f6ea">[email&#160;protected]</span></a></strong></p>
+                            <p class="apply-option-note" style="margin-top: 12px;">Wyślij na: <strong><a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--highlight-color);">kontakt@harmonja.edu.pl</a></strong></p>
                         </div>
                     </div>
                 </div>
@@ -2139,7 +2139,7 @@
                             80-288 Gdańsk
                         </p>
                         <p style="margin-top: 10px;">
-                            Email: <a href="/cdn-cgi/l/email-protection#452e2a2b31242e31052d2437282a2b2f246b2021306b3529" style="color: #bbb; transition: color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#bbb'"><span class="__cf_email__" data-cfemail="016a6e6f75606a75416960736c6e6f6b602f6465742f716d">[email&#160;protected]</span></a>
+                            Email: <a href="mailto:kontakt@harmonja.edu.pl" style="color: #bbb; transition: color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#bbb'">kontakt@harmonja.edu.pl</a>
                         </p>
                         <p>
                             NIP: 9571190783<br>
@@ -2189,7 +2189,8 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+    <script>
         // ========================================
         // MOBILE MENU
         // ========================================
@@ -2265,7 +2266,7 @@
         });
 
         // ========================================
-        // PROCESS STEPPER ANIMATION (progressive enhancement)
+        // PROCESS STEPPER ANIMATION
         // ========================================
         var stepObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -2306,7 +2307,7 @@
         }
 
         // ========================================
-        // DOCUMENT LIST ANIMATION (progressive enhancement)
+        // DOCUMENT LIST ANIMATION
         // ========================================
         var documentObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -2365,6 +2366,7 @@
                 var faqItem = this.closest('.faq-item');
                 var isActive = faqItem.classList.contains('active');
                 
+                // Close all other items
                 document.querySelectorAll('.faq-item').forEach(function(item) {
                     if (item !== faqItem) {
                         item.classList.remove('active');
@@ -2372,6 +2374,7 @@
                     }
                 });
                 
+                // Toggle current item
                 faqItem.classList.toggle('active');
                 this.setAttribute('aria-expanded', !isActive);
             });
@@ -2394,4 +2397,34 @@
             var windowHeight = window.innerHeight;
             
             if (scrollPosition > windowHeight * 0.5) {
-                floatingCta.classList.add
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        });
+
+        // ========================================
+        // SMOOTH SCROLL
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    if (navLinks && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        mobileMenuBtn.textContent = '☰';
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
