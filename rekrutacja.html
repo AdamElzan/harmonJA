@@ -77,19 +77,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 12px 0;
         }
 
         .logo-img {
-            height: 70px;
+            height: 105px;
             width: auto;
-            max-width: 280px;
+            max-width: 380px;
             display: block;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 26px;
             align-items: center;
             list-style: none;
         }
@@ -102,6 +102,8 @@
         .dropdown-toggle {
             color: var(--text-color);
             font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
             padding: 8px 0;
             display: block;
             position: relative;
@@ -1331,7 +1333,11 @@
             }
 
             .logo-img {
-                height: 50px;
+                height: 85px;
+            }
+
+            header nav {
+                padding: 8px 0;
             }
 
             .hero h1 {
@@ -1447,7 +1453,7 @@
             <nav>
                 <div class="logo-container">
                     <a href="index.html" aria-label="HarmonJa – Strona główna">
-                        <img src="logo-harmonja.png" alt="HarmonJa – Szkoła Psychoterapii" class="logo-img">
+                        <img src="logo-harmonja.png" alt="HarmonJa – Szkoła Psychoterapii" class="logo-img" width="309" height="105" loading="eager" fetchpriority="high">
                     </a>
                 </div>
                 <button class="mobile-menu-btn" aria-label="Otwórz menu nawigacyjne" aria-expanded="false">
@@ -1677,6 +1683,10 @@
                     <p class="pricing-bank-name">Instytut Rozwoju Terapii Poznawczo-Behawioralnej HarmonJa sp.&nbsp;z&nbsp;o.o.</p>
                     <p class="pricing-bank-detail">ul.&nbsp;Politechniczna 9/7, 80-288 Gdańsk</p>
                     <p class="pricing-bank-detail">NIP: 9571190783</p>
+                    <p class="pricing-bank-detail" style="margin-top: 10px;">
+                        <strong style="color: var(--dark-blue);">Bank Millennium</strong><br>
+                        97 1160 2202 0000 0006 8072 1778
+                    </p>
                     <p class="pricing-bank-detail" style="margin-top: 10px;"><strong style="color: var(--dark-blue);">Nr rachunku:</strong> Bank Millennium</p>
                     <p class="pricing-bank-detail" style="font-family: 'Courier New', monospace; letter-spacing: 0.05em; font-size: 0.95rem; color: var(--dark-blue); margin-top: 4px;">97 1160 2202 0000 0006 8072 1778</p>
                 </div>
@@ -2066,7 +2076,7 @@
                             <h4>Wyślij e-mailem</h4>
                             <p>Pobierz pakiet dokumentów, wypełnij i&nbsp;prześlij na nasz adres e-mail.</p>
                             <a href="#" class="btn-apply-outline" id="download-docs-link">Pobierz dokumenty</a>
-                            <p class="apply-option-note" style="margin-top: 12px;">Wyślij na: <strong><a href="mailto:szkolaharmonja@gmail.com" style="color: var(--highlight-color);">szkolaharmonja@gmail.com</a></strong></p>
+                            <p class="apply-option-note" style="margin-top: 12px;">Wyślij na: <strong><a href="/cdn-cgi/l/email-protection#dcb7b3b2a8bdb7a89cb4bdaeb1b3b2b6bdf2b9b8a9f2acb0" style="color: var(--highlight-color);"><span class="__cf_email__" data-cfemail="86ede9e8f2e7edf2c6eee7f4ebe9e8ece7a8e3e2f3a8f6ea">[email&#160;protected]</span></a></strong></p>
                         </div>
                     </div>
                 </div>
@@ -2129,11 +2139,16 @@
                             80-288 Gdańsk
                         </p>
                         <p style="margin-top: 10px;">
-                            Email: <a href="mailto:szkolaharmonja@gmail.com" style="color: #bbb; transition: color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#bbb'">szkolaharmonja@gmail.com</a>
+                            Email: <a href="/cdn-cgi/l/email-protection#452e2a2b31242e31052d2437282a2b2f246b2021306b3529" style="color: #bbb; transition: color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#bbb'"><span class="__cf_email__" data-cfemail="016a6e6f75606a75416960736c6e6f6b602f6465742f716d">[email&#160;protected]</span></a>
                         </p>
                         <p>
                             NIP: 9571190783<br>
                             REGON: 542257334
+                        </p>
+                        <p style="margin-top: 10px; font-size: 0.85rem;">
+                            <span style="color: #888;">Nr rachunku:</span><br>
+                            Bank Millennium<br>
+                            97 1160 2202 0000 0006 8072 1778
                         </p>
                     </div>
                     <div class="social-links">
@@ -2169,12 +2184,12 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2025–2026 HarmonJa - Szkoła Psychoterapii CBT. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ========================================
         // MOBILE MENU
         // ========================================
@@ -2379,14 +2394,4 @@
             var windowHeight = window.innerHeight;
             
             if (scrollPosition > windowHeight * 0.5) {
-                floatingCta.classList.add('visible');
-            } else {
-                floatingCta.classList.remove('visible');
-            }
-        });
-
-        // ========================================
-        // SMOOTH SCROLL
-        // ========================================
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
+                floatingCta.classList.add
