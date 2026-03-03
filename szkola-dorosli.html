@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="4-letnie szkolenie w psychoterapii poznawczo-behawioralnej (CBT) — ścieżka ogólna. 1381 godzin dydaktycznych, superwizja, rozwój osobisty, staż kliniczny. Szkoła Psychoterapii HarmonJa.">
-    <meta property="og:title" content="Ścieżka ogólna (praca z osobami dorosłymi) — Szkoła Psychoterapii HarmonJa">
+    <meta property="og:title" content="4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych — Szkoła Psychoterapii HarmonJa">
     <meta property="og:description" content="4-letnie szkolenie CBT: 1381h dydaktycznych, 245h superwizji, 360h stażu klinicznego. Evidence-based, przygotowanie do certyfikatu PTTPB.">
     <meta property="og:type" content="website">
-    <title>Ścieżka ogólna — Szkoła Psychoterapii HarmonJa CBT</title>
+    <title>4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych — Szkoła Psychoterapii HarmonJa</title>
 
     <style>
-        /* ============================================ */
-        /* DESIGN SYSTEM TOKENS                         */
-        /* ============================================ */
         :root {
             --primary-color: #22c7d6;
             --secondary-color: #1ab6c5;
@@ -26,1209 +23,236 @@
             --cream-bg: #fef6f0;
         }
 
-        /* ============================================ */
-        /* GLOBAL RESET & BASE                          */
-        /* ============================================ */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text-color); line-height: 1.6; background-color: var(--white); -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 30px; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        .skip-to-content { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); background: var(--highlight-color); color: white; padding: 12px 24px; border-radius: 0 0 8px 8px; z-index: 100; font-weight: 600; transition: top 0.3s; }
+        .skip-to-content:focus { top: 0; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--white);
-            -webkit-font-smoothing: antialiased;
-        }
+        /* HEADER */
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 50; }
+        header nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+        .logo-container a { display: flex; align-items: center; }
+        .logo-container img { height: 105px; width: auto; display: block; }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        .nav-links { display: flex; gap: 5px; align-items: center; }
+        .nav-links li a, .dropdown-toggle { padding: 10px 15px; color: var(--text-color); font-weight: 500; font-size: 0.95rem; border-radius: 4px; transition: color 0.3s, background-color 0.3s; cursor: pointer; display: inline-block; }
+        .nav-links li a:hover, .nav-links li a:focus, .dropdown-toggle:hover, .dropdown-toggle:focus { color: var(--highlight-color); background-color: var(--light-blue); outline: none; }
+        .nav-links li a.active { color: var(--highlight-color); font-weight: 600; }
 
-        ul {
-            list-style: none;
-        }
+        .dropdown { position: relative; }
+        .dropdown-toggle { user-select: none; }
+        .dropdown-toggle::after { content: '▾'; display: inline-block; margin-left: 4px; font-size: 0.75em; transition: transform 0.3s; }
+        .dropdown:hover .dropdown-toggle::after, .dropdown-toggle[aria-expanded="true"]::after { transform: rotate(180deg); }
+        .dropdown-toggle.active { color: var(--highlight-color); font-weight: 600; }
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 320px; background: var(--white); box-shadow: 0 8px 25px rgba(0,0,0,0.12); border-radius: 8px; padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s; z-index: 60; }
+        .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu a { display: block; padding: 12px 20px; font-size: 0.9rem; transition: background 0.2s; }
+        .dropdown-menu a:hover, .dropdown-menu a:focus { background-color: var(--light-blue); color: var(--highlight-color); }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 60; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--dark-blue); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; border-radius: 2px; }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-        /* ============================================ */
-        /* SKIP TO CONTENT                              */
-        /* ============================================ */
-        .skip-to-content {
-            position: absolute;
-            top: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--highlight-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 0 0 8px 8px;
-            z-index: 100;
-            font-weight: 600;
-            transition: top 0.3s;
-        }
-
-        .skip-to-content:focus {
-            top: 0;
-        }
-
-        /* ============================================ */
-        /* HEADER                                       */
-        /* ============================================ */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        header nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-
-        .logo-container a {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-container img {
-            height: 80px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 5px;
-            align-items: center;
-        }
-
-        .nav-links li a,
-        .dropdown-toggle {
-            padding: 10px 15px;
-            color: var(--text-color);
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-radius: 4px;
-            transition: color 0.3s, background-color 0.3s;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .nav-links li a:hover,
-        .nav-links li a:focus,
-        .dropdown-toggle:hover,
-        .dropdown-toggle:focus {
-            color: var(--highlight-color);
-            background-color: var(--light-blue);
-            outline: none;
-        }
-
-        .nav-links li a.active {
-            color: var(--highlight-color);
-            font-weight: 600;
-        }
-
-        /* Dropdown */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 320px;
-            background: var(--white);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            border-radius: 8px;
-            padding: 8px 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-            z-index: 60;
-        }
-
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 12px 20px;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-
-        .dropdown-menu a:hover,
-        .dropdown-menu a:focus {
-            background-color: var(--light-blue);
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 60;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--dark-blue);
-            margin: 5px 0;
-            transition: transform 0.3s, opacity 0.3s;
-            border-radius: 2px;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* ============================================ */
-        /* HERO                                         */
-        /* ============================================ */
-        .hero {
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
-            padding: 100px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 180, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: heroFloat 20s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(34, 199, 214, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: heroFloat 25s ease-in-out infinite reverse;
-        }
-
-        @keyframes heroFloat {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-30px) translateX(20px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
-            color: white;
-            padding: 8px 24px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-
-        .hero h1 {
-            font-size: 2.6rem;
-            color: var(--dark-blue);
-            margin-bottom: 24px;
-            line-height: 1.25;
-            font-weight: 700;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero-lead {
-            font-size: 1.12rem;
-            color: #555;
-            max-width: 860px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
+        /* HERO */
+        .hero { background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%); padding: 100px 0 80px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,180,255,0.08) 0%, transparent 70%); border-radius: 50%; animation: heroFloat 20s ease-in-out infinite; }
+        .hero::after { content: ''; position: absolute; bottom: -30%; left: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(34,199,214,0.06) 0%, transparent 70%); border-radius: 50%; animation: heroFloat 25s ease-in-out infinite reverse; }
+        @keyframes heroFloat { 0%, 100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-30px) translateX(20px); } }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-badge { display: inline-block; background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%); color: white; padding: 8px 24px; border-radius: 25px; font-size: 0.9rem; font-weight: 500; margin-bottom: 24px; opacity: 0; transform: translateY(-20px); }
+        .hero h1 { font-size: 2.6rem; color: var(--dark-blue); margin-bottom: 24px; line-height: 1.25; font-weight: 700; max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0; transform: translateY(20px); }
+        .hero-lead { font-size: 1.12rem; color: #555; max-width: 860px; margin: 0 auto 40px; line-height: 1.8; opacity: 0; transform: translateY(20px); }
         .hero.animated .hero-badge { animation: fadeInUp 0.6s ease forwards; }
         .hero.animated h1 { animation: fadeInUp 0.6s ease 0.15s forwards; }
         .hero.animated .hero-lead { animation: fadeInUp 0.6s ease 0.3s forwards; }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ============================================ */
-        /* STATS SECTION (hour counters)                */
-        /* ============================================ */
-        .stats-section {
-            background-color: var(--white);
-            padding: 60px 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 180, 255, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .stat-card.animated {
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--highlight-color);
-            margin-bottom: 5px;
-            line-height: 1;
-        }
-
-        .stat-suffix {
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-color);
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .stat-sublabel {
-            font-size: 0.82rem;
-            color: #888;
-            margin-top: 4px;
-            line-height: 1.3;
-        }
-
-        /* ============================================ */
-        /* CONTENT SECTIONS                             */
-        /* ============================================ */
-        .content-section {
-            padding: 80px 0;
-        }
-
-        .content-section.alt {
-            background-color: var(--cream-bg);
-        }
-
-        .content-section.light-blue-bg {
-            background-color: var(--light-blue);
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            color: var(--dark-blue);
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 50px;
-            max-width: 860px;
-            line-height: 1.8;
-        }
-
-        /* ============================================ */
-        /* ANIMATE ON SCROLL                            */
-        /* ============================================ */
-        .animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .animate.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ============================================ */
-        /* ORGANIZATION SECTION                         */
-        /* ============================================ */
-        .org-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .org-card {
-            background: var(--white);
-            padding: 40px 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid var(--highlight-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .org-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .org-card h3 {
-            font-size: 1.3rem;
-            color: var(--dark-blue);
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .org-card p {
-            color: #555;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        .org-card .highlight-num {
-            display: inline-block;
-            font-weight: 700;
-            color: var(--highlight-color);
-            font-size: 1.05rem;
-        }
-
-        /* ============================================ */
-        /* HOUR SUMMARY CLOCKS                          */
-        /* ============================================ */
-        .hours-summary {
-            margin-top: 50px;
-        }
-
-        .hours-summary-title {
-            font-size: 1.4rem;
-            color: var(--dark-blue);
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .hours-summary-note {
-            font-size: 0.95rem;
-            color: #777;
-            margin-bottom: 30px;
-        }
-
-        .hours-total-banner {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, #0d4a7a 100%);
-            color: white;
-            padding: 28px 35px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .hours-total-banner .total-label {
-            font-size: 1.1rem;
-            font-weight: 500;
-            opacity: 0.9;
-        }
-
-        .hours-total-banner .total-number {
-            font-size: 2.6rem;
-            font-weight: 700;
-        }
-
-        .hours-total-banner .total-unit {
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.85;
-            margin-left: 4px;
-        }
-
-        .hours-detail-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .hours-detail-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 28px 24px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 180, 255, 0.08);
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .hours-detail-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .hours-clock {
-            flex-shrink: 0;
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
-            border: 3px solid var(--highlight-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hours-clock-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--highlight-color);
-            line-height: 1;
-        }
-
-        .hours-clock-unit {
-            font-size: 0.6rem;
-            font-weight: 500;
-            color: var(--dark-blue);
-            display: block;
-            text-align: center;
-            margin-top: 1px;
-        }
-
-        .hours-detail-text h4 {
-            font-size: 1rem;
-            color: var(--dark-blue);
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .hours-detail-text p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Full-width card variant */
-        .hours-detail-card.full-width {
-            grid-column: 1 / -1;
-        }
-
-        /* ============================================ */
-        /* PROGRAM CURRICULUM                           */
-        /* ============================================ */
-        .program-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        .program-hours-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .curriculum-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 16px;
-            margin-top: 35px;
-        }
-
-        .curriculum-item {
-            background: var(--white);
-            padding: 20px 22px;
-            border-radius: 8px;
-            border-left: 4px solid var(--highlight-color);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.5;
-        }
-
-        .curriculum-item:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-            border-left-color: var(--dark-blue);
-        }
-
-        .curriculum-item .item-num {
-            display: inline-block;
-            width: 26px;
-            height: 26px;
-            line-height: 26px;
-            text-align: center;
-            background: var(--light-blue);
-            color: var(--highlight-color);
-            border-radius: 50%;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        /* Show more toggle */
-        .curriculum-toggle-wrap {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .curriculum-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: none;
-            border: 2px solid var(--highlight-color);
-            color: var(--highlight-color);
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .curriculum-toggle:hover,
-        .curriculum-toggle:focus {
-            background: var(--highlight-color);
-            color: white;
-            outline: none;
-        }
-
-        .curriculum-toggle .toggle-arrow {
-            transition: transform 0.3s;
-            font-size: 0.8rem;
-        }
-
-        .curriculum-toggle.expanded .toggle-arrow {
-            transform: rotate(180deg);
-        }
-
-        .curriculum-hidden {
-            display: none;
-        }
-
-        .curriculum-hidden.visible {
-            display: grid;
-        }
-
-        /* ============================================ */
-        /* COMPETENCY PILLARS                           */
-        /* ============================================ */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .pillar-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 35px 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
-        }
-
-        .pillar-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 20px;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .pillar-icon svg {
-            width: 60px;
-            height: 60px;
-            filter: drop-shadow(0 4px 10px rgba(0, 180, 255, 0.15));
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .pillar-card:hover .pillar-icon svg {
-            transform: scale(1.12) translateY(-4px);
-            filter: drop-shadow(0 8px 20px rgba(0, 180, 255, 0.3));
-        }
-
-        .pillar-hours {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: var(--light-blue);
-            color: var(--highlight-color);
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            margin-bottom: 14px;
-        }
-
-        .pillar-card h3 {
-            font-size: 1.25rem;
-            color: var(--dark-blue);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .pillar-card p {
-            color: #555;
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        .pillar-sublist {
-            margin-top: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .pillar-sublist li {
-            position: relative;
-            padding-left: 22px;
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.5;
-        }
-
-        .pillar-sublist li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-        }
-
-        /* ============================================ */
-        /* ADDITIONAL COUNTERS (bottom hours section)   */
-        /* ============================================ */
-        .bottom-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 50px;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .bottom-stat {
-            text-align: center;
-            padding: 28px 16px;
-            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 180, 255, 0.08);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .bottom-stat.animated {
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        .bottom-stat:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .bottom-stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--highlight-color);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .bottom-stat-label {
-            font-size: 0.88rem;
-            color: var(--text-color);
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .bottom-stat-sub {
-            font-size: 0.78rem;
-            color: #888;
-            margin-top: 3px;
-        }
-
-        /* ============================================ */
-        /* CTA SECTION                                  */
-        /* ============================================ */
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta-section .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .cta-section .cta-lead {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 2px solid white;
-        }
-
-        .cta-button.primary {
-            background-color: white;
-            color: var(--highlight-color);
-        }
-
-        .cta-button.primary:hover,
-        .cta-button.primary:focus {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            outline: none;
-        }
-
-        .cta-button.secondary {
-            background-color: transparent;
-            color: white;
-        }
-
-        .cta-button.secondary:hover,
-        .cta-button.secondary:focus {
-            background-color: white;
-            color: var(--highlight-color);
-            transform: translateY(-2px);
-            outline: none;
-        }
-
-        /* ============================================ */
-        /* FOOTER                                       */
-        /* ============================================ */
-        footer {
-            background-color: #2a2a2a;
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #bbb;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .contact-info p {
-            color: #bbb;
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        .contact-info strong {
-            color: #ddd;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: #bbb;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-        }
-
-        .social-link:hover {
-            background: var(--highlight-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #888;
-            font-size: 0.85rem;
-        }
-
-        /* ============================================ */
-        /* RESPONSIVE                                   */
-        /* ============================================ */
+        .hero.animated .uwaga-banner { animation: fadeInUp 0.6s ease 0.45s forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* STATS */
+        .stats-section { background-color: var(--white); padding: 60px 0; position: relative; z-index: 2; }
+        .stats-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+        .stat-card { background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%); padding: 30px 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid rgba(0,180,255,0.08); transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; opacity: 0; transform: translateY(30px); }
+        .stat-card.animated { animation: fadeInUp 0.5s ease forwards; }
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%); }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .stat-number { font-size: 3rem; font-weight: 700; color: var(--highlight-color); margin-bottom: 5px; line-height: 1; }
+        .stat-suffix { font-size: 1.5rem; font-weight: 500; }
+        .stat-label { font-size: 0.95rem; color: var(--text-color); font-weight: 500; line-height: 1.4; }
+        .stat-sublabel { font-size: 0.82rem; color: #888; margin-top: 4px; line-height: 1.3; }
+
+        /* CONTENT SECTIONS */
+        .content-section { padding: 80px 0; }
+        .content-section.alt { background-color: var(--cream-bg); }
+        .content-section.light-blue-bg { background-color: var(--light-blue); }
+        .section-title { font-size: 2.2rem; color: var(--dark-blue); margin-bottom: 20px; font-weight: 700; line-height: 1.3; }
+        .section-subtitle { font-size: 1.1rem; color: #555; margin-bottom: 50px; max-width: 860px; line-height: 1.8; }
+        .animate { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .animate.in-view { opacity: 1; transform: translateY(0); }
+
+        /* UWAGA BANNER */
+        .uwaga-banner { background: linear-gradient(135deg, #fff3cd 0%, #fef9e7 100%); border-left: 4px solid #f0ad4e; padding: 20px 28px; border-radius: 8px; margin: 30px 0 40px; font-size: 1rem; color: #856404; line-height: 1.6; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .uwaga-banner strong { color: #6d3a00; }
+
+        /* ORG GRID */
+        .org-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
+        .org-card { background: var(--white); padding: 40px 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--highlight-color); transition: transform 0.3s, box-shadow 0.3s; }
+        .org-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .org-card h3 { font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 16px; font-weight: 600; }
+        .org-card p { color: #555; line-height: 1.7; font-size: 1rem; }
+        .org-card .highlight-num { display: inline-block; font-weight: 700; color: var(--highlight-color); font-size: 1.05rem; }
+
+        /* HOURS SUMMARY */
+        .hours-summary { margin-top: 50px; }
+        .hours-summary-title { font-size: 1.4rem; color: var(--dark-blue); font-weight: 600; margin-bottom: 8px; }
+        .hours-summary-note { font-size: 0.95rem; color: #777; margin-bottom: 30px; }
+        .hours-total-banner { background: linear-gradient(135deg, var(--dark-blue) 0%, #0d4a7a 100%); color: white; padding: 28px 35px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 16px; }
+        .hours-total-banner .total-label { font-size: 1.1rem; font-weight: 500; opacity: 0.9; }
+        .hours-total-banner .total-number { font-size: 2.6rem; font-weight: 700; }
+        .hours-total-banner .total-unit { font-size: 1rem; font-weight: 400; opacity: 0.85; margin-left: 4px; }
+        .hours-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .hours-detail-card { background: var(--white); border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid rgba(0,180,255,0.08); display: flex; align-items: flex-start; gap: 20px; transition: transform 0.3s, box-shadow 0.3s; }
+        .hours-detail-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+        .hours-clock { flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%); border: 3px solid var(--highlight-color); display: flex; align-items: center; justify-content: center; }
+        .hours-clock-value { font-size: 1.1rem; font-weight: 700; color: var(--highlight-color); line-height: 1; }
+        .hours-clock-unit { font-size: 0.6rem; font-weight: 500; color: var(--dark-blue); display: block; text-align: center; margin-top: 1px; }
+        .hours-detail-text h4 { font-size: 1rem; color: var(--dark-blue); font-weight: 600; margin-bottom: 6px; }
+        .hours-detail-text p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+        .hours-detail-card.full-width { grid-column: 1 / -1; }
+
+        /* CURRICULUM */
+        .program-header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+        .program-hours-badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+        .curriculum-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-top: 35px; }
+        .curriculum-item { background: var(--white); padding: 20px 22px; border-radius: 8px; border-left: 4px solid var(--highlight-color); box-shadow: 0 2px 8px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; font-size: 0.95rem; color: #444; line-height: 1.5; }
+        .curriculum-item:hover { transform: translateX(4px); box-shadow: 0 4px 15px rgba(0,0,0,0.07); border-left-color: var(--dark-blue); }
+        .curriculum-item .item-num { display: inline-block; width: 26px; height: 26px; line-height: 26px; text-align: center; background: var(--light-blue); color: var(--highlight-color); border-radius: 50%; font-size: 0.75rem; font-weight: 700; margin-right: 10px; }
+        .curriculum-toggle-wrap { text-align: center; margin-top: 30px; }
+        .curriculum-toggle { display: inline-flex; align-items: center; gap: 8px; background: none; border: 2px solid var(--highlight-color); color: var(--highlight-color); padding: 12px 28px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+        .curriculum-toggle:hover, .curriculum-toggle:focus { background: var(--highlight-color); color: white; outline: none; }
+        .curriculum-toggle .toggle-arrow { transition: transform 0.3s; font-size: 0.8rem; }
+        .curriculum-toggle.expanded .toggle-arrow { transform: rotate(180deg); }
+        .curriculum-hidden { display: none; }
+        .curriculum-hidden.visible { display: grid; }
+
+        /* PILLARS */
+        .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+        .pillar-card { background: var(--white); border-radius: 12px; padding: 35px 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%); }
+        .pillar-icon { width: 60px; height: 60px; margin-bottom: 20px; }
+        .pillar-icon svg { width: 60px; height: 60px; filter: drop-shadow(0 4px 10px rgba(0,180,255,0.15)); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pillar-card:hover .pillar-icon svg { transform: scale(1.12) translateY(-4px); filter: drop-shadow(0 8px 20px rgba(0,180,255,0.3)); }
+        .pillar-hours { display: inline-flex; align-items: center; gap: 4px; background: var(--light-blue); color: var(--highlight-color); padding: 4px 12px; border-radius: 16px; font-size: 0.82rem; font-weight: 700; margin-bottom: 14px; }
+        .pillar-card h3 { font-size: 1.25rem; color: var(--dark-blue); margin-bottom: 12px; font-weight: 600; }
+        .pillar-card p { color: #555; line-height: 1.7; font-size: 0.95rem; }
+        .pillar-sublist { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+        .pillar-sublist li { position: relative; padding-left: 22px; font-size: 0.9rem; color: #555; line-height: 1.5; }
+        .pillar-sublist li::before { content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--highlight-color), var(--primary-color)); }
+
+        /* BOTTOM STATS */
+        .bottom-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+        .bottom-stat { text-align: center; padding: 28px 16px; background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%); border-radius: 12px; border: 1px solid rgba(0,180,255,0.08); box-shadow: 0 2px 10px rgba(0,0,0,0.04); transition: transform 0.3s, box-shadow 0.3s; opacity: 0; transform: translateY(20px); }
+        .bottom-stat.animated { animation: fadeInUp 0.5s ease forwards; }
+        .bottom-stat:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+        .bottom-stat-number { font-size: 2.2rem; font-weight: 700; color: var(--highlight-color); line-height: 1; margin-bottom: 6px; }
+        .bottom-stat-label { font-size: 0.88rem; color: var(--text-color); font-weight: 500; line-height: 1.4; }
+        .bottom-stat-sub { font-size: 0.78rem; color: #888; margin-top: 3px; }
+
+        /* CTA */
+        .cta-section { padding: 80px 0; background: linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%); color: white; text-align: center; position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; }
+        .cta-section .container { position: relative; z-index: 2; }
+        .cta-section h2 { font-size: 2.2rem; margin-bottom: 12px; font-weight: 700; }
+        .cta-section .cta-lead { font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .cta-button { display: inline-block; padding: 16px 36px; border-radius: 8px; font-weight: 600; font-size: 1.05rem; transition: all 0.3s; cursor: pointer; border: 2px solid white; }
+        .cta-button.primary { background-color: white; color: var(--highlight-color); }
+        .cta-button.primary:hover, .cta-button.primary:focus { background-color: transparent; color: white; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); outline: none; }
+        .cta-button.secondary { background-color: transparent; color: white; }
+        .cta-button.secondary:hover, .cta-button.secondary:focus { background-color: white; color: var(--highlight-color); transform: translateY(-2px); outline: none; }
+
+        /* FOOTER */
+        footer { background-color: #2a2a2a; color: white; padding: 60px 0 30px; }
+        .footer-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-col h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #bbb; font-size: 0.95rem; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .contact-info p { color: #bbb; font-size: 0.9rem; line-height: 1.7; margin-bottom: 8px; }
+        .contact-info strong { color: #ddd; }
+        .social-links { display: flex; gap: 12px; margin-top: 20px; }
+        .social-icon { width: 40px; height: 40px; background-color: #444; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s; color: white; }
+        .social-icon:hover, .social-icon:focus { background: linear-gradient(135deg, var(--highlight-color), var(--primary-color)); transform: translateY(-3px); outline: none; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #444; color: #888; font-size: 0.85rem; }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: var(--white);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 8px;
-                z-index: 55;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                min-width: auto;
-                padding: 0;
-                background: transparent;
-            }
-
-            .dropdown-menu a {
-                padding: 8px 16px;
-                font-size: 0.85rem;
-                color: #666;
-            }
-
-            .logo-container img {
-                height: 65px;
-            }
-
-            .hero {
-                padding: 80px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 1.9rem;
-            }
-
-            .hero-lead {
-                font-size: 1rem;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-
-            .stat-number {
-                font-size: 2.4rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .org-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .hours-detail-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hours-total-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .curriculum-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pillars-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .bottom-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 320px;
-                text-align: center;
-            }
+            .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 8px; z-index: 55; }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .dropdown-menu { position: static; box-shadow: none; transform: none; opacity: 1; visibility: visible; min-width: auto; padding: 0; background: transparent; }
+            .dropdown-menu a { padding: 8px 16px; font-size: 0.85rem; color: #666; }
+            .logo-container img { height: 85px; }
+            .hero { padding: 80px 0 60px; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero-lead { font-size: 1rem; }
+            .stats-container { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .stat-number { font-size: 2.4rem; }
+            .section-title { font-size: 1.8rem; }
+            .org-grid { grid-template-columns: 1fr; gap: 24px; }
+            .hours-detail-grid { grid-template-columns: 1fr; }
+            .hours-total-banner { flex-direction: column; text-align: center; }
+            .curriculum-grid { grid-template-columns: 1fr; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .bottom-stats { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .cta-button { width: 100%; max-width: 320px; text-align: center; }
         }
-
         @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .hero {
-                padding: 60px 0 40px;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .content-section {
-                padding: 60px 0;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .bottom-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .bottom-stat-number {
-                font-size: 1.8rem;
-            }
-
-            .cta-section h2 {
-                font-size: 1.7rem;
-            }
+            .container { padding: 0 16px; }
+            .hero { padding: 60px 0 40px; }
+            .hero h1 { font-size: 1.6rem; }
+            .content-section { padding: 60px 0; }
+            .stats-container { grid-template-columns: 1fr 1fr; }
+            .stat-number { font-size: 2rem; }
+            .bottom-stats { grid-template-columns: 1fr 1fr; }
+            .bottom-stat-number { font-size: 1.8rem; }
+            .cta-section h2 { font-size: 1.7rem; }
+            .footer-container { grid-template-columns: 1fr; }
         }
-
-        /* ============================================ */
-        /* SCREEN READER ONLY                           */
-        /* ============================================ */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
     </style>
 </head>
 <body>
-    <!-- Skip to content -->
     <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
-    <!-- ============================================ -->
-    <!-- HEADER                                       -->
-    <!-- ============================================ -->
+    <!-- HEADER -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
                     <a href="index.html" aria-label="HarmonJa - Strona główna">
-                        <img src="logo-harmonja.png" alt="Logo Szkoła Psychoterapii HarmonJa" height="80">
+                        <img src="logo-harmonja.png" alt="Logo Szkoła Psychoterapii HarmonJa" width="308" height="105" loading="eager" fetchpriority="high">
                     </a>
                 </div>
-
                 <button class="mobile-menu-btn" aria-label="Menu nawigacji" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
-
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
-                    <li role="none"><a href="o-nas.html" role="menuitem">O nas</a></li>
+                    <li role="none"><a href="o-nas.html" role="menuitem">O&nbsp;nas</a></li>
                     <li class="dropdown" role="none">
-                        <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
+                        <span class="dropdown-toggle active" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
                             <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
                             <li role="none"><a href="szkola-dorosli.html" role="menuitem" class="active">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
@@ -1243,14 +267,8 @@
         </div>
     </header>
 
-    <!-- ============================================ -->
-    <!-- MAIN CONTENT                                 -->
-    <!-- ============================================ -->
     <main id="main-content">
-
-        <!-- ======================================== -->
-        <!-- SEKCJA 1: HERO                           -->
-        <!-- ======================================== -->
+        <!-- HERO -->
         <section class="hero" aria-label="Wprowadzenie do programu">
             <div class="container">
                 <div class="hero-content">
@@ -1259,13 +277,14 @@
                     <p class="hero-lead">
                         Obejmuje pełne przygotowanie do pracy z&nbsp;osobami dorosłymi oraz pogłębiony moduł dotyczący pracy z&nbsp;dziećmi i&nbsp;młodzieżą. Program rozwija kompetencje w&nbsp;zakresie diagnozy, konceptualizacji i&nbsp;terapii pacjentów w&nbsp;wieku rozwojowym oraz ich rodzin, z&nbsp;uwzględnieniem specyfiki rozwoju, kontekstu rodzinnego i&nbsp;środowiskowego.
                     </p>
+                    <div class="uwaga-banner" role="alert" style="max-width: 860px; margin: 0 auto; text-align: left;">
+                        <strong>UWAGA:</strong> Program zostanie uruchomiony pod warunkiem uzyskania rekomendacji PTTPB.
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SEKCJA 2: STATYSTYKI (zegary godzin)     -->
-        <!-- ======================================== -->
+        <!-- STATS -->
         <section class="stats-section" aria-label="Statystyki programu">
             <div class="container">
                 <div class="stats-container">
@@ -1293,9 +312,7 @@
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SEKCJA 3: CEL SZKOLENIA                  -->
-        <!-- ======================================== -->
+        <!-- CEL SZKOLENIA -->
         <section class="content-section" aria-label="Cel szkolenia">
             <div class="container">
                 <h2 class="section-title animate">Cel szkolenia</h2>
@@ -1305,9 +322,7 @@
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SEKCJA 4: JAK ZORGANIZOWANE              -->
-        <!-- ======================================== -->
+        <!-- ORGANIZACJA + UWAGA BANNER -->
         <section class="content-section alt" aria-label="Organizacja szkolenia">
             <div class="container">
                 <h2 class="section-title animate">Jak zorganizowane jest szkolenie?</h2>
@@ -1319,93 +334,44 @@
                 <div class="hours-summary animate">
                     <h3 class="hours-summary-title">Podsumowanie godzinowe</h3>
                     <p class="hours-summary-note">Struktura wspólna dla obu ścieżek kształcenia</p>
-
                     <div class="hours-total-banner">
-                        <div>
-                            <div class="total-label">Łącznie godzin dydaktycznych w 4 lata</div>
-                        </div>
-                        <div>
-                            <span class="total-number"><span class="counter" data-target="1381">0</span></span><span class="total-unit">h</span>
-                        </div>
+                        <div><div class="total-label">Łącznie godzin dydaktycznych w 4 lata</div></div>
+                        <div><span class="total-number"><span class="counter" data-target="1381">0</span></span><span class="total-unit">h</span></div>
                     </div>
-
                     <div class="org-grid" style="margin-top: 0;">
                         <div class="org-card animate">
                             <h3>W Ośrodku</h3>
-                            <p>
-                                <span class="highlight-num">1021 godzin</span> zajęć realizowanych w&nbsp;Ośrodku — teoria, praktyka, superwizja i&nbsp;rozwój osobisty.
-                            </p>
+                            <p><span class="highlight-num">1021 godzin</span> zajęć realizowanych w&nbsp;Ośrodku — teoria, praktyka, superwizja i&nbsp;rozwój osobisty.</p>
                         </div>
                         <div class="org-card animate">
                             <h3>Staż kliniczny</h3>
-                            <p>
-                                <span class="highlight-num">360 godzin</span> stażu klinicznego realizowanego przez Uczestnika, potwierdzane osobnym zaświadczeniem.
-                            </p>
+                            <p><span class="highlight-num">360 godzin</span> stażu klinicznego realizowanego przez Uczestnika, potwierdzane osobnym zaświadczeniem.</p>
                         </div>
                     </div>
-
                     <h3 class="hours-summary-title" style="margin-top: 40px;">W ramach 1021 godzin w Ośrodku</h3>
-
                     <div class="hours-detail-grid" style="margin-top: 20px;">
                         <div class="hours-detail-card full-width animate">
-                            <div class="hours-clock">
-                                <div>
-                                    <div class="hours-clock-value">800</div>
-                                    <div class="hours-clock-unit">h</div>
-                                </div>
-                            </div>
-                            <div class="hours-detail-text">
-                                <h4>Zjazdy weekendowe</h4>
-                                <p>40 zjazdów × 20 godzin — obejmują zajęcia teoretyczne i&nbsp;warsztatowe oraz superwizję w&nbsp;cyklu.</p>
-                            </div>
+                            <div class="hours-clock"><div><div class="hours-clock-value">800</div><div class="hours-clock-unit">h</div></div></div>
+                            <div class="hours-detail-text"><h4>Zjazdy weekendowe</h4><p>40 zjazdów × 20 godzin — obejmują zajęcia teoretyczne i&nbsp;warsztatowe oraz superwizję w&nbsp;cyklu.</p></div>
                         </div>
-
                         <div class="hours-detail-card animate">
-                            <div class="hours-clock">
-                                <div>
-                                    <div class="hours-clock-value">245</div>
-                                    <div class="hours-clock-unit">h</div>
-                                </div>
-                            </div>
-                            <div class="hours-detail-text">
-                                <h4>Superwizja CBT</h4>
-                                <p>Superwizja w&nbsp;ramach zjazdów oraz superwizja w&nbsp;małych grupach.</p>
-                            </div>
+                            <div class="hours-clock"><div><div class="hours-clock-value">245</div><div class="hours-clock-unit">h</div></div></div>
+                            <div class="hours-detail-text"><h4>Superwizja CBT</h4><p>Superwizja w&nbsp;ramach zjazdów oraz superwizja w&nbsp;małych grupach.</p></div>
                         </div>
-
                         <div class="hours-detail-card animate">
-                            <div class="hours-clock">
-                                <div>
-                                    <div class="hours-clock-value">60</div>
-                                    <div class="hours-clock-unit">h</div>
-                                </div>
-                            </div>
-                            <div class="hours-detail-text">
-                                <h4>Zespoły konsultacyjne</h4>
-                                <p>I rok: 30 h, II–IV rok: po 10 h rocznie.</p>
-                            </div>
+                            <div class="hours-clock"><div><div class="hours-clock-value">60</div><div class="hours-clock-unit">h</div></div></div>
+                            <div class="hours-detail-text"><h4>Zespoły konsultacyjne</h4><p>I rok: 30 h, II–IV rok: po 10 h rocznie.</p></div>
                         </div>
-
                         <div class="hours-detail-card full-width animate">
-                            <div class="hours-clock">
-                                <div>
-                                    <div class="hours-clock-value">116</div>
-                                    <div class="hours-clock-unit">h</div>
-                                </div>
-                            </div>
-                            <div class="hours-detail-text">
-                                <h4>Rozwój osobisty</h4>
-                                <p>SPSR (36 h), trening DBT (48 h), mindfulness retreat (32 h).</p>
-                            </div>
+                            <div class="hours-clock"><div><div class="hours-clock-value">116</div><div class="hours-clock-unit">h</div></div></div>
+                            <div class="hours-detail-text"><h4>Rozwój osobisty</h4><p>SPSR (36 h), trening DBT (48 h), mindfulness retreat (32 h).</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SEKCJA 5: PEŁNY PROGRAM TEMATYCZNY       -->
-        <!-- ======================================== -->
+        <!-- PROGRAM TEMATYCZNY -->
         <section class="content-section" aria-label="Program tematyczny">
             <div class="container">
                 <div class="program-header animate">
@@ -1415,8 +381,6 @@
                 <p class="section-subtitle animate">
                     Ta ścieżka obejmuje 600 godzin zajęć warsztatowo-wykładowych w&nbsp;cyklu 4-letnim, realizowanych w&nbsp;formie zjazdów weekendowych.
                 </p>
-
-                <!-- Widoczne pierwsze 12 tematów -->
                 <div class="curriculum-grid animate" id="curriculum-visible">
                     <div class="curriculum-item"><span class="item-num">1</span>Wprowadzenie do psychoterapii poznawczo-behawioralnej</div>
                     <div class="curriculum-item"><span class="item-num">2</span>Psychopatologia, diagnoza nozologiczna, biologiczne podstawy zaburzeń psychicznych i&nbsp;podstawy farmakoterapii</div>
@@ -1431,8 +395,6 @@
                     <div class="curriculum-item"><span class="item-num">11</span>Zaburzenia odżywiania</div>
                     <div class="curriculum-item"><span class="item-num">12</span>Schizofrenia, psychozy i&nbsp;zaburzenia neuropoznawcze</div>
                 </div>
-
-                <!-- Ukryte pozostałe tematy -->
                 <div class="curriculum-grid curriculum-hidden" id="curriculum-hidden">
                     <div class="curriculum-item"><span class="item-num">13</span>Zaburzenia związane ze stresem i&nbsp;traumą: PTSD (perspektywa CBT)</div>
                     <div class="curriculum-item"><span class="item-num">14</span>Złożone PTSD (CPTSD) — potraumatyczny rozwój osobowości (perspektywa CBT)</div>
@@ -1454,15 +416,12 @@
                     <div class="curriculum-item"><span class="item-num">30</span>Zagadnienia etyczne i&nbsp;prawne w&nbsp;psychoterapii</div>
                     <div class="curriculum-item"><span class="item-num">31</span>Wsparcie w&nbsp;stracie, żałobie i&nbsp;chorobach onkologicznych (perspektywa CBT)</div>
                 </div>
-
                 <div class="curriculum-toggle-wrap">
                     <button class="curriculum-toggle" id="toggleCurriculum" aria-expanded="false" aria-controls="curriculum-hidden">
                         <span class="toggle-text">Pokaż pełny program</span>
                         <span class="toggle-arrow" aria-hidden="true">▼</span>
                     </button>
                 </div>
-
-                <!-- Ponadto — bottom stats -->
                 <div class="bottom-stats" aria-label="Dodatkowe godziny szkolenia">
                     <div class="bottom-stat" data-delay="0">
                         <div class="bottom-stat-number"><span class="counter" data-target="245">0</span>h</div>
@@ -1485,145 +444,82 @@
                         <div class="bottom-stat-sub">osobne zaświadczenie</div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SEKCJA 6: FILARY KOMPETENCJI             -->
-        <!-- ======================================== -->
+        <!-- FILARY KOMPETENCJI -->
         <section class="content-section light-blue-bg" aria-label="Elementy budujące kompetencję kliniczną">
             <div class="container">
                 <h2 class="section-title animate">Elementy programu, które budują kompetencję kliniczną</h2>
-                <p class="section-subtitle animate">
-                    Oprócz zajęć warsztatowo-wykładowych, szkolenie obejmuje cztery kluczowe filary rozwoju klinicznego — każdy z&nbsp;nich jest integralną częścią programu.
-                </p>
-
+                <p class="section-subtitle animate">Oprócz zajęć warsztatowo-wykładowych, szkolenie obejmuje cztery kluczowe filary rozwoju klinicznego — każdy z&nbsp;nich jest integralną częścią programu.</p>
                 <div class="pillars-grid">
-                    <!-- Superwizja -->
                     <div class="pillar-card animate">
                         <div class="pillar-icon" aria-hidden="true">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="26" cy="26" r="12" stroke="url(#gradPillar1)" stroke-width="2"/>
-                                <line x1="35" y1="35" x2="45" y2="45" stroke="url(#gradPillar1)" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="26" cy="26" r="5" stroke="url(#gradPillar1)" stroke-width="1.5" opacity="0.5"/>
-                                <circle cx="26" cy="26" r="2" fill="url(#gradPillar1)"/>
-                                <defs>
-                                    <linearGradient id="gradPillar1" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                                <circle cx="26" cy="26" r="12" stroke="url(#gP1)" stroke-width="2"/><line x1="35" y1="35" x2="45" y2="45" stroke="url(#gP1)" stroke-width="2.5" stroke-linecap="round"/><circle cx="26" cy="26" r="5" stroke="url(#gP1)" stroke-width="1.5" opacity="0.5"/><circle cx="26" cy="26" r="2" fill="url(#gP1)"/>
+                                <defs><linearGradient id="gP1" x1="0" y1="0" x2="60" y2="60"><stop offset="0%" stop-color="#00b4ff"/><stop offset="100%" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="pillar-hours">245 godzin</div>
                         <h3>Superwizja — filar szkolenia</h3>
-                        <p>
-                            Superwizja jest stałym elementem procesu kształcenia. W&nbsp;jej ramach minimum 200&nbsp;godzin praktyki terapeutycznej jest omawiane i&nbsp;prowadzone w&nbsp;trybie superwizyjnym (superwizowana praktyka kliniczna).
-                        </p>
+                        <p>Superwizja jest stałym elementem procesu kształcenia. W&nbsp;jej ramach minimum 200&nbsp;godzin praktyki terapeutycznej jest omawiane i&nbsp;prowadzone w&nbsp;trybie superwizyjnym (superwizowana praktyka kliniczna).</p>
                     </div>
-
-                    <!-- Zespoły konsultacyjne -->
                     <div class="pillar-card animate">
                         <div class="pillar-icon" aria-hidden="true">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="30" cy="20" r="7" stroke="url(#gradPillar2)" stroke-width="2"/>
-                                <circle cx="18" cy="34" r="5.5" stroke="url(#gradPillar2)" stroke-width="2"/>
-                                <circle cx="42" cy="34" r="5.5" stroke="url(#gradPillar2)" stroke-width="2"/>
-                                <line x1="25" y1="26" x2="20" y2="30" stroke="url(#gradPillar2)" stroke-width="1.5" stroke-linecap="round"/>
-                                <line x1="35" y1="26" x2="40" y2="30" stroke="url(#gradPillar2)" stroke-width="1.5" stroke-linecap="round"/>
-                                <line x1="24" y1="37" x2="36" y2="37" stroke="url(#gradPillar2)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-                                <defs>
-                                    <linearGradient id="gradPillar2" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                                <circle cx="30" cy="20" r="7" stroke="url(#gP2)" stroke-width="2"/><circle cx="18" cy="34" r="5.5" stroke="url(#gP2)" stroke-width="2"/><circle cx="42" cy="34" r="5.5" stroke="url(#gP2)" stroke-width="2"/><line x1="25" y1="26" x2="20" y2="30" stroke="url(#gP2)" stroke-width="1.5" stroke-linecap="round"/><line x1="35" y1="26" x2="40" y2="30" stroke="url(#gP2)" stroke-width="1.5" stroke-linecap="round"/>
+                                <defs><linearGradient id="gP2" x1="0" y1="0" x2="60" y2="60"><stop offset="0%" stop-color="#00b4ff"/><stop offset="100%" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="pillar-hours">60 godzin</div>
                         <h3>Zespoły konsultacyjne</h3>
-                        <p>
-                            Od pierwszego roku pracujesz w&nbsp;małej grupie (do 6 osób) prowadzonej przez certyfikowanego terapeutę CBT. To przestrzeń pracy nad przypadkami, konceptualizacją, planowaniem interwencji, a&nbsp;także nad projektem klinicznym realizowanym w&nbsp;cyklu szkolenia.
-                        </p>
+                        <p>Od pierwszego roku pracujesz w&nbsp;małej grupie (do 6 osób) prowadzonej przez certyfikowanego terapeutę CBT. To przestrzeń pracy nad przypadkami, konceptualizacją, planowaniem interwencji, a&nbsp;także nad projektem klinicznym realizowanym w&nbsp;cyklu szkolenia.</p>
                     </div>
-
-                    <!-- Rozwój osobisty -->
                     <div class="pillar-card animate">
                         <div class="pillar-icon" aria-hidden="true">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30 45V28" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M30 28C30 28 22 24 22 18C22 13 27 12 30 16" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M30 24C30 24 38 20 38 14C38 9 33 8 30 12" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="30" cy="28" r="3" fill="url(#gradPillar3)" opacity="0.3"/>
-                                <path d="M24 45H36" stroke="url(#gradPillar3)" stroke-width="2" stroke-linecap="round"/>
-                                <defs>
-                                    <linearGradient id="gradPillar3" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                                <path d="M30 45V28" stroke="url(#gP3)" stroke-width="2" stroke-linecap="round"/><path d="M30 28C30 28 22 24 22 18C22 13 27 12 30 16" stroke="url(#gP3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 24C30 24 38 20 38 14C38 9 33 8 30 12" stroke="url(#gP3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="28" r="3" fill="url(#gP3)" opacity="0.3"/><path d="M24 45H36" stroke="url(#gP3)" stroke-width="2" stroke-linecap="round"/>
+                                <defs><linearGradient id="gP3" x1="0" y1="0" x2="60" y2="60"><stop offset="0%" stop-color="#00b4ff"/><stop offset="100%" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="pillar-hours">116 godzin · w ramach czesnego</div>
                         <h3>Rozwój osobisty terapeuty</h3>
-                        <p>
-                            Program obejmuje 116 godzin zajęć rozwoju osobistego:
-                        </p>
+                        <p>Program obejmuje 116 godzin zajęć rozwoju osobistego:</p>
                         <ul class="pillar-sublist">
                             <li><strong>Self-Practice / Self-Reflection (SPSR)</strong> — 36 h: ustrukturyzowana praca własna terapeuty w&nbsp;podejściu CBT.</li>
                             <li><strong>Trening umiejętności DBT</strong> — 48 h: praktyczny trening kompetencji pracy z&nbsp;wysoką dysregulacją emocjonalną.</li>
                             <li><strong>Mindfulness retreat</strong> — 32 h (4-dniowy moduł): pogłębiona praktyka uważności i&nbsp;integracja z&nbsp;pracą terapeutyczną.</li>
                         </ul>
                     </div>
-
-                    <!-- Staż kliniczny -->
                     <div class="pillar-card animate">
                         <div class="pillar-icon" aria-hidden="true">
                             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="15" y="22" width="30" height="24" stroke="url(#gradPillar4)" stroke-width="2" rx="2"/>
-                                <path d="M15 28H45" stroke="url(#gradPillar4)" stroke-width="1.5" opacity="0.4"/>
-                                <path d="M24 14H36V22H24V14Z" stroke="url(#gradPillar4)" stroke-width="2" rx="1"/>
-                                <path d="M30 32V40" stroke="url(#gradPillar4)" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M26 36H34" stroke="url(#gradPillar4)" stroke-width="2" stroke-linecap="round"/>
-                                <defs>
-                                    <linearGradient id="gradPillar4" x1="0" y1="0" x2="60" y2="60">
-                                        <stop offset="0%" stop-color="#00b4ff"/>
-                                        <stop offset="100%" stop-color="#22c7d6"/>
-                                    </linearGradient>
-                                </defs>
+                                <rect x="15" y="22" width="30" height="24" stroke="url(#gP4)" stroke-width="2" rx="2"/><path d="M15 28H45" stroke="url(#gP4)" stroke-width="1.5" opacity="0.4"/><path d="M24 14H36V22H24V14Z" stroke="url(#gP4)" stroke-width="2" rx="1"/><path d="M30 32V40" stroke="url(#gP4)" stroke-width="2" stroke-linecap="round"/><path d="M26 36H34" stroke="url(#gP4)" stroke-width="2" stroke-linecap="round"/>
+                                <defs><linearGradient id="gP4" x1="0" y1="0" x2="60" y2="60"><stop offset="0%" stop-color="#00b4ff"/><stop offset="100%" stop-color="#22c7d6"/></linearGradient></defs>
                             </svg>
                         </div>
                         <div class="pillar-hours">360 godzin</div>
                         <h3>Staż kliniczny</h3>
-                        <p>
-                            Program obejmuje 360 godzin stażu klinicznego, realizowanego w&nbsp;placówkach prowadzących diagnostykę i&nbsp;terapię osób z&nbsp;zaburzeniami psychicznymi (potwierdzane osobnym zaświadczeniem).
-                        </p>
+                        <p>Program obejmuje 360 godzin stażu klinicznego, realizowanego w&nbsp;placówkach prowadzących diagnostykę i&nbsp;terapię osób z&nbsp;zaburzeniami psychicznymi (potwierdzane osobnym zaświadczeniem).</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- SEKCJA 7: CTA                            -->
-        <!-- ======================================== -->
+        <!-- CTA -->
         <section class="cta-section" aria-label="Zaproszenie do szkoły">
             <div class="container">
                 <h2 class="animate">Chcesz się rozwijać razem z&nbsp;nami?</h2>
-                <p class="cta-lead animate">
-                    Dołącz do szkoły, która łączy naukę z&nbsp;pasją i&nbsp;praktyką kliniczną.
-                </p>
+                <p class="cta-lead animate">Dołącz do szkoły, która łączy naukę z&nbsp;pasją i&nbsp;praktyką kliniczną.</p>
                 <div class="cta-buttons animate">
                     <a href="rekrutacja.html" class="cta-button primary">Zapisz się na rozmowę kwalifikacyjną</a>
-                    <a href="szkola-dzieci-mlodziez.html" class="cta-button secondary">Dowiedz się więcej o programie</a>
+                    <a href="szkola-dzieci-mlodziez.html" class="cta-button secondary">Dowiedz się więcej o&nbsp;programie</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ============================================ -->
-    <!-- FOOTER                                       -->
-    <!-- ============================================ -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -1631,8 +527,8 @@
                     <h3>Szkoła</h3>
                     <ul class="footer-links">
                         <li><a href="o-nas.html">O nas</a></li>
-                        <li><a href="szkola-dzieci-mlodziez.html">Ścieżka — wiek rozwojowy</a></li>
-                        <li><a href="szkola-dorosli.html">Ścieżka ogólna</a></li>
+                        <li><a href="szkola-dorosli.html">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
                         <li><a href="kadra.html">Kadra</a></li>
                     </ul>
                 </div>
@@ -1641,7 +537,7 @@
                     <ul class="footer-links">
                         <li><a href="rekrutacja.html">Rekrutacja</a></li>
                         <li><a href="szkolenia-superwizja.html">Szkolenia i Superwizja</a></li>
-                        <li><a href="kontakt.html">Kontakt / FAQ</a></li>
+                        <li><a href="kontakt.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1651,42 +547,64 @@
                         <p>prowadzona przez</p>
                         <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp. z o.o.</p>
                         <p style="margin-top: 15px;">
-                            ul. Wały Piastowskie 1/1508<br>
-                            80-855 Gdańsk
+                            ul. Politechniczna 9/7<br>
+                            80-288 Gdańsk
+                        </p>
+                        <p style="margin-top: 10px;">
+                            Email: <a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--primary-color); transition: color 0.3s;">kontakt@harmonja.edu.pl</a>
+                        </p>
+                        <p>
+                            NIP: 9571190783<br>
+                            REGON: 542257334
+                        </p>
+                        <p style="margin-top: 10px; font-size: 0.82rem;">
+                            Nr rachunku: Bank Millennium<br>
+                            97 1160 2202 0000 0006 8072 1778
                         </p>
                     </div>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61575438205498" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">f</a>
-                        <a href="https://www.instagram.com/szkola_psychoterapii_harmonja/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
-                        <a href="https://www.youtube.com/@wglowiesiemiesci3561" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">yt</a>
+                        <a href="https://www.facebook.com/szkola.harmonja/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/szkola-harmonja/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/szkola.harmonja/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@wglowiesiemiesci3561" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
                     </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Informacje</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Polityka prywatności</a></li>
+                        <li><a href="#">Regulamin</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Szkoła Psychoterapii HarmonJa. Wszystkie prawa zastrzeżone.</p>
+                <p>&copy; 2025 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ============================================ -->
-    <!-- SCRIPTS                                      -->
-    <!-- ============================================ -->
+    <!-- SCRIPTS -->
     <script>
-        /* ====================== */
-        /* Mobile Menu            */
-        /* ====================== */
+        /* Mobile Menu */
         (function() {
             var btn = document.querySelector('.mobile-menu-btn');
             var nav = document.querySelector('.nav-links');
             if (!btn || !nav) return;
-
             btn.addEventListener('click', function() {
                 var isOpen = nav.classList.toggle('active');
                 btn.classList.toggle('active');
                 btn.setAttribute('aria-expanded', isOpen);
                 document.body.style.overflow = isOpen ? 'hidden' : '';
             });
-
             nav.querySelectorAll('a').forEach(function(link) {
                 link.addEventListener('click', function() {
                     nav.classList.remove('active');
@@ -1697,18 +615,13 @@
             });
         })();
 
-        /* ====================== */
-        /* Hero animation         */
-        /* ====================== */
+        /* Hero animation */
         document.querySelector('.hero').classList.add('animated');
 
-        /* ====================== */
-        /* IntersectionObserver   */
-        /* ====================== */
+        /* IntersectionObserver */
         (function() {
             var items = document.querySelectorAll('.animate');
             if (!items.length) return;
-
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -1717,20 +630,16 @@
                     }
                 });
             }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
             items.forEach(function(el, i) {
                 el.style.transitionDelay = (i % 4) * 0.12 + 's';
                 observer.observe(el);
             });
         })();
 
-        /* ====================== */
-        /* Stat card stagger      */
-        /* ====================== */
+        /* Stat card stagger */
         (function() {
             var cards = document.querySelectorAll('.stat-card, .bottom-stat');
             if (!cards.length) return;
-
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -1743,20 +652,16 @@
                     }
                 });
             }, { threshold: 0.3 });
-
             cards.forEach(function(card) { observer.observe(card); });
         })();
 
-        /* ====================== */
-        /* Animated counters      */
-        /* ====================== */
+        /* Animated counters */
         function startCounter(card) {
             var el = card.querySelector('.counter');
             if (!el) return;
             var target = parseInt(el.getAttribute('data-target'));
             var duration = 1400;
             var start = performance.now();
-
             function step(now) {
                 var progress = Math.min((now - start) / duration, 1);
                 var eased = 1 - (1 - progress) * (1 - progress);
@@ -1766,11 +671,10 @@
             requestAnimationFrame(step);
         }
 
-        /* Banner counter (total hours) */
+        /* Banner counter */
         (function() {
             var banner = document.querySelector('.hours-total-banner');
             if (!banner) return;
-
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -1792,27 +696,21 @@
                     }
                 });
             }, { threshold: 0.5 });
-
             observer.observe(banner);
         })();
 
-        /* ====================== */
-        /* Curriculum toggle      */
-        /* ====================== */
+        /* Curriculum toggle */
         (function() {
             var btn = document.getElementById('toggleCurriculum');
             var hidden = document.getElementById('curriculum-hidden');
             if (!btn || !hidden) return;
-
             btn.addEventListener('click', function() {
                 var isExpanded = btn.getAttribute('aria-expanded') === 'true';
                 btn.setAttribute('aria-expanded', !isExpanded);
-
                 if (!isExpanded) {
                     hidden.classList.add('visible');
                     btn.classList.add('expanded');
                     btn.querySelector('.toggle-text').textContent = 'Zwiń program';
-                    /* Stagger animation for hidden items */
                     var items = hidden.querySelectorAll('.curriculum-item');
                     items.forEach(function(item, i) {
                         item.style.opacity = '0';
@@ -1831,9 +729,7 @@
             });
         })();
 
-        /* ====================== */
-        /* Dropdown keyboard      */
-        /* ====================== */
+        /* Dropdown keyboard */
         document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
             toggle.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -1841,29 +737,10 @@
                     var menu = this.nextElementSibling;
                     var isExpanded = this.getAttribute('aria-expanded') === 'true';
                     this.setAttribute('aria-expanded', !isExpanded);
-                    if (!isExpanded && menu) {
-                        menu.style.opacity = '1';
-                        menu.style.visibility = 'visible';
-                        menu.style.transform = 'translateY(0)';
-                    } else if (menu) {
-                        menu.style.opacity = '0';
-                        menu.style.visibility = 'hidden';
-                        menu.style.transform = 'translateY(-10px)';
-                    }
+                    if (!isExpanded && menu) { menu.style.opacity = '1'; menu.style.visibility = 'visible'; menu.style.transform = 'translateY(0)'; }
+                    else if (menu) { menu.style.opacity = '0'; menu.style.visibility = 'hidden'; menu.style.transform = 'translateY(-10px)'; }
                 }
             });
-        });
-
-        /* ====================== */
-        /* Skip to content        */
-        /* ====================== */
-        document.querySelector('.skip-to-content')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            var main = document.querySelector('#main-content');
-            if (main) {
-                main.focus();
-                main.scrollIntoView({ behavior: 'smooth' });
-            }
         });
     </script>
 </body>
