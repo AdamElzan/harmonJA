@@ -28,9 +28,9 @@
         "description": "4-letnie certyfikowane szkolenie w zakresie terapii poznawczo-behawioralnej.",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "ul. Wały Piastowskie 1/1508",
+            "streetAddress": "ul. Politechniczna 9/7",
             "addressLocality": "Gdańsk",
-            "postalCode": "80-855",
+            "postalCode": "80-288",
             "addressCountry": "PL"
         },
         "sameAs": [
@@ -98,7 +98,7 @@
         }
 
         /* ========================================
-           HEADER / NAV (matching o-nas.html)
+           HEADER / NAV
            ======================================== */
         header {
             background-color: var(--white);
@@ -116,9 +116,9 @@
         }
 
         .logo-img {
-            height: 70px;
+            height: 105px;
             width: auto;
-            max-width: 280px;
+            max-width: 320px;
             display: block;
         }
 
@@ -756,7 +756,7 @@
         }
 
         /* ========================================
-           FOOTER (unified pattern)
+           FOOTER
            ======================================== */
         footer {
             background-color: #2a2a2a;
@@ -809,6 +809,19 @@
             color: #ddd;
         }
 
+        .contact-info .bank-account {
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .contact-info .bank-account p {
+            font-size: 0.82rem;
+            margin-bottom: 3px;
+        }
+
         .social-links {
             display: flex;
             gap: 15px;
@@ -853,6 +866,11 @@
 
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
+
+            .logo-img {
+                height: 85px;
+                max-width: 260px;
+            }
 
             .nav-links {
                 position: fixed;
@@ -914,6 +932,7 @@
         }
 
         @media (max-width: 480px) {
+            .logo-img { height: 72px; }
             .staff-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 1.7rem; }
             .cta-section h2 { font-size: 1.5rem; }
@@ -1010,35 +1029,33 @@
         <section class="founders">
             <div class="container">
                 <div class="founders-intro">
-                    <span class="section-label">Współzałożyciele</span>
+                    <span class="section-label">Założyciele</span>
                     <h2 class="section-title">Ludzie, od których wszystko się zaczęło</h2>
                     <p class="section-subtitle">Łączy nas wspólna pasja do nauki, dydaktyki i&nbsp;rozwoju terapii poznawczo-behawioralnej.</p>
                 </div>
 
                 <div class="founders-grid">
-                    <!-- Adam — aby dodać zdjęcie: zamień "AE" na <img src="kadra/adam-elzanowski.jpg" alt="Adam Elżanowski"> -->
                     <div class="founder-card" tabindex="0" role="button" aria-label="Adam Elżanowski – przejdź do biografii" data-staff="adam">
                         <div class="founder-avatar">
                             <span class="founder-badge">Współzałożyciel</span>
-                            AE
+                            <img src="adam_elzanowski.jpg" alt="Adam Elżanowski">
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">Adam Elżanowski</h3>
-                            <p class="founder-title">Superwizor-Dydaktyk PTTPB, Certyfikowany Psychoterapeuta CBT</p>
+                            <p class="founder-title">Superwizor-Dydaktyk PTTPB</p>
                             <p class="founder-desc">Psycholog, certyfikowany psychoterapeuta CBT&nbsp;(PTTPB&nbsp;nr&nbsp;500, EABCT&nbsp;nr&nbsp;61). Twórca podcastu „W&nbsp;Głowie&nbsp;się&nbsp;Mieści" i&nbsp;platformy AkademiaCBT. Specjalista terapii traumy.</p>
                             <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
                         </div>
                     </div>
 
-                    <!-- Magdalena — aby dodać zdjęcie: zamień "MS" na <img src="kadra/magdalena-skuza.jpg" alt="Magdalena Skuza"> -->
                     <div class="founder-card" tabindex="0" role="button" aria-label="Magdalena Skuza – przejdź do biografii" data-staff="magda">
                         <div class="founder-avatar">
                             <span class="founder-badge">Współzałożycielka</span>
-                            MS
+                            <img src="magda_skuza.jpg" alt="Magdalena Skuza">
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">Magdalena Skuza</h3>
-                            <p class="founder-title">Superwizor-Dydaktyk PTTPB nr&nbsp;87, Certyfikowana Psychoterapeutka CBT</p>
+                            <p class="founder-title">Superwizor-Dydaktyk PTTPB nr&nbsp;87</p>
                             <p class="founder-desc">Psycholożka, specjalistka DBT, EMDR i&nbsp;ACT (PTTPB&nbsp;nr&nbsp;552). Współzałożycielka i&nbsp;wieloletnia przewodnicząca Polskiego Towarzystwa Terapii&nbsp;DBT.</p>
                             <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
                         </div>
@@ -1096,7 +1113,7 @@
         </section>
     </main>
 
-    <!-- ========== FOOTER (unified) ========== -->
+    <!-- ========== FOOTER ========== -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -1122,12 +1139,23 @@
                     <div class="contact-info">
                         <p><strong>Szkoła Psychoterapii HarmonJa</strong></p>
                         <p>prowadzona przez</p>
-                        <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp.&nbsp;z&nbsp;o.o.</p>
+                        <p>Instytut Rozwoju Terapii<br>
+                        Poznawczo-Behawioralnej HarmonJa sp.&nbsp;z&nbsp;o.o.</p>
                         <p style="margin-top: 12px;">
-                            ul. Wały Piastowskie 1/1508<br>
-                            80-855 Gdańsk
+                            ul. Politechniczna 9/7<br>
+                            80-288 Gdańsk
                         </p>
-                        <p style="margin-top: 8px;">Email: <a href="mailto:szkolaharmonja@gmail.com" style="color: var(--primary-color);">szkolaharmonja@gmail.com</a></p>
+                        <p style="margin-top: 8px;">
+                            NIP: 9571190783 &nbsp;|&nbsp; REGON: 542257334
+                        </p>
+                        <p style="margin-top: 8px;">
+                            Email: <a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--primary-color);">kontakt@harmonja.edu.pl</a>
+                        </p>
+                        <div class="bank-account">
+                            <p><strong style="color: #ddd;">Nr rachunku:</strong></p>
+                            <p>Bank Millennium</p>
+                            <p>97 1160 2202 0000 0006 8072 1778</p>
+                        </div>
                     </div>
                     <div class="social-links">
                         <a href="https://www.facebook.com/szkola.harmonja/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
@@ -1154,7 +1182,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025–2026 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2024–2026 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
@@ -1172,14 +1200,14 @@
     <!-- ========== SCRIPTS ========== -->
     <script>
     /* ============================
-       STAFF DATA (45 people)
+       STAFF DATA
        ============================ */
     const staffData = {
         founders: [
             {
                 id: 'adam',
                 name: 'Adam Elżanowski',
-                // photo: 'kadra/adam-elzanowski.jpg',  // ← dodaj ścieżkę do zdjęcia
+                photo: 'adam_elzanowski.jpg',
                 shortTitle: 'Superwizor-Dydaktyk PTTPB',
                 fullTitle: 'Certyfikowany psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61), Superwizor-Dydaktyk PTTPB',
                 expertise: 'Terapia traumy, ACT, CFT, terapia schematów, popularyzacja nauki',
@@ -1196,6 +1224,7 @@
             {
                 id: 'magda',
                 name: 'Magdalena Skuza',
+                photo: 'magda_skuza.jpg',
                 shortTitle: 'Superwizor-Dydaktyk PTTPB nr 87',
                 fullTitle: 'Certyfikowana psychoterapeutka CBT (PTTPB nr 552), Superwizor-Dydaktyk PTTPB nr 87',
                 expertise: 'DBT, EMDR, ACT, terapia dzieci, młodzieży, dorosłych i rodzin',
@@ -1215,9 +1244,10 @@
         supervisors: [
             {
                 name: 'Karolina Rakocz',
+                photo: 'karolina_rakocz.jpg',
                 shortTitle: 'Dyrektor Szkoły',
                 fullTitle: 'Certyfikowana psychoterapeutka CBT (PTTPB), specjalistka terapii uzależnień (KBPN)',
-                expertise: 'Terapia uzależnień, Dialog Motywujący',
+                expertise: 'Certyfikowana Psychoterapeutka PTTPB\nTerapia uzależnień, Dialog Motywujący',
                 badge: 'Dyrektor Szkoły',
                 bio: {
                     education: ['Certyfikowana Psychoterapeutka CBT (PTTPB)', 'Specjalistka terapii uzależnień (KBPN)', 'Certyfikowana terapeutka Dialogu Motywującego'],
@@ -1229,12 +1259,23 @@
                 name: 'Marzena Badyna',
                 shortTitle: 'Kierownik Merytoryczny',
                 fullTitle: 'Superwizor-Dydaktyk PTTPB nr 50, Certyfikowana psychoterapeutka CBT',
-                expertise: 'Superwizja CBT, zaburzenia lękowe, depresyjne, osobowości, Dialog Motywujący',
+                expertise: 'Superwizja CBT, zaburzenia lękowe, depresyjne, osobowości',
                 badge: 'Kierownik Merytoryczny',
                 bio: {
                     education: ['Superwizor-Dydaktyk PTTPB nr 50', 'Certyfikowana Psychoterapeutka CBT (PTTPB)', 'Certyfikowana terapeutka Dialogu Motywującego (PTTM nr 65)', 'DBT Practitioner Training'],
                     experience: 'Wieloletnie doświadczenie w Mazowieckim Szpitalu Wojewódzkim i brytyjskiej NHS. Doświadczona superwizorka i wykładowczyni w AMIE, SWPS, WUM i Synapsis. Specjalizuje się w psychoterapii zaburzeń lękowych, depresyjnych, osobowości.',
                     interests: 'Rozwój kompetencji terapeutycznych, superwizja, integracja DBT i Dialogu Motywującego.'
+                }
+            },
+            {
+                name: 'Prof. dr hab. med. Andrzej Kokoszka',
+                shortTitle: 'Specjalista psychiatrii, Profesor Medycyny',
+                fullTitle: 'Profesor Medycyny, Kierownik II Kliniki Psychiatrycznej WUM',
+                expertise: 'Psychiatria, psychoterapia integracyjna, psychiatria środowiskowa',
+                bio: {
+                    education: ['Profesor doktor habilitowany nauk medycznych', 'Specjalista psychiatrii', 'Psycholog (mgr UJ)'],
+                    experience: 'Kierownik II Kliniki Psychiatrycznej WUM. Koordynator Bródnowskiego Centrum Zdrowia Psychicznego. Uznany ekspert w zakresie psychiatrii środowiskowej. Autor licznych publikacji i książek z zakresu psychiatrii.',
+                    interests: 'Psychiatria środowiskowa, psychoterapia integracyjna, zmienione stany świadomości, psychologia ewolucyjna.'
                 }
             },
             {
@@ -1246,6 +1287,17 @@
                     education: ['Superwizor-Dydaktyk PTTPB', 'Psychoterapeutka CBT (PTTPB nr 526)', 'Szkolenie z psychoterapii integracyjnej', 'Studia podyplomowe z neuropsychologii'],
                     experience: 'Prowadzi Centrum Diagnozy i Terapii „Engram" w Kielcach. Zajmuje się psychoterapią dzieci, młodzieży i dorosłych oraz szkoleniem i superwizją terapeutów. Wykłada i superwizuje w Akademii Motywacji i Edukacji oraz Akademii Psychoterapii Interego.',
                     interests: 'Neuropsychologia w praktyce klinicznej, CBT dla dzieci i młodzieży, diagnoza różnicowa.'
+                }
+            },
+            {
+                name: 'Magdalena Muracka-Tylko',
+                shortTitle: 'Superwizor-Dydaktyk PTTPB (w trakcie certyfikacji)',
+                fullTitle: 'Certyfikowana Psychoterapeutka CBT (PTTPB), terapeutka DBT, w trakcie certyfikacji superwizorskiej PTTPB',
+                expertise: 'Kryzys suicydalny, zaburzenia osobowości, Family Connections',
+                bio: {
+                    education: ['Certyfikowana Psychoterapeutka CBT (PTTPB)', 'DBT Comprehensive (prof. Alan Fruzzetti)', 'Program kształcenia superwizorów CBT (SWPS)'],
+                    experience: 'Właścicielka gabinetu PO POMOC w Warszawie. Była Przewodnicząca Zarządu PTDBT. Koordynatorka programu Family Connections™ w Polsce. Prowadzi terapię indywidualną i grupową, warsztaty dla terapeutów.',
+                    interests: 'DBT, praca z kryzysem suicydalnym, Family Connections, szkolenie terapeutów.'
                 }
             },
             {
@@ -1277,7 +1329,7 @@
                 name: 'Prof. Mateusz Gola',
                 shortTitle: 'Profesor Psychologii, IP PAN',
                 fullTitle: 'Profesor Psychologii, IP PAN i University of California San Diego, psychoterapeuta CBT (PTTPB nr 320)',
-                expertise: 'Neurobiologia uzależnień behawioralnych, kompulsywne zachowania seksualne',
+                expertise: 'Neurobiologia uzależnień behawioralnych, badania fMRI',
                 bio: {
                     education: ['Profesor Psychologii (Full Professor)', 'Psychoterapeuta CBT (PTTPB nr 320)', 'Ph.D. in Psychology and Cognitive Neuroscience'],
                     experience: 'Profesor w Instytucie Psychologii PAN i Associate Research Professor w University of California San Diego. Kierownik licznych grantów NCN, NCBR i NIH. Specjalizuje się w badaniach nad mechanizmami uzależnień behawioralnych. Współautor aplikacji „Nalogometr".',
@@ -1288,22 +1340,11 @@
                 name: 'Dr hab. Łukasz Gawęda',
                 shortTitle: 'Profesor IP PAN',
                 fullTitle: 'Profesor IP PAN, Kierownik Pracowni Psychopatologii Eksperymentalnej, z-ca dyrektora ds. nauki',
-                expertise: 'Psychopatologia psychoz, metapoznanie, zaburzenia lękowe i depresyjne',
+                expertise: 'Psychopatologia psychoz, metapoznanie, zaburzenia lękowe',
                 bio: {
                     education: ['Dr hab. nauk medycznych (WUM)', 'Profesor Instytutu Psychologii PAN', 'Specjalizacja: psychopatologia eksperymentalna'],
-                    experience: 'Kierownik Pracowni Psychopatologii Eksperymentalnej IP PAN. Zastępca dyrektora ds. nauki. Doświadczenie kliniczne w II Klinice Psychiatrycznej WUM. Laureat nagród naukowych FNP START, DAAD, NCN. Autor wielu publikacji w Schizophrenia Bulletin, Psychological Medicine.',
+                    experience: 'Kierownik Pracowni Psychopatologii Eksperymentalnej IP PAN. Zastępca dyrektora ds. nauki. Doświadczenie kliniczne w II Klinice Psychiatrycznej WUM. Laureat nagród naukowych FNP START, DAAD, NCN.',
                     interests: 'Psychozy, halucynacje, metapoznanie, interwencje psychologiczne.'
-                }
-            },
-            {
-                name: 'Prof. dr hab. med. Andrzej Kokoszka',
-                shortTitle: 'Profesor Medycyny, Psychiatra',
-                fullTitle: 'Profesor Medycyny, Kierownik II Kliniki Psychiatrycznej WUM',
-                expertise: 'Psychiatria, psychoterapia integracyjna, psychiatria środowiskowa',
-                bio: {
-                    education: ['Profesor doktor habilitowany nauk medycznych', 'Specjalista psychiatrii', 'Psycholog (mgr UJ)'],
-                    experience: 'Kierownik II Kliniki Psychiatrycznej WUM. Koordynator Bródnowskiego Centrum Zdrowia Psychicznego. Uznany ekspert w zakresie psychiatrii środowiskowej. Autor licznych publikacji i książek z zakresu psychiatrii.',
-                    interests: 'Psychiatria środowiskowa, psychoterapia integracyjna, zmienione stany świadomości, psychologia ewolucyjna.'
                 }
             },
             {
@@ -1313,7 +1354,7 @@
                 expertise: 'Mechanizmy poznawcze psychoz, halucynacje, metapoznanie',
                 bio: {
                     education: ['Doktor nauk społecznych (UW)', 'Adiunkt IP PAN'],
-                    experience: 'Adiunkt w Pracowni Psychopatologii Eksperymentalnej IP PAN. Kierownik grantu NCN SONATINA. Prowadził psychoterapię indywidualną i grupową w nurcie CBT i metapoznawczym. Doświadczenie w Szpitalu Bródnowskim i IPIN.',
+                    experience: 'Adiunkt w Pracowni Psychopatologii Eksperymentalnej IP PAN. Kierownik grantu NCN SONATINA. Prowadził psychoterapię indywidualną i grupową w nurcie CBT i metapoznawczym.',
                     interests: 'Psychozy, halucynacje, procesy metapoznawcze, psychopatologia eksperymentalna.'
                 }
             },
@@ -1330,234 +1371,11 @@
             }
         ],
 
+        // Specialists sorted alphabetically by SURNAME
         specialists: [
-            // PHOTO GUIDE: dodaj 'photo: "kadra/imie-nazwisko.jpg"' do dowolnej osoby.
-            // Zdjęcia: 400×400px minimum, kwadratowe, JPG. Folder: kadra/
-            // Przykład: { name: 'Jan Kowalski', photo: 'kadra/jan-kowalski.jpg', ... }
-            {
-                name: 'Alicja Balińska',
-                // photo: 'kadra/alicja-balinska.jpg',
-                shortTitle: 'Superwizorka/Trenerka Terapii Schematu (ISST)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 498), Superwizorka i Trenerka Terapii Schematu (ISST, IND-3304)',
-                expertise: 'Terapia Schematu — szkolenia i superwizje, zaburzenia osobowości',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 498)', 'Superwizorka/Trenerka Terapii Schematu (ISST, IND-3304)'],
-                    experience: 'Prowadzi szkolenia podstawowe i zaawansowane z terapii schematu w Nowoczesnej Terapii Schematu. Doświadczenie w Oddziale Dziennym Leczenia Zaburzeń Nerwicowych oraz Szpitalu Wolskim.',
-                    interests: 'Terapia Schematu, zaburzenia osobowości, szkolenie terapeutów.'
-                }
-            },
-            {
-                name: 'Jędrzej Kosewski',
-                shortTitle: 'Terapeuta i Superwizor Schematu (ISST)',
-                fullTitle: 'Psychoterapeuta CBT (PTTPB nr 201), terapeuta i superwizor terapii schematów (ISST)',
-                expertise: 'Dyrektor Rocznego Programu Szkolenia w Terapii Schematów',
-                bio: {
-                    education: ['Psychoterapeuta CBT (PTTPB nr 201)', 'Certyfikowany terapeuta i superwizor ISST', 'Szkolenie CBT Oxford Cognitive Therapy Centre'],
-                    experience: 'Od 2015 roku dyrektor Rocznego Programu Szkolenia w Terapii Schematów (akredytacja ISST). Wieloletnie doświadczenie w Oddziale Leczenia Nerwic Szpitala MSWiA w Otwocku. Prowadzi prywatną praktykę, szkoli i superwizuje psychoterapeutów.',
-                    interests: 'Terapia Schematu, zaburzenia osobowości, kształcenie terapeutów.'
-                }
-            },
-            {
-                name: 'Dr Andrzej Śliwerski',
-                shortTitle: 'Adiunkt UŁ, Psychoterapeuta CBT',
-                fullTitle: 'Dr Psychologii, Adiunkt UŁ, Psychoterapeuta CBT (PTTPB nr 267)',
-                expertise: 'CBT, Terapia Schematów, PTSD/TF-CBT, ACT, praca z osobami LGBTQ+',
-                bio: {
-                    education: ['Doktor nauk społecznych', 'Psychoterapeuta CBT (PTTPB nr 267)', 'Szkolenia: Terapia Schematów, TF-CBT, ACT'],
-                    experience: 'Adiunkt w Instytucie Psychologii Uniwersytetu Łódzkiego. Współtwórca Instytutu Psychoterapii CBT „Schemat" w Łodzi. Wykładowca w szkołach psychoterapii (CTPB, CBT Edu, Vis Salutis, DIALOG).',
-                    interests: 'CBT, terapia traumy, Terapia Schematów, praca z osobami LGBTQ+.'
-                }
-            },
-            {
-                name: 'Dr Katarzyna Bajszczak',
-                shortTitle: 'Dr n. med., Seksuolożka kliniczna',
-                fullTitle: 'Dr nauk medycznych, psychoterapeutka CBT, seksuolożka kliniczna (PTS nr 122)',
-                expertise: 'Psychoseksuologia, rozwój płci, dysforia płciowa, psychoterapia dzieci i młodzieży',
-                bio: {
-                    education: ['Doktor nauk medycznych', 'Seksuolożka kliniczna (PTS nr 122)', 'Psychoterapeutka CBT', 'Specjalistka psychoseksuologii i psychoterapii dzieci i młodzieży'],
-                    experience: 'Związana z Kliniką Psychiatrii Dzieci i Młodzieży w „Pomnik – Centrum Zdrowia Dziecka". Współpracuje z SWPS i UAM. Autorka publikacji naukowych i koordynatorka fakultetów. Uczestniczka projektu badawczego UE FP7 „DSD-LIFE".',
-                    interests: 'Psychoseksuologia, rozwój płci, dysforia płciowa, seksuologia wieku rozwojowego.'
-                }
-            },
-            {
-                name: 'Dr Anna Englert-Bator',
-                shortTitle: 'Dr nauk społ., Psychoterapeutka CBT/DBT',
-                fullTitle: 'Dr nauk społecznych, psychoterapeutka CBT (PTTPB nr 1188), terapeutka DBT',
-                expertise: 'Zaburzenia osobowości borderline, zaburzenia odżywiania, PTSD',
-                bio: {
-                    education: ['Doktor nauk społecznych', 'Psychoterapeutka CBT (PTTPB nr 1188)', 'DBT Comprehensive', 'Szkolenia: ACT, RO-DBT, terapia schematów, EMDR'],
-                    experience: 'Adiunkt Uniwersytetu Rzeszowskiego. Wiceprzewodnicząca Polskiego Towarzystwa Terapii DBT. Specjalizuje się w terapii zaburzeń osobowości borderline, zaburzeń odżywiania, PTSD i depresji.',
-                    interests: 'DBT, zaburzenia osobowości, zaburzenia odżywiania, badania naukowe.'
-                }
-            },
-            {
-                name: 'Dr n. med. Joanna Ostasz-Ważny',
-                shortTitle: 'Psychiatra dzieci i młodzieży',
-                fullTitle: 'Dr n. med., specjalistka psychiatrii dzieci i młodzieży, psychoterapeutka CBT (PTTPB)',
-                expertise: 'Psychiatria dzieci i młodzieży, diagnostyka, psychofarmakologia',
-                bio: {
-                    education: ['Doktor nauk medycznych', 'Specjalistka psychiatrii i psychiatrii dzieci i młodzieży', 'Psychoterapeutka CBT (PTTPB)'],
-                    experience: 'Starszy asystent w Szpitalu Wolskim. Doświadczenie w Klinice Psychiatrii Dzieci i Młodzieży WUM, Szpitalu Bródnowskim, Mazowieckim Centrum Neuropsychiatrii.',
-                    interests: 'Psychiatria dzieci i młodzieży, integracja farmakoterapii z psychoterapią.'
-                }
-            },
-            {
-                name: 'Alicja Baranek',
-                shortTitle: 'Psychoterapeutka CBT, DBT, RO DBT',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 463), specjalistka DBT i RO DBT',
-                expertise: 'DBT Comprehensive, Radykalnie Otwarta DBT (RO-DBT)',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 463)', 'DBT Comprehensive (Behavioral Tech)', 'RO-DBT (edukacja 2020-2025)', 'Terapia Schematów, ACT'],
-                    experience: 'Prowadzi ośrodek poznawczo.pl w Gliwicach. Aktywna członkini PTTPB i Polskiego Towarzystwa DBT — Przewodnicząca Komisji Rewizyjnej. Szkoli terapeutów, prowadzi warsztaty i mentoringi w nurcie DBT.',
-                    interests: 'DBT, RO-DBT, rozpowszechnianie DBT w Polsce, mentoring terapeutów.'
-                }
-            },
-            {
-                name: 'Dagmara Zinkowska-Sopek',
-                shortTitle: 'Psychoterapeutka CBT, Terapia Schematu',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 833), certyfikowana terapeutka schematów (ISST, IND-3426, zaawansowany)',
-                expertise: 'Terapia Schematu, trauma złożona, neurobiologia interpersonalna',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 833)', 'Zaawansowany certyfikat Terapii Schematu (ISST, IND-3426)', 'Kurs terapii traumy (80h)'],
-                    experience: 'Specjalizuje się w terapii osób dorosłych z zaburzeniami osobowości, depresją i traumą złożoną. Łączy CBT, terapię schematów, Dialog Motywujący i podejścia oparte na neurobiologii interpersonalnej.',
-                    interests: 'Terapia Schematu, neurobiologia, trauma złożona, integracja metod.'
-                }
-            },
-            {
-                name: 'Katarzyna Łynka',
-                shortTitle: 'Psychoterapeutka CBT, Terapeutka Schematu',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 255), certyfikowana terapeutka schematów (ISST, IND-4083)',
-                expertise: 'Zaburzenia lękowe, OCD, zaburzenia odżywiania, zaburzenia osobowości',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 255)', 'Certyfikowana terapeutka schematów (zaawansowany ISST, IND-4083)'],
-                    experience: 'Od 2009 roku prowadzi gabinet psychoterapii maSens w Warszawie. Specjalizuje się w psychoterapii młodzieży i dorosłych z zaburzeniami lękowymi, OCD, zaburzeniami odżywiania i osobowości. Prowadzi szkolenia z CBT i terapii schematów.',
-                    interests: 'CBT, Terapia Schematu, zaburzenia odżywiania, OCD.'
-                }
-            },
-            {
-                name: 'Katarzyna R. Fąk',
-                shortTitle: 'Psychoterapeutka CBT, DBT, Schematu',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB), kierownik Poradni Zdrowia Psychicznego w Szpitalu Bielańskim',
-                expertise: 'Kryzysy psychiczne, uzależnienia, trauma, zaburzenia osobowości',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB)', 'DBT, Terapia Schematów', 'CBT w leczeniu uzależnień'],
-                    experience: 'Kierownik Poradni Zdrowia Psychicznego w Szpitalu Bielańskim. Prowadzi szkolenia i zajęcia dydaktyczne na UKSW. Łączy CBT, DBT i Terapię Schematu w pracy z osobami dorosłymi i młodzieżą.',
-                    interests: 'Kryzysy psychiczne, uzależnienia, trauma, praca integracyjna.'
-                }
-            },
-            {
-                name: 'Milena Filippowicz',
-                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1552)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1552), diagnoza ADHD i ASD (certyfikat ADOS-2)',
-                expertise: 'Diagnoza ADHD i ASD, psychologia sądowa',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1552)', 'Certyfikat ADOS-2 (diagnoza ASD)', 'Specjalizacja: psychologia sądowa i penitencjarna'],
-                    experience: 'Właścicielka Centrum Terapii Malachit w Warszawie. Doświadczenie jako psycholog policyjny w Komendzie Głównej Policji. Pracowała w Krajowym Ośrodku Zapobiegania Zachowaniom Dyssocjalnym w Gostyninie.',
-                    interests: 'CBT, diagnostyka ADHD i ASD, psychologia sądowa.'
-                }
-            },
-            {
-                name: 'Magdalena Muracka-Tylko',
-                shortTitle: 'Psychoterapeutka CBT/DBT',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB), terapeutka DBT, w trakcie certyfikacji superwizorskiej',
-                expertise: 'Kryzys suicydalny, zaburzenia osobowości, Family Connections',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB)', 'DBT Comprehensive (prof. Alan Fruzzetti)', 'Program kształcenia superwizorów CBT (SWPS)'],
-                    experience: 'Właścicielka gabinetu PO POMOC w Warszawie. Była Przewodnicząca Zarządu PTDBT. Koordynatorka programu Family Connections™ w Polsce. Prowadzi terapię indywidualną i grupową, warsztaty dla terapeutów.',
-                    interests: 'DBT, praca z kryzysem suicydalnym, Family Connections, szkolenie terapeutów.'
-                }
-            },
-            {
-                name: 'Emilia Sygulska',
-                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1210)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1210), terapeutka DBT',
-                expertise: 'DBT-A (wielorodzinna), podcast „Kurs na DBT"',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1210)', 'DBT Comprehensive'],
-                    experience: 'Prowadzi psychoterapię indywidualną dzieci, młodzieży i dorosłych. Prowadzi treningi umiejętności DBT-A. Inicjatorka i współautorka podcastu „Kurs na DBT". Wykładowczyni na Uniwersytecie Jagiellońskim. Współprowadzi szkolenie DBT Comprehensive.',
-                    interests: 'DBT, podcasting edukacyjny, praca z młodzieżą.'
-                }
-            },
-            {
-                name: 'Kaja Wieczorek-Socha',
-                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1086)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1086), specjalistka psychologii klinicznej dzieci i młodzieży',
-                expertise: 'DBT-A, Family Connections, Szpital Uniwersytecki w Krakowie',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1086)', 'Specjalistka psychologii klinicznej dzieci i młodzieży', 'DBT Comprehensive'],
-                    experience: 'Starszy asystent — psycholog w Szpitalu Uniwersyteckim w Krakowie. Współtwórczyni projektu Dialektycznie.pl i podcastu „Kurs na DBT". Prowadzi treningi DBT-A dla nastolatków i ich rodzin.',
-                    interests: 'DBT-A, psychologia kliniczna dzieci, Family Connections.'
-                }
-            },
-            {
-                name: 'Gabriela Zajdel',
-                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1124)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1124), terapeutka DBT',
-                expertise: 'Dysregulacja emocjonalna, interwencja kryzysowa, Trening Umiejętności DBT',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1124)', 'DBT Comprehensive'],
-                    experience: 'Współtworzy program leczenia osób z dysregulacją emocjonalną w dialektycznie.pl. Doświadczenie w Ośrodkach Interwencji Kryzysowej. Prowadzi szkolenia z Treningu Umiejętności DBT dla profesjonalistów.',
-                    interests: 'DBT, interwencja kryzysowa, szkolenie umiejętności.'
-                }
-            },
-            {
-                name: 'Artur Gębka',
-                shortTitle: 'Psychoterapeuta CBT, Autor książek',
-                fullTitle: 'Psychoterapeuta CBT (PTTPB), autor książek psychologicznych dla dzieci i młodzieży',
-                expertise: 'CBT w literaturze dla młodych, Family Connections',
-                bio: {
-                    education: ['Psychoterapeuta CBT (PTTPB)', 'Szkolenie liderów Family Connections'],
-                    experience: 'Autor książek „Znikodem i zagadka lęku" i „Na tropie podejrzanych myśli" (GWP). Współpracował z Kliniką Poznawczo-Behawioralną SWPS oraz Centrum Zdrowia Psychicznego HarmonJa. Prowadzi terapie DBT-A i grupy Family Connections.',
-                    interests: 'Popularyzacja CBT przez literaturę, praca z dziećmi i młodzieżą.'
-                }
-            },
-            {
-                name: 'Magdalena Dziadura',
-                shortTitle: 'Psychoterapeutka CBT/Schematu',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1329), terapeutka schematu (ISST, IND-3873)',
-                expertise: 'Zaburzenia lękowe, nastroju, osobowości, trauma',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1329)', 'Certyfikat ISST (IND-3873)', 'Ukończone z wyróżnieniem Szkoła Psychoterapii SWPS i Kurs Terapii Schematu'],
-                    experience: 'Pracuje w Fundacji Lazurowa Terapia. Koordynator projektu „Prowadzenie mieszkania treningowego dla osób chorujących psychicznie" w Stowarzyszeniu „Integracja". Doświadczenie w Instytucie Psychiatrii i Neurologii.',
-                    interests: 'Terapia Schematu, CBT, praca z zaburzeniami osobowości, trauma.'
-                }
-            },
-            {
-                name: 'Marta Wojsz-Rączko',
-                shortTitle: 'Psychoterapeutka CBT/Schematu',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1578), terapeutka schematu (w trakcie certyfikacji ISST)',
-                expertise: 'Integracja CBT z terapiami trzeciej fali (ACT, CFT, TSR)',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1578)', 'Terapia Schematu (Nowoczesna Szkoła TS, 2023-2025)', 'Studia z psychoonkologii'],
-                    experience: 'Współpracuje z Lazurową Terapią i ośrodkiem AdAlta. Integruje CBT, terapię schematów, ACT, CFT i TSR. Członkini PTTPB i ISST.',
-                    interests: 'Terapia Schematu, ACT, CFT, TSR, integracja metod terapeutycznych.'
-                }
-            },
-            {
-                name: 'Monika Zabel',
-                shortTitle: 'Psychoterapeutka CBT/Schematu (PTTPB nr 997)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 997), terapeutka schematów (w trakcie certyfikacji ISST)',
-                expertise: 'CBT, terapia dzieci i młodzieży, praca z traumą',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 997)', 'Terapia Schematu (w trakcie certyfikacji ISST)'],
-                    experience: 'Prowadzi Poradnię „Poza schematami" i pracuje w Mazowieckim Szpitalu Drewnica. Wykładowczyni na WUM i w szkołach psychoterapii. Prowadzi zajęcia z CBT, terapii dzieci i młodzieży oraz pracy z traumą.',
-                    interests: 'Terapia Schematu, CBT dzieci i młodzieży, praca z traumą.'
-                }
-            },
-            {
-                name: 'Agnieszka Winiarek',
-                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1613)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1613), terapeutka DBT',
-                expertise: 'Neuroróżnorodność (ADHD, ASD), zaburzenia lękowe i osobowości',
-                bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1613)', 'DBT Comprehensive'],
-                    experience: 'Związana z Centrum Zdrowia Psychicznego HarmonJa w Gdańsku. Specjalizuje się w pracy z osobami neuroróżnorodnymi (ADHD, ASD) oraz z zaburzeniami lękowymi, nastroju i osobowości. Prowadzi warsztaty i szkolenia z CBT i DBT.',
-                    interests: 'CBT, DBT, neuroróżnorodność, szkolenie terapeutów.'
-                }
-            },
             {
                 name: 'Laura Andrzejczyk',
-                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 2113)',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
                 fullTitle: 'Psychoterapeutka CBT (PTTPB nr 2113), terapeutka DBT',
                 expertise: 'DBT-A, diagnoza zaburzeń osobowości, Treningi Umiejętności',
                 bio: {
@@ -1567,8 +1385,52 @@
                 }
             },
             {
+                name: 'Dr Katarzyna Bajszczak',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB\nSeksuolog kliniczny',
+                fullTitle: 'Dr nauk medycznych, psychoterapeutka CBT, seksuolożka kliniczna (PTS nr 122)',
+                expertise: 'Psychoseksuologia, rozwój płci, dysforia płciowa, psychiatria dzieci i młodzieży',
+                bio: {
+                    education: ['Doktor nauk medycznych', 'Seksuolożka kliniczna (PTS nr 122)', 'Psychoterapeutka CBT', 'Specjalistka psychoseksuologii i psychoterapii dzieci i młodzieży'],
+                    experience: 'Związana z Kliniką Psychiatrii Dzieci i Młodzieży w „Pomnik – Centrum Zdrowia Dziecka". Współpracuje z SWPS i UAM. Autorka publikacji naukowych. Uczestniczka projektu badawczego UE FP7 „DSD-LIFE".',
+                    interests: 'Psychoseksuologia, rozwój płci, dysforia płciowa, seksuologia wieku rozwojowego.'
+                }
+            },
+            {
+                name: 'Alicja Balińska',
+                shortTitle: 'Superwizor Terapii Schematu (ISST)\nCertyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 498), Superwizorka i Trenerka Terapii Schematu (ISST, IND-3304)',
+                expertise: 'Terapia Schematu — szkolenia i superwizje, zaburzenia osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 498)', 'Superwizorka/Trenerka Terapii Schematu (ISST, IND-3304)'],
+                    experience: 'Prowadzi szkolenia podstawowe i zaawansowane z terapii schematu w Nowoczesnej Terapii Schematu. Doświadczenie w Oddziale Dziennym Leczenia Zaburzeń Nerwicowych oraz Szpitalu Wolskim.',
+                    interests: 'Terapia Schematu, zaburzenia osobowości, szkolenie terapeutów.'
+                }
+            },
+            {
+                name: 'Alicja Baranek',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 463), specjalistka DBT i RO DBT',
+                expertise: 'DBT Comprehensive, Radykalnie Otwarta DBT (RO-DBT)',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 463)', 'DBT Comprehensive (Behavioral Tech)', 'RO-DBT (edukacja 2020–2025)', 'Terapia Schematów, ACT'],
+                    experience: 'Prowadzi ośrodek poznawczo.pl w Gliwicach. Aktywna członkini PTTPB i Polskiego Towarzystwa DBT — Przewodnicząca Komisji Rewizyjnej. Szkoli terapeutów, prowadzi warsztaty i mentoringi w nurcie DBT.',
+                    interests: 'DBT, RO-DBT, rozpowszechnianie DBT w Polsce, mentoring terapeutów.'
+                }
+            },
+            {
+                name: 'Sylwia Bobińska',
+                shortTitle: 'Certyfikowana Psychoterapeutka CBT',
+                fullTitle: 'Psychoterapeutka CBT, terapeutka DBT',
+                expertise: 'Psychoterapia młodzieży i dorosłych w nurcie CBT i DBT',
+                bio: {
+                    education: ['Szkoła Psychoterapii CBT (SWPS)', 'DBT Comprehensive'],
+                    experience: 'Prowadzi terapię w Centrum Zdrowia Psychicznego HarmonJa i w Klinice Uniwersytetu SWPS. Doświadczenie w Wojewódzkim Szpitalu Psychiatrycznym im. prof. Bilikiewicza w Gdańsku.',
+                    interests: 'CBT, DBT, praca z młodzieżą, regulacja emocji.'
+                }
+            },
+            {
                 name: 'Monika Cybulska',
-                shortTitle: 'Trenerka Umiejętności DBT',
+                shortTitle: 'Certyfikowana Psychoterapeutka CBT',
                 fullTitle: 'Psychoterapeutka CBT, Trenerka Umiejętności DBT w HarmonJa',
                 expertise: 'DBT, seksuologia kliniczna, zaburzenia emocjonalne i osobowości',
                 bio: {
@@ -1579,7 +1441,7 @@
             },
             {
                 name: 'Agnieszka Drabina',
-                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1339)',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
                 fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1339), Liderka Family Connections',
                 expertise: 'Psychoterapia dzieci, młodzieży i dorosłych, Family Connections',
                 bio: {
@@ -1589,19 +1451,63 @@
                 }
             },
             {
-                name: 'Nicol Śliwińska',
-                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 1562)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1562), terapeutka DBT, Liderka Family Connections',
-                expertise: 'Praca z dziećmi i młodzieżą (5-21 lat), doświadczenie międzynarodowe',
+                name: 'Magdalena Dziadura',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1329), terapeutka schematu (ISST, IND-3873)',
+                expertise: 'Zaburzenia lękowe, nastroju, osobowości, trauma',
                 bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 1562)', 'Szkolenie CBT dzieci i młodzieży (Niemcy)', 'Liderka Family Connections'],
-                    experience: 'Związana z Centrum Zdrowia Psychicznego HarmonJa. Specjalizuje się w pracy z dziećmi i młodzieżą z zaburzeniami lękowymi, depresyjnymi, borderline, zaburzeniami odżywiania, ADHD i ASD. Doświadczenie międzynarodowe (Klinik Walstedde, Niemcy).',
-                    interests: 'CBT i DBT dzieci i młodzieży, Family Connections, praca międzynarodowa.'
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1329)', 'Certyfikat ISST (IND-3873)'],
+                    experience: 'Pracuje w Fundacji Lazurowa Terapia. Koordynator projektu „Prowadzenie mieszkania treningowego dla osób chorujących psychicznie". Doświadczenie w Instytucie Psychiatrii i Neurologii.',
+                    interests: 'Terapia Schematu, CBT, praca z zaburzeniami osobowości, trauma.'
+                }
+            },
+            {
+                name: 'Dr Anna Englert-Bator',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Dr nauk społecznych, psychoterapeutka CBT (PTTPB nr 1188), terapeutka DBT',
+                expertise: 'Zaburzenia osobowości borderline, zaburzenia odżywiania, PTSD',
+                bio: {
+                    education: ['Doktor nauk społecznych', 'Psychoterapeutka CBT (PTTPB nr 1188)', 'DBT Comprehensive', 'Szkolenia: ACT, RO-DBT, terapia schematów, EMDR'],
+                    experience: 'Adiunkt Uniwersytetu Rzeszowskiego. Wiceprzewodnicząca Polskiego Towarzystwa Terapii DBT. Specjalizuje się w terapii zaburzeń osobowości borderline, zaburzeń odżywiania, PTSD i depresji.',
+                    interests: 'DBT, zaburzenia osobowości, zaburzenia odżywiania, badania naukowe.'
+                }
+            },
+            {
+                name: 'Katarzyna R. Fąk',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB), kierownik Poradni Zdrowia Psychicznego w Szpitalu Bielańskim',
+                expertise: 'Kryzysy psychiczne, uzależnienia, trauma, zaburzenia osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB)', 'DBT, Terapia Schematów', 'CBT w leczeniu uzależnień'],
+                    experience: 'Kierownik Poradni Zdrowia Psychicznego w Szpitalu Bielańskim. Prowadzi szkolenia i zajęcia dydaktyczne na UKSW. Łączy CBT, DBT i Terapię Schematu w pracy z osobami dorosłymi i młodzieżą.',
+                    interests: 'Kryzysy psychiczne, uzależnienia, trauma, praca integracyjna.'
+                }
+            },
+            {
+                name: 'Milena Filippowicz',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1552), diagnoza ADHD i ASD (certyfikat ADOS-2)',
+                expertise: 'Diagnoza ADHD i ASD, psychologia sądowa',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1552)', 'Certyfikat ADOS-2 (diagnoza ASD)', 'Specjalizacja: psychologia sądowa i penitencjarna'],
+                    experience: 'Właścicielka Centrum Terapii Malachit w Warszawie. Doświadczenie jako psycholog policyjny w Komendzie Głównej Policji. Pracowała w Krajowym Ośrodku Zapobiegania Zachowaniom Dyssocjalnym w Gostyninie.',
+                    interests: 'CBT, diagnostyka ADHD i ASD, psychologia sądowa.'
+                }
+            },
+            {
+                name: 'Artur Gębka',
+                shortTitle: 'Certyfikowany Psychoterapeuta PTTPB',
+                fullTitle: 'Psychoterapeuta CBT (PTTPB), autor książek psychologicznych dla dzieci i młodzieży',
+                expertise: 'CBT w literaturze dla młodych, Family Connections',
+                bio: {
+                    education: ['Psychoterapeuta CBT (PTTPB)', 'Szkolenie liderów Family Connections'],
+                    experience: 'Autor książek „Znikodem i zagadka lęku" i „Na tropie podejrzanych myśli" (GWP). Współpracował z Kliniką Poznawczo-Behawioralną SWPS oraz Centrum Zdrowia Psychicznego HarmonJa. Prowadzi terapie DBT-A i grupy Family Connections.',
+                    interests: 'Popularyzacja CBT przez literaturę, praca z dziećmi i młodzieżą.'
                 }
             },
             {
                 name: 'Magdalena Jasińska',
-                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1302)',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
                 fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1302)',
                 expertise: 'Zaburzenia lękowe, depresyjne, osobowości, neuropsychologia',
                 bio: {
@@ -1611,19 +1517,41 @@
                 }
             },
             {
-                name: 'Patryk Skowroń',
-                shortTitle: 'Psychoterapeuta CBT (PTTPB nr 1620)',
-                fullTitle: 'Psychoterapeuta CBT (PTTPB nr 1620)',
-                expertise: 'Kryzysy psychiczne, zaburzenia lękowe i depresyjne',
+                name: 'Jędrzej Kosewski',
+                shortTitle: 'Superwizor Terapii Schematu (ISST)\nCertyfikowany Psychoterapeuta PTTPB',
+                fullTitle: 'Psychoterapeuta CBT (PTTPB nr 201), terapeuta i superwizor terapii schematów (ISST)',
+                expertise: 'Dyrektor Rocznego Programu Szkolenia w Terapii Schematów',
                 bio: {
-                    education: ['Psychoterapeuta CBT (PTTPB nr 1620)'],
-                    experience: 'Związany z Lazurową Terapią oraz Warszawskim Centrum Pomocy Rodzinie. Doświadczenie w Mazowieckim Szpitalu Bródnowskim i Szpitalu Wolskim. Specjalizuje się w pracy z osobami doświadczającymi kryzysów psychicznych.',
-                    interests: 'CBT, kryzysy psychiczne, zaburzenia lękowe.'
+                    education: ['Psychoterapeuta CBT (PTTPB nr 201)', 'Certyfikowany terapeuta i superwizor ISST', 'Szkolenie CBT Oxford Cognitive Therapy Centre'],
+                    experience: 'Od 2015 roku dyrektor Rocznego Programu Szkolenia w Terapii Schematów (akredytacja ISST). Wieloletnie doświadczenie w Oddziale Leczenia Nerwic Szpitala MSWiA w Otwocku.',
+                    interests: 'Terapia Schematu, zaburzenia osobowości, kształcenie terapeutów.'
+                }
+            },
+            {
+                name: 'Marcin Łapiński',
+                shortTitle: 'Radca Prawny',
+                fullTitle: 'Radca prawny, wykładowca akademicki — aspekty prawne psychoterapii',
+                expertise: 'Prawo w psychoterapii, postępowanie cywilne, etyka zawodowa',
+                bio: {
+                    education: ['Radca prawny', 'Aplikacja komornicza i radcowska'],
+                    experience: 'Wykładowca na studiach podyplomowych Szkoły Psychoterapii CBT (WSB Saint Louis University). Prowadzi zajęcia z organizacyjnych i prawnych aspektów psychoterapii. Wykłada na Uniwersytecie Gdańskim i w Akademii Humanitas.',
+                    interests: 'Prawo w psychoterapii, ochrona danych, regulacje zawodowe.'
+                }
+            },
+            {
+                name: 'Katarzyna Łynka',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 255), certyfikowana terapeutka schematów (ISST, IND-4083)',
+                expertise: 'Zaburzenia lękowe, OCD, zaburzenia odżywiania, zaburzenia osobowości',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 255)', 'Certyfikowana terapeutka schematów (zaawansowany ISST, IND-4083)'],
+                    experience: 'Od 2009 roku prowadzi gabinet psychoterapii maSens w Warszawie. Specjalizuje się w psychoterapii młodzieży i dorosłych z zaburzeniami lękowymi, OCD, zaburzeniami odżywiania i osobowości.',
+                    interests: 'CBT, Terapia Schematu, zaburzenia odżywiania, OCD.'
                 }
             },
             {
                 name: 'Anna Maniewska',
-                shortTitle: 'Psychoterapeutka CBT/DBT',
+                shortTitle: 'Psychoterapeuta poznawczo-behawioralny',
                 fullTitle: 'Psychoterapeutka CBT (w trakcie certyfikacji PTTPB), terapeutka DBT',
                 expertise: 'DBT Comprehensive, Family Connections, praca z młodzieżą i dorosłymi',
                 bio: {
@@ -1634,7 +1562,7 @@
             },
             {
                 name: 'Magdalena Nowakowska',
-                shortTitle: 'Psycholożka, Terapeutka CBT',
+                shortTitle: 'Psychoterapeuta poznawczo-behawioralny',
                 fullTitle: 'Psycholożka, absolwentka kursów psychoterapii CBT dzieci, młodzieży i dorosłych',
                 expertise: 'Psychologia edukacji i rodziny, CBT dzieci i młodzieży',
                 bio: {
@@ -1644,30 +1572,63 @@
                 }
             },
             {
-                name: 'Iga Zdanowska',
-                shortTitle: 'Psychoterapeutka CBT/DBT (PTTPB nr 955)',
-                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 955), terapeutka DBT',
-                expertise: 'Grupowe treningi umiejętności DBT, badania nad prokrastynacją',
+                name: 'Dr n. med. Joanna Ostasz-Ważny',
+                shortTitle: 'Specjalista psychiatrii dzieci i młodzieży',
+                fullTitle: 'Dr n. med., specjalistka psychiatrii dzieci i młodzieży, psychoterapeutka CBT (PTTPB)',
+                expertise: 'Psychiatria dzieci i młodzieży, diagnostyka, psychofarmakologia',
                 bio: {
-                    education: ['Psychoterapeutka CBT (PTTPB nr 955)', 'DBT Comprehensive'],
-                    experience: 'Współprowadzi Centrum NOVITE w Sosnowcu. Związana z Centrum Neuro-Care w Katowicach. Prowadzi grupowe treningi umiejętności DBT. Wykładowczyni w Akademii Humanitas. Uczestniczy w badaniach IP PAN dot. grupowej terapii CBT prokrastynacji.',
-                    interests: 'DBT, grupowe treningi umiejętności, prokrastynacja, badania naukowe.'
+                    education: ['Doktor nauk medycznych', 'Specjalistka psychiatrii i psychiatrii dzieci i młodzieży', 'Psychoterapeutka CBT (PTTPB)'],
+                    experience: 'Starszy asystent w Szpitalu Wolskim. Doświadczenie w Klinice Psychiatrii Dzieci i Młodzieży WUM, Szpitalu Bródnowskim, Mazowieckim Centrum Neuropsychiatrii.',
+                    interests: 'Psychiatria dzieci i młodzieży, integracja farmakoterapii z psychoterapią.'
                 }
             },
             {
-                name: 'Ewelina Zimna',
-                shortTitle: 'Psychoterapeutka CBT, Terapia uzależnień',
-                fullTitle: 'Specjalistka psychoterapii uzależnień, psychoterapeutka CBT (PTTPB)',
-                expertise: 'Uzależnienia u dzieci i młodzieży, interwencja kryzysowa',
+                name: 'Patryk Skowroń',
+                shortTitle: 'Certyfikowany Psychoterapeuta PTTPB',
+                fullTitle: 'Psychoterapeuta CBT (PTTPB nr 1620)',
+                expertise: 'Kryzysy psychiczne, zaburzenia lękowe i depresyjne',
                 bio: {
-                    education: ['Specjalistka psychoterapii uzależnień', 'Psychoterapeutka CBT (PTTPB)'],
-                    experience: 'Kierowniczka ośrodka psychoterapii dzieci i młodzieży „Nadzieja Rodzinie" w Kielcach. Wieloletnie doświadczenie w MONAR i placówkach leczenia uzależnień. Kierowniczka specjalizacji w dziedzinie psychoterapii uzależnień w Vis Salutis.',
-                    interests: 'Terapia uzależnień, praca z młodzieżą, interwencja kryzysowa.'
+                    education: ['Psychoterapeuta CBT (PTTPB nr 1620)'],
+                    experience: 'Związany z Lazurową Terapią oraz Warszawskim Centrum Pomocy Rodzinie. Doświadczenie w Mazowieckim Szpitalu Bródnowskim i Szpitalu Wolskim. Specjalizuje się w pracy z osobami doświadczającymi kryzysów psychicznych.',
+                    interests: 'CBT, kryzysy psychiczne, zaburzenia lękowe.'
+                }
+            },
+            {
+                name: 'Nicol Śliwińska',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1562), terapeutka DBT, Liderka Family Connections',
+                expertise: 'Praca z dziećmi i młodzieżą (5–21 lat), doświadczenie międzynarodowe',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1562)', 'Szkolenie CBT dzieci i młodzieży (Niemcy)', 'Liderka Family Connections'],
+                    experience: 'Związana z Centrum Zdrowia Psychicznego HarmonJa. Specjalizuje się w pracy z dziećmi i młodzieżą z zaburzeniami lękowymi, depresyjnymi, borderline, zaburzeniami odżywiania, ADHD i ASD. Doświadczenie międzynarodowe (Klinik Walstedde, Niemcy).',
+                    interests: 'CBT i DBT dzieci i młodzieży, Family Connections, praca międzynarodowa.'
+                }
+            },
+            {
+                name: 'Dr Andrzej Śliwerski',
+                shortTitle: 'Certyfikowany Psychoterapeuta PTTPB',
+                fullTitle: 'Dr Psychologii, Adiunkt UŁ, Psychoterapeuta CBT (PTTPB nr 267)',
+                expertise: 'CBT, Terapia Schematów, PTSD/TF-CBT, ACT, praca z osobami LGBTQ+',
+                bio: {
+                    education: ['Doktor nauk społecznych', 'Psychoterapeuta CBT (PTTPB nr 267)', 'Szkolenia: Terapia Schematów, TF-CBT, ACT'],
+                    experience: 'Adiunkt w Instytucie Psychologii Uniwersytetu Łódzkiego. Współtwórca Instytutu Psychoterapii CBT „Schemat" w Łodzi. Wykładowca w szkołach psychoterapii (CTPB, CBT Edu, Vis Salutis, DIALOG).',
+                    interests: 'CBT, terapia traumy, Terapia Schematów, praca z osobami LGBTQ+.'
+                }
+            },
+            {
+                name: 'Emilia Sygulska',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1210), terapeutka DBT',
+                expertise: 'DBT-A (wielorodzinna), podcast „Kurs na DBT"',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1210)', 'DBT Comprehensive'],
+                    experience: 'Prowadzi psychoterapię indywidualną dzieci, młodzieży i dorosłych. Prowadzi treningi umiejętności DBT-A. Inicjatorka i współautorka podcastu „Kurs na DBT". Wykładowczyni na Uniwersytecie Jagiellońskim.',
+                    interests: 'DBT, podcasting edukacyjny, praca z młodzieżą.'
                 }
             },
             {
                 name: 'Magdalena Świtalska-Jastrzębowska',
-                shortTitle: 'Psychoterapeutka CBT (PTTPB nr 1155)',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
                 fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1155), terapeutka Dialogu Motywującego',
                 expertise: 'Zaburzenia lękowe, depresyjne, psychosomatyczne, osobowości',
                 bio: {
@@ -1677,25 +1638,91 @@
                 }
             },
             {
-                name: 'Sylwia Bobińska',
-                shortTitle: 'Psychoterapeutka CBT/DBT',
-                fullTitle: 'Psychoterapeutka CBT, terapeutka DBT',
-                expertise: 'Psychoterapia młodzieży i dorosłych w nurcie CBT i DBT',
+                name: 'Kaja Wieczorek-Socha',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1086), specjalistka psychologii klinicznej dzieci i młodzieży',
+                expertise: 'DBT-A, Family Connections, Szpital Uniwersytecki w Krakowie',
                 bio: {
-                    education: ['Szkoła Psychoterapii CBT (SWPS)', 'DBT Comprehensive'],
-                    experience: 'Prowadzi terapię w Centrum Zdrowia Psychicznego HarmonJa i w Klinice Uniwersytetu SWPS. Doświadczenie w Wojewódzkim Szpitalu Psychiatrycznym im. prof. Bilikiewicza w Gdańsku.',
-                    interests: 'CBT, DBT, praca z młodzieżą, regulacja emocji.'
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1086)', 'Specjalistka psychologii klinicznej dzieci i młodzieży', 'DBT Comprehensive'],
+                    experience: 'Starszy asystent — psycholog w Szpitalu Uniwersyteckim w Krakowie. Współtwórczyni projektu Dialektycznie.pl i podcastu „Kurs na DBT". Prowadzi treningi DBT-A dla nastolatków i ich rodzin.',
+                    interests: 'DBT-A, psychologia kliniczna dzieci, Family Connections.'
                 }
             },
             {
-                name: 'Marcin Łapiński',
-                shortTitle: 'Radca prawny, Wykładowca',
-                fullTitle: 'Radca prawny, wykładowca akademicki — aspekty prawne psychoterapii',
-                expertise: 'Prawo w psychoterapii, postępowanie cywilne, etyka zawodowa',
+                name: 'Agnieszka Winiarek',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1613), terapeutka DBT',
+                expertise: 'Neuroróżnorodność (ADHD, ASD), zaburzenia lękowe i osobowości',
                 bio: {
-                    education: ['Radca prawny', 'Aplikacja komornicza i radcowska'],
-                    experience: 'Wykładowca na studiach podyplomowych Szkoły Psychoterapii CBT (WSB Saint Louis University). Prowadzi zajęcia z organizacyjnych i prawnych aspektów psychoterapii. Wykłada także na Uniwersytecie Gdańskim i w Akademii Humanitas.',
-                    interests: 'Prawo w psychoterapii, ochrona danych, regulacje zawodowe.'
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1613)', 'DBT Comprehensive'],
+                    experience: 'Związana z Centrum Zdrowia Psychicznego HarmonJa w Gdańsku. Specjalizuje się w pracy z osobami neuroróżnorodnymi (ADHD, ASD) oraz z zaburzeniami lękowymi, nastroju i osobowości.',
+                    interests: 'CBT, DBT, neuroróżnorodność, szkolenie terapeutów.'
+                }
+            },
+            {
+                name: 'Marta Wojsz-Rączko',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1578), terapeutka schematu (w trakcie certyfikacji ISST)',
+                expertise: 'Integracja CBT z terapiami trzeciej fali (ACT, CFT, TSR)',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1578)', 'Terapia Schematu (Nowoczesna Szkoła TS, 2023–2025)'],
+                    experience: 'Współpracuje z Lazurową Terapią i ośrodkiem AdAlta. Integruje CBT, terapię schematów, ACT, CFT i TSR. Członkini PTTPB i ISST.',
+                    interests: 'Terapia Schematu, ACT, CFT, TSR, integracja metod terapeutycznych.'
+                }
+            },
+            {
+                name: 'Monika Zabel',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 997), terapeutka schematów (w trakcie certyfikacji ISST)',
+                expertise: 'CBT, terapia dzieci i młodzieży, praca z traumą',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 997)', 'Terapia Schematu (w trakcie certyfikacji ISST)'],
+                    experience: 'Prowadzi Poradnię „Poza schematami" i pracuje w Mazowieckim Szpitalu Drewnica. Wykładowczyni na WUM i w szkołach psychoterapii. Prowadzi zajęcia z CBT, terapii dzieci i młodzieży oraz pracy z traumą.',
+                    interests: 'Terapia Schematu, CBT dzieci i młodzieży, praca z traumą.'
+                }
+            },
+            {
+                name: 'Gabriela Zajdel',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 1124), terapeutka DBT',
+                expertise: 'Dysregulacja emocjonalna, interwencja kryzysowa, Trening Umiejętności DBT',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 1124)', 'DBT Comprehensive'],
+                    experience: 'Współtworzy program leczenia osób z dysregulacją emocjonalną w dialektycznie.pl. Doświadczenie w Ośrodkach Interwencji Kryzysowej. Prowadzi szkolenia z Treningu Umiejętności DBT dla profesjonalistów.',
+                    interests: 'DBT, interwencja kryzysowa, szkolenie umiejętności.'
+                }
+            },
+            {
+                name: 'Iga Zdanowska',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 955), terapeutka DBT',
+                expertise: 'Grupowe treningi umiejętności DBT, badania nad prokrastynacją',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 955)', 'DBT Comprehensive'],
+                    experience: 'Współprowadzi Centrum NOVITE w Sosnowcu. Związana z Centrum Neuro-Care w Katowicach. Prowadzi grupowe treningi umiejętności DBT. Wykładowczyni w Akademii Humanitas.',
+                    interests: 'DBT, grupowe treningi umiejętności, prokrastynacja, badania naukowe.'
+                }
+            },
+            {
+                name: 'Ewelina Zimna',
+                shortTitle: 'Specjalista psychoterapii uzależnień\nCertyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Specjalistka psychoterapii uzależnień, psychoterapeutka CBT (PTTPB)',
+                expertise: 'Uzależnienia u dzieci i młodzieży, interwencja kryzysowa',
+                bio: {
+                    education: ['Specjalistka psychoterapii uzależnień', 'Psychoterapeutka CBT (PTTPB)'],
+                    experience: 'Kierowniczka ośrodka psychoterapii dzieci i młodzieży „Nadzieja Rodzinie" w Kielcach. Wieloletnie doświadczenie w MONAR i placówkach leczenia uzależnień. Kierowniczka specjalizacji w dziedzinie psychoterapii uzależnień w Vis Salutis.',
+                    interests: 'Terapia uzależnień, praca z młodzieżą, interwencja kryzysowa.'
+                }
+            },
+            {
+                name: 'Dagmara Zinkowska-Sopek',
+                shortTitle: 'Certyfikowana Psychoterapeutka PTTPB',
+                fullTitle: 'Psychoterapeutka CBT (PTTPB nr 833), certyfikowana terapeutka schematów (ISST, IND-3426)',
+                expertise: 'Terapia Schematu, trauma złożona, neurobiologia interpersonalna',
+                bio: {
+                    education: ['Psychoterapeutka CBT (PTTPB nr 833)', 'Zaawansowany certyfikat Terapii Schematu (ISST, IND-3426)', 'Kurs terapii traumy (80h)'],
+                    experience: 'Specjalizuje się w terapii osób dorosłych z zaburzeniami osobowości, depresją i traumą złożoną. Łączy CBT, terapię schematów, Dialog Motywujący i podejścia oparte na neurobiologii interpersonalnej.',
+                    interests: 'Terapia Schematu, neurobiologia, trauma złożona, integracja metod.'
                 }
             }
         ]
@@ -1704,25 +1731,34 @@
     /* ============================
        RENDER FUNCTIONS
        ============================ */
+    function getInitials(name) {
+        return name
+            .replace(/^(Prof\.\s*dr\s*hab\.\s*med\.\s*|Prof\.\s*|Dr\s*hab\.\s*|Dr\s*n\.\s*med\.\s*|Dr\s*n\.\s*społ\.\s*|Dr\s*)/i, '')
+            .split(' ').map(n => n[0]).filter(Boolean).slice(0,2).join('');
+    }
+
     function createCard(person) {
-        const initials = person.name.replace(/^(Prof\.\s*|Dr\s*(hab\.)?\s*(n\.\s*med\.)?\s*)/i, '').split(' ').map(n => n[0]).join('');
+        const initials = getInitials(person.name);
         const card = document.createElement('div');
         card.className = 'staff-card';
         card.tabIndex = 0;
         card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', person.name + ' — ' + person.shortTitle);
+        card.setAttribute('aria-label', person.name + ' — ' + person.shortTitle.split('\n')[0]);
 
         const badgeHTML = person.badge ? `<div class="card-badge">${person.badge}</div>` : '';
         const avatarContent = person.photo
             ? `<img src="${person.photo}" alt="${person.name}" loading="lazy">`
             : initials;
 
+        // Handle multi-line shortTitle (split on \n)
+        const titleLines = person.shortTitle.split('\n').map(l => `<span>${l}</span>`).join('<br>');
+
         card.innerHTML = `
             <div class="card-avatar">${avatarContent}</div>
             ${badgeHTML}
             <h3 class="card-name">${person.name}</h3>
-            <p class="card-title">${person.shortTitle}</p>
-            <p class="card-expertise">${person.expertise}</p>
+            <p class="card-title">${titleLines}</p>
+            <p class="card-expertise">${person.expertise.split('\n')[0]}</p>
             <div class="card-more">Dowiedz się więcej →</div>
         `;
 
@@ -1751,7 +1787,7 @@
         const top = document.getElementById('modalTop');
         const body = document.getElementById('modalBody');
 
-        const initials = person.name.replace(/^(Prof\.\s*|Dr\s*(hab\.)?\s*(n\.\s*med\.)?\s*)/i, '').split(' ').map(n => n[0]).join('');
+        const initials = getInitials(person.name);
         const avatarContent = person.photo
             ? `<img src="${person.photo}" alt="${person.name}">`
             : initials;
@@ -1773,7 +1809,7 @@
             html += `<div class="modal-section"><h3>Doświadczenie</h3><p>${person.bio.experience}</p></div>`;
         }
         if (person.bio.interests) {
-            html += `<div class="modal-section"><h3>Zainteresowania i specjalizacje</h3><p>${person.bio.interests}</p></div>`;
+            html += `<div class="modal-section"><h3>Obszary specjalizacji</h3><p>${person.bio.interests}</p></div>`;
         }
 
         body.innerHTML = html;
@@ -1805,7 +1841,7 @@
        INTERSECTION OBSERVER
        ============================ */
     const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const card = entry.target;
                 const idx = Array.from(card.parentNode.children).indexOf(card);
@@ -1832,7 +1868,6 @@
         });
     }
 
-    /* Dropdown on mobile */
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
         toggle.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
@@ -1841,7 +1876,6 @@
         });
     });
 
-    /* Close mobile menu on nav link click */
     document.querySelectorAll('.nav-links a[role="menuitem"]').forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
@@ -1853,7 +1887,7 @@
         });
     });
 
-    /* Back to top (premium UX for long page) */
+    /* Back to top */
     const backBtn = document.createElement('button');
     backBtn.className = 'back-to-top';
     backBtn.setAttribute('aria-label', 'Przewiń do góry');
