@@ -20,7 +20,7 @@
         "@type": "Organization",
         "name": "Szkoła Psychoterapii HarmonJa",
         "url": "https://adamelzan.github.io/harmonJA/",
-        "email": "szkolaharmonja@gmail.com",
+        "email": "kontakt@harmonja.edu.pl",
         "address": [
             {
                 "@type": "PostalAddress",
@@ -75,9 +75,7 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -88,10 +86,7 @@
             overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
 
         .container {
             max-width: 1300px;
@@ -101,10 +96,8 @@
 
         .sr-only {
             position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
             overflow: hidden;
             clip: rect(0,0,0,0);
             white-space: nowrap;
@@ -116,8 +109,7 @@
            ======================================== */
         .skip-to-content {
             position: absolute;
-            top: -40px;
-            left: 0;
+            top: -40px; left: 0;
             background: var(--highlight-color);
             color: white;
             padding: 8px 16px;
@@ -126,12 +118,10 @@
             font-weight: 600;
             border-radius: 0 0 4px 0;
         }
-        .skip-to-content:focus {
-            top: 0;
-        }
+        .skip-to-content:focus { top: 0; }
 
         /* ========================================
-           HEADER / NAV (wzorzec globalny)
+           HEADER / NAV
            ======================================== */
         header {
             background-color: var(--white);
@@ -153,15 +143,12 @@
             align-items: center;
             padding: 5px 0;
         }
+
+        /* ✦ Logo: 105px desktop */
         .logo-container img,
         .logo-img {
-            height: 70px;
+            height: 105px;
             width: auto;
-        }
-        .logo-container svg {
-            height: 90px;
-            width: auto;
-            max-width: 300px;
         }
 
         .mobile-menu-btn {
@@ -182,9 +169,7 @@
             list-style: none;
         }
 
-        .nav-links > li {
-            position: relative;
-        }
+        .nav-links > li { position: relative; }
 
         .nav-links > li > a,
         .nav-links > li > .dropdown-toggle {
@@ -201,30 +186,20 @@
         .nav-links > li > .dropdown-toggle::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
             background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
             transition: width 0.3s;
         }
 
         .nav-links > li > a:hover,
-        .nav-links > li > .dropdown-toggle:hover {
-            color: var(--highlight-color);
-        }
+        .nav-links > li > .dropdown-toggle:hover { color: var(--highlight-color); }
 
         .nav-links > li > a:hover::after,
-        .nav-links > li > .dropdown-toggle:hover::after {
-            width: 100%;
-        }
+        .nav-links > li > .dropdown-toggle:hover::after { width: 100%; }
 
-        .nav-links > li > a.active {
-            color: var(--highlight-color);
-        }
-        .nav-links > li > a.active::after {
-            width: 100%;
-        }
+        .nav-links > li > a.active { color: var(--highlight-color); }
+        .nav-links > li > a.active::after { width: 100%; }
 
         /* Dropdown */
         .dropdown { position: relative; }
@@ -251,8 +226,7 @@
 
         .dropdown-menu {
             position: absolute;
-            top: 100%;
-            left: 0;
+            top: 100%; left: 0;
             background: var(--white);
             min-width: 320px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -287,7 +261,7 @@
         }
 
         /* ========================================
-           HERO — Clean & Minimal
+           HERO
            ======================================== */
         .hero {
             background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
@@ -300,19 +274,14 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -40%;
-            right: -15%;
-            width: 600px;
-            height: 600px;
+            top: -40%; right: -15%;
+            width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(0,180,255,0.08) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+        .hero-content { position: relative; z-index: 1; }
 
         .hero h1 {
             font-size: 3.2rem;
@@ -336,9 +305,7 @@
         /* ========================================
            CONTACT — Two-Column Layout
            ======================================== */
-        .contact-section {
-            padding: 80px 0;
-        }
+        .contact-section { padding: 80px 0; }
 
         .contact-grid {
             display: grid;
@@ -347,10 +314,8 @@
             align-items: start;
         }
 
-        /* Left Column — Info */
-        .contact-info-col {
-            padding-top: 10px;
-        }
+        /* Left Column */
+        .contact-info-col { padding-top: 10px; }
 
         .contact-info-col h2 {
             font-size: 2rem;
@@ -366,7 +331,6 @@
             line-height: 1.7;
         }
 
-        /* Info Items */
         .info-item {
             display: flex;
             align-items: flex-start;
@@ -375,8 +339,7 @@
         }
 
         .info-icon {
-            width: 48px;
-            height: 48px;
+            width: 48px; height: 48px;
             border-radius: 12px;
             background: linear-gradient(135deg, var(--light-blue), rgba(0,180,255,0.08));
             display: flex;
@@ -386,9 +349,7 @@
             transition: transform 0.3s;
         }
 
-        .info-item:hover .info-icon {
-            transform: translateY(-2px);
-        }
+        .info-item:hover .info-icon { transform: translateY(-2px); }
 
         .info-text h3 {
             font-size: 1rem;
@@ -407,9 +368,7 @@
             color: var(--highlight-color);
             transition: color 0.3s;
         }
-        .info-text a:hover {
-            color: var(--secondary-color);
-        }
+        .info-text a:hover { color: var(--secondary-color); }
 
         /* Social Links */
         .contact-social {
@@ -421,8 +380,7 @@
         }
 
         .contact-social-link {
-            width: 44px;
-            height: 44px;
+            width: 44px; height: 44px;
             border-radius: 50%;
             background: var(--light-gray);
             display: flex;
@@ -516,10 +474,7 @@
         .field input.invalid,
         .field textarea.invalid { border-color: var(--error-red); }
 
-        .field textarea {
-            resize: vertical;
-            min-height: 110px;
-        }
+        .field textarea { resize: vertical; min-height: 110px; }
 
         .field select {
             cursor: pointer;
@@ -547,8 +502,7 @@
         }
 
         .consent-field input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
+            width: 18px; height: 18px;
             margin-top: 3px;
             accent-color: var(--highlight-color);
             flex-shrink: 0;
@@ -562,9 +516,7 @@
             cursor: pointer;
         }
 
-        .consent-field a {
-            color: var(--highlight-color);
-        }
+        .consent-field a { color: var(--highlight-color); }
 
         /* Submit Button */
         .btn-submit {
@@ -591,19 +543,12 @@
             box-shadow: 0 8px 25px rgba(0,180,255,0.3);
         }
 
-        .btn-submit:active:not(:disabled) {
-            transform: translateY(0);
-        }
-
-        .btn-submit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+        .btn-submit:active:not(:disabled) { transform: translateY(0); }
+        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
         .btn-submit .spinner {
             display: none;
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             border: 2px solid rgba(255,255,255,0.3);
             border-top-color: white;
             border-radius: 50%;
@@ -613,9 +558,7 @@
         .btn-submit.loading .spinner { display: block; }
         .btn-submit.loading .btn-label { display: none; }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* Success State */
         .form-success {
@@ -627,8 +570,7 @@
         .form-success.show { display: block; }
 
         .success-check {
-            width: 64px;
-            height: 64px;
+            width: 64px; height: 64px;
             border-radius: 50%;
             background: var(--success-green);
             display: flex;
@@ -677,10 +619,7 @@
             margin-bottom: 12px;
         }
 
-        .section-header p {
-            color: #666;
-            font-size: 1.05rem;
-        }
+        .section-header p { color: #666; font-size: 1.05rem; }
 
         .locations-grid {
             display: grid;
@@ -703,10 +642,8 @@
         .loc-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
             background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
             opacity: 0;
             transition: opacity 0.3s;
@@ -728,16 +665,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 16px;
-        }
-
-        .loc-badge.hq {
             background: linear-gradient(135deg, rgba(0,180,255,0.1), rgba(34,199,214,0.1));
             color: var(--highlight-color);
-        }
-
-        .loc-badge.branch {
-            background: rgba(0,0,0,0.05);
-            color: #888;
         }
 
         .loc-card h3 {
@@ -789,22 +718,15 @@
         /* ========================================
            FAQ — Minimal Accordion
            ======================================== */
-        .faq-section {
-            padding: 80px 0;
-        }
+        .faq-section { padding: 80px 0; }
 
         .faq-list {
             max-width: 800px;
             margin: 50px auto 0;
         }
 
-        .faq-item {
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .faq-item:first-child {
-            border-top: 1px solid var(--medium-gray);
-        }
+        .faq-item { border-bottom: 1px solid var(--medium-gray); }
+        .faq-item:first-child { border-top: 1px solid var(--medium-gray); }
 
         .faq-btn {
             width: 100%;
@@ -837,9 +759,7 @@
             color: var(--highlight-color);
         }
 
-        .faq-item.open .faq-chevron {
-            transform: rotate(180deg);
-        }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
 
         .faq-body {
             max-height: 0;
@@ -860,7 +780,7 @@
         }
 
         /* ========================================
-           FOOTER (wzorzec globalny + social)
+           FOOTER
            ======================================== */
         footer {
             background: linear-gradient(135deg, var(--dark-blue) 0%, #051f34 100%);
@@ -887,27 +807,17 @@
             font-size: 0.95rem;
         }
 
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
 
         .footer-links a {
             color: rgba(255,255,255,0.75);
             transition: color 0.3s;
             font-size: 0.95rem;
         }
+        .footer-links a:hover { color: var(--white); }
 
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        .footer-contact-info p {
-            margin-bottom: 6px;
-        }
+        .footer-contact-info p { margin-bottom: 6px; }
 
         .social-links {
             display: flex;
@@ -916,8 +826,7 @@
         }
 
         .social-icon {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             background-color: rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
@@ -964,33 +873,19 @@
            RESPONSIVE
            ======================================== */
         @media (max-width: 968px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .locations-grid {
-                grid-template-columns: 1fr;
-                max-width: 480px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .locations-grid { grid-template-columns: 1fr; max-width: 480px; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
+            .mobile-menu-btn { display: block; }
 
             .nav-links {
                 display: none;
                 position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
+                top: 0; left: 0;
+                width: 100%; height: 100vh;
                 background-color: var(--white);
                 flex-direction: column;
                 justify-content: center;
@@ -1001,20 +896,12 @@
                 overflow-y: auto;
             }
 
-            .nav-links.active {
-                display: flex;
-            }
+            .nav-links.active { display: flex; }
 
-            .nav-links > li {
-                width: 100%;
-                text-align: center;
-            }
+            .nav-links > li { width: 100%; text-align: center; }
 
             .nav-links > li > a,
-            .dropdown-toggle {
-                font-size: 1.15rem;
-                padding: 12px;
-            }
+            .dropdown-toggle { font-size: 1.15rem; padding: 12px; }
 
             .dropdown-menu {
                 position: static;
@@ -1026,48 +913,24 @@
                 min-width: auto;
             }
 
-            .logo-container svg,
-            .logo-img {
-                height: 50px;
-            }
+            /* ✦ Logo: 85px mobile */
+            .logo-container img,
+            .logo-img { height: 85px; }
 
-            .hero {
-                padding: 70px 0 50px;
-            }
+            .hero { padding: 70px 0 50px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-lead { font-size: 1.05rem; }
 
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+            .form-card { padding: 28px 20px; }
+            .form-row { grid-template-columns: 1fr; }
 
-            .hero-lead {
-                font-size: 1.05rem;
-            }
-
-            .form-card {
-                padding: 28px 20px;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .contact-info-col h2 {
-                font-size: 1.6rem;
-            }
+            .section-header h2 { font-size: 1.8rem; }
+            .contact-info-col h2 { font-size: 1.6rem; }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
+            .container { padding: 0 16px; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -1075,7 +938,7 @@
     <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
     <!-- ============================================
-         HEADER (wzorzec globalny)
+         HEADER
          ============================================ -->
     <header>
         <div class="container">
@@ -1123,6 +986,7 @@
     <section class="contact-section" id="main-content">
         <div class="container">
             <div class="contact-grid">
+
                 <!-- LEFT: Contact Info -->
                 <div class="contact-info-col animate">
                     <h2>Dane kontaktowe</h2>
@@ -1134,7 +998,7 @@
                         </div>
                         <div class="info-text">
                             <h3>Email</h3>
-                            <p><a href="mailto:szkolaharmonja@gmail.com">szkolaharmonja@gmail.com</a></p>
+                            <p><a href="mailto:kontakt@harmonja.edu.pl">kontakt@harmonja.edu.pl</a></p>
                         </div>
                     </div>
 
@@ -1143,7 +1007,7 @@
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
                         <div class="info-text">
-                            <h3>Biuro Warszawa</h3>
+                            <h3>Oddział Warszawa</h3>
                             <p>ul. Legionowa 2<br>01-343 Warszawa</p>
                         </div>
                     </div>
@@ -1153,7 +1017,7 @@
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
                         <div class="info-text">
-                            <h3>Biuro Gdańsk</h3>
+                            <h3>Oddział Gdańsk</h3>
                             <p>ul. Politechniczna 9/7<br>80-288 Gdańsk</p>
                         </div>
                     </div>
@@ -1190,19 +1054,6 @@
                     <h2>Napisz do nas</h2>
                     <p class="form-lead">Odpowiadamy na każde pytanie w ciągu 24h</p>
 
-                    <!--
-                        ═══════════════════════════════════════════
-                        GOOGLE FORMS INTEGRATION — INSTRUKCJA
-                        ═══════════════════════════════════════════
-                        1. Utwórz Google Form z polami: Imię i nazwisko, Email, Telefon, Temat, Wiadomość
-                        2. Skopiuj URL z action formularza (View source → form action URL)
-                        3. Wstaw entry IDs do atrybutów name pól poniżej
-                        4. Zmień action URL w tagu <form>
-                        
-                        Tymczasowo formularz działa jako demo (bez backendu).
-                        Po podłączeniu Google Forms — wiadomości przyjdą na szkolaharmonja@gmail.com
-                        ═══════════════════════════════════════════
-                    -->
                     <form id="contactForm" novalidate>
                         <div class="form-row">
                             <div class="field">
@@ -1269,26 +1120,23 @@
     </section>
 
     <!-- ============================================
-         LOCATIONS
+         NASZE ODDZIAŁY (dawniej: Nasze biura)
          ============================================ -->
     <section class="locations-section" id="locations">
         <div class="container">
             <div class="section-header animate">
-                <h2>Nasze biura</h2>
+                <h2>Nasze oddziały</h2>
                 <p>Szkolenia prowadzimy stacjonarnie w Warszawie i Gdańsku</p>
             </div>
 
             <div class="locations-grid">
+                <!-- Warszawa -->
                 <div class="loc-card animate">
-                    <span class="loc-badge hq">Siedziba główna</span>
+                    <span class="loc-badge">Oddział</span>
                     <h3>Warszawa</h3>
                     <div class="loc-detail">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <span>ul. Legionowa 2, 01-343 Warszawa</span>
-                    </div>
-                    <div class="loc-detail">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                        <span>Pn–Pt: 9:00 – 17:00</span>
                     </div>
                     <button class="loc-map-btn" onclick="window.open('https://maps.google.com/?q=ul.+Legionowa+2,+01-343+Warszawa','_blank')">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1296,16 +1144,13 @@
                     </button>
                 </div>
 
+                <!-- Gdańsk -->
                 <div class="loc-card animate" style="transition-delay: 0.1s;">
-                    <span class="loc-badge branch">Oddział</span>
+                    <span class="loc-badge">Oddział</span>
                     <h3>Gdańsk</h3>
                     <div class="loc-detail">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <span>ul. Politechniczna 9/7, 80-288 Gdańsk</span>
-                    </div>
-                    <div class="loc-detail">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                        <span>Pn–Pt: 9:00 – 17:00</span>
                     </div>
                     <button class="loc-map-btn" onclick="window.open('https://maps.google.com/?q=ul.+Politechniczna+9/7,+80-288+Gdańsk','_blank')">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1327,6 +1172,8 @@
             </div>
 
             <div class="faq-list">
+
+                <!-- FAQ 1 -->
                 <div class="faq-item animate">
                     <button class="faq-btn" aria-expanded="false">
                         <span>Jak wygląda proces rekrutacji?</span>
@@ -1339,6 +1186,7 @@
                     </div>
                 </div>
 
+                <!-- FAQ 2 — zaktualizowana treść (Magda) -->
                 <div class="faq-item animate" style="transition-delay: 50ms;">
                     <button class="faq-btn" aria-expanded="false">
                         <span>Jakie są terminy naboru?</span>
@@ -1346,11 +1194,12 @@
                     </button>
                     <div class="faq-body" role="region">
                         <div class="faq-body-inner">
-                            Nabór odbywa się dwa razy w roku — wiosną (luty–marzec) i jesienią (wrzesień–październik). Rekrutacja startuje ok. 2 miesiące przed rozpoczęciem szkolenia.
+                            Nabór prowadzony jest na bieżąco do wyczerpania limitu miejsc na daną edycję szkolenia. Szkolenia rozpoczynają się we wrześniu, po zebraniu minimalnej liczby uczestników.
                         </div>
                     </div>
                 </div>
 
+                <!-- FAQ 3 — zaktualizowana treść (Magda) -->
                 <div class="faq-item animate" style="transition-delay: 100ms;">
                     <button class="faq-btn" aria-expanded="false">
                         <span>Czy szkolenie jest akredytowane?</span>
@@ -1358,47 +1207,27 @@
                     </button>
                     <div class="faq-body" role="region">
                         <div class="faq-body-inner">
-                            Nasze szkolenia realizowane są zgodnie ze standardami Polskiego Towarzystwa Terapii Poznawczo-Behawioralnej (PTTPB). Certyfikat jest uznawany w całej Polsce i Europie (EABCT).
+                            Nasze szkolenia realizowane są zgodnie ze standardami Polskiego Towarzystwa Terapii Poznawczo-Behawioralnej (PTTPB). Certyfikat jest uznawany w całej Polsce i Europie (EABCT).<br><br>
+                            Aktualnie jesteśmy w procesie ubiegania się o rekomendację PTTPB dla Szkoły Psychoterapii HarmonJa.
                         </div>
                     </div>
                 </div>
 
-                <div class="faq-item animate" style="transition-delay: 150ms;">
-                    <button class="faq-btn" aria-expanded="false">
-                        <span>Jakie są koszty szkolenia i możliwości finansowania?</span>
-                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-body" role="region">
-                        <div class="faq-body-inner">
-                            Koszty zależą od wybranego programu. Oferujemy płatności ratalne oraz zniżki. Szczegółowe informacje o cenach i dofinansowaniu przekazujemy podczas rozmowy kwalifikacyjnej — napisz do nas, a wszystko wyjaśnimy.
-                        </div>
-                    </div>
-                </div>
+                <!-- Usunięte FAQ: "Jakie są koszty..." i "Jak szybko odpowiadacie..." — zgodnie z uwagami Magdy -->
 
-                <div class="faq-item animate" style="transition-delay: 200ms;">
-                    <button class="faq-btn" aria-expanded="false">
-                        <span>Jak szybko odpowiadacie na wiadomości?</span>
-                        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-body" role="region">
-                        <div class="faq-body-inner">
-                            Staramy się odpowiadać w ciągu 24 godzin w dni robocze. W okresach rekrutacji czas może się wydłużyć do 48h.
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-         FOOTER (wzorzec globalny + social icons)
+         FOOTER
          ============================================ -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>O Szkole</h3>
-                    <p>Szkoła Psychoterapii HarmonJa to nowoczesne, 4-letnie szkolenie w zakresie terapii poznawczo-behawioralnej (CBT), prowadzone zgodnie ze standardami PTTPB. Obecnie oczekujemy na akredytację PTTPB.</p>
+                    <p>Szkoła Psychoterapii HarmonJa to nowoczesne, 4-letnie szkolenie w zakresie terapii poznawczo-behawioralnej (CBT), prowadzone zgodnie ze standardami PTTPB. Aktualnie jesteśmy w procesie ubiegania się o rekomendację PTTPB.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/szkola.harmonja/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -1433,13 +1262,16 @@
                         <p>prowadzona przez</p>
                         <p>Instytut Rozwoju Terapii<br>Poznawczo-Behawioralnej HarmonJa sp. z o.o.</p>
                         <p style="margin-top:12px;">ul. Politechniczna 9/7<br>80-288 Gdańsk</p>
-                        <p style="margin-top:8px;">Email: <a href="mailto:szkolaharmonja@gmail.com" style="color:var(--primary-color);">szkolaharmonja@gmail.com</a></p>
-                        <p>NIP: 9571190783 &nbsp;|&nbsp; REGON: 542257334</p>
+                        <p style="margin-top:8px;">Email: <a href="mailto:kontakt@harmonja.edu.pl" style="color:var(--primary-color);">kontakt@harmonja.edu.pl</a></p>
+                        <p style="margin-top:8px;">Nr rachunku Bank Millennium:<br>
+                            <span style="color:rgba(255,255,255,0.9); font-family: monospace; font-size: 0.88rem; letter-spacing: 0.5px;">97 1160 2202 0000 0006 8072 1778</span>
+                        </p>
+                        <p style="margin-top:8px;">NIP: 9571190783 &nbsp;|&nbsp; REGON: 542257334</p>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2024–2026 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
@@ -1448,9 +1280,7 @@
          SCRIPTS
          ============================================ -->
     <script>
-        /* ==========================================
-           MOBILE MENU
-           ========================================== */
+        /* MOBILE MENU */
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
@@ -1464,9 +1294,7 @@
             });
         }
 
-        /* ==========================================
-           INTERSECTION OBSERVER — fade-in
-           ========================================== */
+        /* INTERSECTION OBSERVER */
         const io = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
@@ -1480,23 +1308,19 @@
         );
         document.querySelectorAll('.animate').forEach(el => io.observe(el));
 
-        /* ==========================================
-           FAQ ACCORDION
-           ========================================== */
+        /* FAQ ACCORDION */
         document.querySelectorAll('.faq-btn').forEach(btn => {
             btn.addEventListener('click', function () {
                 const item = this.closest('.faq-item');
                 const body = item.querySelector('.faq-body');
                 const wasOpen = item.classList.contains('open');
 
-                // Close all
                 document.querySelectorAll('.faq-item.open').forEach(openItem => {
                     openItem.classList.remove('open');
                     openItem.querySelector('.faq-body').style.maxHeight = null;
                     openItem.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
                 });
 
-                // Toggle clicked
                 if (!wasOpen) {
                     item.classList.add('open');
                     body.style.maxHeight = body.scrollHeight + 'px';
@@ -1505,12 +1329,9 @@
             });
         });
 
-        /* ==========================================
-           FORM VALIDATION & SUBMISSION
-           ========================================== */
+        /* FORM VALIDATION & SUBMISSION */
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
-
         const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         function showHint(id, msg, type) {
@@ -1520,28 +1341,23 @@
             el.className = 'field-hint ' + type;
         }
 
-        // Live validation
         document.getElementById('cf-name').addEventListener('blur', function () {
             if (this.value.length > 0 && this.value.length < 2) {
                 showHint('hint-name', 'Wpisz pełne imię i nazwisko', 'error');
-                this.classList.add('invalid');
-                this.classList.remove('valid');
+                this.classList.add('invalid'); this.classList.remove('valid');
             } else if (this.value.length >= 2) {
                 showHint('hint-name', '', '');
-                this.classList.add('valid');
-                this.classList.remove('invalid');
+                this.classList.add('valid'); this.classList.remove('invalid');
             }
         });
 
         document.getElementById('cf-email').addEventListener('blur', function () {
             if (this.value && !emailRe.test(this.value)) {
                 showHint('hint-email', 'Nieprawidłowy format email', 'error');
-                this.classList.add('invalid');
-                this.classList.remove('valid');
+                this.classList.add('invalid'); this.classList.remove('valid');
             } else if (this.value && emailRe.test(this.value)) {
                 showHint('hint-email', '', '');
-                this.classList.add('valid');
-                this.classList.remove('invalid');
+                this.classList.add('valid'); this.classList.remove('invalid');
             }
         });
 
@@ -1555,7 +1371,6 @@
             }
         });
 
-        // Submit
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -1567,44 +1382,21 @@
 
             let valid = true;
 
-            if (name.length < 2) {
-                showHint('hint-name', 'Wpisz pełne imię i nazwisko', 'error');
-                valid = false;
-            }
-            if (!emailRe.test(email)) {
-                showHint('hint-email', 'Nieprawidłowy format email', 'error');
-                valid = false;
-            }
-            if (!topic) {
-                valid = false;
-            }
-            if (message.length < 10) {
-                showHint('hint-message', 'Minimum 10 znaków', 'error');
-                valid = false;
-            }
-            if (!consent) {
-                valid = false;
-                alert('Proszę wyrazić zgodę na przetwarzanie danych.');
-                return;
-            }
-
+            if (name.length < 2) { showHint('hint-name', 'Wpisz pełne imię i nazwisko', 'error'); valid = false; }
+            if (!emailRe.test(email)) { showHint('hint-email', 'Nieprawidłowy format email', 'error'); valid = false; }
+            if (!topic) { valid = false; }
+            if (message.length < 10) { showHint('hint-message', 'Minimum 10 znaków', 'error'); valid = false; }
+            if (!consent) { valid = false; alert('Proszę wyrazić zgodę na przetwarzanie danych.'); return; }
             if (!valid) return;
 
-            // Show loading state
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
             /*
-             * ═══════════════════════════════════════════════
              * GOOGLE FORMS — PODŁĄCZENIE
-             * ═══════════════════════════════════════════════
-             * 
-             * Aby podłączyć Google Forms:
-             * 1. Utwórz Google Form z polami: Imię, Email, Telefon, Temat, Wiadomość
-             * 2. W Google Form → Ustawienia → Włącz "Otrzymuj powiadomienia email o nowych odpowiedziach"
-             * 3. Kliknij "Wyślij" → ikona linku → skopiuj URL
-             * 4. Otwórz pre-filled link i pobierz entry IDs z URL
-             * 5. Odkomentuj poniższy kod i wstaw swoje wartości:
+             * 1. Utwórz Google Form: Imię, Email, Telefon, Temat, Wiadomość
+             * 2. Pobierz entry IDs z pre-filled URL
+             * 3. Odkomentuj poniżej i podmień wartości:
              *
              * const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/TWOJE_ID/formResponse';
              * const formBody = new URLSearchParams({
@@ -1614,23 +1406,13 @@
              *     'entry.XXXXXXX': topic,
              *     'entry.XXXXXXX': message
              * });
-             *
-             * fetch(GOOGLE_FORM_URL, {
-             *     method: 'POST',
-             *     mode: 'no-cors',
-             *     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-             *     body: formBody
+             * fetch(GOOGLE_FORM_URL, { method:'POST', mode:'no-cors',
+             *     headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:formBody
              * }).then(() => showSuccess()).catch(() => showSuccess());
-             *
-             * Tryb 'no-cors' zawsze zwróci opaque response, ale dane zostaną wysłane.
-             * Google Forms wyśle powiadomienie na Twój Gmail.
-             * ═══════════════════════════════════════════════
              */
 
-            // Demo mode: symulacja wysyłki (zamień na Google Forms powyżej)
-            setTimeout(function () {
-                showSuccess();
-            }, 1200);
+            // Demo mode
+            setTimeout(showSuccess, 1200);
         });
 
         function showSuccess() {
