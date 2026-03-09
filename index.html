@@ -10,10 +10,10 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://harmonja.pl/">
+    <meta property="og:url" content="https://harmonja.edu.pl/">
     <meta property="og:title" content="HarmonJa — Szkoła Psychoterapii CBT | Gdańsk">
     <meta property="og:description" content="Uczymy naukowej psychoterapii z sercem! 4-letnie szkolenia CBT we współpracy z Instytutem Psychologii PAN. Dwie ścieżki: dorośli oraz dzieci i młodzież.">
-    <meta property="og:image" content="https://harmonja.pl/og-image.png">
+    <meta property="og:image" content="https://harmonja.edu.pl/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="pl_PL">
@@ -21,10 +21,10 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://harmonja.pl/">
+    <meta name="twitter:url" content="https://harmonja.edu.pl/">
     <meta name="twitter:title" content="HarmonJa — Szkoła Psychoterapii CBT | Gdańsk">
     <meta name="twitter:description" content="Uczymy naukowej psychoterapii z sercem! 4-letnie szkolenia CBT we współpracy z Instytutem Psychologii PAN.">
-    <meta name="twitter:image" content="https://harmonja.pl/og-image.png">
+    <meta name="twitter:image" content="https://harmonja.edu.pl/og-image.png">
     <style>
         :root {
             --primary-color: #22c7d6;
@@ -774,6 +774,194 @@
             animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
 
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 50%, var(--light-blue) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 180, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -80px;
+            right: -60px;
+        }
+
+        .newsletter-box {
+            max-width: 560px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-box h2 {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .newsletter-box .newsletter-lead {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 14px;
+        }
+
+        .form-field {
+            flex: 1;
+            position: relative;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-color);
+            background: var(--white);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+
+        .form-field input::placeholder {
+            color: #aaa;
+        }
+
+        .form-field input:focus {
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.12);
+        }
+
+        .form-field input[aria-invalid="true"] {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .form-field .field-error {
+            position: absolute;
+            bottom: -20px;
+            left: 4px;
+            font-size: 0.78rem;
+            color: #e74c3c;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .form-field .field-error.visible {
+            opacity: 1;
+        }
+
+        .newsletter-submit {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .newsletter-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .newsletter-submit:hover::before {
+            left: 100%;
+        }
+
+        .newsletter-submit:hover,
+        .newsletter-submit:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 180, 255, 0.5);
+            outline: none;
+        }
+
+        .newsletter-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .newsletter-consent {
+            font-size: 0.8rem;
+            color: #999;
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        .newsletter-consent a {
+            color: var(--highlight-color);
+            text-decoration: underline;
+        }
+
+        .form-status {
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: none;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .form-status.success {
+            display: block;
+            background: linear-gradient(135deg, rgba(0,180,255,0.08), rgba(34,199,214,0.08));
+            color: var(--dark-blue);
+            border: 1px solid rgba(0,180,255,0.2);
+        }
+
+        .form-status.error {
+            display: block;
+            background: rgba(231,76,60,0.06);
+            color: #c0392b;
+            border: 1px solid rgba(231,76,60,0.15);
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-box h2 {
+                font-size: 1.7rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+
         /* Footer */
         footer {
             background-color: #333;
@@ -1336,8 +1524,58 @@
         <!-- USUNIĘTE SEKCJE:
              - tech-clinical (treść przeniesiona do kart PAN)
              - programs (przeniesione na podstrony programów)
-             - newsletter (CTA w hero prowadzi do newslettera)
         -->
+
+        <!-- ============================================ -->
+        <!-- SEKCJA 5: NEWSLETTER                         -->
+        <!-- ============================================ -->
+        <section class="newsletter-section" id="newsletter-signup">
+            <div class="container">
+                <div class="newsletter-box">
+                    <h2>Bądź na bieżąco</h2>
+                    <p class="newsletter-lead">
+                        Zapisz się na newsletter, a&nbsp;będziemy informować Cię o&nbsp;terminach rekrutacji, szkoleniach i&nbsp;wydarzeniach Szkoły.
+                    </p>
+
+                    <!-- 
+                        FORMSPREE: Zamień TWOJ_FORM_ID na ID z formspree.io
+                        1. Wejdź na https://formspree.io → załóż darmowe konto
+                        2. Utwórz nowy form → skopiuj ID (np. "xwkgjqpb")
+                        3. Wstaw poniżej zamiast TWOJ_FORM_ID
+                    -->
+                    <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/TWOJ_FORM_ID" method="POST" novalidate>
+                        <input type="hidden" name="_subject" value="Nowy subskrybent newslettera HarmonJa">
+                        <input type="hidden" name="_template" value="table">
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <input type="text" name="name" id="nl-name" placeholder="Imię" required aria-label="Imię" autocomplete="given-name">
+                                <span class="field-error" id="nl-name-error" role="alert">Podaj swoje imię</span>
+                            </div>
+                            <div class="form-field">
+                                <input type="email" name="email" id="nl-email" placeholder="Adres e-mail" required aria-label="Adres e-mail" autocomplete="email">
+                                <span class="field-error" id="nl-email-error" role="alert">Podaj poprawny adres e-mail</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="newsletter-submit" id="nl-submit">
+                            Zapisz się na newsletter
+                        </button>
+
+                        <p class="newsletter-consent">
+                            Zapisując się, wyrażasz zgodę na otrzymywanie informacji od&nbsp;Szkoły Psychoterapii HarmonJa. Możesz zrezygnować w&nbsp;każdej chwili. <a href="kontakt.html">Polityka prywatności</a>.
+                        </p>
+                    </form>
+
+                    <div class="form-status" id="form-success">
+                        ✓ Dziękujemy za zapis! Sprawdź swoją skrzynkę — potwierdzenie jest w&nbsp;drodze.
+                    </div>
+                    <div class="form-status" id="form-error">
+                        Coś poszło nie tak. Spróbuj ponownie lub napisz do nas: <a href="mailto:kontakt@harmonja.edu.pl" style="color:#c0392b;font-weight:600;">kontakt@harmonja.edu.pl</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -1561,6 +1799,69 @@
                 }
             });
         });
+
+        // Newsletter form — validation + async submit
+        const nlForm = document.getElementById('newsletterForm');
+        if (nlForm) {
+            const nameInput = document.getElementById('nl-name');
+            const emailInput = document.getElementById('nl-email');
+            const nameError = document.getElementById('nl-name-error');
+            const emailError = document.getElementById('nl-email-error');
+            const submitBtn = document.getElementById('nl-submit');
+            const successMsg = document.getElementById('form-success');
+            const errorMsg = document.getElementById('form-error');
+
+            function validateField(input, errorEl) {
+                let valid = true;
+                if (input.type === 'email') {
+                    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+                } else {
+                    valid = input.value.trim().length >= 2;
+                }
+                input.setAttribute('aria-invalid', !valid);
+                errorEl.classList.toggle('visible', !valid);
+                return valid;
+            }
+
+            [nameInput, emailInput].forEach(function(input, i) {
+                const errorEl = [nameError, emailError][i];
+                input.addEventListener('blur', function() { validateField(input, errorEl); });
+                input.addEventListener('input', function() {
+                    if (input.getAttribute('aria-invalid') === 'true') {
+                        validateField(input, errorEl);
+                    }
+                });
+            });
+
+            nlForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var nameOk = validateField(nameInput, nameError);
+                var emailOk = validateField(emailInput, emailError);
+                if (!nameOk || !emailOk) return;
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Wysyłanie...';
+                successMsg.className = 'form-status';
+                errorMsg.className = 'form-status';
+
+                fetch(nlForm.action, {
+                    method: 'POST',
+                    body: new FormData(nlForm),
+                    headers: { 'Accept': 'application/json' }
+                }).then(function(res) {
+                    if (res.ok) {
+                        nlForm.style.display = 'none';
+                        successMsg.className = 'form-status success';
+                    } else {
+                        throw new Error('Server error');
+                    }
+                }).catch(function() {
+                    errorMsg.className = 'form-status error';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Zapisz się na newsletter';
+                });
+            });
+        }
     </script>
 </body>
 </html>
