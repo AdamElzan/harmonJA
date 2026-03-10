@@ -821,100 +821,134 @@
             gap: 16px;
         }
 
-        .form-row {
-            display: flex;
-            gap: 14px;
+        /* MailerLite Premium Overrides — Tesla/Apple Design */
+        .ml-form-embed-wrapper {
+            max-width: 520px;
+            margin: 0 auto 20px;
         }
 
-        .form-field {
-            flex: 1;
-            position: relative;
+        #mlb2-37860640.ml-form-embedContainer {
+            width: 100% !important;
         }
 
-        .form-field input {
-            width: 100%;
-            padding: 15px 18px;
-            border: 2px solid var(--medium-gray);
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-family: inherit;
-            color: var(--text-color);
-            background: var(--white);
-            transition: border-color 0.3s, box-shadow 0.3s;
-            outline: none;
+        #mlb2-37860640 .ml-form-embedWrapper {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            max-width: 100% !important;
+            width: 100% !important;
         }
 
-        .form-field input::placeholder {
-            color: #aaa;
+        #mlb2-37860640 .ml-form-embedBody {
+            padding: 0 !important;
         }
 
-        .form-field input:focus {
-            border-color: var(--highlight-color);
-            box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.12);
+        #mlb2-37860640 .ml-form-embedContent {
+            display: none !important;
         }
 
-        .form-field input[aria-invalid="true"] {
-            border-color: #e74c3c;
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        #mlb2-37860640 .ml-form-fieldRow input,
+        #mlb2-37860640 .ml-form-horizontalRow input,
+        #mlb2-37860640 .ml-field-group input {
+            background: var(--white) !important;
+            color: var(--text-color) !important;
+            border: 2px solid var(--medium-gray) !important;
+            border-radius: 12px !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-size: 0.95rem !important;
+            padding: 15px 18px !important;
+            transition: border-color 0.3s, box-shadow 0.3s !important;
+            line-height: 1.4 !important;
         }
 
-        .form-field .field-error {
-            position: absolute;
-            bottom: -20px;
-            left: 4px;
-            font-size: 0.78rem;
-            color: #e74c3c;
-            opacity: 0;
-            transition: opacity 0.3s;
+        #mlb2-37860640 .ml-form-fieldRow input:focus,
+        #mlb2-37860640 .ml-form-horizontalRow input:focus,
+        #mlb2-37860640 .ml-field-group input:focus {
+            border-color: var(--highlight-color) !important;
+            box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.12) !important;
+            outline: none !important;
         }
 
-        .form-field .field-error.visible {
-            opacity: 1;
+        #mlb2-37860640 .ml-form-horizontalRow input::placeholder {
+            color: #aaa !important;
         }
 
-        .newsletter-submit {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s;
-            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            margin-top: 8px;
+        #mlb2-37860640 .ml-form-horizontalRow button,
+        #mlb2-37860640 .ml-form-embedSubmit button,
+        #mlb2-37860640 .ml-mobileButton-horizontal button {
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color)) !important;
+            border: none !important;
+            border-radius: 50px !important;
+            color: white !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            padding: 15px 30px !important;
+            cursor: pointer !important;
+            transition: all 0.4s !important;
+            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3) !important;
+            line-height: 1.4 !important;
         }
 
-        .newsletter-submit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
+        #mlb2-37860640 .ml-form-horizontalRow button:hover,
+        #mlb2-37860640 .ml-form-embedSubmit button:hover,
+        #mlb2-37860640 .ml-mobileButton-horizontal button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 25px rgba(0, 180, 255, 0.5) !important;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color)) !important;
         }
 
-        .newsletter-submit:hover::before {
-            left: 100%;
+        #mlb2-37860640 .ml-form-checkboxRow .label-description,
+        #mlb2-37860640 .ml-form-checkboxRow .label-description p {
+            color: #666 !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
         }
 
-        .newsletter-submit:hover,
-        .newsletter-submit:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 180, 255, 0.5);
-            outline: none;
+        #mlb2-37860640 .ml-form-checkboxRow .label-description::before {
+            border-color: var(--medium-gray) !important;
+            border-radius: 4px !important;
         }
 
-        .newsletter-submit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        #mlb2-37860640 .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before {
+            background-color: var(--highlight-color) !important;
+            border-color: var(--highlight-color) !important;
+        }
+
+        #mlb2-37860640 .ml-form-successBody {
+            padding: 20px 0 !important;
+        }
+
+        #mlb2-37860640 .ml-form-successContent h4 {
+            color: var(--dark-blue) !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-size: 1.5rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 12px !important;
+        }
+
+        #mlb2-37860640 .ml-form-successContent p {
+            color: #666 !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-size: 1rem !important;
+            line-height: 1.7 !important;
+        }
+
+        #mlb2-37860640 .ml-form-embedPermissions,
+        #mlb2-37860640 .ml-form-embedPermissions p {
+            color: #999 !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            font-size: 0.8rem !important;
+        }
+
+        .ml-form-embedSubmitLoad:after {
+            border-color: #ffffff #ffffff #ffffff transparent !important;
+        }
+
+        .ml-error input {
+            border-color: #e74c3c !important;
         }
 
         .newsletter-consent {
@@ -927,29 +961,6 @@
         .newsletter-consent a {
             color: var(--highlight-color);
             text-decoration: underline;
-        }
-
-        .form-status {
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            display: none;
-            animation: fadeInUp 0.4s ease-out;
-        }
-
-        .form-status.success {
-            display: block;
-            background: linear-gradient(135deg, rgba(0,180,255,0.08), rgba(34,199,214,0.08));
-            color: var(--dark-blue);
-            border: 1px solid rgba(0,180,255,0.2);
-        }
-
-        .form-status.error {
-            display: block;
-            background: rgba(231,76,60,0.06);
-            color: #c0392b;
-            border: 1px solid rgba(231,76,60,0.15);
         }
 
         @media (max-width: 768px) {
@@ -1537,42 +1548,68 @@
                         Zapisz się na newsletter, a&nbsp;będziemy informować Cię o&nbsp;terminach rekrutacji, szkoleniach i&nbsp;wydarzeniach Szkoły.
                     </p>
 
-                    <!-- 
-                        FORMSPREE: Zamień TWOJ_FORM_ID na ID z formspree.io
-                        1. Wejdź na https://formspree.io → załóż darmowe konto
-                        2. Utwórz nowy form → skopiuj ID (np. "xwkgjqpb")
-                        3. Wstaw poniżej zamiast TWOJ_FORM_ID
-                    -->
-                    <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/TWOJ_FORM_ID" method="POST" novalidate>
-                        <input type="hidden" name="_subject" value="Nowy subskrybent newslettera HarmonJa">
-                        <input type="hidden" name="_template" value="table">
+                    <!-- MailerLite Embedded Form -->
+                    <div class="ml-form-embed-wrapper">
+                        <div id="mlb2-37860640" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37860640">
+                            <div class="ml-form-align-center">
+                                <div class="ml-form-embedWrapper embedForm">
+                                    <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
+                                        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2107002/forms/180822403870361338/subscribe" data-code="" method="post" target="_blank">
+                                            <div class="ml-form-formContent horozintalForm">
+                                                <div class="ml-form-horizontalRow">
+                                                    <div class="ml-input-horizontal">
+                                                        <div style="width:100%;" class="horizontal-fields">
+                                                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                                                <input type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Twój adres e-mail" autocomplete="email" aria-label="Adres e-mail">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ml-button-horizontal primary">
+                                                        <button type="submit" class="primary">Zapisz się</button>
+                                                        <button disabled="disabled" style="display:none;" type="button" class="loading">
+                                                            <div class="ml-form-embedSubmitLoad"></div>
+                                                            <span class="sr-only">Ładowanie...</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                        <div class="form-row">
-                            <div class="form-field">
-                                <input type="text" name="name" id="nl-name" placeholder="Imię" required aria-label="Imię" autocomplete="given-name">
-                                <span class="field-error" id="nl-name-error" role="alert">Podaj swoje imię</span>
-                            </div>
-                            <div class="form-field">
-                                <input type="email" name="email" id="nl-email" placeholder="Adres e-mail" required aria-label="Adres e-mail" autocomplete="email">
-                                <span class="field-error" id="nl-email-error" role="alert">Podaj poprawny adres e-mail</span>
+                                            <div class="ml-form-checkboxRow ml-validate-required">
+                                                <label class="checkbox">
+                                                    <input type="checkbox">
+                                                    <div class="label-description">
+                                                        <p>Zgadzam się — zapisuję się!</p>
+                                                    </div>
+                                                </label>
+                                            </div>
+
+                                            <input type="hidden" name="ml-submit" value="1">
+                                            <input type="hidden" name="anticsrf" value="true">
+
+                                            <div class="ml-mobileButton-horizontal">
+                                                <button type="submit" class="primary">Zapisz się</button>
+                                                <button disabled="disabled" style="display:none;" type="button" class="loading">
+                                                    <div class="ml-form-embedSubmitLoad"></div>
+                                                    <span class="sr-only">Ładowanie...</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="ml-form-successBody row-success" style="display:none">
+                                        <div class="ml-form-successContent">
+                                            <h4>Dziękujemy!</h4>
+                                            <p>Udało Ci się zapisać na listę subskrybentów newslettera Szkoły Psychoterapii HarmonJa!</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <button type="submit" class="newsletter-submit" id="nl-submit">
-                            Zapisz się na newsletter
-                        </button>
-
-                        <p class="newsletter-consent">
-                            Zapisując się, wyrażasz zgodę na otrzymywanie informacji od&nbsp;Szkoły Psychoterapii HarmonJa. Możesz zrezygnować w&nbsp;każdej chwili. <a href="kontakt.html">Polityka prywatności</a>.
-                        </p>
-                    </form>
-
-                    <div class="form-status" id="form-success">
-                        ✓ Dziękujemy za zapis! Sprawdź swoją skrzynkę — potwierdzenie jest w&nbsp;drodze.
                     </div>
-                    <div class="form-status" id="form-error">
-                        Coś poszło nie tak. Spróbuj ponownie lub napisz do nas: <a href="mailto:kontakt@harmonja.edu.pl" style="color:#c0392b;font-weight:600;">kontakt@harmonja.edu.pl</a>
-                    </div>
+
+                    <p class="newsletter-consent">
+                        Zapisując się, wyrażasz zgodę na komunikację marketingową od&nbsp;Szkoły Psychoterapii HarmonJa. Możesz zrezygnować w&nbsp;każdej chwili. <a href="kontakt.html">Polityka prywatności</a>.
+                    </p>
                 </div>
             </div>
         </section>
@@ -1800,68 +1837,29 @@
             });
         });
 
-        // Newsletter form — validation + async submit
-        const nlForm = document.getElementById('newsletterForm');
-        if (nlForm) {
-            const nameInput = document.getElementById('nl-name');
-            const emailInput = document.getElementById('nl-email');
-            const nameError = document.getElementById('nl-name-error');
-            const emailError = document.getElementById('nl-email-error');
-            const submitBtn = document.getElementById('nl-submit');
-            const successMsg = document.getElementById('form-success');
-            const errorMsg = document.getElementById('form-error');
+    </script>
 
-            function validateField(input, errorEl) {
-                let valid = true;
-                if (input.type === 'email') {
-                    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-                } else {
-                    valid = input.value.trim().length >= 2;
-                }
-                input.setAttribute('aria-invalid', !valid);
-                errorEl.classList.toggle('visible', !valid);
-                return valid;
-            }
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '2107002');
+    </script>
+    <!-- End MailerLite Universal -->
 
-            [nameInput, emailInput].forEach(function(input, i) {
-                const errorEl = [nameError, emailError][i];
-                input.addEventListener('blur', function() { validateField(input, errorEl); });
-                input.addEventListener('input', function() {
-                    if (input.getAttribute('aria-invalid') === 'true') {
-                        validateField(input, errorEl);
-                    }
-                });
-            });
-
-            nlForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var nameOk = validateField(nameInput, nameError);
-                var emailOk = validateField(emailInput, emailError);
-                if (!nameOk || !emailOk) return;
-
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Wysyłanie...';
-                successMsg.className = 'form-status';
-                errorMsg.className = 'form-status';
-
-                fetch(nlForm.action, {
-                    method: 'POST',
-                    body: new FormData(nlForm),
-                    headers: { 'Accept': 'application/json' }
-                }).then(function(res) {
-                    if (res.ok) {
-                        nlForm.style.display = 'none';
-                        successMsg.className = 'form-status success';
-                    } else {
-                        throw new Error('Server error');
-                    }
-                }).catch(function() {
-                    errorMsg.className = 'form-status error';
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Zapisz się na newsletter';
-                });
-            });
+    <!-- MailerLite Webforms -->
+    <script>
+        function ml_webform_success_37860640() {
+            var $ = ml_jQuery || jQuery;
+            $('.ml-subscribe-form-37860640 .row-success').show();
+            $('.ml-subscribe-form-37860640 .row-form').hide();
         }
+    </script>
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+    <script>
+        fetch("https://assets.mailerlite.com/jsonp/2107002/forms/180822403870361338/takel")
     </script>
 </body>
 </html>
