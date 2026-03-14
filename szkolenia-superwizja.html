@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Szkolenia specjalistyczne i superwizja w HarmonJa — warsztaty na żywo, kursy on-demand i superwizja CBT indywidualna oraz grupowa. Rozwijaj kompetencje kliniczne z ekspertami.">
-    <meta name="keywords" content="szkolenia CBT, superwizja psychoterapii, warsztaty psychoterapeutyczne, szkolenia na żywo, CBT on-demand, superwizja indywidualna, superwizja grupowa, HarmonJa">
+    <meta name="keywords" content="szkolenia CBT, superwizja psychoterapii, warsztaty psychoterapeutyczne, szkolenia na żywo, CBT on-demand, superwizja indywidualna, superwizja grupowa, HarmonJa, ACT, ACTywacja">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Szkolenia Specjalistyczne i Superwizja — HarmonJa">
@@ -12,6 +12,24 @@
     <meta property="og:type" content="website">
 
     <title>Szkolenia i Superwizja — HarmonJa Szkoła Psychoterapii CBT</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '25783689231272978');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=25783689231272978&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <style>
         /* ============================================ */
@@ -457,6 +475,11 @@
             background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), #FFD700);
         }
 
+        /* ACTywacja card uses teal accent */
+        .featured-training.act-card::before {
+            background: linear-gradient(90deg, var(--primary-color), var(--highlight-color), #00e5cc);
+        }
+
         .featured-left {
             padding: 50px;
             display: flex;
@@ -479,6 +502,11 @@
             width: fit-content;
             margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .featured-badge.act-badge {
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            box-shadow: 0 4px 12px rgba(0, 180, 255, 0.3);
         }
 
         .featured-title {
@@ -645,6 +673,13 @@
             letter-spacing: 0.5px;
         }
 
+        /* Course separator */
+        .course-separator {
+            margin-top: 70px;
+            padding-top: 70px;
+            border-top: 1px solid var(--medium-gray);
+        }
+
         /* TESLA INNOVATION 3: Countdown Timer          */
         .countdown-section {
             margin-top: 50px;
@@ -802,6 +837,61 @@
             text-decoration: line-through;
             color: #999;
             font-size: 0.9rem;
+        }
+
+        /* ACT Program Timeline */
+        .act-timeline {
+            margin: 24px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .act-timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            align-items: flex-start;
+        }
+
+        .act-timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .act-timeline-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .act-timeline-content h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 2px;
+        }
+
+        .act-timeline-date {
+            font-size: 0.82rem;
+            color: var(--highlight-color);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .act-timeline-content p {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.5;
         }
 
         /* ============================================ */
@@ -1474,6 +1564,8 @@
             }
 
             .cta-button { width: 100%; max-width: 340px; justify-content: center; }
+
+            .course-separator { margin-top: 50px; padding-top: 50px; }
         }
 
         @media (max-width: 480px) {
@@ -1544,7 +1636,7 @@
         <section class="hero" aria-label="Wprowadzenie">
             <div class="container">
                 <div class="hero-content animate">
-                    <div class="hero-badge">Szkoła Psychoterapii HarmonJa zaprasza na szkolenie</div>
+                    <div class="hero-badge">Szkoła Psychoterapii HarmonJa zaprasza na szkolenia</div>
                     <h1>Szkolenia specjalistyczne i&nbsp;superwizja</h1>
                     <p class="hero-lead">
                         Warsztaty eksperckie, kursy on&#8209;demand i&nbsp;superwizja — niezależna oferta rozwojowa dla psychoterapeutów CBT oraz terapeutów uzależnień.
@@ -1564,7 +1656,7 @@
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
                         </span>
                         <span class="tab-label">Warsztaty eksperckie</span>
-                        <span class="tab-count">1</span>
+                        <span class="tab-count">2</span>
                     </button>
                     <button class="category-tab" role="tab" aria-selected="false" aria-controls="panel-ondemand" id="tab-ondemand">
                         <span class="tab-icon" aria-hidden="true">
@@ -1592,13 +1684,15 @@
                     <div class="section-header animate">
                         <h2 class="section-title">Warsztaty eksperckie</h2>
                         <p class="section-lead">
-                            Intensywne szkolenia stacjonarne prowadzone przez czołowych ekspertów. Nauka oparta na&nbsp;dowodach, praktyczne umiejętności, kameralne grupy.
+                            Intensywne szkolenia prowadzone przez czołowych ekspertów. Nauka oparta na&nbsp;dowodach, praktyczne umiejętności, kameralne grupy.
                         </p>
                         <div class="gradient-line"></div>
                     </div>
 
-                    <!-- TESLA INNOVATION 2: Featured Training Card -->
-                    <article class="featured-training animate" aria-label="Wyróżnione szkolenie">
+                    <!-- ===================== -->
+                    <!-- KURS 1: PROF. GOLA    -->
+                    <!-- ===================== -->
+                    <article class="featured-training animate" aria-label="Szkolenie — Terapia uzależnień behawioralnych">
                         <div class="featured-left">
                             <div class="featured-badge">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
@@ -1675,7 +1769,7 @@
                         </div>
                     </article>
 
-                    <!-- TESLA INNOVATION 3: Countdown -->
+                    <!-- TESLA INNOVATION 3: Countdown — Prof. Gola -->
                     <div class="countdown-section animate" aria-label="Odliczanie do szkolenia">
                         <p class="countdown-label">Do rozpoczęcia szkolenia pozostało</p>
                         <div class="countdown" role="timer" aria-live="polite">
@@ -1698,13 +1792,13 @@
                         </div>
                     </div>
 
-                    <!-- Expandable Details -->
+                    <!-- Expandable Details — Prof. Gola -->
                     <div class="training-details animate">
-                        <button class="details-toggle" aria-expanded="false" aria-controls="details-content">
+                        <button class="details-toggle" aria-expanded="false" aria-controls="details-content-gola">
                             <span>Szczegóły programu szkolenia</span>
                             <span class="toggle-arrow" aria-hidden="true">&#9662;</span>
                         </button>
-                        <div class="details-content" id="details-content">
+                        <div class="details-content" id="details-content-gola">
                             <div class="details-inner">
 
                                 <!-- BIOGRAM PROWADZĄCEGO -->
@@ -1717,7 +1811,7 @@
                                         <strong>Prof. dr hab. Mateusz Gola</strong> — neuronaukowiec i&nbsp;psychoterapeuta. Pracownik Institute for Neural Computation na Uniwersytecie Kalifornijskim w&nbsp;San Diego oraz Instytutu Psychologii Polskiej Akademii Nauk. Specjalista w&nbsp;zakresie neuronauki uzależnień i&nbsp;skutecznej zmiany nawyków.
                                     </p>
                                     <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-top:12px;">
-                                        Autor popularnonaukowej książki <em>„Gdy Porno przestaje być sexy”</em>, trzech patentów oraz ponad 160 publikacji w&nbsp;prestiżowych czasopismach naukowych. Pionier i&nbsp;lider badań wpływu pornografii na mózg, których wyniki przyczyniły się do umieszczenia przez WHO kompulsywnych zachowań seksualnych w&nbsp;ICD&#8209;11.
+                                        Autor popularnonaukowej książki <em>„Gdy Porno przestaje być sexy"</em>, trzech patentów oraz ponad 160 publikacji w&nbsp;prestiżowych czasopismach naukowych. Pionier i&nbsp;lider badań wpływu pornografii na mózg, których wyniki przyczyniły się do umieszczenia przez WHO kompulsywnych zachowań seksualnych w&nbsp;ICD&#8209;11.
                                     </p>
                                     <div id="bio-more" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;">
                                         <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-top:12px;">
@@ -1779,7 +1873,6 @@
                                         <h3>Format i&nbsp;miejsce</h3>
                                         <p>Szkolenie łączy wykłady seminaryjne z&nbsp;treningiem warsztatowym — ćwiczenia w&nbsp;parach i&nbsp;grupach, studia przypadków, analiza trudności klinicznych.</p>
                                         <p style="margin-top:12px;">Termin: 18–21.06.2026. Godziny: czwartek 10:00–18:00, piątek–niedziela 9:00–17:00.</p>
-                                        <!-- 📍 MIEJSCE I DOJAZD: uzupełnij dane poniżej -->
                                         <div style="margin-top:16px;padding:16px;background:var(--light-blue);border-radius:12px;border:1px solid rgba(0,180,255,0.15);">
                                             <p style="font-weight:600;color:var(--dark-blue);margin-bottom:6px;">
                                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2" style="vertical-align:-2px;margin-right:6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1803,6 +1896,257 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- ============================== -->
+                    <!-- KURS 2: ACTywacja              -->
+                    <!-- ============================== -->
+                    <div class="course-separator">
+
+                        <article class="featured-training act-card animate" aria-label="Kurs ACTywacja — Terapia Akceptacji i Zaangażowania">
+                            <div class="featured-left">
+                                <div class="featured-badge act-badge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                                    ACT · 4 zjazdy · Superwizja grupowa
+                                </div>
+                                <h3 class="featured-title">ACTywacja</h3>
+                                <p style="font-size:1.05rem;color:var(--highlight-color);font-weight:500;font-style:italic;margin-top:-6px;margin-bottom:16px;">Terapia Akceptacji i&nbsp;Zaangażowania w&nbsp;praktyce klinicznej</p>
+                                <p class="featured-subtitle">
+                                    Procesowy, kliniczny kurs ACT z&nbsp;superwizją grupową — dla terapeutów CBT, którzy chcą głębiej rozumieć zmianę i&nbsp;spójnie zintegrować ACT ze swoim warsztatem. Nie technika do kolekcji, lecz nowa perspektywa w&nbsp;prowadzeniu terapii.
+                                </p>
+
+                                <div class="featured-meta">
+                                    <div class="meta-item">
+                                        <div class="meta-icon" aria-hidden="true">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        </div>
+                                        <div>
+                                            <span class="meta-label">28 mar – 11 lip 2026</span>
+                                            <br><span style="font-size:0.85rem;color:#888;">4 zjazdy (hybrydowo: stacjonarnie / online)</span>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item">
+                                        <div class="meta-icon" aria-hidden="true">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        </div>
+                                        <div>
+                                            <span class="meta-label">Warszawa (stacjonarnie)</span>
+                                            <br><span style="font-size:0.85rem;color:#888;">Łazurowa Terapia CBT, ul.&nbsp;Legionowa 2</span>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item">
+                                        <div class="meta-icon" aria-hidden="true">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                        </div>
+                                        <div>
+                                            <span class="price-highlight">7&nbsp;899 zł</span>
+                                            <span style="font-size:0.85rem;color:#888;margin-left:8px;">cały kurs &nbsp;|&nbsp; możliwość rat</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSctkyeZhQR5bQcn0qpG19woZqOwhxWZMk-BWswFCGGRw5sL7g/viewform?usp=publish-editor" class="featured-cta" target="_blank" rel="noopener noreferrer" aria-label="Zapisz się na kurs ACTywacja — formularz rejestracyjny">
+                                    Zapisz się na kurs
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                                <p style="margin-top:14px;font-size:0.82rem;color:#999;line-height:1.6;">
+                                    Płatność w&nbsp;2&nbsp;ratach — napisz: <a href="mailto:superwizje@lazurowaterapia.pl" style="color:var(--highlight-color);font-weight:600;">superwizje@lazurowaterapia.pl</a><br>
+                                    Możliwość dofinansowania z&nbsp;KFS / środków UE.
+                                </p>
+                            </div>
+
+                            <div class="featured-right">
+                                <div class="trainer-avatar">
+                                    <img src="adam-elzanowski-act.jpg" alt="Adam Elżanowski — prowadzący kurs ACTywacja">
+                                </div>
+                                <div class="trainer-name">Adam Elżanowski</div>
+                                <div class="trainer-title">
+                                    Certyfikowany psychoterapeuta<br>i&nbsp;superwizor&#8209;dydaktyk PTTPB&nbsp;nr&nbsp;78.<br>
+                                    Wykładowca WUM, SWPS i&nbsp;Inst.&nbsp;Poznawczego.
+                                </div>
+                                <div class="trainer-stats">
+                                    <div class="trainer-stat">
+                                        <div class="trainer-stat-number">4</div>
+                                        <div class="trainer-stat-label">zjazdy</div>
+                                    </div>
+                                    <div class="trainer-stat">
+                                        <div class="trainer-stat-number">72h</div>
+                                        <div class="trainer-stat-label">szkolenia</div>
+                                    </div>
+                                    <div class="trainer-stat">
+                                        <div class="trainer-stat-number">15h</div>
+                                        <div class="trainer-stat-label">superwizji</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Countdown — ACTywacja (I zjazd: 28 marca 2026) -->
+                        <div class="countdown-section animate" aria-label="Odliczanie do I zjazdu ACTywacja">
+                            <p class="countdown-label">Do I&nbsp;zjazdu ACTywacja pozostało</p>
+                            <div class="countdown" role="timer" aria-live="polite">
+                                <div class="countdown-unit">
+                                    <div class="countdown-number" id="act-days">---</div>
+                                    <div class="countdown-text">dni</div>
+                                </div>
+                                <div class="countdown-unit">
+                                    <div class="countdown-number" id="act-hours">--</div>
+                                    <div class="countdown-text">godzin</div>
+                                </div>
+                                <div class="countdown-unit">
+                                    <div class="countdown-number" id="act-mins">--</div>
+                                    <div class="countdown-text">minut</div>
+                                </div>
+                                <div class="countdown-unit">
+                                    <div class="countdown-number" id="act-secs">--</div>
+                                    <div class="countdown-text">sekund</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Expandable Details — ACTywacja -->
+                        <div class="training-details animate">
+                            <button class="details-toggle" aria-expanded="false" aria-controls="details-content-act">
+                                <span>Szczegóły programu ACTywacja</span>
+                                <span class="toggle-arrow" aria-hidden="true">&#9662;</span>
+                            </button>
+                            <div class="details-content" id="details-content-act">
+                                <div class="details-inner">
+
+                                    <!-- BIOGRAM PROWADZĄCEGO — Adam -->
+                                    <div style="margin-bottom:40px;padding:32px;background:linear-gradient(135deg, var(--light-blue) 0%, #f8fcfe 100%);border-radius:16px;border:1px solid rgba(0,180,255,0.1);">
+                                        <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                            O&nbsp;prowadzącym
+                                        </h3>
+                                        <p style="font-size:0.95rem;color:#444;line-height:1.75;">
+                                            <strong>Adam Elżanowski</strong> — certyfikowany psychoterapeuta i&nbsp;superwizor&#8209;dydaktyk PTTPB nr&nbsp;78. Wykładowca akademicki, uczy psychoterapii w&nbsp;akredytowanych ośrodkach szkolących, m.in. w&nbsp;Instytucie Poznawczym. Współpracownik Warszawskiego Uniwersytetu Medycznego (WUM) i&nbsp;Uniwersytetu SWPS.
+                                        </p>
+                                        <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-top:12px;">
+                                            Autor podcastu dla psychoterapeutów <em>„W Głowie się Mieści"</em> — praktyczne rozmowy o&nbsp;psychoterapii, superwizji i&nbsp;klinice CBT.
+                                        </p>
+                                        <p style="margin-top:12px;font-size:0.85rem;">
+                                            <a href="https://www.youtube.com/@wglowiesiemiesci3561" target="_blank" rel="noopener noreferrer" style="color:var(--highlight-color);font-weight:600;">YouTube: W Głowie się Mieści ↗</a>
+                                        </p>
+                                    </div>
+
+                                    <!-- O KURSIE -->
+                                    <div style="margin-bottom:40px;">
+                                        <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                                            Czym jest ACTywacja?
+                                        </h3>
+                                        <p style="font-size:0.95rem;color:#444;line-height:1.75;">
+                                            ACT nie wnosi kolejnych technik — wnosi zmianę perspektywy. Uczy patrzeć nie tylko na treść myśli, ale na relację człowieka z&nbsp;własnym doświadczeniem. Nie pyta wyłącznie <em>co</em> pacjent myśli, ale <em>jak</em> to, co robi, działa w&nbsp;jego życiu.
+                                        </p>
+                                        <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-top:12px;">
+                                            ACTywacja powstała z&nbsp;potrzeby pracy bardziej procesowej i&nbsp;kontekstualnej — a&nbsp;jednocześnie klinicznie precyzyjnej, opartej na badaniach i&nbsp;funkcjonalnej analizie zachowania. To rozszerzenie i&nbsp;pogłębienie warsztatu terapeutycznego, nie kurs alternatywny.
+                                        </p>
+                                    </div>
+
+                                    <!-- PROGRAM 4 ZJAZDÓW -->
+                                    <div style="margin-bottom:40px;">
+                                        <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                            Program 4 zjazdów
+                                        </h3>
+                                        <div class="act-timeline">
+                                            <div class="act-timeline-item">
+                                                <div class="act-timeline-num">1</div>
+                                                <div class="act-timeline-content">
+                                                    <div class="act-timeline-date">28–29 marca 2026 &nbsp;·&nbsp; na żywo / online</div>
+                                                    <h4>Wprowadzenie do terapii ACT</h4>
+                                                    <p>Kontekstualno&#8209;behawioralne podstawy ACT · Elastyczność psychologiczna jako kluczowy proces zmiany · Sześć procesów ACT w&nbsp;praktyce klinicznej · RFT jako „silnik ACT" — bez akademickiego żargonu, z&nbsp;klinicznym sensem</p>
+                                                </div>
+                                            </div>
+                                            <div class="act-timeline-item">
+                                                <div class="act-timeline-num">2</div>
+                                                <div class="act-timeline-content">
+                                                    <div class="act-timeline-date">9–10 maja 2026</div>
+                                                    <h4>Konceptualizacja i&nbsp;funkcjonalna analiza w&nbsp;ACT</h4>
+                                                    <p>Funkcjonalna analiza zachowania w&nbsp;realnej praktyce · Praca z&nbsp;unikaniem i&nbsp;sztywnością psychologiczną · ACT Matrix jako narzędzie rozumienia momentu utknięcia · Rozpoznawanie procesów ACT u&nbsp;pacjenta i&nbsp;u&nbsp;siebie</p>
+                                                </div>
+                                            </div>
+                                            <div class="act-timeline-item">
+                                                <div class="act-timeline-num">3</div>
+                                                <div class="act-timeline-content">
+                                                    <div class="act-timeline-date">5–6 czerwca 2026 &nbsp;·&nbsp; start superwizji grupowych</div>
+                                                    <h4>Moc metafor i&nbsp;praca z&nbsp;perspektywą</h4>
+                                                    <p>Jak używać metafor funkcjonalnie, a&nbsp;nie „ładnie" · Analiza narracji pacjenta w&nbsp;duchu RFT · Zmiana perspektywy jako interwencja kliniczna · Doświadczeniowa praca z&nbsp;procesami ACT</p>
+                                                </div>
+                                            </div>
+                                            <div class="act-timeline-item">
+                                                <div class="act-timeline-num">4</div>
+                                                <div class="act-timeline-content">
+                                                    <div class="act-timeline-date">10–11 lipca 2026</div>
+                                                    <h4>Self, wartości i&nbsp;integracja</h4>
+                                                    <p>Funkcjonalne podejście do Self w&nbsp;ACT · „Ja jako kontekst" — doświadczeniowo i&nbsp;klinicznie · Pogłębiona praca z&nbsp;wartościami i&nbsp;motywacją · Integracja ACT z&nbsp;własnym stylem terapeutycznym</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top:20px;padding:16px 20px;background:linear-gradient(135deg,rgba(0,180,255,0.06),rgba(34,199,214,0.06));border-radius:12px;border-left:3px solid var(--primary-color);">
+                                            <p style="font-size:0.9rem;color:#555;line-height:1.6;"><strong style="color:var(--dark-blue);">Superwizje grupowe</strong> (od III zjazdu): 5&nbsp;godzin każda, online. Pracujemy na realnych przypadkach — analizujemy trudne momenty procesu, wracamy do zagadnień, które „nie domknęły się" na szkoleniu.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- TESTIMONIALS -->
+                                    <div style="margin-bottom:40px;">
+                                        <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                            Głos uczestników poprzedniej edycji
+                                        </h3>
+                                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                                            <blockquote style="padding:24px;background:var(--white);border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.05);border-left:3px solid var(--primary-color);">
+                                                <p style="font-size:0.9rem;color:#555;line-height:1.7;font-style:italic;">"ACTywacja pozwoliła mi uporządkować dotychczasową wiedzę i&nbsp;przełożyć ją na praktykę. Otworzyło mi to głowę i&nbsp;pokazało, jak dużo jest miejsca na kreatywność."</p>
+                                                <cite style="display:block;margin-top:12px;font-size:0.82rem;color:#888;font-style:normal;font-weight:600;">— Ewa Sz.</cite>
+                                            </blockquote>
+                                            <blockquote style="padding:24px;background:var(--white);border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.05);border-left:3px solid var(--highlight-color);">
+                                                <p style="font-size:0.9rem;color:#555;line-height:1.7;font-style:italic;">"Nareszcie naprawdę rozumiem sześć procesów ACT i&nbsp;mam konkretne narzędzia do pracy. ACT przestało być teorią z&nbsp;książek — zaczęłam je integrować z&nbsp;CBT."</p>
+                                                <cite style="display:block;margin-top:12px;font-size:0.82rem;color:#888;font-style:normal;font-weight:600;">— Marta</cite>
+                                            </blockquote>
+                                        </div>
+                                        <blockquote style="margin-top:20px;padding:24px;background:var(--white);border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.05);border-left:3px solid var(--primary-color);">
+                                            <p style="font-size:0.9rem;color:#555;line-height:1.7;font-style:italic;">"Szukając kompromisu między krótkim szkoleniem a&nbsp;studiami podyplomowymi, trafiłem idealnie. ACTywacja faktycznie ACTywuje — do dziś czerpię z&nbsp;niej w&nbsp;codziennej pracy."</p>
+                                            <cite style="display:block;margin-top:12px;font-size:0.82rem;color:#888;font-style:normal;font-weight:600;">— Hubert</cite>
+                                        </blockquote>
+                                    </div>
+
+                                    <!-- SZCZEGÓŁY ORGANIZACYJNE -->
+                                    <div class="details-grid">
+                                        <div class="detail-block">
+                                            <h3>Dla kogo jest ACTywacja?</h3>
+                                            <ul>
+                                                <li>Psychoterapeuci pracujący klinicznie, chcący pogłębić rozumienie procesu zmiany</li>
+                                                <li>Osoby szukające spójnego sposobu integrowania ACT z&nbsp;CBT i&nbsp;terapią schematu</li>
+                                                <li>Osoby we wcześniejszym etapie drogi zawodowej, które chcą budować myślenie terapeutyczne szeroko i&nbsp;kontekstualnie</li>
+                                            </ul>
+                                            <p style="margin-top:12px;font-size:0.88rem;color:#888;">Kurs wymaga gotowości do myślenia kontekstualnego i&nbsp;pracy na realnych przypadkach.</p>
+                                        </div>
+                                        <div class="detail-block">
+                                            <h3>Godziny i&nbsp;certyfikacja</h3>
+                                            <p>72&nbsp;h szkoleniowych + 15&nbsp;h superwizji grupowej.</p>
+                                            <p style="margin-top:8px;">Godziny kursu i&nbsp;superwizji <strong>wliczają się do godzin szkoleniowych CBT</strong> i&nbsp;są uwzględniane przy odnowieniu certyfikatu PTTPB.</p>
+                                            <p style="margin-top:8px;">Format: hybrydowy — stacjonarnie z&nbsp;możliwością uczestniczenia online. Nagrania dostępne 3&nbsp;miesiące po zakończeniu kursu.</p>
+                                        </div>
+                                        <div class="detail-block">
+                                            <h3>Cena i&nbsp;płatność</h3>
+                                            <p><span class="price-highlight">7&nbsp;899 zł</span> — cały kurs</p>
+                                            <p style="margin-top:8px;font-size:0.9rem;color:#666;">Możliwość płatności w&nbsp;2&nbsp;ratach — zapisz się przez email.</p>
+                                            <p style="margin-top:8px;font-size:0.9rem;color:#666;">Istnieje możliwość ubiegania się o&nbsp;dofinansowanie z&nbsp;KFS lub nieoprocentowanej pożyczki UE do 30&nbsp;000&nbsp;zł (szczegóły: <a href="https://www.inwestujwrozwoj.pl" target="_blank" rel="noopener noreferrer" style="color:var(--highlight-color);font-weight:600;">inwestujwrozwoj.pl</a>).</p>
+                                        </div>
+                                        <div class="detail-block">
+                                            <h3>Rejestracja</h3>
+                                            <p>Wypełnij <a href="https://docs.google.com/forms/d/e/1FAIpQLSctkyeZhQR5bQcn0qpG19woZqOwhxWZMk-BWswFCGGRw5sL7g/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" style="color:var(--highlight-color);font-weight:600;">formularz rejestracyjny ↗</a></p>
+                                            <p style="margin-top:10px;font-size:0.9rem;color:#666;">lub napisz na: <a href="mailto:superwizje@lazurowaterapia.pl" style="color:var(--highlight-color);font-weight:600;">superwizje@lazurowaterapia.pl</a></p>
+                                            <p style="margin-top:12px;font-size:0.85rem;color:#888;">Miejsce stacjonarne: Łazurowa Terapia Poznawczo&#8209;Behawioralna, ul.&nbsp;Legionowa 2, Warszawa.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.course-separator -->
+
                 </div>
             </section>
         </div>
@@ -1910,7 +2254,6 @@
                         <!-- Adam Elżanowski -->
                         <article class="supervisor-card animate" aria-label="Adam Elżanowski — superwizor">
                             <div class="supervisor-avatar">
-                                <!-- 📸 ZDJĘCIE: <img src="zdjecie-adam.jpg" alt="Adam Elżanowski"> -->
                                 AE
                             </div>
                             <h3 class="supervisor-name">Adam Elżanowski</h3>
@@ -1932,7 +2275,6 @@
                         <!-- Magdalena Skuza -->
                         <article class="supervisor-card animate" aria-label="Magdalena Skuza — superwizor">
                             <div class="supervisor-avatar">
-                                <!-- 📸 ZDJĘCIE: <img src="zdjecie-magda.jpg" alt="Magdalena Skuza"> -->
                                 MS
                             </div>
                             <h3 class="supervisor-name">Magdalena Skuza</h3>
@@ -1954,7 +2296,6 @@
                         <!-- Karolina Rakocz -->
                         <article class="supervisor-card animate" aria-label="Karolina Rakocz — superwizor">
                             <div class="supervisor-avatar">
-                                <!-- 📸 ZDJĘCIE: <img src="zdjecie-karolina.jpg" alt="Karolina Rakocz"> -->
                                 KR
                             </div>
                             <h3 class="supervisor-name">Karolina Rakocz</h3>
@@ -2114,17 +2455,16 @@
         // ========================================
         // Mobile Menu (wzorzec globalny)
         // ========================================
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+        var mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        var navLinks = document.querySelector('.nav-links');
 
         if (mobileMenuBtn && navLinks) {
             mobileMenuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
-                const isExpanded = navLinks.classList.contains('active');
+                var isExpanded = navLinks.classList.contains('active');
                 this.setAttribute('aria-expanded', isExpanded);
 
-                // Animate hamburger to X
-                const spans = this.querySelectorAll('span');
+                var spans = this.querySelectorAll('span');
                 if (isExpanded) {
                     spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                     spans[1].style.opacity = '0';
@@ -2159,8 +2499,8 @@
         // ========================================
         // Category Tabs (Tesla Innovation 1)
         // ========================================
-        const tabs = document.querySelectorAll('.category-tab');
-        const panels = document.querySelectorAll('.category-panel');
+        var tabs = document.querySelectorAll('.category-tab');
+        var panels = document.querySelectorAll('.category-panel');
 
         tabs.forEach(function(tab) {
             tab.addEventListener('click', function() {
@@ -2178,17 +2518,15 @@
                 var targetPanel = document.getElementById(this.getAttribute('aria-controls'));
                 if (targetPanel) {
                     targetPanel.classList.add('active');
-                    // Re-trigger animations in the panel
                     targetPanel.querySelectorAll('.animate').forEach(function(el) {
                         el.classList.remove('visible');
-                        void el.offsetWidth; // force reflow
+                        void el.offsetWidth;
                         if (isInViewport(el)) {
                             el.classList.add('visible');
                         }
                     });
                 }
 
-                // Smooth scroll to panel
                 var navHeight = document.querySelector('.category-nav').offsetHeight;
                 var headerHeight = document.querySelector('header').offsetHeight;
                 window.scrollTo({
@@ -2197,7 +2535,6 @@
                 });
             });
 
-            // Keyboard support
             tab.addEventListener('keydown', function(e) {
                 var index = Array.from(tabs).indexOf(this);
                 if (e.key === 'ArrowRight') {
@@ -2212,7 +2549,7 @@
         });
 
         // ========================================
-        // Countdown Timer (Tesla Innovation 3)
+        // Countdown — Prof. Gola (18 czerwca 2026)
         // ========================================
         var trainingDate = new Date('2026-06-18T10:00:00').getTime();
 
@@ -2243,13 +2580,51 @@
         setInterval(updateCountdown, 1000);
 
         // ========================================
+        // Countdown — ACTywacja (I zjazd: 28 marca 2026)
+        // ========================================
+        var actDate = new Date('2026-03-28T09:00:00').getTime();
+
+        function updateActCountdown() {
+            var now = new Date().getTime();
+            var diff = actDate - now;
+
+            if (diff <= 0) {
+                // I zjazd minął — pokaż "Trwa kurs"
+                ['act-days','act-hours','act-mins','act-secs'].forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) el.textContent = '0';
+                });
+                var label = document.querySelector('[aria-label="Odliczanie do I zjazdu ACTywacja"] .countdown-label');
+                if (label) label.textContent = 'Kurs w toku — kolejne zjazdy już wkrótce';
+                return;
+            }
+
+            var days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+            var dEl = document.getElementById('act-days');
+            var hEl = document.getElementById('act-hours');
+            var mEl = document.getElementById('act-mins');
+            var sEl = document.getElementById('act-secs');
+
+            if (dEl) dEl.textContent = days;
+            if (hEl) hEl.textContent = hours < 10 ? '0' + hours : hours;
+            if (mEl) mEl.textContent = mins  < 10 ? '0' + mins  : mins;
+            if (sEl) sEl.textContent = secs  < 10 ? '0' + secs  : secs;
+        }
+
+        updateActCountdown();
+        setInterval(updateActCountdown, 1000);
+
+        // ========================================
         // Expandable Details
         // ========================================
         document.querySelectorAll('.details-toggle').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 var content = document.getElementById(this.getAttribute('aria-controls'));
                 var isExpanded = this.getAttribute('aria-expanded') === 'true';
-
                 this.setAttribute('aria-expanded', !isExpanded);
                 content.classList.toggle('expanded');
             });
@@ -2269,9 +2644,8 @@
         };
 
         var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry, i) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    // Stagger delay
                     var delay = Array.from(entry.target.parentElement.children)
                         .filter(function(c) { return c.classList.contains('animate'); })
                         .indexOf(entry.target) * 150;
@@ -2292,48 +2666,85 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Terapia uzależnień behawioralnych",
-        "description": "Intensywne 4-dniowe szkolenie z zakresu diagnostyki i terapii uzależnień behawioralnych w podejściu poznawczo-behawioralnym.",
-        "provider": {
-            "@type": "Organization",
-            "name": "HarmonJa Szkoła Psychoterapii CBT",
-            "url": "https://harmonja.pl"
-        },
-        "instructor": {
-            "@type": "Person",
-            "name": "Prof. dr hab. Mateusz Gola",
-            "jobTitle": "Profesor Psychologii, Neuronaukowiec"
-        },
-        "startDate": "2026-06-18",
-        "endDate": "2026-06-21",
-        "location": {
-            "@type": "Place",
-            "name": "Warszawa",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Warszawa",
-                "addressCountry": "PL"
-            }
-        },
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "Wczesna rejestracja",
-                "price": "1899",
-                "priceCurrency": "PLN",
-                "validThrough": "2026-03-31"
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "Terapia uzależnień behawioralnych",
+            "description": "Intensywne 4-dniowe szkolenie z zakresu diagnostyki i terapii uzależnień behawioralnych w podejściu poznawczo-behawioralnym.",
+            "provider": {
+                "@type": "Organization",
+                "name": "HarmonJa Szkoła Psychoterapii CBT",
+                "url": "https://harmonja.edu.pl"
             },
-            {
+            "instructor": {
+                "@type": "Person",
+                "name": "Prof. dr hab. Mateusz Gola",
+                "jobTitle": "Profesor Psychologii, Neuronaukowiec"
+            },
+            "startDate": "2026-06-18",
+            "endDate": "2026-06-21",
+            "location": {
+                "@type": "Place",
+                "name": "Golden Floor, Warszawa",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Al. Jerozolimskie 123a",
+                    "addressLocality": "Warszawa",
+                    "addressCountry": "PL"
+                }
+            },
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "Wczesna rejestracja",
+                    "price": "1899",
+                    "priceCurrency": "PLN",
+                    "validThrough": "2026-03-31"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Cena standardowa",
+                    "price": "2299",
+                    "priceCurrency": "PLN"
+                }
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "ACTywacja — Terapia Akceptacji i Zaangażowania w praktyce klinicznej",
+            "description": "Intensywny 4-zjazdowy kurs ACT z superwizją grupową dla psychoterapeutów CBT. Evidence-based, procesowy, kliniczny.",
+            "provider": {
+                "@type": "Organization",
+                "name": "HarmonJa Szkoła Psychoterapii CBT",
+                "url": "https://harmonja.edu.pl"
+            },
+            "instructor": {
+                "@type": "Person",
+                "name": "Adam Elżanowski",
+                "jobTitle": "Certyfikowany psychoterapeuta i superwizor-dydaktyk PTTPB"
+            },
+            "startDate": "2026-03-28",
+            "endDate": "2026-07-11",
+            "courseMode": "blended",
+            "location": {
+                "@type": "Place",
+                "name": "Łazurowa Terapia CBT, Warszawa",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "ul. Legionowa 2",
+                    "addressLocality": "Warszawa",
+                    "addressCountry": "PL"
+                }
+            },
+            "offers": {
                 "@type": "Offer",
-                "name": "Cena standardowa",
-                "price": "2299",
+                "price": "7899",
                 "priceCurrency": "PLN"
             }
-        ]
-    }
+        }
+    ]
     </script>
 </body>
 </html>
