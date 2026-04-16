@@ -606,117 +606,12 @@
             border-color: #e74c3c !important;
         }
 
+
         /* ============================================ */
-        /* CTA FORM — same visual overrides             */
+        /* CTA FORM — shared via class (same ID as hero form) */
         /* ============================================ */
-        #mlb2-39944855-cta.ml-form-embedContainer {
-            width: 100% !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-embedWrapper {
-            background: transparent !important;
-            border: none !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            max-width: 100% !important;
-            width: 100% !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-embedBody {
-            padding: 0 !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-embedContent {
-            display: none !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-fieldRow input,
-        #mlb2-39944855-cta .ml-field-group input {
-            background: var(--white) !important;
-            color: var(--text-color) !important;
-            border: 2px solid var(--medium-gray) !important;
-            border-radius: 12px !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            font-size: 0.95rem !important;
-            padding: 15px 18px !important;
-            transition: border-color 0.3s, box-shadow 0.3s !important;
-            line-height: 1.4 !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-fieldRow input:focus,
-        #mlb2-39944855-cta .ml-field-group input:focus {
-            border-color: var(--highlight-color) !important;
-            box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.12) !important;
-            outline: none !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-fieldRow input::placeholder,
-        #mlb2-39944855-cta .ml-field-group input::placeholder {
-            color: #aaa !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-embedSubmit button {
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color)) !important;
-            border: none !important;
-            border-radius: 50px !important;
-            color: white !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            font-size: 1rem !important;
-            font-weight: 600 !important;
-            padding: 15px 30px !important;
-            cursor: pointer !important;
-            transition: all 0.4s !important;
-            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3) !important;
-            line-height: 1.4 !important;
-            margin-top: 10px;
-            width: 100% !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-embedSubmit button:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 6px 25px rgba(0, 180, 255, 0.5) !important;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color)) !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-checkboxRow .label-description,
-        #mlb2-39944855-cta .ml-form-checkboxRow .label-description p {
-            color: #666 !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            font-size: 0.85rem !important;
-            line-height: 1.5 !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-checkboxRow .label-description::before {
-            border-color: var(--medium-gray) !important;
-            border-radius: 4px !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before {
-            background-color: var(--highlight-color) !important;
-            border-color: var(--highlight-color) !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-successBody {
-            padding: 20px 0 !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-successContent h4 {
-            color: var(--dark-blue) !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            font-size: 1.5rem !important;
-            font-weight: 600 !important;
-            margin-bottom: 12px !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-successContent p {
-            color: #666 !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            font-size: 1rem !important;
-            line-height: 1.7 !important;
-        }
-
-        #mlb2-39944855-cta .ml-form-embedPermissions,
-        #mlb2-39944855-cta .ml-form-embedPermissions p {
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-embedPermissions,
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-embedPermissions p {
             color: #999 !important;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             font-size: 0.78rem !important;
@@ -724,15 +619,14 @@
             margin-top: 10px !important;
         }
 
-        /* Checkbox inline + spacing */
-        #mlb2-39944855-cta .ml-form-checkboxRow {
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-checkboxRow {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             margin-top: 10px !important;
         }
 
-        #mlb2-39944855-cta .ml-form-checkboxRow label {
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-checkboxRow label {
             display: flex !important;
             align-items: center !important;
             gap: 10px !important;
@@ -740,7 +634,7 @@
             min-height: auto !important;
         }
 
-        #mlb2-39944855-cta .ml-form-checkboxRow label input[type="checkbox"] {
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-checkboxRow label input[type="checkbox"] {
             position: static !important;
             z-index: auto !important;
             opacity: 1 !important;
@@ -750,17 +644,17 @@
             flex-shrink: 0;
         }
 
-        #mlb2-39944855-cta .ml-form-checkboxRow .label-description {
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-checkboxRow .label-description {
             padding-left: 0 !important;
             margin: 0 !important;
         }
 
-        #mlb2-39944855-cta .ml-form-checkboxRow .label-description::before,
-        #mlb2-39944855-cta .ml-form-checkboxRow .label-description::after {
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-checkboxRow .label-description::before,
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-checkboxRow .label-description::after {
             display: none !important;
         }
 
-        #mlb2-39944855-cta .ml-form-embedSubmit {
+        .cta-form-card .ml-subscribe-form-39944855 .ml-form-embedSubmit {
             margin-top: 10px !important;
         }
 
@@ -1215,6 +1109,8 @@
         .trust-logo {
             height: 70px;
             width: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.85;
             flex-shrink: 0;
         }
 
@@ -1410,7 +1306,7 @@
             <nav aria-label="Nawigacja główna">
                 <div class="logo-container">
                     <a href="index.html" aria-label="HarmonJa — Strona główna">
-                        <img src="logo-harmonja.png" alt="HarmonJa Szkoła Psychoterapii CBT" class="logo-img">
+                        <img src="logoharmonja.png" alt="HarmonJa Szkoła Psychoterapii CBT" class="logo-img">
                     </a>
                 </div>
 
@@ -1708,7 +1604,7 @@
                     </p>
 
                     <div class="cta-form-card">
-                        <div id="mlb2-39944855-cta" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39944855">
+                        <div id="mlb2-39944855" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39944855">
                             <div class="ml-form-align-center">
                                 <div class="ml-form-embedWrapper embedForm">
                                     <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
@@ -1771,7 +1667,7 @@
         <div class="trust-section" role="complementary" aria-label="O HarmonJa">
             <div class="container">
                 <div class="trust-inner">
-                    <img src="logo-harmonja-biale.png" alt="HarmonJa Szkoła Psychoterapii CBT" class="trust-logo">
+                    <img src="logoharmonja_2.png" alt="HarmonJa Szkoła Psychoterapii CBT" class="trust-logo">
                     <div class="trust-divider" aria-hidden="true"></div>
                     <p class="trust-text">
                         Szkoła Psychoterapii HarmonJa to miejsce, w którym uczymy psychoterapii opartej na dowodach — w sposób, który nie traci z pola widzenia człowieka.
