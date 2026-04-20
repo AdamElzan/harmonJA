@@ -1207,11 +1207,7 @@
         }
 
         .trainings-slider-section .section-title {
-            margin-bottom: 8px;
-        }
-
-        .trainings-slider-section .section-subtitle {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .slider-wrapper {
@@ -1240,7 +1236,8 @@
             background: var(--white);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.09);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             position: relative;
             text-decoration: none;
             color: inherit;
@@ -1620,57 +1617,11 @@
 
     <main id="main-content">
         <!-- ============================================ -->
-        <!-- SEKCJA 1: HERO                               -->
+        <!-- SEKCJA 1: SLIDER SZKOLEŃ (Aktualna oferta)  -->
         <!-- ============================================ -->
-        <section class="hero">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-
-            <div class="hero-content">
-                <h1>
-                    Rozpocznij swoją drogę w<br>
-                    <span class="gradient-text">psychoterapii poznawczo-behawioralnej</span>
-                </h1>
-
-                <!-- ZMIANA 1: Nowy lead text -->
-                <p class="hero-lead">
-                    Uczymy naukowej psychoterapii z&nbsp;sercem!
-                </p>
-
-                <!-- ZMIANA 2: Uzupełniony tekst z linkami do programów -->
-                <p class="hero-note">
-                    Aktualnie nasza Szkoła ubiega się o&nbsp;rekomendację PTTPB do prowadzenia <a href="szkola-dorosli.html">4-letniego szkolenia psychoterapii poznawczo-behawioralnej osób dorosłych</a> oraz <a href="szkola-dzieci-mlodziez.html">4-letniego szkolenia w&nbsp;psychoterapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a>.
-                </p>
-
-                <!-- ZMIANA 2b: Dodatkowe zdanie o śledzeniu -->
-                <p class="hero-follow">
-                    Bądź na bieżąco — śledź aktualne informacje na naszej stronie, Facebooku i&nbsp;zamów nasz newsletter!
-                </p>
-
-                <!-- ZMIANA 3: Nowy przycisk CTA → Newsletter (gotowy na MailerLite) -->
-                <!-- 
-                    MailerLite integration: 
-                    Zamień href na link do formularza MailerLite lub dodaj 
-                    data-ml-modal="TWOJ_FORM_ID" po konfiguracji MailerLite.
-                    Przykład: <a href="#" data-ml-modal="ABC123" class="cta-button">
-                -->
-                <a href="#newsletter-signup" class="cta-button" id="cta-newsletter">Zapisz się na newsletter</a>
-            </div>
-
-            <div class="scroll-indicator" aria-hidden="true">
-                <span></span>
-            </div>
-        </section>
-
-        <!-- ============================================ -->
-        <!-- SEKCJA 2: SLIDER SZKOLEŃ                    -->
-        <!-- ============================================ -->
-        <section class="trainings-slider-section" aria-label="Nasze szkolenia i superwizja">
+        <section class="trainings-slider-section" aria-label="Aktualna oferta szkoleń">
             <div class="container">
-                <h2 class="section-title">Szkolenia i superwizja</h2>
-                <p class="section-subtitle">
-                    Intensywne warsztaty eksperckie, kursy on&#8209;demand i superwizja CBT — rozwijaj kompetencje kliniczne z najlepszymi.
-                </p>
+                <h2 class="section-title">Aktualna oferta</h2>
 
                 <div class="slider-wrapper" aria-roledescription="karuzela" aria-label="Oferta szkoleń">
                     <div class="slider-track">
@@ -1774,6 +1725,49 @@
                         Wkrótce więcej szkoleń
                     </p>
                 </div><!-- /.slider-wrapper -->
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SEKCJA 2: HERO                               -->
+        <!-- ============================================ -->
+        <section class="hero">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+
+            <div class="hero-content">
+                <h1>
+                    Rozpocznij swoją drogę w<br>
+                    <span class="gradient-text">psychoterapii poznawczo-behawioralnej</span>
+                </h1>
+
+                <!-- ZMIANA 1: Nowy lead text -->
+                <p class="hero-lead">
+                    Uczymy naukowej psychoterapii z&nbsp;sercem!
+                </p>
+
+                <!-- ZMIANA 2: Uzupełniony tekst z linkami do programów -->
+                <p class="hero-note">
+                    Aktualnie nasza Szkoła ubiega się o&nbsp;rekomendację PTTPB do prowadzenia <a href="szkola-dorosli.html">4-letniego szkolenia psychoterapii poznawczo-behawioralnej osób dorosłych</a> oraz <a href="szkola-dzieci-mlodziez.html">4-letniego szkolenia w&nbsp;psychoterapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym pracy z&nbsp;pacjentem w&nbsp;wieku rozwojowym</a>.
+                </p>
+
+                <!-- ZMIANA 2b: Dodatkowe zdanie o śledzeniu -->
+                <p class="hero-follow">
+                    Bądź na bieżąco — śledź aktualne informacje na naszej stronie, Facebooku i&nbsp;zamów nasz newsletter!
+                </p>
+
+                <!-- ZMIANA 3: Nowy przycisk CTA → Newsletter (gotowy na MailerLite) -->
+                <!--
+                    MailerLite integration:
+                    Zamień href na link do formularza MailerLite lub dodaj
+                    data-ml-modal="TWOJ_FORM_ID" po konfiguracji MailerLite.
+                    Przykład: <a href="#" data-ml-modal="ABC123" class="cta-button">
+                -->
+                <a href="#newsletter-signup" class="cta-button" id="cta-newsletter">Zapisz się na newsletter</a>
+            </div>
+
+            <div class="scroll-indicator" aria-hidden="true">
+                <span></span>
             </div>
         </section>
 
@@ -2166,7 +2160,7 @@
                             80-288 Gdańsk
                         </p>
                         <p style="margin-top: 10px;">
-                            Email: <a href="/cdn-cgi/l/email-protection#3b5054554f5a504f7b535a49565455515a155e5f4e154b57" style="color:#bbb;transition:color .3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#bbb'"><span class="__cf_email__" data-cfemail="bad1d5d4cedbd1cefad2dbc8d7d5d4d0db94dfdecf94cad6">[email&#160;protected]</span></a>
+                            Email: <a href="mailto:kontakt@harmonja.edu.pl" style="color:#bbb;transition:color .3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#bbb'">kontakt@harmonja.edu.pl</a>
                         </p>
                         <p style="margin-top: 12px; font-size: 0.85rem;">
                             Nr rachunku:<br>
