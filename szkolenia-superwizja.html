@@ -1531,6 +1531,68 @@
         }
 
         /* ============================================ */
+        /* TRAINING CARD WRAPPER                        */
+        /* ============================================ */
+        .training-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.09);
+            margin-bottom: 48px;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .training-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), #FFD700);
+            z-index: 2;
+        }
+
+        .training-card .featured-training {
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .training-card .featured-training::before {
+            display: none;
+        }
+
+        .training-card .training-details {
+            margin-top: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .training-card .countdown-section {
+            margin-top: 0;
+            padding: 26px 40px 32px;
+            background: var(--light-gray);
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .training-card .countdown-unit {
+            min-width: 72px;
+            padding: 16px 13px;
+            border-radius: 13px;
+        }
+
+        .training-card .countdown-number {
+            font-size: 1.76rem;
+            margin-bottom: 5px;
+        }
+
+        .training-card .countdown-text {
+            font-size: 0.6rem;
+        }
+
+        /* ============================================ */
         /* ANIMATIONS                                   */
         /* ============================================ */
         .animate {
@@ -1643,6 +1705,19 @@
             }
 
             .countdown { gap: 10px; }
+
+            .training-card .countdown-section {
+                padding: 20px 16px 24px;
+            }
+
+            .training-card .countdown-unit {
+                min-width: 56px;
+                padding: 13px 10px;
+            }
+
+            .training-card .countdown-number {
+                font-size: 1.44rem;
+            }
 
             .countdown-unit {
                 min-width: 70px;
@@ -1784,8 +1859,10 @@
                         <div class="gradient-line"></div>
                     </div>
 
-                    <!-- TESLA INNOVATION 2: Featured Training Card -->
-                    <article class="featured-training animate" aria-label="Wyróżnione szkolenie">
+                    <!-- Training Card: Terapia uzależnień behawioralnych -->
+                    <div class="training-card animate">
+
+                    <article class="featured-training" aria-label="Wyróżnione szkolenie">
                         <div class="featured-left">
                             <div class="featured-badge">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
@@ -1861,31 +1938,8 @@
                         </div>
                     </article>
 
-                    <!-- TESLA INNOVATION 3: Countdown -->
-                    <div class="countdown-section animate" aria-label="Odliczanie do szkolenia">
-                        <p class="countdown-label">Do rozpoczęcia szkolenia pozostało</p>
-                        <div class="countdown" role="timer" aria-live="polite">
-                            <div class="countdown-unit">
-                                <div class="countdown-number" id="cd-days">---</div>
-                                <div class="countdown-text">dni</div>
-                            </div>
-                            <div class="countdown-unit">
-                                <div class="countdown-number" id="cd-hours">--</div>
-                                <div class="countdown-text">godzin</div>
-                            </div>
-                            <div class="countdown-unit">
-                                <div class="countdown-number" id="cd-mins">--</div>
-                                <div class="countdown-text">minut</div>
-                            </div>
-                            <div class="countdown-unit">
-                                <div class="countdown-number" id="cd-secs">--</div>
-                                <div class="countdown-text">sekund</div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Expandable Details -->
-                    <div class="training-details animate">
+                    <div class="training-details">
                         <button class="details-toggle" aria-expanded="false" aria-controls="details-content">
                             <span>Szczegóły programu szkolenia</span>
                             <span class="toggle-arrow" aria-hidden="true">&#9662;</span>
@@ -2122,6 +2176,31 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- TESLA INNOVATION 3: Countdown -->
+                    <div class="countdown-section" aria-label="Odliczanie do szkolenia">
+                        <p class="countdown-label">Do rozpoczęcia szkolenia pozostało</p>
+                        <div class="countdown" role="timer" aria-live="polite">
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd-days">---</div>
+                                <div class="countdown-text">dni</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd-hours">--</div>
+                                <div class="countdown-text">godzin</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd-mins">--</div>
+                                <div class="countdown-text">minut</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd-secs">--</div>
+                                <div class="countdown-text">sekund</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div><!-- end .training-card -->
                 </div>
             </section>
         </div>
@@ -2229,8 +2308,7 @@
                         <!-- Adam Elżanowski -->
                         <article class="supervisor-card animate" aria-label="Adam Elżanowski — superwizor">
                             <div class="supervisor-avatar">
-                                <!-- 📸 ZDJĘCIE: <img src="zdjecie-adam.jpg" alt="Adam Elżanowski"> -->
-                                AE
+                                <img src="adam-elzanowski-act.jpg" alt="Adam Elżanowski">
                             </div>
                             <h3 class="supervisor-name">Adam Elżanowski</h3>
                             <div class="supervisor-role">Psychoterapeuta i&nbsp;superwizor CBT</div>
@@ -2251,8 +2329,7 @@
                         <!-- Magdalena Skuza -->
                         <article class="supervisor-card animate" aria-label="Magdalena Skuza — superwizor">
                             <div class="supervisor-avatar">
-                                <!-- 📸 ZDJĘCIE: <img src="zdjecie-magda.jpg" alt="Magdalena Skuza"> -->
-                                MS
+                                <img src="magda_skuza.jpg" alt="Magdalena Skuza">
                             </div>
                             <h3 class="supervisor-name">Magdalena Skuza</h3>
                             <div class="supervisor-role">Psychoterapeuta i&nbsp;superwizor CBT i&nbsp;DBT</div>
@@ -2273,8 +2350,7 @@
                         <!-- Karolina Rakocz -->
                         <article class="supervisor-card animate" aria-label="Karolina Rakocz — superwizor">
                             <div class="supervisor-avatar">
-                                <!-- 📸 ZDJĘCIE: <img src="zdjecie-karolina.jpg" alt="Karolina Rakocz"> -->
-                                KR
+                                <img src="karolina_rakocz.jpg" alt="Karolina Rakocz">
                             </div>
                             <h3 class="supervisor-name">Karolina Rakocz</h3>
                             <div class="supervisor-role">Psychoterapeuta CBT, superwizor terapii uzależnień</div>
