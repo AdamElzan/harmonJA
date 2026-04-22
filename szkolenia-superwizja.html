@@ -1789,6 +1789,104 @@
 
             .countdown-number { font-size: 1.5rem; }
         }
+
+        /* Trainer modal */
+        .trainer-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 9000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .trainer-modal-overlay.active {
+            display: flex;
+        }
+        .trainer-modal {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .trainer-modal-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 28px 28px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .trainer-modal-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .trainer-modal-header h2 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin: 0 0 4px;
+        }
+        .trainer-modal-header p {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .trainer-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #999;
+            line-height: 1;
+        }
+        .trainer-modal-close:hover { color: #333; }
+        .trainer-modal-body {
+            padding: 24px 28px 28px;
+        }
+        .trainer-modal-section {
+            margin-bottom: 20px;
+        }
+        .trainer-modal-section h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--primary-color);
+            margin: 0 0 8px;
+        }
+        .trainer-modal-section p,
+        .trainer-modal-section li {
+            font-size: 0.92rem;
+            color: #444;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .trainer-modal-section ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .trainer-modal-section li { margin-bottom: 4px; }
+        .trainer-modal-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: rgba(0,90,160,0.1);
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+        }
     </style>
 </head>
 <body>
@@ -1862,7 +1960,7 @@
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
                         </span>
                         <span class="tab-label">Warsztaty eksperckie</span>
-                        <span class="tab-count">1</span>
+                        <span class="tab-count">3</span>
                     </button>
                     <button class="category-tab" role="tab" aria-selected="false" aria-controls="panel-ondemand" id="tab-ondemand">
                         <span class="tab-icon" aria-hidden="true">
@@ -2243,6 +2341,733 @@
                     </div>
 
                     </div><!-- end .training-card -->
+
+                    <!-- ================================ -->
+                    <!-- Training Card: Chairwork Pugh & Bell -->
+                    <!-- ================================ -->
+                    <div class="training-card animate">
+
+                    <article class="featured-training" aria-label="Warsztaty Chairwork — Pugh i Bell">
+                        <div class="featured-left">
+                            <div class="featured-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+                                Doświadczeniowa moc krzeseł
+                            </div>
+                            <h3 class="featured-title">Chairwork w&nbsp;praktyce klinicznej</h3>
+                            <p style="font-size:1.05rem;color:var(--highlight-color);font-weight:500;font-style:italic;margin-top:-6px;margin-bottom:16px;">dwa wyspecjalizowane warsztaty — Matthew Pugh i&nbsp;Tobyn Bell</p>
+                            <p class="featured-subtitle">
+                                Dwa odrębne, intensywne szkolenia poświęcone chairwork w&nbsp;terapii ACT oraz w&nbsp;pracy z&nbsp;osobami z&nbsp;zaburzeniami odżywiania. Kiedy sama rozmowa przestaje wystarczać.
+                            </p>
+
+                            <!-- Translation highlight -->
+                            <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,rgba(0,180,255,0.08),rgba(34,199,214,0.08));border:1.5px solid rgba(0,180,255,0.25);border-radius:12px;margin-bottom:20px;">
+                                <span style="font-size:1.3rem;flex-shrink:0;">🎧</span>
+                                <p style="font-size:0.88rem;color:var(--dark-blue);font-weight:600;line-height:1.4;margin:0;">Szkolenie w&nbsp;języku angielskim z&nbsp;tłumaczeniem symultanicznym na&nbsp;język polski</p>
+                            </div>
+
+                            <div class="featured-meta">
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">1 października 2026</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Chairwork w&nbsp;terapii ACT</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">2 października 2026</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Chairwork w&nbsp;pracy z&nbsp;osobami z&nbsp;zaburzeniami odżywiania</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">Warszawa</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Miejsce zostanie podane</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item" style="align-items:flex-start;">
+                                    <div class="meta-icon" aria-hidden="true" style="margin-top:4px;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                    </div>
+                                    <div>
+                                        <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:linear-gradient(135deg,rgba(255,165,0,0.15),rgba(255,215,0,0.15));border:1.5px solid rgba(255,165,0,0.35);border-radius:10px;font-weight:700;color:#b45309;font-size:1.05rem;">
+                                            999&nbsp;zł
+                                            <span style="font-size:0.72rem;background:linear-gradient(135deg,#FFD700,#FFA500);color:#fff;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap;">OBA DNI</span>
+                                        </span>
+                                        <br>
+                                        <span class="price-highlight" style="margin-top:8px;display:inline-block;">599&nbsp;zł</span><span style="font-size:0.9rem;color:#555;"> — jeden wybrany dzień</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="featured-cta-group">
+                                <a href="mailto:szkolenia@harmonja.edu.pl?subject=Rejestracja%20Chairwork%20Pugh%20Bell%202026" class="featured-cta" aria-label="Zapisz się na warsztaty Chairwork">
+                                    Zapisz się
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                            <p style="margin-top:14px;font-size:0.82rem;color:#999;line-height:1.5;">
+                                Pytania? <a href="mailto:szkolenia@harmonja.edu.pl" style="color:var(--highlight-color);font-weight:600;">szkolenia@harmonja.edu.pl</a>
+                            </p>
+                        </div>
+
+                        <div class="featured-right" style="justify-content:center;align-items:stretch;gap:75px;padding-top:40px;padding-bottom:40px;">
+                            <!-- Trainer 1: Matthew Pugh -->
+                            <div style="display:flex;align-items:center;gap:24px;position:relative;z-index:1;">
+                                <div class="trainer-avatar" style="width:120px;height:120px;flex-shrink:0;">
+                                    <img src="matthew_pugh.jpeg" alt="Dr Matthew Pugh — prowadzący warsztat Chairwork w ACT">
+                                </div>
+                                <div style="text-align:left;flex:1;">
+                                    <div class="trainer-name" style="font-size:1.3rem;margin-bottom:6px;text-align:left;">Dr Matthew Pugh</div>
+                                    <div class="trainer-title" style="font-size:1rem;margin-bottom:14px;text-align:left;">
+                                        Współdyrektor Chairwork<br>Senior Clinical Psychologist, NHS<br>Teaching Fellow, UCL
+                                    </div>
+                                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                                        <div style="padding:4px 14px;background:rgba(0,180,255,0.15);border-radius:20px;font-size:0.8rem;font-weight:700;color:var(--primary-color);">Chairwork w&nbsp;ACT</div>
+                                        <div style="padding:4px 14px;background:rgba(255,165,0,0.3);border-radius:20px;font-size:0.8rem;font-weight:700;color:#FFD166;">1 października 2026</div>
+                                    </div>
+                                    <div style="display:flex;gap:20px;">
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:1.2rem;font-weight:700;color:var(--primary-color);">15+</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.5px;">lat praktyki</div>
+                                        </div>
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">BABCP</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">nr 150456</div>
+                                        </div>
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">HCPC</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">nr PYL25764</div>
+                                        </div>
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">ISST</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">nr 837-A</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Trainer 2: Tobyn Bell -->
+                            <div style="display:flex;align-items:center;gap:24px;position:relative;z-index:1;">
+                                <div class="trainer-avatar" style="width:120px;height:120px;flex-shrink:0;">
+                                    <img src="tobyn_bell.png" alt="Dr Tobyn Bell — prowadzący warsztat Chairwork w zaburzeniach odżywiania">
+                                </div>
+                                <div style="text-align:left;flex:1;">
+                                    <div class="trainer-name" style="font-size:1.3rem;margin-bottom:6px;text-align:left;">Dr Tobyn Bell</div>
+                                    <div class="trainer-title" style="font-size:1rem;margin-bottom:14px;text-align:left;">
+                                        Psychoterapeuta CFT i&nbsp;CBT<br>Terapeuta schematów, trener<br>Compassionate Mind Foundation
+                                    </div>
+                                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                                        <div style="padding:4px 14px;background:rgba(0,180,255,0.15);border-radius:20px;font-size:0.8rem;font-weight:700;color:var(--primary-color);">Chairwork w&nbsp;pracy z&nbsp;osobami z&nbsp;zaburzeniami odżywiania</div>
+                                        <div style="padding:4px 14px;background:rgba(255,165,0,0.3);border-radius:20px;font-size:0.8rem;font-weight:700;color:#FFD166;">2 października 2026</div>
+                                    </div>
+                                    <div style="display:flex;gap:20px;">
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:1.2rem;font-weight:700;color:var(--primary-color);">15+</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.5px;">lat praktyki</div>
+                                        </div>
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">BABCP</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">nr 110512</div>
+                                        </div>
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">NMC</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">nr 06F0889E</div>
+                                        </div>
+                                        <div style="width:72px;min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">PhD</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">Chairwork, Univ. Derby</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Expandable Details -->
+                    <div class="training-details">
+                        <button class="details-toggle" aria-expanded="false" aria-controls="details-content-chairwork">
+                            <span>Szczegóły programu szkolenia</span>
+                            <span class="toggle-arrow" aria-hidden="true">&#9662;</span>
+                        </button>
+                        <div class="details-content" id="details-content-chairwork">
+                            <div class="details-inner">
+
+                                <!-- BIOGRAM PROWADZĄCYCH -->
+                                <div style="margin-bottom:40px;padding:32px;background:linear-gradient(135deg, var(--light-blue) 0%, #f8fcfe 100%);border-radius:16px;border:1px solid rgba(0,180,255,0.1);">
+                                    <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        O&nbsp;prowadzących
+                                    </h3>
+                                    <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-bottom:16px;">
+                                        <strong>Dr Matthew Pugh</strong> — psycholog kliniczny, psychoterapeuta poznawczo-behawioralny, zaawansowany terapeuta schematów, facylitator Voice Dialogue, badacz i&nbsp;jeden z&nbsp;czołowych współczesnych praktyków chairwork. Od&nbsp;ponad 15 lat pracuje w&nbsp;systemie ochrony zdrowia psychicznego. Jest współdyrektorem Chairwork, Senior Clinical Psychologist w&nbsp;NHS oraz Teaching Fellow na&nbsp;University College London. Autor książki <em>„Cognitive Behavioural Chairwork: Distinctive Features"</em>.
+                                    </p>
+                                    <p style="font-size:0.95rem;color:#444;line-height:1.75;">
+                                        <strong>Dr Tobyn Bell</strong> — psychoterapeuta CFT i&nbsp;CBT, terapeuta schematów, trener i&nbsp;superwizor. Od ponad 15 lat pracuje w&nbsp;ochronie zdrowia psychicznego. Współautor książki <em>„Compassion Focused Therapy from the Inside Out"</em>. Należy do Training Executive Compassionate Mind Foundation, regularnie prowadzi szkolenia krajowe i&nbsp;międzynarodowe z&nbsp;zakresu compassion oraz chairwork.
+                                    </p>
+                                    <p style="margin-top:12px;font-size:0.88rem;color:#888;">Obaj prowadzący są dobrze znani polskiej publiczności z&nbsp;wcześniejszych szkoleń organizowanych przez <a href="https://lazurowaterapia.pl/szkolenia/" target="_blank" rel="noopener noreferrer" style="color:var(--highlight-color);font-weight:600;">Akademię CBT Lazurową</a>.</p>
+                                </div>
+
+                                <!-- PROGRAM 2-DNIOWY -->
+                                <div style="margin-bottom:40px;">
+                                    <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Program warsztatów
+                                    </h3>
+                                    <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-bottom:20px;">
+                                        Dwa odrębne dni szkoleniowe — każdy z&nbsp;nich poświęcony innemu obszarowi klinicznemu. Możesz uczestniczyć w&nbsp;jednym lub obu.
+                                    </p>
+
+                                    <div class="program-days">
+                                        <!-- DZIEŃ 1: Chairwork w ACT -->
+                                        <div class="program-day" data-day="chairwork-1">
+                                            <button class="day-header" aria-expanded="false">
+                                                <span class="day-number">1</span>
+                                                <span class="day-info">
+                                                    <span class="day-title">Czwartek 1 października — Chairwork w terapii ACT | prowadzący: dr Matthew Pugh</span>
+                                                </span>
+                                                <span class="day-arrow" aria-hidden="true">▾</span>
+                                            </button>
+                                            <div class="day-content">
+                                                <div class="day-blocks">
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Kiedy ACT jest „rozumiane", ale nie przeżywane</div>
+                                                        <p>Diagnoza momentów, w&nbsp;których pacjent umie mówić o&nbsp;akceptacji, defuzji i&nbsp;wartościach — ale pozostaje oddzielony od realnego doświadczenia zmiany. Jak chairwork może ożywić ACT w&nbsp;praktyce.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Perspective-taking i&nbsp;obserwujące Ja</div>
+                                                        <p>Praca z&nbsp;różnymi perspektywami Ja za pomocą krzeseł. Techniki ucieleśnienia dystansu do myśli oraz budowania Ja obserwującego w&nbsp;sposób angażujący i&nbsp;klinicznie sensowny.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Wartości i&nbsp;self-narratives</div>
+                                                        <p>Jak chairwork pomaga pracować z&nbsp;utrwalonymi narracjami o&nbsp;sobie i&nbsp;kierunkiem wyznaczanym przez wartości. Ożywianie i&nbsp;ucieleśnianie metafor ACT jako realnego narzędzia zmiany.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Ćwiczenia praktyczne i&nbsp;demonstracje</div>
+                                                        <p>Uczestnicy zobaczą i&nbsp;przećwiczą, jak prowadzić pracę z&nbsp;krzesłami w&nbsp;ramach procesów ACT w&nbsp;gabinecie.</p>
+                                                        <div class="day-methods">
+                                                            <span class="day-method-tag">ACT</span>
+                                                            <span class="day-method-tag">Chairwork</span>
+                                                            <span class="day-method-tag">Defuzja</span>
+                                                            <span class="day-method-tag">Wartości</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- DZIEŃ 2: Zaburzenia odżywiania -->
+                                        <div class="program-day" data-day="chairwork-2">
+                                            <button class="day-header" aria-expanded="false">
+                                                <span class="day-number">2</span>
+                                                <span class="day-info">
+                                                    <span class="day-title">Piątek 2 października — Chairwork w pracy z zaburzeniami odżywiania | prowadzący: dr Tobyn Bell</span>
+                                                </span>
+                                                <span class="day-arrow" aria-hidden="true">▾</span>
+                                            </button>
+                                            <div class="day-content">
+                                                <div class="day-blocks">
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Ambiwalencja i&nbsp;praca z&nbsp;częściami pacjenta</div>
+                                                        <p>Jak chairwork pomaga dotrzeć do części pacjenta, która chce zdrowienia, i&nbsp;do tej, która nadal trzyma się objawów. Praca z&nbsp;silnie utrwalonymi wzorcami i&nbsp;dużą ambiwalencją wobec zmiany.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Wzmacnianie motywacji do zmiany</div>
+                                                        <p>Techniki chairwork wspierające motywację wewnętrzną. Jak pracować z&nbsp;pacjentami po częściowej poprawie, nawrotach lub zagrożonymi przedwczesnym zakończeniem leczenia.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Konceptualizacja przypadku i&nbsp;praca z&nbsp;binge-eating</div>
+                                                        <p>Chairwork jako narzędzie do budowania konceptualizacji i&nbsp;pracy z&nbsp;kluczowymi objawami, w&nbsp;tym z&nbsp;binge-eating. Rozumienie funkcji objawów w&nbsp;wewnętrznym świecie pacjenta.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Ćwiczenia praktyczne i&nbsp;demonstracje</div>
+                                                        <p>Praca z&nbsp;przypadkami z&nbsp;zaburzeniami odżywiania — interwencje doświadczeniowe, które wzmacniają skuteczność terapii tam, gdzie sama rozmowa przestaje wystarczać.</p>
+                                                        <div class="day-methods">
+                                                            <span class="day-method-tag">Chairwork</span>
+                                                            <span class="day-method-tag">CFT</span>
+                                                            <span class="day-method-tag">Zaburzenia odżywiania</span>
+                                                            <span class="day-method-tag">Motywacja</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="details-grid" style="align-items:start;">
+                                    <div class="detail-block">
+                                        <h3>Dla kogo?</h3>
+                                        <p>Dla psychologów, psychoterapeutów, terapeutów poznawczo-behawioralnych oraz innych specjalistów zdrowia psychicznego, którzy chcą pracować bardziej doświadczeniowo, lepiej radzić sobie z&nbsp;momentami impasu w&nbsp;terapii i&nbsp;rozwijać warsztat o&nbsp;interwencje głębiej angażujące pacjenta.</p>
+                                    </div>
+                                    <div class="detail-block">
+                                        <h3>Czego się nauczysz?</h3>
+                                        <ul>
+                                            <li>Przełożyć kluczowe procesy ACT na pracę doświadczeniową z&nbsp;użyciem krzeseł</li>
+                                            <li>Pracować z&nbsp;perspective-taking, wartościami i&nbsp;self-narratives w&nbsp;sposób angażujący pacjenta</li>
+                                            <li>Wzmacniać motywację do zmiany u&nbsp;osób z&nbsp;zaburzeniami odżywiania</li>
+                                            <li>Budować konceptualizację przypadku z&nbsp;wykorzystaniem chairwork</li>
+                                            <li>Docierać do poziomu żywego doświadczenia — tam, gdzie intelektualny wgląd nie wystarczy</li>
+                                        </ul>
+                                    </div>
+                                    <div class="detail-block">
+                                        <h3>Format i&nbsp;miejsce</h3>
+                                        <p>Dwa odrębne warsztaty eksploracyjne i&nbsp;praktyczne. Każdy dzień to samodzielna jednostka szkoleniowa — możesz wybrać jeden lub oba.</p>
+                                        <p style="margin-top:12px;">Terminy: 1–2 października 2026.</p>
+                                        <div style="margin-top:16px;padding:16px;background:var(--light-blue);border-radius:12px;border:1px solid rgba(0,180,255,0.15);">
+                                            <p style="font-weight:600;color:var(--dark-blue);margin-bottom:6px;">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2" style="vertical-align:-2px;margin-right:6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                                Miejsce szkolenia
+                                            </p>
+                                            <p style="color:#666;font-size:0.9rem;">Warszawa — szczegółowy adres zostanie podany</p>
+                                        </div>
+                                        <div style="margin-top:12px;padding:14px 16px;background:linear-gradient(135deg,rgba(0,180,255,0.06),rgba(34,199,214,0.06));border-radius:12px;border:1px solid rgba(0,180,255,0.15);">
+                                            <p style="font-weight:600;color:var(--dark-blue);margin-bottom:4px;font-size:0.9rem;">🎧 Tłumaczenie symultaniczne</p>
+                                            <p style="color:#666;font-size:0.88rem;">Szkolenie prowadzone po angielsku z&nbsp;profesjonalnym tłumaczeniem na&nbsp;język polski.</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-block">
+                                        <h3>Cena i&nbsp;rejestracja</h3>
+                                        <p>
+                                            <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:linear-gradient(135deg,rgba(255,165,0,0.12),rgba(255,215,0,0.12));border:1.5px solid rgba(255,165,0,0.3);border-radius:10px;font-weight:700;color:#b45309;font-size:1.1rem;">
+                                                999&nbsp;zł
+                                                <span style="font-size:0.72rem;background:linear-gradient(135deg,#FFD700,#FFA500);color:#fff;padding:2px 9px;border-radius:20px;font-weight:700;">OBA DNI</span>
+                                            </span>
+                                        </p>
+                                        <p style="margin-top:10px;"><span class="price-highlight">599&nbsp;zł</span> — jeden wybrany dzień</p>
+                                        <p style="margin-top:12px;font-size:0.9rem;color:#888;">Napisz na <a href="mailto:szkolenia@harmonja.edu.pl?subject=Rejestracja%20Chairwork%20Pugh%20Bell%202026" style="color:var(--highlight-color);font-weight:600;">szkolenia@harmonja.edu.pl</a>, aby się zarejestrować i&nbsp;otrzymać szczegóły płatności.</p>
+                                        <p style="margin-top:8px;font-size:0.85rem;color:#888;">Bank Millennium: 97 1160 2202 0000 0006 8072 1778</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Countdown: Chairwork -->
+                    <div class="countdown-section" aria-label="Odliczanie do warsztatów Chairwork">
+                        <p class="countdown-label">Do rozpoczęcia warsztatów pozostało</p>
+                        <div class="countdown" role="timer" aria-live="polite">
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd2-days">---</div>
+                                <div class="countdown-text">dni</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd2-hours">--</div>
+                                <div class="countdown-text">godzin</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd2-mins">--</div>
+                                <div class="countdown-text">minut</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd2-secs">--</div>
+                                <div class="countdown-text">sekund</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div><!-- end .training-card (chairwork) -->
+
+                    <!-- ================================ -->
+                    <!-- Training Card: Akademia Traumy   -->
+                    <!-- ================================ -->
+                    <div class="training-card animate">
+
+                    <article class="featured-training" aria-label="Akademia Skutecznej Terapii Traumy">
+                        <div class="featured-left">
+                            <div class="featured-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+                                Cykl szkoleniowy 2026/2027
+                            </div>
+                            <h3 class="featured-title">Akademia Skutecznej Terapii Traumy</h3>
+                            <p style="font-size:1.05rem;color:var(--highlight-color);font-weight:500;font-style:italic;margin-top:-6px;margin-bottom:16px;">Kompleksowy program pracy z&nbsp;PTSD i&nbsp;CPTSD</p>
+                            <p class="featured-subtitle">
+                                Czteroetapowy program szkoleniowy oparty na metodach o&nbsp;najlepiej udokumentowanej skuteczności: CPT, Prolonged Exposure, ACT i&nbsp;praca z&nbsp;uzależnieniami. Spójna ścieżka kompetencji terapeutycznych od rozumienia traumy do odbudowy życia pacjenta.
+                            </p>
+
+                            <!-- Program summary strip -->
+                            <div style="display:flex;gap:0;margin-bottom:20px;border-radius:12px;overflow:hidden;border:1.5px solid rgba(0,180,255,0.2);">
+                                <div style="flex:1;padding:12px 10px;text-align:center;background:linear-gradient(135deg,rgba(0,180,255,0.08),rgba(34,199,214,0.08));border-right:1px solid rgba(0,180,255,0.15);">
+                                    <div style="font-size:1.3rem;font-weight:700;color:var(--dark-blue);">4</div>
+                                    <div style="font-size:0.72rem;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;">moduły</div>
+                                </div>
+                                <div style="flex:1;padding:12px 10px;text-align:center;background:linear-gradient(135deg,rgba(0,180,255,0.08),rgba(34,199,214,0.08));border-right:1px solid rgba(0,180,255,0.15);">
+                                    <div style="font-size:1.3rem;font-weight:700;color:var(--dark-blue);">8</div>
+                                    <div style="font-size:0.72rem;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;">dni szkolenia</div>
+                                </div>
+                                <div style="flex:1;padding:12px 10px;text-align:center;background:linear-gradient(135deg,rgba(0,180,255,0.08),rgba(34,199,214,0.08));border-right:1px solid rgba(0,180,255,0.15);">
+                                    <div style="font-size:1.3rem;font-weight:700;color:var(--dark-blue);">ok.&nbsp;64</div>
+                                    <div style="font-size:0.72rem;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;">godz. szkolenia</div>
+                                </div>
+                                <div style="flex:1;padding:12px 10px;text-align:center;background:linear-gradient(135deg,rgba(0,180,255,0.08),rgba(34,199,214,0.08));">
+                                    <div style="font-size:1.3rem;font-weight:700;color:var(--dark-blue);">2</div>
+                                    <div style="font-size:0.72rem;color:#666;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;">superwizje</div>
+                                </div>
+                            </div>
+
+                            <div class="featured-meta">
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">18–19 września 2026</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Zjazd I — CPT &amp; Dialog Motywujący</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">16–17 października 2026</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Zjazd II — Prolonged Exposure</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">20–21 listopada 2026</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Zjazd III — ACT w terapii traumy</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">11–12 grudnia 2026</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Zjazd IV — Trauma i uzależnienia</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-icon" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="meta-label">Warszawa</span>
+                                        <br><span style="font-size:0.85rem;color:#888;">Miejsce zostanie podane</span>
+                                    </div>
+                                </div>
+                                <div class="meta-item" style="align-items:flex-start;">
+                                    <div class="meta-icon" aria-hidden="true" style="margin-top:4px;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                    </div>
+                                    <div>
+                                        <span style="font-size:0.9rem;color:#555;">Cena — szczegóły wkrótce</span>
+                                        <br><span style="font-size:0.85rem;color:#888;margin-top:4px;display:inline-block;">Pytania: <a href="mailto:szkolenia@harmonja.edu.pl" style="color:var(--highlight-color);font-weight:600;">szkolenia@harmonja.edu.pl</a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="featured-cta-group">
+                                <a href="mailto:szkolenia@harmonja.edu.pl?subject=Akademia%20Skutecznej%20Terapii%20Traumy%202026" class="featured-cta" aria-label="Zapytaj o Akademię Traumy">
+                                    Zapytaj o rejestrację
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="featured-right" style="justify-content:center;align-items:stretch;gap:75px;padding-top:40px;padding-bottom:40px;">
+                            <!-- Trainer 1: Adam Elżanowski -->
+                            <div style="display:flex;align-items:center;gap:24px;position:relative;z-index:1;">
+                                <div class="trainer-avatar" style="width:120px;height:120px;flex-shrink:0;">
+                                    <img src="adam-elzanowski-act.jpg" alt="Adam Elżanowski — prowadzący Akademię Traumy">
+                                </div>
+                                <div style="text-align:left;flex:1;">
+                                    <div class="trainer-name" style="font-size:1.3rem;margin-bottom:6px;text-align:left;">Adam Elżanowski</div>
+                                    <div class="trainer-title" style="font-size:1rem;margin-bottom:14px;text-align:left;">
+                                        Certyfikowany psychoterapeuta CBT<br>Superwizor-dydaktyk PTTPB<br>Podcast „W głowie się mieści"
+                                    </div>
+                                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                                        <div style="padding:4px 14px;background:rgba(0,180,255,0.15);border-radius:20px;font-size:0.8rem;font-weight:700;color:var(--primary-color);">CPT &amp; ACT</div>
+                                    </div>
+                                    <div style="display:flex;align-items:center;gap:20px;">
+                                        <div style="min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">PTTPB</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">nr 500</div>
+                                        </div>
+                                        <button onclick="openTrainerModal('adam')" style="padding:6px 14px;background:rgba(0,180,255,0.18);border:1.5px solid rgba(0,180,255,0.4);border-radius:20px;color:var(--primary-color);font-size:0.78rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:background 0.2s;">Więcej o Adamie</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Trainer 2: Karolina Rakocz -->
+                            <div style="display:flex;align-items:center;gap:24px;position:relative;z-index:1;">
+                                <div class="trainer-avatar" style="width:120px;height:120px;flex-shrink:0;">
+                                    <img src="karolina_rakocz.jpg" alt="Karolina Rakocz — prowadząca Akademię Traumy">
+                                </div>
+                                <div style="text-align:left;flex:1;">
+                                    <div class="trainer-name" style="font-size:1.3rem;margin-bottom:6px;text-align:left;">Karolina Rakocz</div>
+                                    <div class="trainer-title" style="font-size:1rem;margin-bottom:14px;text-align:left;">
+                                        Psychoterapeutka CBT<br>Specjalistka psychoterapii uzależnień<br>Terapeutka motywująca
+                                    </div>
+                                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                                        <div style="padding:4px 14px;background:rgba(0,180,255,0.15);border-radius:20px;font-size:0.8rem;font-weight:700;color:var(--primary-color);">PE &amp; Trauma i uzależnienia</div>
+                                    </div>
+                                    <div style="display:flex;align-items:center;gap:20px;">
+                                        <div style="min-height:48px;display:flex;flex-direction:column;justify-content:center;">
+                                            <div style="font-size:0.85rem;font-weight:700;color:var(--primary-color);">PTTM</div>
+                                            <div style="font-size:0.68rem;color:rgba(255,255,255,0.55);">nr 102</div>
+                                        </div>
+                                        <button onclick="openTrainerModal('karolina')" style="padding:6px 14px;background:rgba(0,180,255,0.18);border:1.5px solid rgba(0,180,255,0.4);border-radius:20px;color:var(--primary-color);font-size:0.78rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:background 0.2s;">Więcej o Karolinie</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Expandable Details -->
+                    <div class="training-details">
+                        <button class="details-toggle" aria-expanded="false" aria-controls="details-content-trauma">
+                            <span>Szczegóły programu szkolenia</span>
+                            <span class="toggle-arrow" aria-hidden="true">&#9662;</span>
+                        </button>
+                        <div class="details-content" id="details-content-trauma">
+                            <div class="details-inner">
+
+                                <!-- BIOGRAM PROWADZĄCYCH -->
+                                <div style="margin-bottom:40px;padding:32px;background:linear-gradient(135deg, var(--light-blue) 0%, #f8fcfe 100%);border-radius:16px;border:1px solid rgba(0,180,255,0.1);">
+                                    <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:20px;display:flex;align-items:center;gap:10px;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        O&nbsp;prowadzących
+                                    </h3>
+                                    <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-bottom:16px;">
+                                        <strong>Adam Elżanowski</strong> — certyfikowany psychoterapeuta poznawczo-behawioralny (Certyfikat nr&nbsp;500&nbsp;PTTPB oraz EABCT), superwizor-dydaktyk PTTPB (w trakcie procesu certyfikacji). Współpracownik i wykładowca Warszawskiego Uniwersytetu Medycznego oraz Uniwersytetu SWPS. Dydaktyk i superwizor w akredytowanych szkoleniach psychoterapeutycznych. Organizator i prowadzący szkoleń z psychoterapii PTSD metodą Prolonged Exposure. Twórca podcastu <em>„W głowie się mieści"</em>. Terapeuta w grancie Uniwersytetu Warszawskiego TRAKT 3 „PTSD: diagnoza, terapia, profilaktyka". Psychoterapeuta w Poradni Psychoterapeutycznej <a href="https://lazurowaterapia.pl" target="_blank" rel="noopener noreferrer" style="color:var(--highlight-color);font-weight:600;">Lazurowa Terapia Poznawczo-Behawioralna</a>.
+                                    </p>
+                                    <p style="font-size:0.95rem;color:#444;line-height:1.75;">
+                                        <strong>Karolina Rakocz</strong> — psychoterapeutka w nurcie CBT, specjalistka psychoterapii uzależnień (certyfikat nr&nbsp;SP/0628/2011) i terapeutka motywująca (certyfikat PTTM nr&nbsp;102). Prowadzi szkolenia z terapii traumy protokołem CPT po przeszkoleniu u autorki protokołu, prof.&nbsp;P.&nbsp;Resick. Doświadczenie jako kierowniczka ośrodka leczenia uzależnień, terapeutka w poradniach i własnej praktyce. Psychoterapeuta-konsultantka wspierająca osoby niosące pomoc humanitarną na granicy polsko-białoruskiej. Psychoterapeutka w Poradni Psychoterapeutycznej <a href="https://lazurowaterapia.pl" target="_blank" rel="noopener noreferrer" style="color:var(--highlight-color);font-weight:600;">Lazurowa Terapia Poznawczo-Behawioralna</a>.
+                                    </p>
+                                </div>
+
+                                <!-- PROGRAM 4-ZJAZDOWY -->
+                                <div style="margin-bottom:40px;">
+                                    <h3 style="font-size:1.15rem;color:var(--dark-blue);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Program Akademii
+                                    </h3>
+                                    <p style="font-size:0.95rem;color:#444;line-height:1.75;margin-bottom:20px;">
+                                        Cztery zjazdy tworzą spójną ścieżkę kliniczną — tematyka kolejnych modułów wzajemnie się uzupełnia i buduje kompleksowe kompetencje pracy z traumą. Program zamykają dwie superwizje grupowe.
+                                    </p>
+
+                                    <div class="program-days">
+                                        <!-- ZJAZD I -->
+                                        <div class="program-day" data-day="trauma-1">
+                                            <button class="day-header" aria-expanded="false">
+                                                <span class="day-number">I</span>
+                                                <span class="day-info">
+                                                    <span class="day-title">18–19 września 2026 — CPT &amp; Dialog Motywujący</span>
+                                                </span>
+                                                <span class="day-arrow" aria-hidden="true">▾</span>
+                                            </button>
+                                            <div class="day-content">
+                                                <div class="day-blocks">
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">PTSD jako zaburzenie przetwarzania znaczeń</div>
+                                                        <p>Rozumienie, jak doświadczenie traumy wpływa na sposób postrzegania siebie, innych i świata. Identyfikacja i praca z punktami utknienia — sztywnymi przekonaniami dotyczącymi winy, zagrożenia, kontroli, zaufania i własnej wartości.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Poznawcze opracowanie doświadczenia traumatycznego</div>
+                                                        <p>Przywracanie poczucia sensu, ciągłości i sprawczości. Praca z konceptualizacją przypadku w modelu CPT.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Dialog Motywujący w pracy z traumą</div>
+                                                        <p>Wykorzystanie Dialogu Motywującego do pracy z ambiwalencją, unikaniem i lękiem przed zmianą. Budowanie relacji terapeutycznej i przygotowanie pacjenta do kolejnych etapów terapii.</p>
+                                                        <div class="day-methods">
+                                                            <span class="day-method-tag">CPT</span>
+                                                            <span class="day-method-tag">Dialog Motywujący</span>
+                                                            <span class="day-method-tag">PTSD</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- ZJAZD II -->
+                                        <div class="program-day" data-day="trauma-2">
+                                            <button class="day-header" aria-expanded="false">
+                                                <span class="day-number">II</span>
+                                                <span class="day-info">
+                                                    <span class="day-title">16–17 października 2026 — Prolonged Exposure</span>
+                                                </span>
+                                                <span class="day-arrow" aria-hidden="true">▾</span>
+                                            </button>
+                                            <div class="day-content">
+                                                <div class="day-blocks">
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Mechanizmy podtrzymujące PTSD</div>
+                                                        <p>Unikanie, warunkowanie lęku, interpretacje zagrożenia — jak rozumieć i pracować z mechanizmami utrwalającymi objawy.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Ekspozycja wyobrażeniowa i in vivo</div>
+                                                        <p>Prowadzenie ekspozycji w sposób bezpieczny i uporządkowany. Monitorowanie reakcji pacjenta i regulacja emocji w trakcie pracy. Reagowanie na trudności: nasilenie lęku, wycofanie, wątpliwości.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Materiały wideo i trudne momenty kliniczne</div>
+                                                        <p>Praca z nagraniami z realnych sesji. Elementy regulacji emocji inspirowane DBT jako uzupełnienie pracy ekspozycyjnej.</p>
+                                                        <div class="day-methods">
+                                                            <span class="day-method-tag">Prolonged Exposure</span>
+                                                            <span class="day-method-tag">DBT</span>
+                                                            <span class="day-method-tag">Regulacja emocji</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- ZJAZD III -->
+                                        <div class="program-day" data-day="trauma-3">
+                                            <button class="day-header" aria-expanded="false">
+                                                <span class="day-number">III</span>
+                                                <span class="day-info">
+                                                    <span class="day-title">20–21 listopada 2026 — ACT w terapii traumy</span>
+                                                </span>
+                                                <span class="day-arrow" aria-hidden="true">▾</span>
+                                            </button>
+                                            <div class="day-content">
+                                                <div class="day-blocks">
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">PTSD i CPTSD w kategoriach ACT</div>
+                                                        <p>Rozumienie traumy jako unikania doświadczenia i sztywności psychologicznej. Rozróżnianie „tu i teraz" od „wtedy" — praca z bolesnymi wspomnieniami bez wzmacniania unikania.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Wartości i odbudowa życia po traumie</div>
+                                                        <p>Wzmacnianie działania w kierunku wartości. Odbudowa sensu, tożsamości i zaangażowania — przejście od redukcji objawów do budowania życia, które ma dla pacjenta znaczenie.</p>
+                                                        <div class="day-methods">
+                                                            <span class="day-method-tag">ACT</span>
+                                                            <span class="day-method-tag">CPTSD</span>
+                                                            <span class="day-method-tag">Wartości</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- ZJAZD IV -->
+                                        <div class="program-day" data-day="trauma-4">
+                                            <button class="day-header" aria-expanded="false">
+                                                <span class="day-number">IV</span>
+                                                <span class="day-info">
+                                                    <span class="day-title">11–12 grudnia 2026 — Trauma i uzależnienia</span>
+                                                </span>
+                                                <span class="day-arrow" aria-hidden="true">▾</span>
+                                            </button>
+                                            <div class="day-content">
+                                                <div class="day-blocks">
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Uzależnienie jako regulacja emocji i unikanie traumy</div>
+                                                        <p>Rozumienie funkcji uzależnienia w kontekście traumy. Decyzje kliniczne: kiedy i jak integrować leczenie obu obszarów równolegle.</p>
+                                                    </div>
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Zintegrowane strategie terapeutyczne</div>
+                                                        <p>Diagnoza uzależnień według ICD-11. Wykorzystanie CBT, ACT i Terapii Schematów. Praca z nawrotami, zachowaniami ryzykownymi i złożonym obrazem klinicznym.</p>
+                                                        <div class="day-methods">
+                                                            <span class="day-method-tag">CBT</span>
+                                                            <span class="day-method-tag">ACT</span>
+                                                            <span class="day-method-tag">Terapia Schematów</span>
+                                                            <span class="day-method-tag">ICD-11</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- SUPERWIZJE -->
+                                        <div class="program-day" data-day="trauma-sup">
+                                            <button class="day-header" aria-expanded="false">
+                                                <span class="day-number" style="font-size:0.85rem;">SUP</span>
+                                                <span class="day-info">
+                                                    <span class="day-title">22 stycznia &amp; 20 lutego 2027 — Superwizja grupowa</span>
+                                                </span>
+                                                <span class="day-arrow" aria-hidden="true">▾</span>
+                                            </button>
+                                            <div class="day-content">
+                                                <div class="day-blocks">
+                                                    <div class="day-block">
+                                                        <div class="day-block-title">Integracja wiedzy z praktyką</div>
+                                                        <p>Superwizje stanowią integralną część Akademii. Pracujemy na przypadkach uczestników — analizujemy przebieg terapii, decyzje kliniczne i momenty utknienia. Przestrzeń do rozwijania własnego stylu pracy terapeutycznej.</p>
+                                                        <div class="day-methods">
+                                                            <span class="day-method-tag">Superwizja grupowa</span>
+                                                            <span class="day-method-tag">Studia przypadków</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="details-grid" style="align-items:start;">
+                                    <div class="detail-block">
+                                        <h3>Dla kogo?</h3>
+                                        <p>Dla psychologów, psychoterapeutów i terapeutów CBT pracujących lub planujących pracę z osobami po traumie, z PTSD i CPTSD oraz z pacjentami z współwystępującymi uzależnieniami.</p>
+                                    </div>
+                                    <div class="detail-block">
+                                        <h3>Czego się nauczysz?</h3>
+                                        <ul>
+                                            <li>Stosować CPT i Prolonged Exposure w pracy z PTSD i CPTSD</li>
+                                            <li>Wykorzystywać Dialog Motywujący do pracy z ambiwalencją i unikaniem</li>
+                                            <li>Integrować podejście ACT w terapii traumy — od redukcji objawów do odbudowy życia</li>
+                                            <li>Prowadzić zintegrowaną terapię traumy i uzależnień</li>
+                                            <li>Podejmować trafne decyzje kliniczne w złożonych przypadkach</li>
+                                        </ul>
+                                    </div>
+                                    <div class="detail-block">
+                                        <h3>Format i&nbsp;miejsce</h3>
+                                        <p>Cztery weekendowe zjazdy (po 2 dni każdy) + dwie superwizje grupowe. Szkolenia łączą wykłady z intensywną pracą warsztatową — ćwiczenia w parach, studia przypadków, analiza trudności klinicznych.</p>
+                                        <div style="margin-top:16px;padding:16px;background:var(--light-blue);border-radius:12px;border:1px solid rgba(0,180,255,0.15);">
+                                            <p style="font-weight:600;color:var(--dark-blue);margin-bottom:6px;">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2" style="vertical-align:-2px;margin-right:6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                                Miejsce szkolenia
+                                            </p>
+                                            <p style="color:#666;font-size:0.9rem;">Warszawa — szczegółowy adres zostanie podany</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-block">
+                                        <h3>Rejestracja</h3>
+                                        <p>Napisz na <a href="mailto:szkolenia@harmonja.edu.pl?subject=Akademia%20Skutecznej%20Terapii%20Traumy%202026" style="color:var(--highlight-color);font-weight:600;">szkolenia@harmonja.edu.pl</a>, aby dowiedzieć się więcej i&nbsp;zarezerwować miejsce.</p>
+                                        <p style="margin-top:8px;font-size:0.85rem;color:#888;">Bank Millennium: 97 1160 2202 0000 0006 8072 1778</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Countdown: Akademia Traumy (Zjazd I) -->
+                    <div class="countdown-section" aria-label="Odliczanie do Akademii Traumy">
+                        <p class="countdown-label">Do pierwszego zjazdu pozostało</p>
+                        <div class="countdown" role="timer" aria-live="polite">
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd3-days">---</div>
+                                <div class="countdown-text">dni</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd3-hours">--</div>
+                                <div class="countdown-text">godzin</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd3-mins">--</div>
+                                <div class="countdown-text">minut</div>
+                            </div>
+                            <div class="countdown-unit">
+                                <div class="countdown-number" id="cd3-secs">--</div>
+                                <div class="countdown-text">sekund</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div><!-- end .training-card (trauma) -->
+
                 </div>
             </section>
         </div>
@@ -2680,6 +3505,68 @@
         setInterval(updateCountdown, 1000);
 
         // ========================================
+        // Countdown Timer 2: Chairwork (1 Oct 2026)
+        // ========================================
+        var trainingDate2 = new Date('2026-10-01T09:00:00').getTime();
+
+        function updateCountdown2() {
+            var now = new Date().getTime();
+            var diff = trainingDate2 - now;
+
+            if (diff <= 0) {
+                document.getElementById('cd2-days').textContent = '0';
+                document.getElementById('cd2-hours').textContent = '0';
+                document.getElementById('cd2-mins').textContent = '0';
+                document.getElementById('cd2-secs').textContent = '0';
+                return;
+            }
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cd2-days').textContent = days;
+            document.getElementById('cd2-hours').textContent = hours < 10 ? '0' + hours : hours;
+            document.getElementById('cd2-mins').textContent = mins < 10 ? '0' + mins : mins;
+            document.getElementById('cd2-secs').textContent = secs < 10 ? '0' + secs : secs;
+        }
+
+        updateCountdown2();
+        setInterval(updateCountdown2, 1000);
+
+        // ========================================
+        // Countdown Timer 3: Akademia Traumy (18 Sep 2026)
+        // ========================================
+        var trainingDate3 = new Date('2026-09-18T09:00:00').getTime();
+
+        function updateCountdown3() {
+            var now = new Date().getTime();
+            var diff = trainingDate3 - now;
+
+            if (diff <= 0) {
+                document.getElementById('cd3-days').textContent = '0';
+                document.getElementById('cd3-hours').textContent = '0';
+                document.getElementById('cd3-mins').textContent = '0';
+                document.getElementById('cd3-secs').textContent = '0';
+                return;
+            }
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('cd3-days').textContent = days;
+            document.getElementById('cd3-hours').textContent = hours < 10 ? '0' + hours : hours;
+            document.getElementById('cd3-mins').textContent = mins < 10 ? '0' + mins : mins;
+            document.getElementById('cd3-secs').textContent = secs < 10 ? '0' + secs : secs;
+        }
+
+        updateCountdown3();
+        setInterval(updateCountdown3, 1000);
+
+        // ========================================
         // Expandable Details
         // ========================================
         document.querySelectorAll('.details-toggle').forEach(function(btn) {
@@ -2746,6 +3633,29 @@
         document.querySelectorAll('.animate').forEach(function(el) {
             observer.observe(el);
         });
+
+        function openTrainerModal(id) {
+            var overlay = document.getElementById('modal-' + id);
+            if (overlay) {
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeTrainerModal(id) {
+            var overlay = document.getElementById('modal-' + id);
+            if (overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.trainer-modal-overlay.active').forEach(function(el) {
+                    el.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 
     <!-- JSON-LD Structured Data -->
@@ -2785,5 +3695,70 @@
         }
     }
     </script>
+
+    <!-- Modal: Adam Elżanowski -->
+    <div class="trainer-modal-overlay" id="modal-adam" onclick="if(event.target===this)closeTrainerModal('adam')">
+        <div class="trainer-modal">
+            <button class="trainer-modal-close" onclick="closeTrainerModal('adam')" aria-label="Zamknij">&times;</button>
+            <div class="trainer-modal-header">
+                <img src="adam_elzanowski.jpg" alt="Adam Elżanowski">
+                <div>
+                    <h2>Adam Elżanowski</h2>
+                    <p>Certyfikowany psychoterapeuta CBT (PTTPB&nbsp;nr&nbsp;500, EABCT&nbsp;nr&nbsp;61)<br>Superwizor-Dydaktyk PTTPB</p>
+                </div>
+            </div>
+            <div class="trainer-modal-body">
+                <div class="trainer-modal-section">
+                    <h3>Wykształcenie i certyfikaty</h3>
+                    <ul>
+                        <li>Certyfikowany Psychoterapeuta CBT (PTTPB nr&nbsp;500, EABCT nr&nbsp;61)</li>
+                        <li>Certyfikowany Superwizor-Dydaktyk PTTPB</li>
+                        <li>Szkolenia: TF-CBT, protokół przedłużonej ekspozycji, ACT, CFT, terapia schematów</li>
+                    </ul>
+                </div>
+                <div class="trainer-modal-section">
+                    <h3>Doświadczenie</h3>
+                    <p>Współzałożyciel Szkoły Psychoterapii HarmonJa i Fundacji Lazurowa. Pracuje z osobami dorosłymi z zaburzeniami lękowymi, depresją, OCD, uzależnieniami i traumą. Superwizuje terapeutów CBT oraz prowadzi szkolenia dla specjalistów w Polsce i za granicą.</p>
+                </div>
+                <div class="trainer-modal-section">
+                    <h3>Zainteresowania</h3>
+                    <p>Twórca podcastu „W Głowie się Mieści" — jednego z najpopularniejszych polskich podcastów psychologicznych. Popularyzuje wiedzę o zdrowiu psychicznym i nowoczesnych metodach terapeutycznych.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Karolina Rakocz -->
+    <div class="trainer-modal-overlay" id="modal-karolina" onclick="if(event.target===this)closeTrainerModal('karolina')">
+        <div class="trainer-modal">
+            <button class="trainer-modal-close" onclick="closeTrainerModal('karolina')" aria-label="Zamknij">&times;</button>
+            <div class="trainer-modal-header">
+                <img src="karolina_rakocz.jpg" alt="Karolina Rakocz">
+                <div>
+                    <span class="trainer-modal-badge">Dyrektor Szkoły</span>
+                    <h2>Karolina Rakocz</h2>
+                    <p>Certyfikowana psychoterapeutka CBT (PTTPB)<br>Specjalistka terapii uzależnień (KBPN)</p>
+                </div>
+            </div>
+            <div class="trainer-modal-body">
+                <div class="trainer-modal-section">
+                    <h3>Wykształcenie i certyfikaty</h3>
+                    <ul>
+                        <li>Certyfikowana Psychoterapeutka CBT (PTTPB)</li>
+                        <li>Specjalistka terapii uzależnień (KBPN)</li>
+                        <li>Certyfikowana terapeutka Dialogu Motywującego</li>
+                    </ul>
+                </div>
+                <div class="trainer-modal-section">
+                    <h3>Doświadczenie</h3>
+                    <p>Dyrektor Szkoły Psychoterapii HarmonJa. Założycielka Fundacji „Dbajmy o Siebie". Pracuje terapeutycznie z osobami z uzależnieniami, traumą i zaburzeniami lękowymi. Prowadzi szkolenia dla terapeutów z zakresu uzależnień i Dialogu Motywującego.</p>
+                </div>
+                <div class="trainer-modal-section">
+                    <h3>Zainteresowania</h3>
+                    <p>Profilaktyka uzależnień, Dialog Motywujący, terapia traumy w kontekście uzależnień oraz CPT (Cognitive Processing Therapy) w ujęciu prof. Resick.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
