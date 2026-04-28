@@ -1199,24 +1199,22 @@
         }
 
         /* ============================================ */
-        /* SLIDER SZKOLEŃ                               */
+        /* SLIDER GRAFIK (wewnątrz hero)               */
         /* ============================================ */
-        .trainings-slider-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .trainings-slider-section .section-title {
-            margin-bottom: 40px;
+        .hero-slider {
+            width: 100%;
+            margin: 32px 0;
         }
 
         .slider-wrapper {
             position: relative;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
         .slider-track {
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 16px;
         }
 
         .slider-inner {
@@ -1229,242 +1227,15 @@
             min-width: 100%;
         }
 
-        /* Karta szkolenia */
-        .training-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.09);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            position: relative;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        .training-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color), #FFD700);
-            z-index: 1;
-        }
-
-        .training-card:hover,
-        .training-card:focus-within {
-            box-shadow: 0 12px 40px rgba(0, 180, 255, 0.18);
-            transform: translateY(-4px);
-            outline: none;
-        }
-
-        .training-card:focus {
-            outline: 3px solid var(--highlight-color);
-            outline-offset: 3px;
-        }
-
-        .tc-left {
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .tc-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 16px;
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: var(--white);
-            font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            width: fit-content;
-            margin-bottom: 18px;
-            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
-        }
-
-        .tc-title {
-            font-size: 2.1rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-            margin-bottom: 8px;
-            line-height: 1.2;
-        }
-
-        .tc-subtitle {
-            font-size: 1rem;
-            color: var(--highlight-color);
-            font-weight: 500;
-            font-style: italic;
-            margin-bottom: 18px;
-        }
-
-        .tc-desc {
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 26px;
-        }
-
-        .tc-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        .tc-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.92rem;
-            color: var(--text-color);
-        }
-
-        .tc-meta-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            background: var(--light-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .tc-meta-label {
-            font-weight: 600;
-            color: var(--dark-blue);
+        .slide a {
             display: block;
         }
 
-        .tc-meta-sub {
-            font-size: 0.82rem;
-            color: #888;
-        }
-
-        .tc-price {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-        }
-
-        .tc-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 30px;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            color: var(--white);
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-radius: 50px;
-            width: fit-content;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3);
-        }
-
-        .training-card:hover .tc-cta {
-            box-shadow: 0 8px 25px rgba(0, 180, 255, 0.45);
-            transform: translateY(-1px);
-        }
-
-        /* Prawa strona karty — trener */
-        .tc-right {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, #0a4a7a 100%);
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tc-right::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -30%;
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(0, 180, 255, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .tc-trainer-avatar {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 20px;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(135deg, rgba(0, 180, 255, 0.3), rgba(34, 199, 214, 0.3));
-        }
-
-        .tc-trainer-avatar img {
+        .slide-image {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-        }
-
-        .tc-trainer-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--white);
-            text-align: center;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tc-trainer-desc {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.72);
-            text-align: center;
-            line-height: 1.6;
-            max-width: 280px;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 24px;
-        }
-
-        .tc-trainer-stats {
-            display: flex;
-            gap: 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tc-stat {
-            text-align: center;
-        }
-
-        .tc-stat-num {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .tc-stat-label {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.6);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: block;
+            border-radius: 16px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16), 0 8px 24px rgba(0, 0, 0, 0.09);
         }
 
         /* Strzałki i kropki */
@@ -1491,15 +1262,10 @@
             flex-shrink: 0;
         }
 
-        .slider-btn:hover:not(:disabled) {
+        .slider-btn:hover {
             border-color: var(--highlight-color);
             color: var(--highlight-color);
             box-shadow: 0 4px 12px rgba(0, 180, 255, 0.2);
-        }
-
-        .slider-btn:disabled {
-            opacity: 0.35;
-            cursor: default;
         }
 
         .slider-dots {
@@ -1524,60 +1290,9 @@
             transform: scale(1.3);
         }
 
-        /* "Wkrótce więcej" etykieta */
-        .slider-coming-soon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 18px;
-            font-size: 0.85rem;
-            color: #999;
-        }
-
-        .slider-coming-soon span {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            animation: pulse 2s ease infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.5); }
-        }
-
-        /* Responsive slider */
-        @media (max-width: 900px) {
-            .training-card {
-                grid-template-columns: 1fr;
-            }
-            .tc-right {
-                padding: 36px 28px;
-                min-height: 280px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .trainings-slider-section {
-                padding: 60px 0;
-            }
-            .tc-left {
-                padding: 30px 24px;
-            }
-            .tc-title {
-                font-size: 1.65rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .tc-title {
-                font-size: 1.4rem;
-            }
-            .tc-left {
-                padding: 24px 18px;
+            .hero-slider {
+                margin: 24px 0;
             }
         }
     </style>
@@ -1617,119 +1332,7 @@
 
     <main id="main-content">
         <!-- ============================================ -->
-        <!-- SEKCJA 1: SLIDER SZKOLEŃ (Aktualna oferta)  -->
-        <!-- ============================================ -->
-        <section class="trainings-slider-section" aria-label="Aktualna oferta szkoleń">
-            <div class="container">
-                <h2 class="section-title">Aktualna oferta</h2>
-
-                <div class="slider-wrapper" aria-roledescription="karuzela" aria-label="Oferta szkoleń">
-                    <div class="slider-track">
-                        <div class="slider-inner" id="sliderInner" role="list">
-
-                            <!-- SLAJD 1: Terapia uzależnień behawioralnych -->
-                            <div class="slide" role="listitem" aria-label="Szkolenie 1 z 1">
-                                <a href="szkolenia-superwizja.html" class="training-card" aria-label="Terapia uzależnień behawioralnych — przejdź do szczegółów">
-                                    <div class="tc-left">
-                                        <div class="tc-badge">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
-                                            Po raz pierwszy na żywo w&nbsp;Polsce
-                                        </div>
-                                        <h3 class="tc-title">Terapia uzależnień behawioralnych</h3>
-                                        <p class="tc-subtitle">w&nbsp;podejściu poznawczo&#8209;behawioralnym</p>
-                                        <p class="tc-desc">
-                                            Intensywne 4&#8209;dniowe szkolenie z&nbsp;zakresu diagnostyki i&nbsp;terapii uzależnień behawioralnych w&nbsp;podejściu poznawczo&#8209;behawioralnym.
-                                        </p>
-
-                                        <div class="tc-meta">
-                                            <div class="tc-meta-item">
-                                                <div class="tc-meta-icon" aria-hidden="true">
-                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                                </div>
-                                                <div>
-                                                    <span class="tc-meta-label">18–21 czerwca 2026</span>
-                                                    <span class="tc-meta-sub">4 dni szkolenia</span>
-                                                </div>
-                                            </div>
-                                            <div class="tc-meta-item">
-                                                <div class="tc-meta-icon" aria-hidden="true">
-                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                                </div>
-                                                <div>
-                                                    <span class="tc-meta-label">Warszawa</span>
-                                                    <span class="tc-meta-sub">Al. Jerozolimskie 123a (Golden Floor)</span>
-                                                </div>
-                                            </div>
-                                            <div class="tc-meta-item">
-                                                <div class="tc-meta-icon" aria-hidden="true">
-                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                                                </div>
-                                                <div>
-                                                    <span class="tc-price">2&nbsp;299 zł</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="tc-cta" aria-hidden="true">
-                                            Dowiedz się więcej
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                        </div>
-                                    </div>
-
-                                    <div class="tc-right">
-                                        <div class="tc-trainer-avatar">
-                                            <img src="mateusz_gola.jpg" alt="Prof. dr hab. Mateusz Gola" loading="lazy">
-                                        </div>
-                                        <div class="tc-trainer-name">Prof. dr hab. Mateusz Gola</div>
-                                        <p class="tc-trainer-desc">
-                                            Światowy ekspert — neuronaukowiec i&nbsp;psychoterapeuta.<br>
-                                            UC San Diego &amp; Instytut Psychologii PAN.
-                                        </p>
-                                        <div class="tc-trainer-stats">
-                                            <div class="tc-stat">
-                                                <div class="tc-stat-num">160+</div>
-                                                <div class="tc-stat-label">publikacji</div>
-                                            </div>
-                                            <div class="tc-stat">
-                                                <div class="tc-stat-num">3</div>
-                                                <div class="tc-stat-label">patenty</div>
-                                            </div>
-                                            <div class="tc-stat">
-                                                <div class="tc-stat-num">4</div>
-                                                <div class="tc-stat-label">dni</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- KONIEC SLAJDU 1 -->
-                            <!-- Kolejne slajdy będą dodawane tutaj w miarę pojawiania się nowych szkoleń -->
-
-                        </div><!-- /.slider-inner -->
-                    </div><!-- /.slider-track -->
-
-                    <!-- Nawigacja -->
-                    <div class="slider-nav" role="group" aria-label="Nawigacja slidera">
-                        <button class="slider-btn" id="sliderPrev" aria-label="Poprzednie szkolenie" disabled>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                        </button>
-                        <div class="slider-dots" id="sliderDots" role="group" aria-label="Slajdy">
-                            <button class="slider-dot active" data-index="0" aria-label="Szkolenie 1" aria-pressed="true"></button>
-                        </div>
-                        <button class="slider-btn" id="sliderNext" aria-label="Następne szkolenie" disabled>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                        </button>
-                    </div>
-                    <p class="slider-coming-soon" aria-live="polite">
-                        <span aria-hidden="true"></span>
-                        Wkrótce więcej szkoleń
-                    </p>
-                </div><!-- /.slider-wrapper -->
-            </div>
-        </section>
-
-        <!-- ============================================ -->
-        <!-- SEKCJA 2: HERO                               -->
+        <!-- SEKCJA 1: HERO                               -->
         <!-- ============================================ -->
         <section class="hero">
             <div class="floating-shape shape-1"></div>
@@ -1745,6 +1348,49 @@
                 <p class="hero-lead">
                     Uczymy naukowej psychoterapii z&nbsp;sercem!
                 </p>
+
+                <!-- Slider szkoleń -->
+                <div class="hero-slider" aria-roledescription="karuzela" aria-label="Oferta szkoleń">
+                    <div class="slider-wrapper">
+                        <div class="slider-track">
+                            <div class="slider-inner" id="sliderInner" role="list">
+
+                                <div class="slide" role="listitem" aria-label="Szkolenie 1 z 3">
+                                    <a href="szkolenia-superwizja.html" aria-label="Terapia uzależnień behawioralnych z Prof. Mateuszem Golą — przejdź do szczegółów">
+                                        <img src="slider_gola.png" alt="Szkolenie: Terapia uzależnień behawioralnych z Prof. Mateuszem Golą" class="slide-image" loading="eager">
+                                    </a>
+                                </div>
+
+                                <div class="slide" role="listitem" aria-label="Szkolenie 2 z 3">
+                                    <a href="szkolenia-superwizja.html" aria-label="Praca z krzesłami w terapii CBT — przejdź do szczegółów">
+                                        <img src="slider_praca%20z%20krzes%C5%82ami.png" alt="Szkolenie: Praca z krzesłami w terapii CBT" class="slide-image" loading="lazy">
+                                    </a>
+                                </div>
+
+                                <div class="slide" role="listitem" aria-label="Szkolenie 3 z 3">
+                                    <a href="szkolenia-superwizja.html" aria-label="Akademia Traumy — przejdź do szczegółów">
+                                        <img src="slider_akademia%20traumy.png" alt="Szkolenie: Akademia Traumy" class="slide-image" loading="lazy">
+                                    </a>
+                                </div>
+
+                            </div><!-- /.slider-inner -->
+                        </div><!-- /.slider-track -->
+
+                        <div class="slider-nav" role="group" aria-label="Nawigacja slidera">
+                            <button class="slider-btn" id="sliderPrev" aria-label="Poprzednie szkolenie">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                            </button>
+                            <div class="slider-dots" id="sliderDots" role="group" aria-label="Slajdy">
+                                <button class="slider-dot active" data-index="0" aria-label="Szkolenie 1" aria-pressed="true"></button>
+                                <button class="slider-dot" data-index="1" aria-label="Szkolenie 2" aria-pressed="false"></button>
+                                <button class="slider-dot" data-index="2" aria-label="Szkolenie 3" aria-pressed="false"></button>
+                            </div>
+                            <button class="slider-btn" id="sliderNext" aria-label="Następne szkolenie">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </button>
+                        </div>
+                    </div><!-- /.slider-wrapper -->
+                </div><!-- /.hero-slider -->
 
                 <!-- ZMIANA 2: Uzupełniony tekst z linkami do programów -->
                 <p class="hero-note">
@@ -1772,7 +1418,7 @@
         </section>
 
         <!-- ============================================ -->
-        <!-- SEKCJA 3: DLACZEGO HARMONJA (8 kafelków)    -->
+        <!-- SEKCJA 2: DLACZEGO HARMONJA (8 kafelków)    -->
         <!-- ============================================ -->
         <section class="features">
             <div class="container">
@@ -2351,7 +1997,7 @@
         });
 
         // ============================================
-        // SLIDER SZKOLEŃ
+        // SLIDER GRAFIK
         // ============================================
         (function() {
             const inner = document.getElementById('sliderInner');
@@ -2363,49 +2009,60 @@
             const nextBtn = document.getElementById('sliderNext');
             const dotsContainer = document.getElementById('sliderDots');
             let current = 0;
+            let autoTimer = null;
 
             function goTo(index) {
-                current = index;
+                current = ((index % total) + total) % total;
                 inner.style.transform = 'translateX(-' + (100 * current) + '%)';
 
-                // aktualizuj kropki
                 dotsContainer.querySelectorAll('.slider-dot').forEach((dot, i) => {
                     dot.classList.toggle('active', i === current);
                     dot.setAttribute('aria-pressed', i === current ? 'true' : 'false');
                 });
+            }
 
-                // aktualizuj przyciski
-                if (prevBtn) prevBtn.disabled = current === 0;
-                if (nextBtn) nextBtn.disabled = current === total - 1;
+            function startAuto() {
+                clearInterval(autoTimer);
+                autoTimer = setInterval(function() { goTo(current + 1); }, 2000);
             }
 
             if (prevBtn) prevBtn.addEventListener('click', function() {
-                if (current > 0) goTo(current - 1);
+                goTo(current - 1);
+                startAuto();
             });
 
             if (nextBtn) nextBtn.addEventListener('click', function() {
-                if (current < total - 1) goTo(current + 1);
+                goTo(current + 1);
+                startAuto();
             });
 
             dotsContainer.querySelectorAll('.slider-dot').forEach((dot, i) => {
-                dot.addEventListener('click', function() { goTo(i); });
+                dot.addEventListener('click', function() { goTo(i); startAuto(); });
             });
 
-            // Inicjalizacja
-            goTo(0);
+            // Pauza przy najechaniu myszą
+            const wrapper = inner.closest('.slider-wrapper');
+            if (wrapper) {
+                wrapper.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+                wrapper.addEventListener('mouseleave', startAuto);
+            }
 
             // Swipe / touch support
             let touchStartX = 0;
             inner.addEventListener('touchstart', function(e) {
                 touchStartX = e.touches[0].clientX;
+                clearInterval(autoTimer);
             }, { passive: true });
             inner.addEventListener('touchend', function(e) {
                 const dx = e.changedTouches[0].clientX - touchStartX;
                 if (Math.abs(dx) > 50) {
-                    if (dx < 0 && current < total - 1) goTo(current + 1);
-                    else if (dx > 0 && current > 0) goTo(current - 1);
+                    goTo(dx < 0 ? current + 1 : current - 1);
                 }
+                startAuto();
             }, { passive: true });
+
+            goTo(0);
+            startAuto();
         })();
 
     </script>
