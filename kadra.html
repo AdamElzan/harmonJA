@@ -1055,7 +1055,7 @@
                     <div class="founder-card" tabindex="0" role="button" aria-label="Adam Elżanowski – przejdź do biografii" data-staff="adam">
                         <div class="founder-avatar">
                             <span class="founder-badge">Współzałożyciel</span>
-                            <img src="adam_elzanowski.jpg" alt="Adam Elżanowski">
+                            <img src="adam-elzanowski-act.jpg" alt="Adam Elżanowski">
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">Adam Elżanowski</h3>
@@ -1224,7 +1224,7 @@
             {
                 id: 'adam',
                 name: 'Adam Elżanowski',
-                photo: 'adam_elzanowski.jpg',
+                photo: 'adam-elzanowski-act.jpg',
                 shortTitle: 'Superwizor-Dydaktyk PTTPB',
                 fullTitle: 'Certyfikowany psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61), Superwizor-Dydaktyk PTTPB',
                 expertise: 'Terapia traumy, ACT, CFT, terapia schematów, popularyzacja nauki',
@@ -1340,6 +1340,26 @@
                     education: ['Certyfikowana Psychoterapeutka CBT (PTTPB) (nr 2102)', 'Specjalistka terapii uzależnień (KBPN) (certyfikat nr SP/0628/2011)', 'Certyfikowana terapeutka Dialogu Motywującego (certyfikat Terapeuty Motywującego PTTM Nr 102)'],
                     experience: 'Dyrektor Szkoły Psychoterapii HarmonJa. Prowadziła liczne szkolenia zarówno w szkołach psychoterapii, jak i doskonalące dla certyfikowanych psychoterapeutów. Doświadczenie  kliniczne zdobywała jako kierowniczka ośrodka leczenia uzależnień, terapeutka w poradni leczenia uzależnień, poradni psychoterapeutycznej oraz prowadząc własną praktykę. Psychoterapeutka - konsultantka udzielająca wsparcia osobom niosącym pomoc humanitarną na granicy polsko-białoruskiej. Obecnie psychoterapeutka w Poradni Psychoterapeutycznej Lazurowa Terapia Poznawczo–Behawioralna. Mama Heleny, miłośniczka szydełkowania.',
                     interests: 'Profilaktyka uzależnień, Dialog Motywujący, wsparcie rodzin osób uzależnionych.'
+                }
+            },
+            {
+                name: 'dr n. hum. lek. Ewa Wojtyna',
+                shortTitle: 'Kierownik Merytoryczny',
+                fullTitle: 'Doktor nauk humanistycznych, specjalista psychiatrii, superwizor i certyfikowana psychoterapeutka CBT',
+                expertise: 'Superwizja CBT, psychiatria, psychoterapia CBT',
+                badge: 'Kierownik Merytoryczny',
+                bio: {
+                    education: [
+                        'Doktor nauk humanistycznych w zakresie psychologii (UŚ)',
+                        'Specjalista psychiatrii',
+                        'Certyfikat Terapeuty Poznawczo-Behawioralnego (certyfikat nr 137)',
+                        'Certyfikat Superwizora-Dydaktyka Terapii Poznawczo-Behawioralnej (certyfikat nr 31)',
+                        'Certyfikat terapeuty poznawczo-behawioralnego Oxford Cognitive Therapy Center (OCTC)',
+                        'Certyfikat terapeuty i trenera Racjonalnej Terapii Zachowania',
+                        'Certyfikat Psychoonkologa (certyfikat nr 95) i Superwizora Psychoonkologii (certyfikat nr 42) (Polskie Towarzystwo Psychoonkologiczne)'
+                    ],
+                    experience: 'W obszarze naukowym i dydaktycznym zaczynała na stanowisku asystenta w Zakładzie Psychologii Zdrowia i Jakości Życia, Instytucie Psychologii, Wydziale Pedagogiki i Psychologii Uniwersytetu Śląskiego w Katowicach. Awansowała następnie na stanowisko adiunkta, a w 2019 roku na stanowisko profesora uczelni. Od marca 2024 obejmuje stanowisko adiunkta i Kierownika Kliniki Psychiatrii na Wydziale Lekarskim Uniwersytetu Opolskiego. W obszarze klinicznym pracowała jako lekarz m.in. na Oddziale Psychiatrycznym NZOZ Szpitala Miejskiego w Rudzie Śląskiej, w Ośrodku Promocji Zdrowia, Trzeźwości i Rozwoju Osobistego w Katowicach oraz udzielała konsultacji w dziedzinie psychiatrii w Szpitalu Specjalistycznym nr 2 w Bytomiu. Jako psychoterapeuta współpracowała m.in. z Centrum Terapii Poznawczo-Behawioralnej w Warszawie, Fundacją Zdrowego Życia, Prosoma Sp. z o.o. Od 2018 roku pomaga w ramach indywidualnej praktyki lekarskiej i psychoterapeutycznej. Kierownik dziesięciu grantów naukowych oraz wykonawca w trzech grantach naukowych realizowanych w ramach finansowania zewnętrznego z NCN, NCBR, ABM, PARP, Funduszy Europejskich dla Nowoczesnej Gospodarki, związanych z obszarem zależności psychosomatycznych i somatopsychicznych, wpływu czynników środowiskowych na zdrowie człowieka i jego jakość życia oraz zdrowia cyfrowego i terapii cyfrowej. Na swoim koncie ma wiele publikacji naukowych, książek, rozdziałów w podręcznikach.',
+                    interests: 'Wpływ terapii poznawczo-behawioralnej na psychofizyczne funkcjonowanie człowieka, zależności psychosomatyczne i somatopsychiczne (szczególnie: psychoonkologia, medycyna bólu, psychodiabetologia), zdrowie cyfrowe i medycyna cyfrowa, funkcjonowanie psychospołeczne człowieka chorego somatycznie, zmiana zachowań zdrowotnych.'
                 }
             }
         ],
@@ -1774,7 +1794,7 @@
        ============================ */
     function getInitials(name) {
         return name
-            .replace(/^(Prof\.\s*dr\s*hab\.\s*med\.\s*|Prof\.\s*|Dr\s*hab\.\s*|Dr\s*n\.\s*med\.\s*|Dr\s*n\.\s*społ\.\s*|Dr\s*)/i, '')
+            .replace(/^(Prof\.\s*dr\s*hab\.\s*med\.\s*|Prof\.\s*|Dr\s*hab\.\s*|Dr\s*n\.\s*med\.\s*|Dr\s*n\.\s*społ\.\s*|Dr\s*n\.\s*hum\.\s*lek\.\s*|Dr\s*)/i, '')
             .split(' ').map(n => n[0]).filter(Boolean).slice(0,2).join('');
     }
 
