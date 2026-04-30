@@ -1902,6 +1902,165 @@
             letter-spacing: 0.5px;
             margin-bottom: 10px;
         }
+        /* ============================================ */
+        /* SECTION: BEZPŁATNE WEBINARY                  */
+        /* ============================================ */
+        .webinar-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .webinar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+            margin-top: 10px;
+        }
+
+        .webinar-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .webinar-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            z-index: 1;
+        }
+
+        .webinar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0, 180, 255, 0.15);
+        }
+
+        .webinar-card-image {
+            width: 100%;
+            overflow: hidden;
+            background: var(--dark-blue);
+        }
+
+        .webinar-card-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .webinar-card:hover .webinar-card-image img {
+            transform: scale(1.03);
+        }
+
+        .webinar-card-body {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 14px;
+        }
+
+        .webinar-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            background: linear-gradient(135deg, rgba(0, 180, 255, 0.1), rgba(34, 199, 214, 0.1));
+            border: 1px solid rgba(0, 180, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            width: fit-content;
+            letter-spacing: 0.3px;
+        }
+
+        .webinar-desc {
+            font-size: 0.87rem;
+            color: #555;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .webinar-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            width: fit-content;
+            margin-top: 6px;
+            text-decoration: none;
+        }
+
+        .webinar-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 180, 255, 0.35);
+        }
+
+        .webinar-cta:focus {
+            outline: 3px solid var(--highlight-color);
+            outline-offset: 2px;
+        }
+
+        .webinar-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            line-height: 1.35;
+        }
+
+        .webinar-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .webinar-tag {
+            padding: 5px 14px;
+            background: var(--light-blue);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+
+        @keyframes pulse-live {
+            0%   { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70%  { box-shadow: 0 0 0 7px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+            animation: pulse-live 1.5s ease-out infinite;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .webinar-grid {
+                grid-template-columns: 1fr;
+            }
+            .webinar-section {
+                padding: 60px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1955,7 +2114,6 @@
         <section class="hero" aria-label="Wprowadzenie">
             <div class="container">
                 <div class="hero-content animate">
-                    <div class="hero-badge">Szkoła Psychoterapii HarmonJa zaprasza na szkolenie</div>
                     <h1>Szkolenia specjalistyczne i&nbsp;superwizja</h1>
                     <p class="hero-lead">
                         Warsztaty eksperckie, kursy on&#8209;demand i&nbsp;superwizja — niezależna oferta rozwojowa dla psychoterapeutów CBT oraz terapeutów uzależnień.
@@ -1977,7 +2135,13 @@
                         <span class="tab-label">Warsztaty eksperckie</span>
                         <span class="tab-count">3</span>
                     </button>
-                    <button class="category-tab" role="tab" aria-selected="false" aria-controls="panel-ondemand" id="tab-ondemand">
+                    <button class="category-tab" role="tab" aria-selected="false" aria-controls="panel-webinars" id="tab-webinars">
+                        <span class="tab-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.9L15 14"/><rect x="1" y="6" width="15" height="12" rx="2" ry="2"/></svg>
+                        </span>
+                        <span class="tab-label">Bezpłatne webinary</span>
+                    </button>
+                    <button class="category-tab" role="tab" aria-selected="false" aria-controls="panel-ondemand" id="tab-ondemand" style="display:none">
                         <span class="tab-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                         </span>
@@ -3115,9 +3279,71 @@
         </div>
 
         <!-- ======================================== -->
-        <!-- PANEL 2: AKADEMIA CBT ONLINE              -->
+        <!-- PANEL: BEZPŁATNE WEBINARY                 -->
         <!-- ======================================== -->
-        <div class="category-panel" id="panel-ondemand" role="tabpanel" aria-labelledby="tab-ondemand">
+        <div class="category-panel" id="panel-webinars" role="tabpanel" aria-labelledby="tab-webinars">
+            <section class="webinar-section">
+                <div class="container">
+                    <div class="section-header animate">
+                        <h2 class="section-title">Bezpłatne webinary</h2>
+                        <p class="section-lead">
+                            Dołącz do bezpłatnych spotkań online z ekspertami Szkoły Psychoterapii HarmonJa — wiedza kliniczna, praktyczne narzędzia i odpowiedzi na Twoje pytania.
+                        </p>
+                        <div class="gradient-line"></div>
+                    </div>
+
+                    <div class="webinar-grid">
+
+                        <!-- Webinar 1 -->
+                        <div class="webinar-card animate">
+                            <div class="webinar-card-image">
+                                <img src="slider_webinar.png" alt="Bezpłatny webinar HarmonJa" loading="lazy">
+                            </div>
+                            <div class="webinar-card-body">
+                                <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+                                    <span class="webinar-badge">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.9L15 14"/><rect x="1" y="6" width="15" height="12" rx="2" ry="2"/></svg>
+                                        Bezpłatny webinar
+                                    </span>
+                                    <span class="webinar-badge">
+                                        <span class="live-dot" aria-hidden="true"></span>
+                                        6 maja na żywo
+                                    </span>
+                                </div>
+                                <h3 class="webinar-title">Pacjent nie mówi, terapeuta nie pyta. Czego nie wiesz, gdy „nie pracujesz z uzależnieniami".</h3>
+                                <p class="webinar-desc">
+                                    Bezpłatne spotkanie online z Adamem Elżanowskim i Karoliną Rakocz. Webinar poświęcony jest terapii uzależnień behawioralnych – dołącz i poszerz swoją wiedzę kliniczną.
+                                </p>
+                                <div style="display:flex;flex-direction:column;gap:6px;font-size:0.87rem;color:#555;">
+                                    <div style="display:flex;align-items:center;gap:8px;">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        <span>środa, 6 maja</span>
+                                    </div>
+                                    <div style="display:flex;align-items:center;gap:8px;">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--highlight-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                        <span>20:00</span>
+                                    </div>
+                                </div>
+                                <div class="webinar-tags">
+                                    <span class="webinar-tag">Uzależnienia behawioralne</span>
+                                    <span class="webinar-tag">Terapia CBT</span>
+                                </div>
+                                <a href="https://fb.me/e/9506Cvc9z" class="webinar-cta" target="_blank" rel="noopener noreferrer" aria-label="Dołącz do webinaru — link do wydarzenia na Facebooku">
+                                    Dołącz do webinaru
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div><!-- /.webinar-grid -->
+                </div>
+            </section>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- PANEL 2: AKADEMIA CBT ONLINE (ukryta)    -->
+        <!-- ======================================== -->
+        <div class="category-panel" id="panel-ondemand" role="tabpanel" aria-labelledby="tab-ondemand" style="display:none">
             <section class="ondemand-section">
                 <div class="container">
                     <div class="ondemand-card">
