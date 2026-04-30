@@ -1873,19 +1873,33 @@
             margin: 0;
         }
         .trainer-modal-section ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
-            padding-left: 18px;
         }
-        .trainer-modal-section li { margin-bottom: 4px; }
+        .trainer-modal-section li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+        .trainer-modal-section li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
         .trainer-modal-badge {
             display: inline-block;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            color: var(--white);
+            font-size: 0.65rem;
             font-weight: 700;
-            background: rgba(0,90,160,0.1);
-            color: var(--dark-blue);
-            margin-bottom: 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -3771,14 +3785,14 @@
                 <div class="trainer-modal-section">
                     <h3>Wykształcenie i certyfikacje</h3>
                     <ul>
-                        <li>Certyfikowana Psychoterapeutka CBT (PTTPB)</li>
-                        <li>Specjalistka terapii uzależnień (KBPN)</li>
-                        <li>Certyfikowana terapeutka Dialogu Motywującego</li>
+                        <li>Certyfikowana Psychoterapeutka CBT (PTTPB) (nr 2102)</li>
+                        <li>Specjalistka terapii uzależnień (KBPN) (certyfikat nr SP/0628/2011)</li>
+                        <li>Certyfikowana terapeutka Dialogu Motywującego (certyfikat Terapeuty Motywującego PTTM Nr 102)</li>
                     </ul>
                 </div>
                 <div class="trainer-modal-section">
                     <h3>Doświadczenie</h3>
-                    <p>Dyrektor Szkoły Psychoterapii HarmonJa. Założycielka Fundacji „Dbajmy o Siebie". Doświadczenie w Jurajskim Centrum Leczenia Uzależnień, MONAR. Prowadzi szkolenia dla szkół psychoterapii (AMiE, Instytut Poznawczy, Cogito, Lazurowa Terapia).</p>
+                    <p>Dyrektor Szkoły Psychoterapii HarmonJa. Prowadziła liczne szkolenia zarówno w szkołach psychoterapii, jak i doskonalące dla certyfikowanych psychoterapeutów. Doświadczenie kliniczne zdobywała jako kierowniczka ośrodka leczenia uzależnień, terapeutka w poradni leczenia uzależnień, poradni psychoterapeutycznej oraz prowadząc własną praktykę. Psychoterapeutka&#8209;konsultantka udzielająca wsparcia osobom niosącym pomoc humanitarną na granicy polsko&#8209;białoruskiej. Obecnie psychoterapeutka w Poradni Psychoterapeutycznej Lazurowa Terapia Poznawczo–Behawioralna. Mama Heleny, miłośniczka szydełkowania.</p>
                 </div>
                 <div class="trainer-modal-section">
                     <h3>Obszary specjalizacji</h3>
