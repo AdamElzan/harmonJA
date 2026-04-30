@@ -1355,19 +1355,25 @@
                         <div class="slider-track">
                             <div class="slider-inner" id="sliderInner" role="list">
 
-                                <div class="slide" role="listitem" aria-label="Szkolenie 1 z 3">
+                                <div class="slide" role="listitem" aria-label="Szkolenie 1 z 4">
                                     <a href="szkolenia-superwizja.html" aria-label="Terapia uzależnień behawioralnych z Prof. Mateuszem Golą — przejdź do szczegółów">
                                         <img src="slider_gola.png" alt="Szkolenie: Terapia uzależnień behawioralnych z Prof. Mateuszem Golą" class="slide-image" loading="eager">
                                     </a>
                                 </div>
 
-                                <div class="slide" role="listitem" aria-label="Szkolenie 2 z 3">
+                                <div class="slide" role="listitem" aria-label="Szkolenie 2 z 4">
+                                    <a href="szkolenia-superwizja.html" aria-label="Webinar — przejdź do szczegółów">
+                                        <img src="slider_webinar.png" alt="Webinar" class="slide-image" loading="lazy">
+                                    </a>
+                                </div>
+
+                                <div class="slide" role="listitem" aria-label="Szkolenie 3 z 4">
                                     <a href="szkolenia-superwizja.html" aria-label="Praca z krzesłami w terapii CBT — przejdź do szczegółów">
                                         <img src="slider_praca%20z%20krzes%C5%82ami.png" alt="Szkolenie: Praca z krzesłami w terapii CBT" class="slide-image" loading="lazy">
                                     </a>
                                 </div>
 
-                                <div class="slide" role="listitem" aria-label="Szkolenie 3 z 3">
+                                <div class="slide" role="listitem" aria-label="Szkolenie 4 z 4">
                                     <a href="szkolenia-superwizja.html" aria-label="Akademia Traumy — przejdź do szczegółów">
                                         <img src="slider_akademia%20traumy.png" alt="Szkolenie: Akademia Traumy" class="slide-image" loading="lazy">
                                     </a>
@@ -1384,6 +1390,7 @@
                                 <button class="slider-dot active" data-index="0" aria-label="Szkolenie 1" aria-pressed="true"></button>
                                 <button class="slider-dot" data-index="1" aria-label="Szkolenie 2" aria-pressed="false"></button>
                                 <button class="slider-dot" data-index="2" aria-label="Szkolenie 3" aria-pressed="false"></button>
+                                <button class="slider-dot" data-index="3" aria-label="Szkolenie 4" aria-pressed="false"></button>
                             </div>
                             <button class="slider-btn" id="sliderNext" aria-label="Następne szkolenie">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -2023,7 +2030,7 @@
 
             function startAuto() {
                 clearInterval(autoTimer);
-                autoTimer = setInterval(function() { goTo(current + 1); }, 2000);
+                autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
             }
 
             if (prevBtn) prevBtn.addEventListener('click', function() {
