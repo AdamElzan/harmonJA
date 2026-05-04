@@ -199,14 +199,16 @@
         .cta-button.secondary:hover, .cta-button.secondary:focus { background-color: white; color: var(--highlight-color); transform: translateY(-2px); outline: none; }
 
         /* FOOTER */
-        footer { background-color: #2a2a2a; color: white; padding: 60px 0 30px; }
-        .footer-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
-        .footer-col h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; }
+        footer { background-color: #333; color: white; padding: 60px 0 30px; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h3 { font-size: 1.2rem; margin-bottom: 20px; color: var(--primary-color); }
         .footer-links li { margin-bottom: 10px; }
         .footer-links a { color: #bbb; font-size: 0.95rem; transition: color 0.3s; }
         .footer-links a:hover { color: white; }
         .contact-info p { color: #bbb; font-size: 0.9rem; line-height: 1.7; margin-bottom: 8px; }
         .contact-info strong { color: #ddd; }
+        .contact-info .bank-account { margin-top: 10px; padding: 10px 14px; background: rgba(255,255,255,0.05); border-radius: 6px; border-left: 3px solid var(--primary-color); }
+        .contact-info .bank-account p { font-size: 0.82rem; margin-bottom: 3px; }
         .social-links { display: flex; gap: 12px; margin-top: 20px; }
         .social-icon { width: 40px; height: 40px; background-color: #444; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s; color: white; }
         .social-icon:hover, .social-icon:focus { background: linear-gradient(135deg, var(--highlight-color), var(--primary-color)); transform: translateY(-3px); outline: none; }
@@ -568,17 +570,17 @@
                             ul. Politechniczna 9/7<br>
                             80-288 Gdańsk
                         </p>
+                        <p style="margin-top: 8px;">
+                            NIP: 9571190783 &nbsp;|&nbsp; REGON: 542257334
+                        </p>
                         <p style="margin-top: 10px;">
-                            Email: <a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--primary-color); transition: color 0.3s;">kontakt@harmonja.edu.pl</a>
+                        Email: <a href="mailto:kontakt@harmonja.edu.pl" style="color:var(--primary-color);">kontakt@harmonja.edu.pl</a>
                         </p>
-                        <p>
-                            NIP: 9571190783<br>
-                            REGON: 542257334
-                        </p>
-                        <p style="margin-top: 10px; font-size: 0.82rem;">
-                            Nr rachunku: Bank Millennium<br>
-                            97 1160 2202 0000 0006 8072 1778
-                        </p>
+                        <div class="bank-account">
+                            <p><strong style="color: #ddd;">Nr rachunku:</strong></p>
+                            <p>Bank Millennium</p>
+                            <p>97 1160 2202 0000 0006 8072 1778</p>
+                        </div>
                     </div>
                     <div class="social-links">
                         <a href="https://www.facebook.com/szkola.harmonja/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
@@ -598,14 +600,14 @@
                 <div class="footer-col">
                     <h3>Informacje</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Polityka prywatności</a></li>
-                        <li><a href="#">Regulamin</a></li>
+                        <li><a href="kontakt.html">Polityka prywatności</a></li>
+                        <li><a href="kontakt.html">Regulamin</a></li>
                         <li><a href="kontakt.html">Kontakt</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2026 Szkoła Psychoterapii HarmonJa. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
