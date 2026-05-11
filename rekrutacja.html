@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -80,53 +80,54 @@
             transition: width 0.1s ease-out;
         }
 
-        /* ========================================
-           HEADER / NAV (matching o-nas.html pattern)
-           ======================================== */
+        /* Header styles */
         header {
             background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            padding: 8px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        header nav {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .logo-container svg,
+        .logo-container img,
         .logo-img {
-            height: 105px;
+            height: 130px;
             width: auto;
             max-width: 380px;
-            display: block;
         }
 
         .nav-links {
             display: flex;
-            gap: 26px;
+            gap: 30px;
             align-items: center;
-            list-style: none;
         }
 
         .nav-links > li {
+            list-style: none;
             position: relative;
         }
 
-        .nav-links > li > a,
-        .dropdown-toggle {
+        .nav-links > li > a {
             color: var(--text-color);
             font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.01em;
             padding: 8px 0;
             display: block;
             position: relative;
             transition: color 0.3s;
-            cursor: pointer;
         }
 
         .nav-links > li > a::after {
@@ -151,48 +152,71 @@
             width: 100%;
         }
 
-        .nav-links > li > a.active {
-            color: var(--highlight-color);
+        /* Dropdown styling */
+        .dropdown {
+            position: relative;
         }
 
-        .nav-links > li > a.active::after {
-            width: 100%;
-        }
-
-        /* Dropdown */
         .dropdown-toggle {
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: all 0.3s;
         }
 
         .dropdown-toggle::after {
             content: '▼';
-            font-size: 0.6em;
-            transition: transform 0.3s;
+            font-size: 0.65em;
+            margin-left: 5px;
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+
+        .dropdown:hover .dropdown-toggle,
+        .dropdown-toggle:focus {
+            color: var(--highlight-color);
+            outline: none;
         }
 
         .dropdown:hover .dropdown-toggle::after {
             transform: rotate(180deg);
+            opacity: 1;
+            color: var(--highlight-color);
         }
 
-        .dropdown:hover .dropdown-toggle,
-        .dropdown:focus-within .dropdown-toggle {
-            color: var(--highlight-color);
+        .dropdown-toggle::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            transition: width 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle::before,
+        .dropdown-toggle:focus::before {
+            width: 100%;
         }
 
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
+            left: 0;
             background-color: var(--white);
-            min-width: 340px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            border-radius: 8px;
-            padding: 8px 0;
+            min-width: 380px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 10px 0;
             opacity: 0;
             visibility: hidden;
+            transform: translateY(-10px);
             transition: all 0.3s;
             margin-top: 10px;
         }
@@ -201,7 +225,7 @@
         .dropdown:focus-within .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateY(0);
         }
 
         .dropdown-menu li {
@@ -213,13 +237,11 @@
             padding: 12px 20px;
             color: var(--text-color);
             transition: all 0.3s;
-            font-size: 0.95rem;
-            line-height: 1.5;
         }
 
         .dropdown-menu a:hover,
         .dropdown-menu a:focus {
-            background-color: var(--light-blue);
+            background: linear-gradient(90deg, var(--light-blue), transparent);
             color: var(--highlight-color);
             padding-left: 25px;
             outline: none;
@@ -256,7 +278,7 @@
             top: 0;
         }
 
-        /* ========================================
+                /* ========================================
            HERO
            ======================================== */
         .hero {
@@ -1338,37 +1360,23 @@
                 display: flex;
             }
 
-            .nav-links > li {
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-links > li > a,
-            .dropdown-toggle {
-                font-size: 1.15rem;
-                padding: 12px;
-            }
-
             .dropdown-menu {
                 position: static;
                 opacity: 1;
                 visibility: visible;
                 transform: none;
                 box-shadow: none;
-                margin-top: 5px;
-                min-width: auto;
+                margin-top: 10px;
             }
 
             .mobile-menu-btn {
                 display: block;
             }
 
+            .logo-container svg,
+            .logo-container img,
             .logo-img {
-                height: 85px;
-            }
-
-            header nav {
-                padding: 8px 0;
+                height: 105px;
             }
 
             .hero h1 {
@@ -1476,18 +1484,15 @@
 
     <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
-    <!-- ============================================
-         HEADER (wzorzec globalny – updated menu)
-         ============================================ -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <a href="index.html" aria-label="HarmonJa – Strona główna">
-                        <img src="logo-harmonja.png" alt="HarmonJa – Szkoła Psychoterapii" class="logo-img" width="309" height="105" loading="eager" fetchpriority="high">
+                    <a href="index.html" aria-label="HarmonJa - Strona główna">
+                        <img src="logo-harmonja.png" alt="Szkoła Psychoterapii HarmonJa — logo" width="309" height="105" loading="eager" fetchpriority="high">
                     </a>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Otwórz menu nawigacyjne" aria-expanded="false">
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
                     ☰
                 </button>
                 <ul class="nav-links" role="menubar">
@@ -1497,10 +1502,10 @@
                         <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
                             <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z poszerzonym modułem rozwojowym</a></li>
                         </ul>
                     </li>
-                    <li role="none"><a href="rekrutacja.html" role="menuitem" class="active">Rekrutacja</a></li>
+                    <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
                     <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
                     <li role="none"><a href="kadra.html" role="menuitem">Kadra</a></li>
                     <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
@@ -2228,12 +2233,10 @@
 
 
     <script>
-        // ========================================
-        // MOBILE MENU
-        // ========================================
+        // Mobile menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        
+
         if (mobileMenuBtn && navLinks) {
             mobileMenuBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
@@ -2262,25 +2265,25 @@
             });
         }
 
-        // ========================================
-        // DROPDOWN KEYBOARD NAV
-        // ========================================
-        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+        // Dropdown keyboard navigation
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
             toggle.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    var dropdown = this.closest('.dropdown');
-                    var menu = dropdown.querySelector('.dropdown-menu');
-                    var isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    const dropdown = this.closest('.dropdown');
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     this.setAttribute('aria-expanded', !isExpanded);
+
                     if (!isExpanded) {
                         menu.style.opacity = '1';
                         menu.style.visibility = 'visible';
-                        menu.style.transform = 'translateX(-50%) translateY(0)';
+                        menu.style.transform = 'translateY(0)';
                     } else {
                         menu.style.opacity = '0';
                         menu.style.visibility = 'hidden';
-                        menu.style.transform = 'translateX(-50%) translateY(-10px)';
+                        menu.style.transform = 'translateY(-10px)';
                     }
                 }
             });
