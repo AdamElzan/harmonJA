@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -100,38 +100,15 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
             border-width: 0;
         }
 
-        /* ============================================ */
-        /* SKIP TO CONTENT                              */
-        /* ============================================ */
-        .skip-to-content {
-            position: absolute;
-            top: -50px;
-            left: 0;
-            background: var(--highlight-color);
-            color: white;
-            padding: 10px 20px;
-            z-index: 10001;
-            transition: top 0.3s;
-            font-weight: 600;
-        }
-
-        .skip-to-content:focus {
-            top: 0;
-        }
-
-        /* ============================================ */
-        /* HEADER                                       */
-        /* ============================================ */
+        /* Header styles */
         header {
             background-color: var(--white);
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 8px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-
-        header .container { padding: 0 20px; }
 
         nav {
             display: flex;
@@ -145,60 +122,123 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
             padding: 5px 0;
         }
 
+        .logo-container svg,
+        .logo-container img,
         .logo-img {
-            height: 105px;
+            height: 130px;
             width: auto;
+            max-width: 380px;
         }
 
         .nav-links {
             display: flex;
-            gap: 5px;
+            gap: 30px;
             align-items: center;
         }
 
-        .nav-links li a,
-        .dropdown-toggle {
-            padding: 10px 15px;
-            color: var(--text-color);
-            font-weight: 500;
-            font-size: 0.95rem;
-            border-radius: 4px;
-            transition: color 0.3s, background-color 0.3s;
-            cursor: pointer;
-            display: inline-block;
+        .nav-links > li {
+            list-style: none;
+            position: relative;
         }
 
-        .nav-links li a:hover,
-        .nav-links li a:focus,
-        .dropdown-toggle:hover,
-        .dropdown-toggle:focus {
+        .nav-links > li > a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            display: block;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links > li > a:hover,
+        .nav-links > li > a:focus {
             color: var(--highlight-color);
-            background-color: var(--light-blue);
             outline: none;
         }
 
-        .nav-links li a.active {
-            color: var(--highlight-color);
-            font-weight: 600;
+        .nav-links > li > a:hover::after,
+        .nav-links > li > a:focus::after {
+            width: 100%;
         }
 
-        /* Dropdown */
-        .dropdown { position: relative; }
+        /* Dropdown styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.65em;
+            margin-left: 5px;
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+
+        .dropdown:hover .dropdown-toggle,
+        .dropdown-toggle:focus {
+            color: var(--highlight-color);
+            outline: none;
+        }
+
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+            opacity: 1;
+            color: var(--highlight-color);
+        }
+
+        .dropdown-toggle::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            transition: width 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle::before,
+        .dropdown-toggle:focus::before {
+            width: 100%;
+        }
 
         .dropdown-menu {
             position: absolute;
             top: 100%;
             left: 0;
-            min-width: 340px;
-            background: var(--white);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            border-radius: 8px;
-            padding: 8px 0;
+            background-color: var(--white);
+            min-width: 380px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 10px 0;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s;
-            z-index: 60;
+            margin-top: 10px;
         }
 
         .dropdown:hover .dropdown-menu,
@@ -208,39 +248,57 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
             transform: translateY(0);
         }
 
+        .dropdown-menu li {
+            list-style: none;
+        }
+
         .dropdown-menu a {
             display: block;
             padding: 12px 20px;
-            font-size: 0.9rem;
-            transition: background 0.2s;
+            color: var(--text-color);
+            transition: all 0.3s;
         }
 
         .dropdown-menu a:hover,
         .dropdown-menu a:focus {
-            background-color: var(--light-blue);
+            background: linear-gradient(90deg, var(--light-blue), transparent);
+            color: var(--highlight-color);
+            padding-left: 25px;
+            outline: none;
         }
 
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
             cursor: pointer;
             padding: 10px;
             z-index: 1001;
         }
 
-        .mobile-menu-btn span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--dark-blue);
-            margin: 5px 0;
-            transition: all 0.3s;
-            border-radius: 2px;
+        .mobile-menu-btn:focus {
+            outline: 2px solid var(--highlight-color);
+            outline-offset: 2px;
         }
 
-        /* ============================================ */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--highlight-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+                /* ============================================ */
         /* HERO                                         */
         /* ============================================ */
         .hero {
@@ -1675,7 +1733,9 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
                 overflow-y: auto;
             }
 
-            .nav-links.active { display: flex; }
+            .nav-links.active {
+                display: flex;
+            }
 
             .dropdown-menu {
                 position: static;
@@ -1683,13 +1743,18 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
                 visibility: visible;
                 transform: none;
                 box-shadow: none;
-                min-width: auto;
                 margin-top: 10px;
             }
 
-            .mobile-menu-btn { display: block; }
+            .mobile-menu-btn {
+                display: block;
+            }
 
-            .logo-img { height: 85px; }
+            .logo-container svg,
+            .logo-container img,
+            .logo-img {
+                height: 105px;
+            }
 
             .hero { padding: 70px 0 50px; }
 
@@ -2077,36 +2142,29 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
 <body>
     <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
-    <!-- ============================================ -->
-    <!-- HEADER (wzorzec globalny)                    -->
-    <!-- ============================================ -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <a href="index.html" aria-label="HarmonJa — Strona główna">
-                        <img src="logo-harmonja.png" alt="HarmonJa — Szkoła Psychoterapii" class="logo-img">
+                    <a href="index.html" aria-label="HarmonJa - Strona główna">
+                        <img src="logo-harmonja.png" alt="Szkoła Psychoterapii HarmonJa — logo" width="309" height="105" loading="eager" fetchpriority="high">
                     </a>
                 </div>
-
-                <button class="mobile-menu-btn" aria-label="Menu nawigacji" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    ☰
                 </button>
-
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
                     <li role="none"><a href="o-nas.html" role="menuitem">O nas</a></li>
                     <li class="dropdown" role="none">
                         <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie w&nbsp;terapii poznawczo-behawioralnej osób dorosłych</a></li>
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie w&nbsp;terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z poszerzonym modułem rozwojowym</a></li>
                         </ul>
                     </li>
                     <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
-                    <li role="none"><a href="szkolenia-superwizja.html" role="menuitem" class="active">Szkolenia/Superwizja</a></li>
+                    <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
                     <li role="none"><a href="kadra.html" role="menuitem">Kadra</a></li>
                     <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
@@ -3670,9 +3728,7 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
     <!-- SCRIPTS                                      -->
     <!-- ============================================ -->
     <script>
-        // ========================================
-        // Mobile Menu (wzorzec globalny)
-        // ========================================
+        // Mobile menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
@@ -3681,36 +3737,49 @@ src="https://www.facebook.com/tr?id=24215641728022014&ev=PageView&noscript=1"
                 navLinks.classList.toggle('active');
                 const isExpanded = navLinks.classList.contains('active');
                 this.setAttribute('aria-expanded', isExpanded);
+                this.textContent = isExpanded ? '✕' : '☰';
+                document.body.style.overflow = isExpanded ? 'hidden' : '';
+            });
 
-                // Animate hamburger to X
-                const spans = this.querySelectorAll('span');
-                if (isExpanded) {
-                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    spans[0].style.transform = '';
-                    spans[1].style.opacity = '';
-                    spans[2].style.transform = '';
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '☰';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '☰';
                     document.body.style.overflow = '';
                 }
             });
         }
 
-        // ========================================
-        // Dropdown keyboard support
-        // ========================================
-        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+        // Dropdown keyboard navigation
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
             toggle.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    var menu = this.nextElementSibling;
-                    var isOpen = menu.style.opacity === '1';
-                    menu.style.opacity = isOpen ? '0' : '1';
-                    menu.style.visibility = isOpen ? 'hidden' : 'visible';
-                    menu.style.transform = isOpen ? 'translateY(-10px)' : 'translateY(0)';
-                    this.setAttribute('aria-expanded', !isOpen);
+                    const dropdown = this.closest('.dropdown');
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    if (!isExpanded) {
+                        menu.style.opacity = '1';
+                        menu.style.visibility = 'visible';
+                        menu.style.transform = 'translateY(0)';
+                    } else {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.transform = 'translateY(-10px)';
+                    }
                 }
             });
         });

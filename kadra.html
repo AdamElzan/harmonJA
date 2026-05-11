@@ -92,151 +92,209 @@
 
         a { text-decoration: none; color: inherit; }
 
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dark-blue);
-            color: var(--white);
-            padding: 12px 24px;
-            border-radius: 0 0 8px 8px;
-            z-index: 10001;
-            font-weight: 600;
-            transition: top 0.3s;
-        }
-        .skip-link:focus { top: 0; }
-
-        .container {
+.container {
             width: 100%;
             max-width: 1300px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* ========================================
-           HEADER / NAV
-           ======================================== */
+        /* Header styles */
         header {
             background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            padding: 8px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        header nav {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .logo-container svg,
+        .logo-container img,
         .logo-img {
-            height: 105px;
+            height: 130px;
             width: auto;
-            max-width: 320px;
-            display: block;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--dark-blue);
-            padding: 8px;
-            line-height: 1;
+            max-width: 380px;
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
             align-items: center;
-            list-style: none;
         }
 
-        .nav-links > li { position: relative; }
+        .nav-links > li {
+            list-style: none;
+            position: relative;
+        }
 
-        .nav-links > li > a,
-        .dropdown-toggle {
+        .nav-links > li > a {
             color: var(--text-color);
             font-weight: 500;
             padding: 8px 0;
             display: block;
             position: relative;
             transition: color 0.3s;
-            cursor: pointer;
         }
 
         .nav-links > li > a::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0;
-            width: 0; height: 2px;
-            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-color);
             transition: width 0.3s ease;
         }
 
         .nav-links > li > a:hover,
-        .nav-links > li > a:focus { color: var(--highlight-color); outline: none; }
+        .nav-links > li > a:focus {
+            color: var(--highlight-color);
+            outline: none;
+        }
 
         .nav-links > li > a:hover::after,
-        .nav-links > li > a:focus::after { width: 100%; }
+        .nav-links > li > a:focus::after {
+            width: 100%;
+        }
 
-        .nav-links > li > a.active { color: var(--highlight-color); }
-        .nav-links > li > a.active::after { width: 100%; }
+        /* Dropdown styling */
+        .dropdown {
+            position: relative;
+        }
 
-        /* Dropdown */
         .dropdown-toggle {
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: all 0.3s;
         }
+
         .dropdown-toggle::after {
-            content: '\25BC';
-            font-size: 0.6em;
-            transition: transform 0.3s;
+            content: '▼';
+            font-size: 0.65em;
+            margin-left: 5px;
+            transition: all 0.3s;
+            opacity: 0.7;
         }
-        .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+
         .dropdown:hover .dropdown-toggle,
-        .dropdown:focus-within .dropdown-toggle { color: var(--highlight-color); }
+        .dropdown-toggle:focus {
+            color: var(--highlight-color);
+            outline: none;
+        }
+
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+            opacity: 1;
+            color: var(--highlight-color);
+        }
+
+        .dropdown-toggle::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--highlight-color), var(--primary-color));
+            transition: width 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle::before,
+        .dropdown-toggle:focus::before {
+            width: 100%;
+        }
 
         .dropdown-menu {
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
+            left: 0;
             background-color: var(--white);
-            min-width: 340px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            border-radius: 8px;
-            padding: 8px 0;
-            list-style: none;
+            min-width: 380px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 10px 0;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 100;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            margin-top: 10px;
         }
 
         .dropdown:hover .dropdown-menu,
         .dropdown:focus-within .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
         }
 
         .dropdown-menu a {
             display: block;
             padding: 12px 20px;
-            font-size: 0.95rem;
             color: var(--text-color);
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
-        .dropdown-menu a:hover {
-            background: var(--light-blue);
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus {
+            background: linear-gradient(90deg, var(--light-blue), transparent);
             color: var(--highlight-color);
+            padding-left: 25px;
+            outline: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:focus {
+            outline: 2px solid var(--highlight-color);
+            outline-offset: 2px;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--highlight-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
         }
 
         /* ========================================
@@ -881,48 +939,45 @@
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-
-            .logo-img {
-                height: 85px;
-                max-width: 260px;
-            }
-
             .nav-links {
+                display: none;
                 position: fixed;
-                top: 0; left: 0;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100vh;
-                background: var(--white);
+                background-color: var(--white);
                 flex-direction: column;
                 justify-content: center;
-                gap: 24px;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
+                align-items: center;
+                gap: 20px;
                 z-index: 999;
+                padding: 20px;
+                overflow-y: auto;
             }
 
-            .nav-links.active { transform: translateX(0); }
-
-            .nav-links > li > a,
-            .dropdown-toggle {
-                font-size: 1.2rem;
-                padding: 12px 0;
+            .nav-links.active {
+                display: flex;
             }
 
             .dropdown-menu {
                 position: static;
-                transform: none;
-                box-shadow: none;
-                min-width: auto;
                 opacity: 1;
                 visibility: visible;
-                display: none;
-                padding: 0;
-                background: transparent;
+                transform: none;
+                box-shadow: none;
+                margin-top: 10px;
             }
 
-            .dropdown.open .dropdown-menu { display: block; }
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .logo-container svg,
+            .logo-container img,
+            .logo-img {
+                height: 105px;
+            }
 
             .hero { padding: 70px 0 50px; }
             .hero h1 { font-size: 2rem; }
@@ -948,7 +1003,6 @@
         }
 
         @media (max-width: 480px) {
-            .logo-img { height: 72px; }
             .staff-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 1.7rem; }
             .cta-section h2 { font-size: 1.5rem; }
@@ -999,31 +1053,32 @@
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Przejdź do treści</a>
+    <a href="#main-content" class="skip-to-content">Przejdź do treści</a>
 
-    <!-- ========== HEADER ========== -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <a href="index.html" aria-label="HarmonJa – Strona główna">
-                        <img src="logo-harmonja.png" alt="HarmonJa – Szkoła Psychoterapii" class="logo-img">
+                    <a href="index.html" aria-label="HarmonJa - Strona główna">
+                        <img src="logo-harmonja.png" alt="Szkoła Psychoterapii HarmonJa — logo" width="309" height="105" loading="eager" fetchpriority="high">
                     </a>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Otwórz menu nawigacyjne" aria-expanded="false">&#9776;</button>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                    ☰
+                </button>
                 <ul class="nav-links" role="menubar">
                     <li role="none"><a href="index.html" role="menuitem">Strona główna</a></li>
-                    <li role="none"><a href="o-nas.html" role="menuitem">O&nbsp;nas</a></li>
+                    <li role="none"><a href="o-nas.html" role="menuitem">O nas</a></li>
                     <li class="dropdown" role="none">
                         <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
                             <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z&nbsp;poszerzonym modułem rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z poszerzonym modułem rozwojowym</a></li>
                         </ul>
                     </li>
                     <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
                     <li role="none"><a href="szkolenia-superwizja.html" role="menuitem">Szkolenia/Superwizja</a></li>
-                    <li role="none"><a href="kadra.html" role="menuitem" class="active" aria-current="page">Kadra</a></li>
+                    <li role="none"><a href="kadra.html" role="menuitem">Kadra</a></li>
                     <li role="none"><a href="kontakt.html" role="menuitem">Kontakt</a></li>
                 </ul>
             </nav>
@@ -1340,8 +1395,8 @@
                 name: 'Karolina Rakocz',
                 photo: 'karolina_rakocz.jpg',
                 shortTitle: 'Dyrektor Szkoły',
-                fullTitle: 'Certyfikowana psychoterapeutka CBT (PTTPB), specjalistka terapii uzależnień (KBPN)',
-                expertise: 'Certyfikowana Psychoterapeutka PTTPB\nTerapia uzależnień, Dialog Motywujący',
+                fullTitle: 'Superwizorka terapii uzależnień, Certyfikowana psychoterapeutka CBT (PTTPB), specjalistka terapii uzależnień (KBPN)',
+                expertise: 'Superwizorka terapii uzależnień, terapia uzależnień, Dialog Motywujący',
                 badge: 'Dyrektor Szkoły',
                 bio: {
                     education: ['Certyfikowana Psychoterapeutka CBT (PTTPB) (nr 2102)', 'Specjalistka terapii uzależnień (KBPN) (certyfikat nr SP/0628/2011)', 'Certyfikowana terapeutka Dialogu Motywującego (certyfikat Terapeuty Motywującego PTTM Nr 102)'],
@@ -1921,39 +1976,61 @@
 
     document.querySelectorAll('.staff-card').forEach(card => io.observe(card));
 
-    /* ============================
-       MOBILE MENU
-       ============================ */
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
 
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('active');
-            menuBtn.setAttribute('aria-expanded', isOpen);
-            menuBtn.textContent = isOpen ? '\u2715' : '\u2630';
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-    }
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const isExpanded = navLinks.classList.contains('active');
+                this.setAttribute('aria-expanded', isExpanded);
+                this.textContent = isExpanded ? '\u2715' : '\u2630';
+                document.body.style.overflow = isExpanded ? 'hidden' : '';
+            });
 
-    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                toggle.parentElement.classList.toggle('open');
-            }
-        });
-    });
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '\u2630';
+                    document.body.style.overflow = '';
+                }
+            });
 
-    document.querySelectorAll('.nav-links a[role="menuitem"]').forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuBtn.setAttribute('aria-expanded', 'false');
-                menuBtn.textContent = '\u2630';
-                document.body.style.overflow = '';
-            }
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.textContent = '\u2630';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Dropdown keyboard navigation
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const dropdown = this.closest('.dropdown');
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+
+                    if (!isExpanded) {
+                        menu.style.opacity = '1';
+                        menu.style.visibility = 'visible';
+                        menu.style.transform = 'translateY(0)';
+                    } else {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.transform = 'translateY(-10px)';
+                    }
+                }
+            });
         });
-    });
 
     /* Back to top */
     const backBtn = document.createElement('button');
