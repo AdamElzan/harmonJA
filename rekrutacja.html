@@ -1476,6 +1476,23 @@
             white-space: nowrap;
             border-width: 0;
         }
+        /* COUNTDOWN */
+        .rekrutacja-start { margin-top: 20px; animation: fadeInUp 0.8s ease-out 0.45s backwards; }
+        .rekrutacja-start-label { font-size: 1rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 12px; }
+        .countdown { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+        .countdown-unit { background: var(--white); border: 2px solid var(--highlight-color); border-radius: 10px; padding: 10px 16px; min-width: 70px; text-align: center; box-shadow: 0 2px 10px rgba(0,180,255,0.1); }
+        .countdown-number { display: block; font-size: 1.8rem; font-weight: 700; color: var(--highlight-color); line-height: 1; }
+        .countdown-label { display: block; font-size: 0.7rem; font-weight: 600; color: var(--dark-blue); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; opacity: 0.75; }
+        .countdown-done { font-size: 1rem; font-weight: 600; color: var(--highlight-color); }
+        /* CTA variant — white on gradient bg */
+        .cta-section .countdown-unit { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.6); }
+        .cta-section .countdown-number { color: white; }
+        .cta-section .countdown-label { color: white; opacity: 0.85; }
+        .cta-section .rekrutacja-start-label { color: white; }
+        .rekomendacja-banner { display: flex; align-items: center; gap: 24px; background: var(--light-blue); border: 2px solid var(--highlight-color); border-radius: 12px; padding: 24px 32px; margin: 30px 0 40px; box-shadow: 0 4px 16px rgba(0,180,255,0.12); max-width: 860px; margin-left: auto; margin-right: auto; }
+        .rekomendacja-banner img { height: 64px; width: auto; flex-shrink: 0; }
+        .rekomendacja-banner-text { color: var(--dark-blue); font-size: 1.05rem; font-weight: 600; line-height: 1.55; }
+        @media (max-width: 480px) { .rekomendacja-banner { flex-direction: column; text-align: center; padding: 20px 20px; gap: 16px; } }
     </style>
 </head>
 <body>
@@ -1526,9 +1543,10 @@
                 <p class="hero-tagline">
                     Uczymy naukowej psychoterapii z&nbsp;sercem!
                 </p>
-                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--dark-blue); opacity: 0.75; animation: fadeInUp 0.8s ease-out 0.45s backwards;">
-                    Rekrutacja zostanie rozpoczęta pod warunkiem uzyskania rekomendacji PTTPB
-                </p>
+                <div class="rekrutacja-start">
+                    <p class="rekrutacja-start-label">Start rekrutacji: piątek, 22 maja 2026</p>
+                    <div class="countdown" id="countdown-hero"></div>
+                </div>
             </div>
         </section>
 
@@ -1607,6 +1625,13 @@
                 <p class="section-subtitle">
                     Szkolenie jest przeznaczone dla osób, które chcą rozwijać się w&nbsp;opartej na dowodach terapii poznawczo-behawioralnej – zgodnie ze standardami PTTPB i&nbsp;evidence-based practice. Zapraszamy zarówno osoby planujące pracę terapeutyczną z&nbsp;dorosłymi, jak i&nbsp;te, które chcą w&nbsp;przyszłości pracować z&nbsp;dziećmi i&nbsp;młodzieżą. Szkolenie jest również doskonałym wyborem dla osób, które widzą siebie w&nbsp;roli badaczy i&nbsp;naukowców w&nbsp;zakresie psychologii i&nbsp;psychoterapii.
                 </p>
+
+                <div class="rekomendacja-banner" role="note">
+                    <img src="pttpb.svg" alt="Logo PTTPB" loading="eager">
+                    <div class="rekomendacja-banner-text">
+                        Szkolenie rekomendowane przez Polskie Towarzystwo Terapii Poznawczej i&nbsp;Behawioralnej (PTTPB)
+                    </div>
+                </div>
 
                 <div class="requirements-grid">
                     <div class="requirement-card">
@@ -2133,9 +2158,10 @@
                 <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9; position: relative; z-index: 1;">
                     Rekrutacja trwa do wyczerpania miejsc. Zadbaj o&nbsp;wcześniejsze zgłoszenie – liczba uczestników w&nbsp;każdej edycji jest ograniczona.
                 </p>
-                <p style="margin-top: 14px; font-size: 0.9rem; opacity: 0.8; position: relative; z-index: 1;">
-                    Rekrutacja zostanie rozpoczęta pod warunkiem uzyskania rekomendacji PTTPB
-                </p>
+                <div class="rekrutacja-start" style="position: relative; z-index: 1;">
+                    <p class="rekrutacja-start-label">Start rekrutacji: piątek, 22 maja 2026</p>
+                    <div class="countdown" id="countdown-cta"></div>
+                </div>
             </div>
         </section>
     </main>
@@ -2465,6 +2491,45 @@
                 }
             });
         });
+
+        /* COUNTDOWN */
+        (function() {
+            var target = new Date('2026-05-22T00:00:00');
+            var ids = ['countdown-hero', 'countdown-cta'];
+
+            function render(el, diff) {
+                if (diff <= 0) {
+                    el.innerHTML = '<span class="countdown-done">Rekrutacja otwarta!</span>';
+                    return;
+                }
+                var days    = Math.floor(diff / 86400);
+                var hours   = Math.floor((diff % 86400) / 3600);
+                var minutes = Math.floor((diff % 3600) / 60);
+                var seconds = diff % 60;
+                el.innerHTML =
+                    unit(days, 'dni') +
+                    unit(hours, 'godz') +
+                    unit(minutes, 'min') +
+                    unit(seconds, 'sek');
+            }
+
+            function unit(val, label) {
+                return '<div class="countdown-unit"><span class="countdown-number">' +
+                    String(val).padStart(2, '0') +
+                    '</span><span class="countdown-label">' + label + '</span></div>';
+            }
+
+            function tick() {
+                var diff = Math.floor((target - new Date()) / 1000);
+                ids.forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) render(el, diff);
+                });
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        })();
     </script>
 </body>
 </html>
