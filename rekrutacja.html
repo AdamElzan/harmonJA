@@ -1489,6 +1489,9 @@
         .cta-section .countdown-number { color: white; }
         .cta-section .countdown-label { color: white; opacity: 0.85; }
         .cta-section .rekrutacja-start-label { color: white; }
+        .cta-section .countdown-done { color: white; }
+        .countdown-info { display: inline-block; font-size: 0.9rem; font-weight: 600; margin-top: 14px; color: var(--dark-blue); background: var(--light-blue); border: 1.5px solid var(--highlight-color); border-radius: 10px; padding: 10px 18px; max-width: 520px; line-height: 1.55; }
+        .cta-section .countdown-info { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.55); color: white; }
         .rekomendacja-banner { display: flex; align-items: center; gap: 24px; background: var(--light-blue); border: 2px solid var(--highlight-color); border-radius: 12px; padding: 24px 32px; margin: 30px 0 40px; box-shadow: 0 4px 16px rgba(0,180,255,0.12); max-width: 860px; margin-left: auto; margin-right: auto; }
         .rekomendacja-banner img { height: 64px; width: auto; flex-shrink: 0; }
         .rekomendacja-banner-text { color: var(--dark-blue); font-size: 1.05rem; font-weight: 600; line-height: 1.55; }
@@ -1544,7 +1547,7 @@
                     Uczymy naukowej psychoterapii z&nbsp;sercem!
                 </p>
                 <div class="rekrutacja-start">
-                    <p class="rekrutacja-start-label">Start rekrutacji: piątek, 22 maja 2026</p>
+                    <p class="rekrutacja-start-label">Rekrutacja otwarta</p>
                     <div class="countdown" id="countdown-hero"></div>
                 </div>
             </div>
@@ -1570,7 +1573,7 @@
                             </svg>
                         </div>
                         <h3>Formularz i&nbsp;dokumenty</h3>
-                        <p><a href="#apply-form" class="step-link">Wypełnij formularz</a> i&nbsp;prześlij wymagane dokumenty</p>
+                        <p><a href="https://tally.so/r/vGJE5D" class="step-link" target="_blank" rel="noopener noreferrer">Wypełnij formularz</a> i&nbsp;prześlij wymagane dokumenty</p>
                     </div>
 
                     <div class="step">
@@ -1867,7 +1870,7 @@
 
                 <!-- Apply CTA pod dokumentami -->
                 <div class="docs-cta">
-                    <a href="#apply-form" class="btn-apply">Wyślij zgłoszenie</a>
+                    <a href="https://tally.so/r/vGJE5D" class="btn-apply" target="_blank" rel="noopener noreferrer">Wyślij zgłoszenie</a>
                     <p>Przejdź do formularza zgłoszeniowego</p>
                 </div>
             </div>
@@ -2124,7 +2127,7 @@
                             </div>
                             <h4>Formularz online</h4>
                             <p>Wypełnij formularz Google i&nbsp;załącz wymagane dokumenty w&nbsp;formacie PDF.</p>
-                            <a href="#" class="btn-apply" id="google-form-link">Wypełnij formularz</a>
+                            <a href="https://tally.so/r/vGJE5D" class="btn-apply" id="google-form-link" target="_blank" rel="noopener noreferrer">Wypełnij formularz</a>
                             <p class="apply-option-note" style="margin-top: 12px;">Wymaga konta Google (Gmail)</p>
                         </div>
                         <div class="apply-option">
@@ -2153,13 +2156,13 @@
                 <h2>Gotowy na rozpoczęcie swojej drogi w&nbsp;psychoterapii?</h2>
                 <p>Wyślij zgłoszenie rekrutacyjne i&nbsp;dołącz do Szkoły Psychoterapii HarmonJa</p>
                 <div class="cta-buttons">
-                    <a href="#apply-form" class="cta-button">Wypełnij formularz zgłoszeniowy</a>
+                    <a href="https://tally.so/r/vGJE5D" class="cta-button" target="_blank" rel="noopener noreferrer">Wypełnij formularz zgłoszeniowy</a>
                 </div>
                 <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9; position: relative; z-index: 1;">
                     Rekrutacja trwa do wyczerpania miejsc. Zadbaj o&nbsp;wcześniejsze zgłoszenie – liczba uczestników w&nbsp;każdej edycji jest ograniczona.
                 </p>
                 <div class="rekrutacja-start" style="position: relative; z-index: 1;">
-                    <p class="rekrutacja-start-label">Start rekrutacji: piątek, 22 maja 2026</p>
+                    <p class="rekrutacja-start-label">Rekrutacja otwarta</p>
                     <div class="countdown" id="countdown-cta"></div>
                 </div>
             </div>
@@ -2499,7 +2502,7 @@
 
             function render(el, diff) {
                 if (diff <= 0) {
-                    el.innerHTML = '<span class="countdown-done">Rekrutacja otwarta!</span>';
+                    el.innerHTML = '<span class="countdown-info">Rok akademicki wystartuje we wrześniu dla rekrutacji na szkolenie w&nbsp;Warszawie oraz październiku na szkolenie w&nbsp;Gdańsku.</span>';
                     return;
                 }
                 var days    = Math.floor(diff / 86400);
