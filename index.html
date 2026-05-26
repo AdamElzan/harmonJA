@@ -419,6 +419,40 @@
             font-style: italic;
         }
 
+        .rekrutacja-open-banner {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--light-blue);
+            border: 2px solid var(--highlight-color);
+            border-radius: 12px;
+            padding: 16px 36px;
+            margin: 0 auto 32px;
+            box-shadow: 0 4px 16px rgba(0,180,255,0.12);
+            animation: fadeInUp 0.8s ease-out 0.35s backwards;
+            text-decoration: none;
+        }
+
+        .rekrutacja-open-banner-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: 0.3px;
+        }
+
+        .rekrutacja-open-banner-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-top: 4px;
+            transition: color 0.2s;
+        }
+
+        .rekrutacja-open-banner:hover .rekrutacja-open-banner-link {
+            color: var(--highlight-color);
+        }
+
         .hero-note {
             font-size: 0.95rem;
             color: #666;
@@ -1331,8 +1365,8 @@
                     <li class="dropdown" role="none">
                         <span class="dropdown-toggle" role="menuitem" tabindex="0" aria-haspopup="true" aria-expanded="false">Programy Szkoły Psychoterapii</span>
                         <ul class="dropdown-menu" role="menu">
-                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
-                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie terapii poznawczo-behawioralnej z poszerzonym modułem rozwojowym</a></li>
+                            <li role="none"><a href="szkola-dorosli.html" role="menuitem">4-letnie szkolenie w terapii poznawczo-behawioralnej osób dorosłych</a></li>
+                            <li role="none"><a href="szkola-dzieci-mlodziez.html" role="menuitem">4-letnie szkolenie w terapii poznawczo-behawioralnej z poszerzonym modułem pracy z pacjentem w wieku rozwojowym</a></li>
                         </ul>
                     </li>
                     <li role="none"><a href="rekrutacja.html" role="menuitem">Rekrutacja</a></li>
@@ -1362,6 +1396,12 @@
                 <p class="hero-lead">
                     Uczymy naukowej psychoterapii z&nbsp;sercem!
                 </p>
+
+                <!-- Rekrutacja open banner -->
+                <a href="rekrutacja.html" class="rekrutacja-open-banner">
+                    <span class="rekrutacja-open-banner-title">REKRUTACJA OTWARTA!</span>
+                    <span class="rekrutacja-open-banner-link">Sprawdź szczegóły</span>
+                </a>
 
                 <!-- Slider szkoleń -->
                 <div class="hero-slider" aria-roledescription="karuzela" aria-label="Oferta szkoleń">
@@ -1803,8 +1843,8 @@
                     <h3>Szkoła</h3>
                     <ul class="footer-links">
                         <li><a href="o-nas.html">O nas</a></li>
-                        <li><a href="szkola-dorosli.html">4-letnie szkolenie terapii poznawczo-behawioralnej osób dorosłych</a></li>
-                        <li><a href="szkola-dzieci-mlodziez.html">4-letnie szkolenie terapii poznawczo-behawioralnej z poszerzonym modułem rozwojowym</a></li>
+                        <li><a href="szkola-dorosli.html">4-letnie szkolenie w terapii poznawczo-behawioralnej osób dorosłych</a></li>
+                        <li><a href="szkola-dzieci-mlodziez.html">4-letnie szkolenie w terapii poznawczo-behawioralnej z poszerzonym modułem pracy z pacjentem w wieku rozwojowym</a></li>
                         <li><a href="kadra.html">Kadra</a></li>
                     </ul>
                 </div>
