@@ -1538,27 +1538,21 @@
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            /*
-             * GOOGLE FORMS — PODŁĄCZENIE
-             * 1. Utwórz Google Form: Imię, Email, Telefon, Temat, Wiadomość
-             * 2. Pobierz entry IDs z pre-filled URL
-             * 3. Odkomentuj poniżej i podmień wartości:
-             *
-             * const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/TWOJE_ID/formResponse';
-             * const formBody = new URLSearchParams({
-             *     'entry.XXXXXXX': name,
-             *     'entry.XXXXXXX': email,
-             *     'entry.XXXXXXX': document.getElementById('cf-phone').value,
-             *     'entry.XXXXXXX': topic,
-             *     'entry.XXXXXXX': message
-             * });
-             * fetch(GOOGLE_FORM_URL, { method:'POST', mode:'no-cors',
-             *     headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:formBody
-             * }).then(() => showSuccess()).catch(() => showSuccess());
-             */
-
-            // Demo mode
-            setTimeout(showSuccess, 1200);
+            const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdejn8EHiNrRMKL47_dodj4cnLw6rfLoas8PZpB5hg8zBcIvg/formResponse';
+            const topicText = document.getElementById('cf-topic').options[document.getElementById('cf-topic').selectedIndex].text;
+            const formBody = new URLSearchParams({
+                'entry.9070734': name,
+                'entry.476380265': email,
+                'entry.645613174': document.getElementById('cf-phone').value,
+                'entry.1515919947': topicText,
+                'entry.1590019794': message
+            });
+            fetch(GOOGLE_FORM_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formBody
+            }).then(() => showSuccess()).catch(() => showSuccess());
         });
 
         function showSuccess() {
