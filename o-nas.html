@@ -307,7 +307,7 @@
         .timeline-content p strong { color:var(--dark-blue); font-weight:600; }
 
         .founders-section { padding:90px 0; background-color:var(--cream-bg); }
-        .founders-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:18px; margin-top:50px; }
+        .founders-grid { display:grid; grid-template-columns:repeat(6, 1fr); gap:16px; margin-top:50px; }
         .founder-card { background:var(--white); border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.06); transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); cursor:pointer; text-decoration:none; color:inherit; display:block; position:relative; opacity:0; transform:translateY(30px); }
         .founder-card.visible { opacity:1; transform:translateY(0); }
         .founder-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg, var(--highlight-color), var(--primary-color)); transform:scaleX(0); transition:transform 0.4s ease; transform-origin:left; z-index:2; }
@@ -330,6 +330,72 @@
         .founder-card:hover .founder-cta { gap:10px; }
         .founder-cta .arrow { transition:transform 0.3s ease; }
         .founder-card:hover .founder-cta .arrow { transform:translateX(3px); }
+
+        /* Founder bio modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(9,57,95,0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 680px;
+            width: 92%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95) translateY(10px);
+            transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        .modal-overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-top { padding: 36px 36px 24px; display: flex; align-items: flex-start; gap: 24px; }
+        .modal-avatar {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-blue), #e8f8fb);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; color: var(--highlight-color); font-weight: 700;
+            flex-shrink: 0; overflow: hidden;
+        }
+        .modal-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+        .modal-info { flex: 1; }
+        .modal-name { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 6px; }
+        .modal-title-text {
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            font-weight: 600; line-height: 1.5;
+        }
+        .modal-close {
+            position: absolute; top: 16px; right: 16px; width: 36px; height: 36px;
+            border-radius: 50%; background: var(--light-gray); border: none; cursor: pointer;
+            font-size: 1.2rem; color: #666; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        .modal-close:hover { background: var(--highlight-color); color: var(--white); transform: rotate(90deg); }
+        .modal-body { padding: 0 36px 36px; }
+        .modal-section { margin-bottom: 24px; }
+        .modal-section:last-child { margin-bottom: 0; }
+        .modal-section h3 {
+            font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--highlight-color); margin-bottom: 10px;
+        }
+        .modal-section p, .modal-section li { font-size: 0.92rem; color: #555; line-height: 1.7; }
+        .modal-section ul { list-style: none; padding: 0; }
+        .modal-section li { padding: 4px 0 4px 20px; position: relative; }
+        .modal-section li::before { content: '\2192'; position: absolute; left: 0; color: var(--primary-color); font-weight: 600; }
+        .modal-divider { height: 1px; background: var(--medium-gray); margin: 0 36px; }
 
         .cta-section { padding:80px 0; background:linear-gradient(135deg, var(--highlight-color) 0%, var(--primary-color) 100%); color:white; text-align:center; position:relative; overflow:hidden; }
         .cta-section::before { content:''; position:absolute; top:-50%; right:-20%; width:500px; height:500px; background:radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius:50%; }
@@ -409,6 +475,9 @@
             .timeline-item { width:100% !important; padding-left:55px !important; padding-right:0 !important; margin-left:0 !important; text-align:left !important; }
             .timeline-marker { left:12px !important; right:auto !important; }
             .founders-grid { grid-template-columns:repeat(3, 1fr); gap:14px; }
+            .modal-top { flex-direction: column; align-items: center; text-align: center; padding: 28px 24px 20px; }
+            .modal-body { padding: 0 24px 28px; }
+            .modal-name { font-size: 1.3rem; }
             .cta-section h2 { font-size:2rem; }
             .cta-buttons { flex-direction:column; align-items:center; }
             .cta-button { width:100%; max-width:360px; }
@@ -527,7 +596,7 @@
                 <h2 class="section-title">Zespół kierujący Szkołą</h2>
                 <p class="section-subtitle">Łączy nas wspólna pasja do nauki, dydaktyki i rozwoju terapii poznawczo-behawioralnej.</p>
                 <div class="founders-grid">
-                    <a href="kadra.html" class="founder-card" aria-label="Adam Elżanowski – przejdź do pełnej biografii">
+                    <div class="founder-card" tabindex="0" role="button" data-staff="adam" aria-label="Adam Elżanowski – przejdź do biografii">
                         <div class="founder-photo">
                             <img src="adam-elzanowski-act.jpg" alt="Adam Elżanowski" loading="lazy">
                             <div class="founder-overlay"><span>Zobacz pełne bio →</span></div>
@@ -535,12 +604,12 @@
                         <div class="founder-info">
                             <div class="founder-role-badge">Współzałożyciel</div>
                             <h3 class="founder-name">Adam Elżanowski</h3>
-                            <p class="founder-title">Kierownik Ośrodka</p>
-                            <p class="founder-desc">Certyfikowany Superwizor-Dydaktyk PTTPB nr 78. Psycholog, psychoterapeuta CBT. Twórca podcastu „W Głowie się Mieści” i platformy AkademiaCBT.</p>
+                            <p class="founder-title">Kierownik Szkolenia</p>
+                            <p class="founder-desc">Certyfikowany Superwizor-Dydaktyk PTTPB nr 78. Psycholog, certyfikowany psychoterapeuta CBT. Twórca podcastu „W Głowie się Mieści” i platformy AkademiaCBT.</p>
                             <span class="founder-cta">Poznaj bliżej <span class="arrow">→</span></span>
                         </div>
-                    </a>
-                    <a href="kadra.html" class="founder-card" aria-label="Magdalena Skuza – przejdź do pełnej biografii">
+                    </div>
+                    <div class="founder-card" tabindex="0" role="button" data-staff="magda" aria-label="Magdalena Skuza – przejdź do biografii">
                         <div class="founder-photo">
                             <img src="magda_skuza.jpg" alt="Magdalena Skuza" loading="lazy">
                             <div class="founder-overlay"><span>Zobacz pełne bio →</span></div>
@@ -548,25 +617,38 @@
                         <div class="founder-info">
                             <div class="founder-role-badge">Współzałożycielka</div>
                             <h3 class="founder-name">Magdalena Skuza</h3>
-                            <p class="founder-title">Kierownik Ośrodka</p>
-                            <p class="founder-desc">Psycholog, socjolog, specjalista CBT, DBT, EMDR. Współzałożycielka i wieloletnia Przewodnicząca Polskiego Towarzystwa DBT, Sekretarz Europejskiego Towarzystwa DBT.</p>
+                            <p class="founder-title">Kierownik Szkolenia</p>
+                            <p class="founder-desc">Certyfikowany psychoterapeuta CBT, certyfikowany Superwizor-Dydaktyk PTTPB nr 87, specjalista CBT, DBT, EMDR. Współzałożycielka i wieloletnia Przewodnicząca Polskiego Towarzystwa DBT, Sekretarz Europejskiego Towarzystwa DBT.</p>
                             <span class="founder-cta">Poznaj bliżej <span class="arrow">→</span></span>
                         </div>
-                    </a>
-                    <a href="kadra.html" class="founder-card" aria-label="Marzena Badyna – przejdź do pełnej biografii">
+                    </div>
+                    <div class="founder-card" tabindex="0" role="button" data-staff="marzena" aria-label="Marzena Badyna – przejdź do biografii">
                         <div class="founder-photo">
                             <img src="marzena_badyna.jpg" alt="Marzena Badyna" loading="lazy">
                             <div class="founder-overlay"><span>Zobacz pełne bio →</span></div>
                         </div>
                         <div class="founder-info">
-                            <div class="founder-role-badge">Kierownik Merytoryczny</div>
+                            <div class="founder-role-badge">Kierownik Programowy Szkolenia</div>
                             <h3 class="founder-name">Marzena Badyna</h3>
-                            <p class="founder-title">Kierownik Merytoryczny Kursu</p>
+                            <p class="founder-title">Kierownik Programowy Szkolenia z psychoterapii CBT osób dorosłych</p>
                             <p class="founder-desc">Certyfikowany Superwizor-Dydaktyk PTTPB nr 50. Psychoterapeutka poznawczo-behawioralna. Odpowiedzialna za jakość i spójność programu szkoleniowego.</p>
                             <span class="founder-cta">Poznaj bliżej <span class="arrow">→</span></span>
                         </div>
-                    </a>
-                    <a href="kadra.html" class="founder-card" aria-label="Karolina Rakocz – przejdź do pełnej biografii">
+                    </div>
+                    <div class="founder-card" tabindex="0" role="button" data-staff="agata" aria-label="Agata Engel – przejdź do biografii">
+                        <div class="founder-photo">
+                            <img src="agata_engel.jpeg" alt="Agata Engel" loading="lazy">
+                            <div class="founder-overlay"><span>Zobacz pełne bio →</span></div>
+                        </div>
+                        <div class="founder-info">
+                            <div class="founder-role-badge">Opiekun ds. rozwoju osobistego</div>
+                            <h3 class="founder-name">Agata Engel</h3>
+                            <p class="founder-title">Opiekun ds. rozwoju osobistego</p>
+                            <p class="founder-desc">Certyfikowana Psychoterapeutka CBT (PTTPB), psycholożka i dydaktyczka. Specjalizuje się w terapii opartej na uważności oraz pracy z traumą.</p>
+                            <span class="founder-cta">Poznaj bliżej <span class="arrow">→</span></span>
+                        </div>
+                    </div>
+                    <div class="founder-card" tabindex="0" role="button" data-staff="karolina" aria-label="Karolina Rakocz – przejdź do biografii">
                         <div class="founder-photo">
                             <img src="karolina_rakocz.jpg" alt="Karolina Rakocz" loading="lazy">
                             <div class="founder-overlay"><span>Zobacz pełne bio →</span></div>
@@ -575,23 +657,23 @@
                             <div class="founder-role-badge">Dyrektorka Szkoły</div>
                             <h3 class="founder-name">Karolina Rakocz</h3>
                             <p class="founder-title">Dyrektorka Szkoły</p>
-                            <p class="founder-desc">Certyfikowana Psychoterapeutka Poznawczo-Behawioralna (PTTPB). Specjalistka terapii uzależnień, Terapeuta Motywujący. Założycielka Fundacji Dbajmy o Siebie.</p>
+                            <p class="founder-desc">Certyfikowana Psychoterapeutka Poznawczo-Behawioralna (PTTPB). Specjalistka terapii uzależnień, Terapeuta Motywujący. Założycielka Fundacji Dbajmy o Siebie.</p>
                             <span class="founder-cta">Poznaj bliżej <span class="arrow">→</span></span>
                         </div>
-                    </a>
-                    <a href="kadra.html" class="founder-card" aria-label="Ewa Wojtyna – przejdź do pełnej biografii">
+                    </div>
+                    <div class="founder-card" tabindex="0" role="button" data-staff="ewa" aria-label="Ewa Wojtyna – przejdź do biografii">
                         <div class="founder-photo">
                             <img src="ewa_wojtyna.jpg" alt="Ewa Wojtyna" loading="lazy">
                             <div class="founder-overlay"><span>Zobacz pełne bio →</span></div>
                         </div>
                         <div class="founder-info">
-                            <div class="founder-role-badge">Kierownik Merytoryczny</div>
+                            <div class="founder-role-badge">Kierownik Programowy Szkolenia</div>
                             <h3 class="founder-name">Ewa Wojtyna</h3>
-                            <p class="founder-title">Kierownik Merytoryczny Kursu</p>
+                            <p class="founder-title">Kierownik Programowy Szkolenia z psychoterapii CBT z poszerzonym modułem pracy z pacjentem w wieku rozwojowym</p>
                             <p class="founder-desc">Doktor nauk humanistycznych, specjalista psychiatrii, superwizor i certyfikowana psychoterapeutka CBT. Superwizor-Dydaktyk Terapii Poznawczo-Behawioralnej.</p>
                             <span class="founder-cta">Poznaj bliżej <span class="arrow">→</span></span>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -668,6 +750,16 @@
         </div>
     </footer>
 
+    <!-- ========== MODAL ========== -->
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Biografia pracownika">
+        <div class="modal">
+            <button class="modal-close" id="modalClose" aria-label="Zamknij">&times;</button>
+            <div class="modal-top" id="modalTop"></div>
+            <div class="modal-divider"></div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
         <script>
         // Mobile menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -726,6 +818,132 @@
         });
 
         (function(){var items=document.querySelectorAll(".timeline-item,.founder-card");if(!items.length)return;var ft=setTimeout(function(){items.forEach(function(el){el.classList.add("visible")})},2000);if(!("IntersectionObserver"in window)){clearTimeout(ft);items.forEach(function(el){el.classList.add("visible")});return}var r=0;var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){r++;var p=entry.target.parentElement;var s=Array.from(p.children);var i=s.indexOf(entry.target);setTimeout(function(){entry.target.classList.add("visible")},i*150);obs.unobserve(entry.target);if(r>=items.length)clearTimeout(ft)}})},{threshold:0.05,rootMargin:"0px 0px -30px 0px"});items.forEach(function(item){obs.observe(item)})})();
+
+        /* ============================
+           FOUNDER BIO DATA + MODAL
+           ============================ */
+        const foundersBio = {
+            adam: {
+                name: 'Adam Elżanowski',
+                photo: 'adam-elzanowski-act.jpg',
+                fullTitle: 'Certyfikowany psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61), Superwizor-Dydaktyk PTTPB',
+                education: [
+                    'Certyfikowany Psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61)',
+                    'Certyfikowany Superwizor-Dydaktyk PTTPB',
+                    'Szkolenia: TF-CBT, protokół przedłużonej ekspozycji, ACT, CFT, terapia schematów'
+                ],
+                experience: 'Współzałożyciel Szkoły Psychoterapii HarmonJa i Fundacji Lazurowa Terapia Poznawczo-Behawioralna. Ponad 15 lat doświadczenia klinicznego. Prowadzi psychoterapię indywidualną i grupową. Był związany z Mazowieckim Szpitalem Bródnowskim. Prowadzi szkolenia i superwizje dla psychoterapeutów w całej Polsce.',
+                interests: 'Twórca podcastu „W Głowie się Mieści" i platformy edukacyjnej AkademiaCBT. Nowoczesne metody nauczania CBT, technologia w edukacji terapeutów.'
+            },
+            magda: {
+                name: 'Magdalena Skuza',
+                photo: 'magda_skuza.jpg',
+                fullTitle: 'Certyfikowana psychoterapeutka CBT (PTTPB nr 552), Superwizor-Dydaktyk PTTPB nr 87',
+                education: [
+                    'Psycholog (Uniwersytet Jagielloński)',
+                    'Socjolog (Uniwersytet Jagielloński)',
+                    'Certyfikowana Psychoterapeutka CBT (PTTPB nr 552)',
+                    'Certyfikowany Superwizor-Dydaktyk PTTPB nr 87',
+                    'DBT Comprehensive, EMDR, ACT',
+                    'Członkini zespołu szkoleniowego Center for DBT and Families (prof. Alan Fruzzetti, USA)'
+                ],
+                experience: 'Współzałożycielka Szkoły Psychoterapii HarmonJa oraz Centrum Zdrowia Psychicznego HarmonJa w Gdańsku. Prowadzi psychoterapię dzieci, młodzieży, dorosłych i rodzin. Współzałożycielka i wieloletnia przewodnicząca Polskiego Towarzystwa Terapii Dialektyczno-Behawioralnej (PTDBT). Prowadzi liczne szkolenia i superwizje, wykłada na konferencjach w Polsce i za granicą.',
+                interests: 'Regulacja emocji, mindfulness, organizacja społeczności terapeutów DBT w Polsce, współpraca międzynarodowa.'
+            },
+            marzena: {
+                name: 'Marzena Badyna',
+                photo: 'marzena_badyna.jpg',
+                fullTitle: 'Superwizor-Dydaktyk PTTPB nr 50, Certyfikowana psychoterapeutka CBT',
+                education: ['Superwizor-Dydaktyk PTTPB nr 50', 'Certyfikowana Psychoterapeutka CBT (PTTPB)', 'Certyfikowana terapeutka Dialogu Motywującego (PTTM nr 65)', 'DBT Practitioner Training'],
+                experience: 'Wieloletnie doświadczenie w Mazowieckim Szpitalu Wojewódzkim i brytyjskiej NHS. Doświadczona superwizorka i wykładowczyni w AMIE, SWPS, WUM i Synapsis. Specjalizuje się w psychoterapii zaburzeń lękowych, depresyjnych, osobowości.',
+                interests: 'Rozwój kompetencji terapeutycznych, superwizja, integracja DBT i Dialogu Motywującego.'
+            },
+            karolina: {
+                name: 'Karolina Rakocz',
+                photo: 'karolina_rakocz.jpg',
+                fullTitle: 'Superwizork-aplikant terapii uzależnień, Certyfikowana psychoterapeutka CBT (PTTPB), specjalistka terapii uzależnień (KBPN)',
+                education: ['Certyfikowana Psychoterapeutka CBT (PTTPB) (nr 2102)', 'Specjalistka terapii uzależnień (KBPN) (certyfikat nr SP/0628/2011)', 'Certyfikowana terapeutka Dialogu Motywującego (certyfikat Terapeuty Motywującego PTTM Nr 102)'],
+                experience: 'Dyrektorka Szkoły Psychoterapii HarmonJa. Prowadziła liczne szkolenia zarówno w szkołach psychoterapii, jak i doskonalące dla certyfikowanych psychoterapeutów. Doświadczenie  kliniczne zdobywała jako kierowniczka ośrodka leczenia uzależnień, terapeutka w poradni leczenia uzależnień, poradni psychoterapeutycznej oraz prowadząc własną praktykę. Psychoterapeutka - konsultantka udzielająca wsparcia osobom niosącym pomoc humanitarną na granicy polsko-białoruskiej. Obecnie psychoterapeutka w Poradni Psychoterapeutycznej Lazurowa Terapia Poznawczo–Behawioralna. Mama Heleny, miłośniczka szydełkowania.',
+                interests: 'Profilaktyka uzależnień, Dialog Motywujący, wsparcie rodzin osób uzależnionych.'
+            },
+            ewa: {
+                name: 'dr n. hum. lek. Ewa Wojtyna',
+                photo: 'ewa_wojtyna.jpg',
+                fullTitle: 'Doktor nauk humanistycznych, specjalista psychiatrii, superwizor i certyfikowana psychoterapeutka CBT',
+                education: [
+                    'Doktor nauk humanistycznych w zakresie psychologii (UŚ)',
+                    'Specjalista psychiatrii',
+                    'Certyfikat Terapeuty Poznawczo-Behawioralnego (certyfikat nr 137)',
+                    'Certyfikat Superwizora-Dydaktyka Terapii Poznawczo-Behawioralnej (certyfikat nr 31)',
+                    'Certyfikat terapeuty poznawczo-behawioralnego Oxford Cognitive Therapy Center (OCTC)',
+                    'Certyfikat terapeuty i trenera Racjonalnej Terapii Zachowania',
+                    'Certyfikat Psychoonkologa (certyfikat nr 95) i Superwizora Psychoonkologii (certyfikat nr 42) (Polskie Towarzystwo Psychoonkologiczne)'
+                ],
+                experience: 'W obszarze naukowym i dydaktycznym zaczynała na stanowisku asystenta w Zakładzie Psychologii Zdrowia i Jakości Życia, Instytucie Psychologii, Wydziale Pedagogiki i Psychologii Uniwersytetu Śląskiego w Katowicach. Awansowała następnie na stanowisko adiunkta, a w 2019 roku na stanowisko profesora uczelni. Od marca 2024 obejmuje stanowisko adiunkta i Kierownika Kliniki Psychiatrii na Wydziale Lekarskim Uniwersytetu Opolskiego. W obszarze klinicznym pracowała jako lekarz m.in. na Oddziale Psychiatrycznym NZOZ Szpitala Miejskiego w Rudzie Śląskiej, w Ośrodku Promocji Zdrowia, Trzeźwości i Rozwoju Osobistego w Katowicach oraz udzielała konsultacji w dziedzinie psychiatrii w Szpitalu Specjalistycznym nr 2 w Bytomiu. Jako psychoterapeuta współpracowała m.in. z Centrum Terapii Poznawczo-Behawioralnej w Warszawie, Fundacją Zdrowego Życia, Prosoma Sp. z o.o. Od 2018 roku pomaga w ramach indywidualnej praktyki lekarskiej i psychoterapeutycznej. Kierownik dziesięciu grantów naukowych oraz wykonawca w trzech grantach naukowych realizowanych w ramach finansowania zewnętrznego z NCN, NCBR, ABM, PARP, Funduszy Europejskich dla Nowoczesnej Gospodarki, związanych z obszarem zależności psychosomatycznych i somatopsychicznych, wpływu czynników środowiskowych na zdrowie człowieka i jego jakość życia oraz zdrowia cyfrowego i terapii cyfrowej. Na swoim koncie ma wiele publikacji naukowych, książek, rozdziałów w podręcznikach.',
+                interests: 'Wpływ terapii poznawczo-behawioralnej na psychofizyczne funkcjonowanie człowieka, zależności psychosomatyczne i somatopsychiczne (szczególnie: psychoonkologia, medycyna bólu, psychodiabetologia), zdrowie cyfrowe i medycyna cyfrowa, funkcjonowanie psychospołeczne człowieka chorego somatycznie, zmiana zachowań zdrowotnych.'
+            },
+            agata: {
+                name: 'Agata Engel',
+                photo: 'agata_engel.jpeg',
+                fullTitle: 'Certyfikowana Psychoterapeutka CBT (PTTPB), dydaktyczka',
+                education: [
+                    'Certyfikowana Psychoterapeutka CBT (PTTPB)',
+                    'Psycholożka (Wydział Psychologii UW, specjalizacja: wspieranie rozwoju osobowości u Katarzyny Stemplewskiej-Żakowicz)',
+                    'Kurs Mindfulness u Julii E. Wahl, Polskie Towarzystwo Mindfulness, oraz w Stiftelsen Noaks Ark-Roda',
+                    'Kurs Korset – Szwecja, dla osób pracujących psychologicznie z osobami przewlekle chorymi',
+                    'Studia podyplomowe „Sztuka nowoczesna. Dialogi i pogranicza” w Uniwersytecie Civitas (2026)'
+                ],
+                experience: 'Wykładała na warszawskim SWPS. Współautorka podręcznika „Wywiad psychologiczny” pod redakcją naukową Katarzyny Stemplewskiej-Żakowicz i Krzysztofa Krejza. Od 2010 r. w Centrum Terapii Poznawczo-Behawioralnej prowadzi liczne warsztaty edukacyjne, treningowe oraz superwizje koleżeńskie dla polskich psychologów szkolących się w nurcie CBT. Tematyka: zaawansowane techniki CBT, psychoterapeutyczna praca z traumą, w tym z traumą w wyniku doświadczenia przemocy seksualnej, leczenia PTSD i C-PTSD, interwencja kryzysowa, profilaktyka przemocy, psychologia onkologiczna, praca z żałobą, terapia uzależnień, terapia par, wzmacnianie poczucia własnej wartości oraz w obszarach budowania zespołu/team building. Od 2000 r. działa na rzecz ruchu LGBTQIA w Polsce i pracuje terapeutycznie w obszarach tożsamości, samoidentyfikacji, samoakceptacji i psychoseksualności. Pierwsze doświadczenia zawodowe zdobywała w Stowarzyszeniu Lambda Warszawa, prowadząc grupy wsparcia i terapeutyczne dla osób o orientacji homoseksualnej. Od lat koncentruje się na pracy z traumami dzieciństwa i C-PTSD, szczególnie z osobami dotkniętymi przemocą oraz doświadczającymi przemocy seksualnej w dzieciństwie i/lub dorosłości. Specjalizuje się w Terapii poznawczej opartej na uważności, czerpie z idei psychologii humanistycznej, z elementami nurtu fenomenologicznego i pracy z metaforami. Prowadzi terapię par oraz grupy nastawione na wspieranie rozwoju osobistego. W latach 2022/23 współpracowała ze Stowarzyszeniem OPTA w Warszawie, wspierając pracowników instytucji. Współautorka artykułów i książek, np.: „Fakty przeciwko mitom o lesbijkach i gejach”, tworzy broszury informacyjne nt. orientacji seksualnych, prowadzi wywiady oraz sama jest gościnią różnych wystąpień.',
+                interests: 'Terapia oparta na uważności, CBT, PTSD, CPTSD, psychoseksualność'
+            }
+        };
+
+        function openFounderModal(person) {
+            const overlay = document.getElementById('modalOverlay');
+            const top = document.getElementById('modalTop');
+            const body = document.getElementById('modalBody');
+
+            top.innerHTML = `
+                <div class="modal-avatar"><img src="${person.photo}" alt="${person.name}"></div>
+                <div class="modal-info">
+                    <h2 class="modal-name">${person.name}</h2>
+                    <p class="modal-title-text">${person.fullTitle}</p>
+                </div>
+            `;
+
+            let html = '';
+            if (person.education && person.education.length) {
+                html += `<div class="modal-section"><h3>Wykształcenie i certyfikacje</h3><ul>${person.education.map(e => `<li>${e}</li>`).join('')}</ul></div>`;
+            }
+            if (person.experience) {
+                html += `<div class="modal-section"><h3>Doświadczenie</h3><p>${person.experience}</p></div>`;
+            }
+            if (person.interests) {
+                html += `<div class="modal-section"><h3>Obszary specjalizacji</h3><p>${person.interests}</p></div>`;
+            }
+            body.innerHTML = html;
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('modalClose').focus();
+        }
+
+        function closeFounderModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeFounderModal);
+        document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeFounderModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFounderModal(); });
+
+        document.querySelectorAll('.founder-card').forEach(card => {
+            const person = foundersBio[card.dataset.staff];
+            if (!person) return;
+            const openFn = () => openFounderModal(person);
+            card.addEventListener('click', openFn);
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFn(); } });
+        });
     </script>
 </body>
 </html>
