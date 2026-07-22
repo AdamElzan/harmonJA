@@ -381,10 +381,8 @@
 
         .founders-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
         .founder-card {
@@ -427,21 +425,6 @@
 
         .founder-card:hover .founder-avatar img {
             transform: scale(1.03);
-        }
-
-        .founder-badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: linear-gradient(135deg, var(--highlight-color), var(--primary-color));
-            color: var(--white);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 2;
         }
 
         .founder-info {
@@ -934,7 +917,6 @@
            ======================================== */
         @media (max-width: 968px) {
             .hero h1 { font-size: 2.4rem; }
-            .founders-grid { gap: 24px; }
             .staff-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
         }
 
@@ -984,8 +966,10 @@
             .hero-lead { font-size: 1.05rem; }
 
             .founders-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 500px;
+                margin: 0 auto;
+                gap: 16px;
             }
 
             .staff-grid { grid-template-columns: 1fr 1fr; }
@@ -1004,6 +988,7 @@
 
         @media (max-width: 480px) {
             .staff-grid { grid-template-columns: 1fr; }
+            .founders-grid { grid-template-columns: 1fr; max-width: 320px; }
             .hero h1 { font-size: 1.7rem; }
             .cta-section h2 { font-size: 1.5rem; }
         }
@@ -1092,7 +1077,7 @@
         <section class="hero">
             <div class="container">
                 <h1>Kadra, która łączy naukę z&nbsp;praktyką</h1>
-                <p class="hero-lead">Ponad 40&nbsp;ekspertów — superwizorów&nbsp;PTTPB, profesorów i&nbsp;certyfikowanych psychoterapeutów — tworzy zespół, który uczy psychoterapii z&nbsp;sercem.</p>
+                <p class="hero-lead">Ponad 40&nbsp;ekspertów (superwizorów&nbsp;PTTPB, profesorów i&nbsp;certyfikowanych psychoterapeutów) tworzy zespół, który uczy psychoterapii z&nbsp;sercem.</p>
             </div>
         </section>
 
@@ -1100,7 +1085,7 @@
         <section class="founders">
             <div class="container">
                 <div class="founders-intro">
-                    <span class="section-label">Założyciele</span>
+                    <span class="section-label">Zespół kierujący szkołą</span>
                     <h2 class="section-title">Ludzie, od których wszystko się zaczęło</h2>
                     <p class="section-subtitle">Łączy nas wspólna pasja do nauki, dydaktyki i&nbsp;rozwoju terapii poznawczo-behawioralnej.</p>
                 </div>
@@ -1108,26 +1093,72 @@
                 <div class="founders-grid">
                     <div class="founder-card" tabindex="0" role="button" aria-label="Adam Elżanowski – przejdź do biografii" data-staff="adam">
                         <div class="founder-avatar">
-                            <span class="founder-badge">Współzałożyciel</span>
                             <img src="adam-elzanowski-act.jpg" alt="Adam Elżanowski">
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">Adam Elżanowski</h3>
-                            <p class="founder-title">Superwizor-Dydaktyk PTTPB</p>
-                            <p class="founder-desc">Psycholog, certyfikowany psychoterapeuta CBT&nbsp;(PTTPB&nbsp;nr&nbsp;500, EABCT&nbsp;nr&nbsp;61). Twórca podcastu „W&nbsp;Głowie&nbsp;się&nbsp;Mieści" i&nbsp;platformy AkademiaCBT. Specjalista terapii traumy.</p>
+                            <p class="founder-title">Kierownik Szkolenia</p>
+                            <p class="founder-desc">Psycholog, certyfikowany psychoterapeuta CBT&nbsp;(PTTPB&nbsp;nr&nbsp;500, EABCT&nbsp;nr&nbsp;61) i certyfikowany Superwizor-Dydaktyk PTTPB nr 78. Twórca podcastu „W&nbsp;Głowie&nbsp;się&nbsp;Mieści" i&nbsp;platformy AkademiaCBT. Specjalista terapii traumy.</p>
                             <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
                         </div>
                     </div>
 
                     <div class="founder-card" tabindex="0" role="button" aria-label="Magdalena Skuza – przejdź do biografii" data-staff="magda">
                         <div class="founder-avatar">
-                            <span class="founder-badge">Współzałożycielka</span>
                             <img src="magda_skuza.jpg" alt="Magdalena Skuza">
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">Magdalena Skuza</h3>
-                            <p class="founder-title">Superwizor-Dydaktyk PTTPB nr&nbsp;87</p>
-                            <p class="founder-desc">Psycholożka, specjalistka DBT, EMDR i&nbsp;ACT (PTTPB&nbsp;nr&nbsp;552). Współzałożycielka i&nbsp;wieloletnia przewodnicząca Polskiego Towarzystwa Terapii&nbsp;DBT.</p>
+                            <p class="founder-title">Kierownik Szkolenia</p>
+                            <p class="founder-desc">Psycholożka, certyfikowana psychoterapeutka CBT (PTTPB), certyfikowany Superwizor-Dydaktyk PTTPB nr 87, specjalistka DBT, EMDR i&nbsp;ACT (PTTPB&nbsp;nr&nbsp;552). Współzałożycielka i&nbsp;wieloletnia przewodnicząca Polskiego Towarzystwa Terapii&nbsp;DBT.</p>
+                            <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
+                        </div>
+                    </div>
+
+                    <div class="founder-card" tabindex="0" role="button" aria-label="Karolina Rakocz – przejdź do biografii" data-staff="karolina">
+                        <div class="founder-avatar">
+                            <img src="karolina_rakocz.jpg" alt="Karolina Rakocz">
+                        </div>
+                        <div class="founder-info">
+                            <h3 class="founder-name">Karolina Rakocz</h3>
+                            <p class="founder-title">Dyrektorka Szkoły</p>
+                            <p class="founder-desc">Certyfikowana Psychoterapeutka Poznawczo-Behawioralna (PTTPB). Specjalistka terapii uzależnień, Certyfikowana Terapeutka Dialogu Motywującego.</p>
+                            <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
+                        </div>
+                    </div>
+
+                    <div class="founder-card" tabindex="0" role="button" aria-label="Marzena Badyna – przejdź do biografii" data-staff="marzena">
+                        <div class="founder-avatar">
+                            <img src="marzena_badyna.jpg" alt="Marzena Badyna">
+                        </div>
+                        <div class="founder-info">
+                            <h3 class="founder-name">Marzena Badyna</h3>
+                            <p class="founder-title">Kierownik Programowy Szkolenia w psychoterapii CBT osób dorosłych</p>
+                            <p class="founder-desc">Certyfikowany Superwizor-Dydaktyk PTTPB nr&nbsp;50. Psychoterapeutka poznawczo-behawioralna. Odpowiedzialna za jakość i&nbsp;spójność programu szkoleniowego.</p>
+                            <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
+                        </div>
+                    </div>
+
+                    <div class="founder-card" tabindex="0" role="button" aria-label="Ewa Wojtyna – przejdź do biografii" data-staff="ewa">
+                        <div class="founder-avatar">
+                            <img src="ewa_wojtyna.jpg" alt="Ewa Wojtyna">
+                        </div>
+                        <div class="founder-info">
+                            <h3 class="founder-name">Ewa Wojtyna</h3>
+                            <p class="founder-title">Kierownik Programowy Szkolenia w psychoterapii CBT z poszerzonym modułem pracy z pacjentem w wieku rozwojowym</p>
+                            <p class="founder-desc">Doktor nauk humanistycznych, specjalista psychiatrii, superwizor i&nbsp;certyfikowana psychoterapeutka CBT. Superwizor-Dydaktyk Terapii Poznawczo-Behawioralnej.</p>
+                            <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
+                        </div>
+                    </div>
+
+                    <div class="founder-card" tabindex="0" role="button" aria-label="Agata Engel – przejdź do biografii" data-staff="agata">
+                        <div class="founder-avatar">
+                            <img src="agata_engel.jpeg" alt="Agata Engel">
+                        </div>
+                        <div class="founder-info">
+                            <h3 class="founder-name">Agata Engel</h3>
+                            <p class="founder-title">Opiekun ds. rozwoju osobistego</p>
+                            <p class="founder-desc">Certyfikowana Psychoterapeutka CBT (PTTPB), psycholożka i&nbsp;dydaktyczka. Specjalizuje się w&nbsp;terapii opartej na uważności oraz pracy z&nbsp;traumą.</p>
                             <span class="founder-cta">Poznaj bliżej <span aria-hidden="true">→</span></span>
                         </div>
                     </div>
@@ -1135,11 +1166,11 @@
             </div>
         </section>
 
-        <!-- KIEROWNICTWO I SUPERWIZORZY -->
+        <!-- SUPERWIZORZY -->
         <section class="staff-section" style="background: var(--light-gray);">
             <div class="container">
                 <div class="staff-header">
-                    <span class="section-label">Kierownictwo i&nbsp;Superwizorzy</span>
+                    <span class="section-label">Superwizorzy</span>
                     <h2 class="section-title">Superwizorzy-Dydaktycy PTTPB</h2>
                     <p class="section-subtitle">Doświadczeni klinicyści i&nbsp;dydaktycy, którzy prowadzą superwizje i&nbsp;kształcą następne pokolenia terapeutów.</p>
                 </div>
@@ -1287,13 +1318,13 @@
                 id: 'adam',
                 name: 'Adam Elżanowski',
                 photo: 'adam-elzanowski-act.jpg',
-                shortTitle: 'Superwizor-Dydaktyk PTTPB',
-                fullTitle: 'Certyfikowany psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61), Superwizor-Dydaktyk PTTPB',
+                shortTitle: 'Superwizor-Dydaktyk PTTPB nr 78',
+                fullTitle: 'Certyfikowany psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61), Superwizor-Dydaktyk PTTPB nr 78',
                 expertise: 'Terapia traumy, ACT, CFT, terapia schematów, popularyzacja nauki',
                 bio: {
                     education: [
                         'Certyfikowany Psychoterapeuta CBT (PTTPB nr 500, EABCT nr 61)',
-                        'Certyfikowany Superwizor-Dydaktyk PTTPB',
+                        'Certyfikowany Superwizor-Dydaktyk PTTPB nr 78',
                         'Szkolenia: TF-CBT, protokół przedłużonej ekspozycji, ACT, CFT, terapia schematów'
                     ],
                     experience: 'Współzałożyciel Szkoły Psychoterapii HarmonJa i Fundacji Lazurowa Terapia Poznawczo-Behawioralna. Ponad 15 lat doświadczenia klinicznego. Prowadzi psychoterapię indywidualną i grupową. Był związany z Mazowieckim Szpitalem Bródnowskim. Prowadzi szkolenia i superwizje dla psychoterapeutów w całej Polsce.',
@@ -1309,31 +1340,89 @@
                 expertise: 'DBT, EMDR, ACT, terapia dzieci, młodzieży, dorosłych i rodzin',
                 bio: {
                     education: [
+                        'Psycholog (Uniwersytet Jagielloński)',
+                        'Socjolog (Uniwersytet Jagielloński)',
                         'Certyfikowana Psychoterapeutka CBT (PTTPB nr 552)',
-                        'Superwizor-Dydaktyk PTTPB nr 87',
+                        'Certyfikowany Superwizor-Dydaktyk PTTPB nr 87',
                         'DBT Comprehensive, EMDR, ACT',
                         'Członkini zespołu szkoleniowego Center for DBT and Families (prof. Alan Fruzzetti, USA)'
                     ],
                     experience: 'Współzałożycielka Szkoły Psychoterapii HarmonJa oraz Centrum Zdrowia Psychicznego HarmonJa w Gdańsku. Prowadzi psychoterapię dzieci, młodzieży, dorosłych i rodzin. Współzałożycielka i wieloletnia przewodnicząca Polskiego Towarzystwa Terapii Dialektyczno-Behawioralnej (PTDBT). Prowadzi liczne szkolenia i superwizje, wykłada na konferencjach w Polsce i za granicą.',
                     interests: 'Regulacja emocji, mindfulness, organizacja społeczności terapeutów DBT w Polsce, współpraca międzynarodowa.'
                 }
-            }
-        ],
-
-        supervisors: [
+            },
             {
+                id: 'marzena',
                 name: 'Marzena Badyna',
                 photo: 'marzena_badyna.jpg',
-                shortTitle: 'Kierownik Merytoryczny',
+                shortTitle: 'Kierownik Programowy Szkolenia',
                 fullTitle: 'Superwizor-Dydaktyk PTTPB nr 50, Certyfikowana psychoterapeutka CBT',
                 expertise: 'Superwizja CBT, zaburzenia lękowe, depresyjne, osobowości',
-                badge: 'Kierownik Merytoryczny',
+                badge: 'Kierownik Programowy Szkolenia',
                 bio: {
                     education: ['Superwizor-Dydaktyk PTTPB nr 50', 'Certyfikowana Psychoterapeutka CBT (PTTPB)', 'Certyfikowana terapeutka Dialogu Motywującego (PTTM nr 65)', 'DBT Practitioner Training'],
                     experience: 'Wieloletnie doświadczenie w Mazowieckim Szpitalu Wojewódzkim i brytyjskiej NHS. Doświadczona superwizorka i wykładowczyni w AMIE, SWPS, WUM i Synapsis. Specjalizuje się w psychoterapii zaburzeń lękowych, depresyjnych, osobowości.',
                     interests: 'Rozwój kompetencji terapeutycznych, superwizja, integracja DBT i Dialogu Motywującego.'
                 }
             },
+            {
+                id: 'karolina',
+                name: 'Karolina Rakocz',
+                photo: 'karolina_rakocz.jpg',
+                shortTitle: 'Dyrektorka Szkoły',
+                fullTitle: 'Superwizor-aplikant terapii uzależnień, Certyfikowana psychoterapeutka CBT (PTTPB), Specjalistka terapii uzależnień (KBPN)',
+                expertise: 'Superwizork-aplikant terapii uzależnień, terapia uzależnień, Dialog Motywujący',
+                badge: 'Dyrektorka Szkoły',
+                bio: {
+                    education: ['Certyfikowana Psychoterapeutka CBT (PTTPB) (nr 2102)', 'Specjalistka terapii uzależnień (KBPN) (certyfikat nr SP/0628/2011)', 'Certyfikowana terapeutka Dialogu Motywującego (certyfikat Terapeuty Motywującego PTTM Nr 102)'],
+                    experience: 'Dyrektorka Szkoły Psychoterapii HarmonJa. Prowadziła liczne szkolenia zarówno w szkołach psychoterapii, jak i doskonalące dla certyfikowanych psychoterapeutów. Doświadczenie  kliniczne zdobywała jako kierowniczka ośrodka leczenia uzależnień, terapeutka w poradni leczenia uzależnień, poradni psychoterapeutycznej oraz prowadząc własną praktykę. Psychoterapeutka - konsultantka udzielająca wsparcia osobom niosącym pomoc humanitarną na granicy polsko-białoruskiej. Obecnie psychoterapeutka w Poradni Psychoterapeutycznej Lazurowa Terapia Poznawczo–Behawioralna. Mama Heleny, miłośniczka szydełkowania.',
+                    interests: 'Profilaktyka uzależnień, Dialog Motywujący, wsparcie rodzin osób uzależnionych.'
+                }
+            },
+            {
+                id: 'ewa',
+                name: 'dr n. hum. lek. Ewa Wojtyna',
+                shortTitle: 'Kierownik Programowy Szkolenia',
+                fullTitle: 'Doktor nauk humanistycznych, specjalista psychiatrii, superwizor i certyfikowana psychoterapeutka CBT',
+                expertise: 'Superwizja CBT, psychiatria, psychoterapia CBT',
+                badge: 'Kierownik Programowy Szkolenia',
+                bio: {
+                    education: [
+                        'Doktor nauk humanistycznych w zakresie psychologii (UŚ)',
+                        'Specjalista psychiatrii',
+                        'Certyfikat Terapeuty Poznawczo-Behawioralnego (certyfikat nr 137)',
+                        'Certyfikat Superwizora-Dydaktyka Terapii Poznawczo-Behawioralnej (certyfikat nr 31)',
+                        'Certyfikat terapeuty poznawczo-behawioralnego Oxford Cognitive Therapy Center (OCTC)',
+                        'Certyfikat terapeuty i trenera Racjonalnej Terapii Zachowania',
+                        'Certyfikat Psychoonkologa (certyfikat nr 95) i Superwizora Psychoonkologii (certyfikat nr 42) (Polskie Towarzystwo Psychoonkologiczne)'
+                    ],
+                    experience: 'W obszarze naukowym i dydaktycznym zaczynała na stanowisku asystenta w Zakładzie Psychologii Zdrowia i Jakości Życia, Instytucie Psychologii, Wydziale Pedagogiki i Psychologii Uniwersytetu Śląskiego w Katowicach. Awansowała następnie na stanowisko adiunkta, a w 2019 roku na stanowisko profesora uczelni. Od marca 2024 obejmuje stanowisko adiunkta i Kierownika Kliniki Psychiatrii na Wydziale Lekarskim Uniwersytetu Opolskiego. W obszarze klinicznym pracowała jako lekarz m.in. na Oddziale Psychiatrycznym NZOZ Szpitala Miejskiego w Rudzie Śląskiej, w Ośrodku Promocji Zdrowia, Trzeźwości i Rozwoju Osobistego w Katowicach oraz udzielała konsultacji w dziedzinie psychiatrii w Szpitalu Specjalistycznym nr 2 w Bytomiu. Jako psychoterapeuta współpracowała m.in. z Centrum Terapii Poznawczo-Behawioralnej w Warszawie, Fundacją Zdrowego Życia, Prosoma Sp. z o.o. Od 2018 roku pomaga w ramach indywidualnej praktyki lekarskiej i psychoterapeutycznej. Kierownik dziesięciu grantów naukowych oraz wykonawca w trzech grantach naukowych realizowanych w ramach finansowania zewnętrznego z NCN, NCBR, ABM, PARP, Funduszy Europejskich dla Nowoczesnej Gospodarki, związanych z obszarem zależności psychosomatycznych i somatopsychicznych, wpływu czynników środowiskowych na zdrowie człowieka i jego jakość życia oraz zdrowia cyfrowego i terapii cyfrowej. Na swoim koncie ma wiele publikacji naukowych, książek, rozdziałów w podręcznikach.',
+                    interests: 'Wpływ terapii poznawczo-behawioralnej na psychofizyczne funkcjonowanie człowieka, zależności psychosomatyczne i somatopsychiczne (szczególnie: psychoonkologia, medycyna bólu, psychodiabetologia), zdrowie cyfrowe i medycyna cyfrowa, funkcjonowanie psychospołeczne człowieka chorego somatycznie, zmiana zachowań zdrowotnych.'
+                }
+            },
+            {
+                id: 'agata',
+                name: 'Agata Engel',
+                photo: 'agata_engel.jpeg',
+                shortTitle: 'Certyfikowana Psychoterapeutka CBT (PTTPB)',
+                fullTitle: 'Certyfikowana Psychoterapeutka CBT (PTTPB), dydaktyczka',
+                expertise: 'Terapia oparta na uważności, terapia traumy i PTSD/C-PTSD, psychoseksualność i tożsamość LGBTQIA+',
+                badge: 'Opiekun ds. rozwoju osobistego',
+                bio: {
+                    education: [
+                        'Certyfikowana Psychoterapeutka CBT (PTTPB)',
+                        'Psycholożka (Wydział Psychologii UW, specjalizacja: wspieranie rozwoju osobowości u Katarzyny Stemplewskiej-Żakowicz)',
+                        'Kurs Mindfulness u Julii E. Wahl, Polskie Towarzystwo Mindfulness, oraz w Stiftelsen Noaks Ark-Roda',
+                        'Kurs Korset – Szwecja, dla osób pracujących psychologicznie z osobami przewlekle chorymi',
+                        'Studia podyplomowe „Sztuka nowoczesna. Dialogi i pogranicza” w Uniwersytecie Civitas (2026)'
+                    ],
+                    experience: 'Wykładała na warszawskim SWPS. Współautorka podręcznika „Wywiad psychologiczny” pod redakcją naukową Katarzyny Stemplewskiej-Żakowicz i Krzysztofa Krejza. Od 2010 r. w Centrum Terapii Poznawczo-Behawioralnej prowadzi liczne warsztaty edukacyjne, treningowe oraz superwizje koleżeńskie dla polskich psychologów szkolących się w nurcie CBT. Tematyka: zaawansowane techniki CBT, psychoterapeutyczna praca z traumą, w tym z traumą w wyniku doświadczenia przemocy seksualnej, leczenia PTSD i C-PTSD, interwencja kryzysowa, profilaktyka przemocy, psychologia onkologiczna, praca z żałobą, terapia uzależnień, terapia par, wzmacnianie poczucia własnej wartości oraz w obszarach budowania zespołu/team building. Od 2000 r. działa na rzecz ruchu LGBTQIA w Polsce i pracuje terapeutycznie w obszarach tożsamości, samoidentyfikacji, samoakceptacji i psychoseksualności. Pierwsze doświadczenia zawodowe zdobywała w Stowarzyszeniu Lambda Warszawa, prowadząc grupy wsparcia i terapeutyczne dla osób o orientacji homoseksualnej. Od lat koncentruje się na pracy z traumami dzieciństwa i C-PTSD, szczególnie z osobami dotkniętymi przemocą oraz doświadczającymi przemocy seksualnej w dzieciństwie i/lub dorosłości. Specjalizuje się w Terapii poznawczej opartej na uważności, czerpie z idei psychologii humanistycznej, z elementami nurtu fenomenologicznego i pracy z metaforami. Prowadzi terapię par oraz grupy nastawione na wspieranie rozwoju osobistego. W latach 2022/23 współpracowała ze Stowarzyszeniem OPTA w Warszawie, wspierając pracowników instytucji. Współautorka artykułów i książek, np.: „Fakty przeciwko mitom o lesbijkach i gejach”, tworzy broszury informacyjne nt. orientacji seksualnych, prowadzi wywiady oraz sama jest gościnią różnych wystąpień.',
+                    interests: 'Terapia oparta na uważności, CBT, PTSD, CPTSD, psychoseksualność'
+                }
+            }
+        ],
+
+        supervisors: [
             {
                 name: 'Prof. dr hab. med. Andrzej Kokoszka',
                 shortTitle: 'Specjalista psychiatrii, Profesor Medycyny',
@@ -1380,19 +1469,6 @@
                 }
             },
             {
-                name: 'Karolina Rakocz',
-                photo: 'karolina_rakocz.jpg',
-                shortTitle: 'Dyrektorka Szkoły',
-                fullTitle: 'Superwizorka terapii uzależnień, Certyfikowana psychoterapeutka CBT (PTTPB), specjalistka terapii uzależnień (KBPN)',
-                expertise: 'Superwizorka terapii uzależnień, terapia uzależnień, Dialog Motywujący',
-                badge: 'Dyrektorka Szkoły',
-                bio: {
-                    education: ['Certyfikowana Psychoterapeutka CBT (PTTPB) (nr 2102)', 'Specjalistka terapii uzależnień (KBPN) (certyfikat nr SP/0628/2011)', 'Certyfikowana terapeutka Dialogu Motywującego (certyfikat Terapeuty Motywującego PTTM Nr 102)'],
-                    experience: 'Dyrektorka Szkoły Psychoterapii HarmonJa. Prowadziła liczne szkolenia zarówno w szkołach psychoterapii, jak i doskonalące dla certyfikowanych psychoterapeutów. Doświadczenie  kliniczne zdobywała jako kierowniczka ośrodka leczenia uzależnień, terapeutka w poradni leczenia uzależnień, poradni psychoterapeutycznej oraz prowadząc własną praktykę. Psychoterapeutka - konsultantka udzielająca wsparcia osobom niosącym pomoc humanitarną na granicy polsko-białoruskiej. Obecnie psychoterapeutka w Poradni Psychoterapeutycznej Lazurowa Terapia Poznawczo–Behawioralna. Mama Heleny, miłośniczka szydełkowania.',
-                    interests: 'Profilaktyka uzależnień, Dialog Motywujący, wsparcie rodzin osób uzależnionych.'
-                }
-            },
-            {
                 name: 'Magdalena Tylko',
                 photo: 'magdalena_tylko.jpg',
                 shortTitle: 'Superwizor-Dydaktyk PTTPB',
@@ -1402,26 +1478,6 @@
                     education: ['Certyfikowana Psychoterapeutka CBT (PTTPB) (certyfikat PTTPB nr 544)', 'Absolwentka szkolenia superwizorów CBT (Uniwersytet SWPS) - w trakcie certyfikacji', 'Comprehensive Training in Dialectical Behavior Therapy, (Behavioral Tech, A Linehan Insitute Training Company), Anthony DuBose', 'DBT Comprehensive Training (PTDBT), DBT for couples, DBT for families (Centre for DBT and Families), prof. Alan Fruzzetti', 'Family Connections Training (PTDBT i NEABPD), M.Kells. D.Flynn, prof. A.Fruzzetti', 'Family Connections MSTR (NEABPD i National Suicide Research Foundation, University Collage Cork, Ireland ), prof A. Fruzztti', 'Family Connections MSTR (NEABPD i National Suicide Research Foundation, University Collage Cork, Ireland ), prof A. Fruzztti', 'Członkini zespołu szkoleniowego (Centre for DBT and Families), prof. Alan Fruzzetti oraz zespołu szkoleniowego DBT w ramach PTDBT'],
                     experience: 'Właścicielka gabinetu PO POMOC w Warszawie. Prowadzi terapię indywidualną, terapię par oraz superwizje, realizuje szkolenia, warsztaty i prowadzi webinary dla terapeutów. Współzałożycielka oraz wieloletnia Członkini  Zarządu PTDBT. Od 2018 roku koordynuje program Family Connections™ w Polsce (ptdbt.pl/dlarodzin), inspiratorka i współkoordynatorka pierwszych ogólnopolskich badań skuteczności FC realizowanych we współpracy z międzynarodowym zespołem badawczym  i ze wsparciem National DBT Training Team, Ireland. Członkini zespołu szkoleniowego DBT, który funkcjonuje w ramach PTDBT - nauczycielka DBT oraz mentorka zespołów konsultacyjnych. Od 2020 roku prowadzi zajęcia dla studentów szkół psychoterapii (Uniwersytet SWPS, Szkoła Psychoterapii Interego, Instytut Poznawczy).  Od 2023 roku szkoli i wspiera zespół terapeutów  we wdrażaniu  terapii DBT w Ośrodku Terapii dla Osób Uzależnionych "Nowy Dworek".  Nadal kształci się pod opieką prof. Alana Fruzzettiego jako terapeuta, mentor oraz nauczyciel DBT i FC. Popularyzatorka terapii DBT w ramach działania w PTDBT, m.in.:  twórczyni portali edukacyjnych dla terapeutów DBT oraz Liderów Family Connections, tłumaczka materiałów edukacyjnych i szkoleniowych dla rodzin, terapeutów i liderów FC,  założycielka sekcji DBT w PTTPB oraz współtwórczyni podcastu: emocjeirelacje.pl',
                     interests: 'DBT, DBT w terapii par, praca z kryzysem suicydalnym, interwencje rodzinne - Family Connections, szkolenie terapeutów.'
-                }
-            },
-            {
-                name: 'dr n. hum. lek. Ewa Wojtyna',
-                shortTitle: 'Kierownik Merytoryczny',
-                fullTitle: 'Doktor nauk humanistycznych, specjalista psychiatrii, superwizor i certyfikowana psychoterapeutka CBT',
-                expertise: 'Superwizja CBT, psychiatria, psychoterapia CBT',
-                badge: 'Kierownik Merytoryczny',
-                bio: {
-                    education: [
-                        'Doktor nauk humanistycznych w zakresie psychologii (UŚ)',
-                        'Specjalista psychiatrii',
-                        'Certyfikat Terapeuty Poznawczo-Behawioralnego (certyfikat nr 137)',
-                        'Certyfikat Superwizora-Dydaktyka Terapii Poznawczo-Behawioralnej (certyfikat nr 31)',
-                        'Certyfikat terapeuty poznawczo-behawioralnego Oxford Cognitive Therapy Center (OCTC)',
-                        'Certyfikat terapeuty i trenera Racjonalnej Terapii Zachowania',
-                        'Certyfikat Psychoonkologa (certyfikat nr 95) i Superwizora Psychoonkologii (certyfikat nr 42) (Polskie Towarzystwo Psychoonkologiczne)'
-                    ],
-                    experience: 'W obszarze naukowym i dydaktycznym zaczynała na stanowisku asystenta w Zakładzie Psychologii Zdrowia i Jakości Życia, Instytucie Psychologii, Wydziale Pedagogiki i Psychologii Uniwersytetu Śląskiego w Katowicach. Awansowała następnie na stanowisko adiunkta, a w 2019 roku na stanowisko profesora uczelni. Od marca 2024 obejmuje stanowisko adiunkta i Kierownika Kliniki Psychiatrii na Wydziale Lekarskim Uniwersytetu Opolskiego. W obszarze klinicznym pracowała jako lekarz m.in. na Oddziale Psychiatrycznym NZOZ Szpitala Miejskiego w Rudzie Śląskiej, w Ośrodku Promocji Zdrowia, Trzeźwości i Rozwoju Osobistego w Katowicach oraz udzielała konsultacji w dziedzinie psychiatrii w Szpitalu Specjalistycznym nr 2 w Bytomiu. Jako psychoterapeuta współpracowała m.in. z Centrum Terapii Poznawczo-Behawioralnej w Warszawie, Fundacją Zdrowego Życia, Prosoma Sp. z o.o. Od 2018 roku pomaga w ramach indywidualnej praktyki lekarskiej i psychoterapeutycznej. Kierownik dziesięciu grantów naukowych oraz wykonawca w trzech grantach naukowych realizowanych w ramach finansowania zewnętrznego z NCN, NCBR, ABM, PARP, Funduszy Europejskich dla Nowoczesnej Gospodarki, związanych z obszarem zależności psychosomatycznych i somatopsychicznych, wpływu czynników środowiskowych na zdrowie człowieka i jego jakość życia oraz zdrowia cyfrowego i terapii cyfrowej. Na swoim koncie ma wiele publikacji naukowych, książek, rozdziałów w podręcznikach.',
-                    interests: 'Wpływ terapii poznawczo-behawioralnej na psychofizyczne funkcjonowanie człowieka, zależności psychosomatyczne i somatopsychiczne (szczególnie: psychoonkologia, medycyna bólu, psychodiabetologia), zdrowie cyfrowe i medycyna cyfrowa, funkcjonowanie psychospołeczne człowieka chorego somatycznie, zmiana zachowań zdrowotnych.'
                 }
             }
         ],
@@ -1583,24 +1639,6 @@
                     ],
                     experience: 'Prowadzi prywatną praktykę, współpracuje oraz współtworzy ośrodek Nowy Schemat. Doświadczenie kliniczne zdobywała m.in. w Klinice Nerwic, Zaburzeń Osobowości i Odżywiania Instytutu Psychiatrii i Neurologii w Warszawie, a także w poradniach oraz ośrodkach psychoterapii. Jest członkinią PTTPB i ISST. Specjalizuje się w terapii osób dorosłych z zaburzeniami lękowymi, depresyjnymi oraz zaburzeniami osobowości. Pracuje indywidualnie, z parami oraz z grupami.',
                     interests: 'CBT, terapia schematu, terapia par, diagnoza ADHD, warsztaty i szkolenia'
-                }
-            },
-            {
-                name: 'Agata Engel',
-                photo: 'agata_engel.jpeg',
-                shortTitle: 'Certyfikowana Psychoterapeutka CBT (PTTPB)',
-                fullTitle: 'Certyfikowana Psychoterapeutka CBT (PTTPB), dydaktyczka',
-                expertise: 'Terapia oparta na uważności, terapia traumy i PTSD/C-PTSD, psychoseksualność i tożsamość LGBTQIA+',
-                bio: {
-                    education: [
-                        'Certyfikowana Psychoterapeutka CBT (PTTPB)',
-                        'Psycholożka (Wydział Psychologii UW, specjalizacja: wspieranie rozwoju osobowości u Katarzyny Stemplewskiej-Żakowicz)',
-                        'Kurs Mindfulness u Julii E. Wahl, Polskie Towarzystwo Mindfulness, oraz w Stiftelsen Noaks Ark-Roda',
-                        'Kurs Korset – Szwecja, dla osób pracujących psychologicznie z osobami przewlekle chorymi',
-                        'Studia podyplomowe „Sztuka nowoczesna. Dialogi i pogranicza” w Uniwersytecie Civitas (2026)'
-                    ],
-                    experience: 'Wykładała na warszawskim SWPS. Współautorka podręcznika „Wywiad psychologiczny” pod redakcją naukową Katarzyny Stemplewskiej-Żakowicz i Krzysztofa Krejza. Od 2010 r. w Centrum Terapii Poznawczo-Behawioralnej prowadzi liczne warsztaty edukacyjne, treningowe oraz superwizje koleżeńskie dla polskich psychologów szkolących się w nurcie CBT. Tematyka: zaawansowane techniki CBT, psychoterapeutyczna praca z traumą, w tym z traumą w wyniku doświadczenia przemocy seksualnej, leczenia PTSD i C-PTSD, interwencja kryzysowa, profilaktyka przemocy, psychologia onkologiczna, praca z żałobą, terapia uzależnień, terapia par, wzmacnianie poczucia własnej wartości oraz w obszarach budowania zespołu/team building. Od 2000 r. działa na rzecz ruchu LGBTQIA w Polsce i pracuje terapeutycznie w obszarach tożsamości, samoidentyfikacji, samoakceptacji i psychoseksualności. Pierwsze doświadczenia zawodowe zdobywała w Stowarzyszeniu Lambda Warszawa, prowadząc grupy wsparcia i terapeutyczne dla osób o orientacji homoseksualnej. Od lat koncentruje się na pracy z traumami dzieciństwa i C-PTSD, szczególnie z osobami dotkniętymi przemocą oraz doświadczającymi przemocy seksualnej w dzieciństwie i/lub dorosłości. Specjalizuje się w Terapii poznawczej opartej na uważności, czerpie z idei psychologii humanistycznej, z elementami nurtu fenomenologicznego i pracy z metaforami. Prowadzi terapię par oraz grupy nastawione na wspieranie rozwoju osobistego. W latach 2022/23 współpracowała ze Stowarzyszeniem OPTA w Warszawie, wspierając pracowników instytucji. Współautorka artykułów i książek, np.: „Fakty przeciwko mitom o lesbijkach i gejach”, tworzy broszury informacyjne nt. orientacji seksualnych, prowadzi wywiady oraz sama jest gościnią różnych wystąpień.',
-                    interests: 'Terapia oparta na uważności, CBT, PTSD, CPTSD, psychoseksualność'
                 }
             },
             {
