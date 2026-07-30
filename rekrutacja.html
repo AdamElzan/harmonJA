@@ -48,6 +48,10 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             line-height: 1.6;
             color: var(--text-color);
@@ -821,6 +825,66 @@
             .pricing-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+        }
+
+        /* ========================================
+           STYPENDIUM (SCHOLARSHIP) BOX
+           ======================================== */
+        .scholarship-box {
+            max-width: 1000px;
+            margin: 50px auto 0;
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--highlight-color);
+            scroll-margin-top: 160px;
+        }
+
+        .scholarship-box h3 {
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 18px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .scholarship-box > p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .scholarship-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .scholarship-note {
+            font-size: 0.85rem;
+            color: #777;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .scholarship-box .info-box {
+            margin: 0;
+        }
+
+        @media (max-width: 480px) {
+            .scholarship-box {
+                padding: 25px 20px;
+            }
+
+            .scholarship-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
             }
         }
 
@@ -1757,6 +1821,33 @@
                     <p class="pricing-bank-detail" style="margin-top: 10px;"><strong style="color: var(--dark-blue);">Nr rachunku:</strong> Bank Millennium</p>
                     <p class="pricing-bank-detail" style="font-family: 'Courier New', monospace; letter-spacing: 0.05em; font-size: 0.95rem; color: var(--dark-blue); margin-top: 4px;">97 1160 2202 0000 0006 8072 1778</p>
                 </div>
+
+                <div class="scholarship-box" id="stypendium">
+                    <h3>Chcesz zostać psychoterapeutą, ale koszty przerastają Twoje możliwości?</h3>
+                    <p>W&nbsp;pierwszym roku działania naszej Szkoły ufundujemy 4&nbsp;stypendia w&nbsp;wysokości 50% czesnego dla Kandydatów, których własna sytuacja finansowa nie pozwala na udział w&nbsp;pełnopłatnym szkoleniu i&nbsp;jednocześnie są oni zaangażowani w&nbsp;pracę pomocową na rzecz osób zagrożonych wykluczeniem, w&nbsp;trudnej sytuacji, z&nbsp;ograniczonym dostępem do opieki, w&nbsp;instytucjach publicznych i&nbsp;pozarządowych, w&nbsp;opiece społecznej.</p>
+
+                    <div class="scholarship-buttons">
+                        <a href="Szko%C5%82a%20HarmonJa%20-%20Regulamin%20stypendium%20-%202026-07-30.pdf" class="btn-apply-outline" download>Regulamin ubiegania się o&nbsp;stypendium</a>
+                        <a href="Szko%C5%82a%20HarmonJa%20-%20O%C5%9Bwiadczenie%20do%20wniosku%20o%20przyznanie%20stypendium%20-%202026-07-30.pdf" class="btn-apply-outline" download>Oświadczenie do wniosku</a>
+                        <a href="Szko%C5%82a%20HarmonJa%20-%20Wniosek%20o%20przyznanie%20Stypendium%20-%202026-07-30.docx" class="btn-apply" download>Wniosek o&nbsp;stypendium</a>
+                    </div>
+
+                    <p>Proces przyznawania stypendium przebiega niezależnie od procesu rekrutacji na Szkolenie. Warunkiem przyjęcia na Szkolenie jest przejście procesu rekrutacyjnego.</p>
+
+                    <p class="scholarship-note">Wniosek do programu stypendialnego można składać równolegle z&nbsp;udziałem w&nbsp;procesie rekrutacji, jak również po przejściu procesu rekrutacji i&nbsp;uzyskaniu decyzji o&nbsp;przyjęciu na Szkolenie.</p>
+
+                    <div class="info-box">
+                        <span class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" stroke="url(#gIStyp)" stroke-width="1.5"/>
+                                <line x1="12" y1="8" x2="12" y2="13" stroke="url(#gIStyp)" stroke-width="1.8" stroke-linecap="round"/>
+                                <circle cx="12" cy="16.5" r="1.2" fill="url(#gIStyp)"/>
+                                <defs><linearGradient id="gIStyp" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
+                            </svg>
+                        </span>
+                        <p>Zapoznaj się z&nbsp;dokumentami, wypełnij formularz i&nbsp;wyślij zgłoszenie na adres: <strong><a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--highlight-color);">kontakt@harmonja.edu.pl</a></strong><br>Wnioski przyjmujemy do 20.08.2026.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -2126,9 +2217,8 @@
                                 </svg>
                             </div>
                             <h4>Formularz online</h4>
-                            <p>Wypełnij formularz Google i&nbsp;załącz wymagane dokumenty w&nbsp;formacie PDF.</p>
+                            <p>Wypełnij formularz i&nbsp;załącz wymagane dokumenty w&nbsp;formacie PDF.</p>
                             <a href="https://tally.so/r/vGJE5D" class="btn-apply" id="google-form-link" target="_blank" rel="noopener noreferrer">Wypełnij formularz</a>
-                            <p class="apply-option-note" style="margin-top: 12px;">Wymaga konta Google (Gmail)</p>
                         </div>
                         <div class="apply-option">
                             <div class="apply-option-icon">
@@ -2146,6 +2236,7 @@
                             <p class="apply-option-note" style="margin-top: 12px;">Wyślij na: <strong><a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--highlight-color);">kontakt@harmonja.edu.pl</a></strong></p>
                         </div>
                     </div>
+                    <p style="text-align: center; margin-top: 25px; font-size: 0.9rem; font-style: italic;"><a href="#stypendium" style="color: var(--highlight-color); border-bottom: 1px solid var(--highlight-color);">Sprawdź, czy przysługuje Ci stypendium</a></p>
                 </div>
             </div>
         </section>
