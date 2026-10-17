@@ -533,7 +533,9 @@
 
         .apply-options {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            /* Tymczasowo jedna kolumna (opcja "Wyślij e-mailem" ukryta). Aby przywrócić dwie kolumny: grid-template-columns: 1fr 1fr; */
+            grid-template-columns: minmax(0, 600px);
+            justify-content: center;
             gap: 30px;
             margin-top: 25px;
         }
@@ -1620,7 +1622,7 @@
                     Uczymy naukowej psychoterapii z&nbsp;sercem!
                 </p>
                 <div class="rekrutacja-start">
-                    <p class="rekrutacja-start-label">Rekrutacja otwarta</p>
+                    <p class="rekrutacja-start-label">Zainteresowany/a naszym szkoleniem?</p>
                     <div class="countdown" id="countdown-hero"></div>
                 </div>
             </div>
@@ -1646,7 +1648,7 @@
                             </svg>
                         </div>
                         <h3>Formularz i&nbsp;dokumenty</h3>
-                        <p><a href="https://tally.so/r/vGJE5D" class="step-link" target="_blank" rel="noopener noreferrer">Wypełnij formularz</a> i&nbsp;prześlij wymagane dokumenty</p>
+                        <p>Wypełnij formularz i&nbsp;prześlij wymagane dokumenty</p>
                     </div>
 
                     <div class="step">
@@ -1833,7 +1835,7 @@
 
                 <div class="scholarship-box" id="stypendium">
                     <h3>Chcesz zostać psychoterapeutą, ale koszty przerastają Twoje możliwości?</h3>
-                    <p>W&nbsp;pierwszym roku działania naszej Szkoły ufundujemy 4&nbsp;stypendia w&nbsp;wysokości 50% czesnego dla Kandydatów, których własna sytuacja finansowa nie pozwala na udział w&nbsp;pełnopłatnym Szkoleniu i&nbsp;jednocześnie są oni zaangażowani w&nbsp;pracę pomocową na rzecz osób zagrożonych wykluczeniem, w&nbsp;trudnej sytuacji, z&nbsp;ograniczonym dostępem do opieki, w&nbsp;instytucjach publicznych i&nbsp;pozarządowych, w&nbsp;opiece społecznej.</p>
+                    <p>W&nbsp;pierwszym roku działania naszej Szkoły ufundowaliśmy 4&nbsp;stypendia w&nbsp;wysokości 50% czesnego dla Kandydatów, których własna sytuacja finansowa nie pozwalała na udział w&nbsp;pełnopłatnym Szkoleniu i&nbsp;jednocześnie byli oni zaangażowani w&nbsp;pracę pomocową na rzecz osób zagrożonych wykluczeniem, w&nbsp;trudnej sytuacji, z&nbsp;ograniczonym dostępem do opieki, w&nbsp;instytucjach publicznych i&nbsp;pozarządowych, w&nbsp;opiece społecznej.</p>
 
                     <div class="scholarship-buttons">
                         <a href="Szko%C5%82a%20HarmonJa%20-%20Regulamin%20stypendium%20-%202026-07-30.pdf" class="btn-apply-outline" download>Regulamin ubiegania się o&nbsp;stypendium</a>
@@ -1845,6 +1847,7 @@
 
                     <p class="scholarship-note">Wniosek do programu stypendialnego można składać równolegle z&nbsp;udziałem w&nbsp;procesie rekrutacji, jak również po przejściu procesu rekrutacji i&nbsp;uzyskaniu decyzji o&nbsp;przyjęciu na Szkolenie.</p>
 
+                    <!-- Ukryte tymczasowo: informacja o zgłoszeniach stypendialnych
                     <div class="info-box">
                         <span class="info-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1856,6 +1859,7 @@
                         </span>
                         <p>Zapoznaj się z&nbsp;dokumentami, wypełnij formularz i&nbsp;wyślij zgłoszenie na adres: <strong><a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--highlight-color);">kontakt@harmonja.edu.pl</a></strong><br>Wnioski przyjmujemy do 20.08.2026.</p>
                     </div>
+                    -->
                 </div>
             </div>
         </section>
@@ -1970,8 +1974,8 @@
 
                 <!-- Apply CTA pod dokumentami -->
                 <div class="docs-cta">
-                    <a href="https://tally.so/r/vGJE5D" class="btn-apply" target="_blank" rel="noopener noreferrer">Wyślij zgłoszenie</a>
-                    <p>Przejdź do formularza zgłoszeniowego</p>
+                    <a href="kontakt.html#contactForm" class="btn-apply">Zainteresowany/a? Zostaw swoje informacje kontaktowe do kolejnych rekrutacji</a>
+                    <p><a href="kontakt.html#contactForm" style="color: var(--highlight-color); border-bottom: 1px solid var(--highlight-color);">Przejdź do formularza zgłoszeniowego</a></p>
                 </div>
             </div>
         </section>
@@ -2225,10 +2229,11 @@
                                     <defs><linearGradient id="gAp1" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#00b4ff"/><stop offset="1" stop-color="#22c7d6"/></linearGradient></defs>
                                 </svg>
                             </div>
-                            <h4>Formularz online</h4>
-                            <p>Wypełnij formularz i&nbsp;załącz wymagane dokumenty w&nbsp;formacie PDF.</p>
-                            <a href="https://tally.so/r/vGJE5D" class="btn-apply" id="google-form-link" target="_blank" rel="noopener noreferrer">Wypełnij formularz</a>
+                            <h4>Zainteresowany/a szkoleniem?</h4>
+                            <p>Zostaw informacje na swój temat w&nbsp;naszym formularzu kontaktowym, odezwiemy się, kiedy uruchomimy proces rekrutacji</p>
+                            <a href="kontakt.html#contactForm" class="btn-apply" id="google-form-link">Wypełnij formularz</a>
                         </div>
+                        <!-- Ukryte tymczasowo: opcja "Wyślij e-mailem"
                         <div class="apply-option">
                             <div class="apply-option-icon">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -2244,6 +2249,7 @@
                             <a href="Rekrutacja - Szkoła Psychoterapii HarmonJa.zip" class="btn-apply-outline" id="download-docs-link" download>Pobierz dokumenty</a>
                             <p class="apply-option-note" style="margin-top: 12px;">Wyślij na: <strong><a href="mailto:kontakt@harmonja.edu.pl" style="color: var(--highlight-color);">kontakt@harmonja.edu.pl</a></strong></p>
                         </div>
+                        -->
                     </div>
                     <p style="text-align: center; margin-top: 25px; font-size: 0.9rem; font-style: italic;"><a href="#stypendium" style="color: var(--highlight-color); border-bottom: 1px solid var(--highlight-color);">Sprawdź, czy przysługuje Ci stypendium</a></p>
                     <p style="text-align: center; margin-top: 12px; font-size: 0.9rem; font-style: italic;"><a href="Regulamin%20rekrutacji%20do%20Szko%C5%82y%20Psychoterapii%20HarmonJa.pdf" download style="color: var(--highlight-color); border-bottom: 1px solid var(--highlight-color);">Regulamin rekrutacji</a></p>
@@ -2255,15 +2261,15 @@
         <section class="cta-section">
             <div class="container">
                 <h2>Gotowy na rozpoczęcie swojej drogi w&nbsp;psychoterapii?</h2>
-                <p>Wyślij zgłoszenie rekrutacyjne i&nbsp;dołącz do Szkoły Psychoterapii HarmonJa</p>
+                <p>Skontaktuj się z&nbsp;nami i&nbsp;dołącz w&nbsp;przyszłości do Szkoły Psychoterapii HarmonJa</p>
                 <div class="cta-buttons">
-                    <a href="https://tally.so/r/vGJE5D" class="cta-button" target="_blank" rel="noopener noreferrer">Wypełnij formularz zgłoszeniowy</a>
+                    <a href="kontakt.html#contactForm" class="cta-button">Skontaktuj się z&nbsp;nami</a>
                 </div>
                 <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9; position: relative; z-index: 1;">
                     Rekrutacja trwa do wyczerpania miejsc. Zadbaj o&nbsp;wcześniejsze zgłoszenie – liczba uczestników w&nbsp;każdej edycji jest ograniczona.
                 </p>
                 <div class="rekrutacja-start" style="position: relative; z-index: 1;">
-                    <p class="rekrutacja-start-label">Rekrutacja otwarta</p>
+                    <p class="rekrutacja-start-label">Zainteresowany/a naszym szkoleniem?</p>
                     <div class="countdown" id="countdown-cta"></div>
                 </div>
             </div>
@@ -2603,7 +2609,7 @@
 
             function render(el, diff) {
                 if (diff <= 0) {
-                    el.innerHTML = '<span class="countdown-info">Rok akademicki wystartuje we wrześniu dla rekrutacji na szkolenie w&nbsp;Warszawie oraz październiku na szkolenie w&nbsp;Gdańsku.</span>';
+                    el.innerHTML = '<span class="countdown-info">Zostaw informacje na swój temat w&nbsp;naszym <a href="kontakt.html#contactForm" style="color: inherit; text-decoration: underline;">formularzu kontaktowym</a>, odezwiemy się, kiedy uruchomimy proces rekrutacji</span>';
                     return;
                 }
                 var days    = Math.floor(diff / 86400);
