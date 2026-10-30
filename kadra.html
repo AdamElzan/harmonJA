@@ -497,6 +497,17 @@
             gap: 24px;
         }
 
+        #scientistsGrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #scientistsGrid .staff-card {
+            flex: 0 0 calc((100% - 72px) / 4);
+            min-width: 220px;
+        }
+
         /* Staff Cards */
         .staff-card {
             background: var(--white);
@@ -973,6 +984,7 @@
             }
 
             .staff-grid { grid-template-columns: 1fr 1fr; }
+            #scientistsGrid .staff-card { flex-basis: calc(50% - 8px); min-width: 0; }
 
             .section-title { font-size: 1.6rem; }
 
@@ -988,6 +1000,7 @@
 
         @media (max-width: 480px) {
             .staff-grid { grid-template-columns: 1fr; }
+            #scientistsGrid .staff-card { flex-basis: 100%; }
             .founders-grid { grid-template-columns: 1fr; max-width: 320px; }
             .hero h1 { font-size: 1.7rem; }
             .cta-section h2 { font-size: 1.5rem; }
